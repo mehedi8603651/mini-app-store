@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "provider": "static",
+  "miniProgramId": "calculator",
+  "latestVersion": "1.0.0",
+  "screenFormat": "mp",
+  "screenSchemaVersion": 1,
+  "updatedAtUtc": "2026-07-12T11:19:24.298483Z",
+  "releasePath": "metadata/releases/calculator/1.0.0.json"
+}

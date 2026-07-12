@@ -1,0 +1,10 @@
+**/.dart_tool/
+**/.idea/
+**/.vscode/
+**/build/
+**/*.iml
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+mini-apps/*/mp/.build/
+test_artifacts/
+*.log

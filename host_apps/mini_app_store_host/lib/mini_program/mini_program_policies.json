@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "apps": {
+    "calculator": {
+      "requested": {
+        "source": "calculator.partner.json",
+        "cache": {
+          "state": {
+            "enabled": true,
+            "reason": "Calculator memory and bounded calculation history",
+            "recommendedMaxBytes": 1048576,
+            "recommendedTtlDays": 30
+          }
+        },
+        "permissions": {}
+      },
+      "accepted": {
+        "cache": {
+          "state": {
+            "enabled": true,
+            "maxBytes": 1048576,
+            "ttlDays": 30
+          }
+        },
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.dart_tool/
+.packages
+.pub/
+build/
+mp/.build/
+mp/.build/
+*.log

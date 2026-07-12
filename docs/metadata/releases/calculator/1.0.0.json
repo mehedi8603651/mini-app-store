@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "provider": "static",
+  "miniProgramId": "calculator",
+  "version": "1.0.0",
+  "screenFormat": "mp",
+  "screenSchemaVersion": 1,
+  "publishedAtUtc": "2026-07-12T11:19:24.298483Z",
+  "artifacts": {
+    "manifestPath": "manifests/calculator/versions/1.0.0.json",
+    "latestManifestPath": "manifests/calculator/latest.json",
+    "screensBasePath": "screens/calculator/1.0.0/",
+    "assetsBasePath": "assets/calculator/1.0.0/"
+  }
+}
