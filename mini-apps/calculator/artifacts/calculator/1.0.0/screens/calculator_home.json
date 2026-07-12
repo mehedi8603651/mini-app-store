@@ -1,231 +1,86 @@
 {
-  "schemaVersion": 1,
-  "screenId": "calculator_home",
   "root": {
-    "type": "initialize",
-    "props": {
-      "actions": [
-        {
-          "type": "cache.get",
-          "props": {
-            "bucket": "state",
-            "key": "calculator_memory",
-            "requestId": "calculator-load-memory",
-            "skipMissing": true,
-            "targetState": "calc.memory"
-          }
-        },
-        {
-          "type": "state.setDefault",
-          "props": {
-            "key": "calc.memory",
-            "value": 0
-          }
-        },
-        {
-          "type": "cache.get",
-          "props": {
-            "bucket": "state",
-            "key": "calculator_history",
-            "requestId": "calculator-load-history",
-            "skipMissing": true,
-            "targetState": "calc.history"
-          }
-        },
-        {
-          "type": "state.setDefault",
-          "props": {
-            "key": "calc.history",
-            "value": []
-          }
-        },
-        {
-          "type": "state.setDefault",
-          "props": {
-            "key": "calc.expression",
-            "value": ""
-          }
-        },
-        {
-          "type": "state.setDefault",
-          "props": {
-            "key": "calc.result",
-            "value": 0
-          }
-        }
-      ],
-      "error": {
-        "type": "container",
-        "props": {
-          "backgroundColor": "#FF000000",
-          "padding": {
-            "bottom": 24,
-            "left": 24,
-            "right": 24,
-            "top": 24
-          }
-        },
-        "children": [
-          {
-            "type": "center",
-            "props": {},
-            "children": [
-              {
-                "type": "text",
-                "props": {
-                  "align": "center",
-                  "color": "#FF9A9A9A",
-                  "data": "Calculator could not start"
-                },
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      "errorState": "calc.startup_error",
-      "loading": {
-        "type": "container",
-        "props": {
-          "backgroundColor": "#FF000000",
-          "padding": {
-            "bottom": 24,
-            "left": 24,
-            "right": 24,
-            "top": 24
-          }
-        },
-        "children": [
-          {
-            "type": "center",
-            "props": {},
-            "children": [
-              {
-                "type": "text",
-                "props": {
-                  "align": "center",
-                  "color": "#FF9A9A9A",
-                  "data": "Loading calculator"
-                },
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      "statusState": "calc.status"
-    },
     "children": [
       {
-        "type": "container",
-        "props": {
-          "backgroundColor": "#FF000000"
-        },
         "children": [
           {
-            "type": "safeArea",
-            "props": {
-              "bottom": true,
-              "left": true,
-              "right": true,
-              "top": true
-            },
             "children": [
               {
-                "type": "scrollView",
-                "props": {
-                  "padding": {
-                    "bottom": 18,
-                    "left": 18,
-                    "right": 18,
-                    "top": 10
-                  }
-                },
                 "children": [
                   {
-                    "type": "center",
-                    "props": {},
                     "children": [
                       {
-                        "type": "container",
-                        "props": {
-                          "width": 420
-                        },
                         "children": [
                           {
-                            "type": "column",
-                            "props": {},
                             "children": [
                               {
-                                "type": "row",
-                                "props": {},
                                 "children": [
                                   {
-                                    "type": "expanded",
-                                    "props": {
-                                      "flex": 1
-                                    },
                                     "children": [
                                       {
-                                        "type": "column",
-                                        "props": {},
                                         "children": [
                                           {
-                                            "type": "text",
+                                            "children": [],
                                             "props": {
                                               "color": "#FFF5F5F5",
                                               "data": "Calculate",
                                               "size": 25,
                                               "weight": "semibold"
                                             },
-                                            "children": []
+                                            "type": "text"
                                           },
                                           {
-                                            "type": "sizedBox",
+                                            "children": [],
                                             "props": {
                                               "height": 6
                                             },
-                                            "children": []
+                                            "type": "sizedBox"
                                           },
                                           {
-                                            "type": "align",
-                                            "props": {
-                                              "alignment": "centerLeft"
-                                            },
                                             "children": [
                                               {
-                                                "type": "container",
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 1,
+                                                      "width": 1
+                                                    },
+                                                    "type": "sizedBox"
+                                                  }
+                                                ],
                                                 "props": {
                                                   "backgroundColor": "#FFFF5258",
                                                   "borderRadius": 2,
                                                   "height": 4,
                                                   "width": 132
                                                 },
-                                                "children": [
-                                                  {
-                                                    "type": "sizedBox",
-                                                    "props": {
-                                                      "height": 1,
-                                                      "width": 1
-                                                    },
-                                                    "children": []
-                                                  }
-                                                ]
+                                                "type": "container"
                                               }
-                                            ]
+                                            ],
+                                            "props": {
+                                              "alignment": "centerLeft"
+                                            },
+                                            "type": "align"
                                           }
-                                        ]
+                                        ],
+                                        "props": {},
+                                        "type": "column"
                                       }
-                                    ]
+                                    ],
+                                    "props": {
+                                      "flex": 1
+                                    },
+                                    "type": "expanded"
                                   },
                                   {
-                                    "type": "iconButton",
+                                    "children": [],
                                     "props": {
                                       "action": {
-                                        "type": "navigation.openScreen",
                                         "props": {
                                           "screenId": "calculator_history"
-                                        }
+                                        },
+                                        "type": "navigation.openScreen"
                                       },
                                       "backgroundColor": "#FF000000",
                                       "borderColor": "#00000000",
@@ -237,19 +92,103 @@
                                       "semanticLabel": "Calculation history",
                                       "size": 48
                                     },
-                                    "children": []
+                                    "type": "iconButton"
                                   }
-                                ]
+                                ],
+                                "props": {},
+                                "type": "row"
                               },
                               {
-                                "type": "sizedBox",
+                                "children": [],
                                 "props": {
                                   "height": 14
                                 },
-                                "children": []
+                                "type": "sizedBox"
                               },
                               {
-                                "type": "container",
+                                "children": [
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "end",
+                                              "color": "#FF9A9A9A",
+                                              "data": "M  {{state.calc.memory}}",
+                                              "maxLines": 1,
+                                              "overflow": "ellipsis",
+                                              "size": 13
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "spacer"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "end",
+                                              "color": "#FF9A9A9A",
+                                              "data": "{{state.calc.expression}}",
+                                              "maxLines": 2,
+                                              "overflow": "ellipsis",
+                                              "size": 22
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "end",
+                                              "color": "#FFF5F5F5",
+                                              "data": "{{state.calc.result}}",
+                                              "maxLines": 1,
+                                              "overflow": "ellipsis",
+                                              "size": 44,
+                                              "weight": "medium"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "end",
+                                              "color": "#FFFF5258",
+                                              "data": "{{state.calc.error.message}}",
+                                              "maxLines": 1,
+                                              "overflow": "ellipsis",
+                                              "size": 12
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      },
+                                      "keys": [
+                                        "calc.expression",
+                                        "calc.result",
+                                        "calc.error",
+                                        "calc.memory"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  }
+                                ],
                                 "props": {
                                   "backgroundColor": "#FF000000",
                                   "height": 176,
@@ -260,136 +199,45 @@
                                     "top": 12
                                   }
                                 },
-                                "children": [
-                                  {
-                                    "type": "stateBuilder",
-                                    "props": {
-                                      "child": {
-                                        "type": "column",
-                                        "props": {},
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "props": {
-                                              "align": "end",
-                                              "color": "#FF9A9A9A",
-                                              "data": "M  {{state.calc.memory}}",
-                                              "maxLines": 1,
-                                              "overflow": "ellipsis",
-                                              "size": 13
-                                            },
-                                            "children": []
-                                          },
-                                          {
-                                            "type": "spacer",
-                                            "props": {
-                                              "flex": 1
-                                            },
-                                            "children": []
-                                          },
-                                          {
-                                            "type": "text",
-                                            "props": {
-                                              "align": "end",
-                                              "color": "#FF9A9A9A",
-                                              "data": "{{state.calc.expression}}",
-                                              "maxLines": 2,
-                                              "overflow": "ellipsis",
-                                              "size": 22
-                                            },
-                                            "children": []
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "props": {
-                                              "height": 8
-                                            },
-                                            "children": []
-                                          },
-                                          {
-                                            "type": "text",
-                                            "props": {
-                                              "align": "end",
-                                              "color": "#FFF5F5F5",
-                                              "data": "{{state.calc.result}}",
-                                              "maxLines": 1,
-                                              "overflow": "ellipsis",
-                                              "size": 44,
-                                              "weight": "medium"
-                                            },
-                                            "children": []
-                                          },
-                                          {
-                                            "type": "text",
-                                            "props": {
-                                              "align": "end",
-                                              "color": "#FFFF5258",
-                                              "data": "{{state.calc.error.message}}",
-                                              "maxLines": 1,
-                                              "overflow": "ellipsis",
-                                              "size": 12
-                                            },
-                                            "children": []
-                                          }
-                                        ]
-                                      },
-                                      "keys": [
-                                        "calc.expression",
-                                        "calc.result",
-                                        "calc.error",
-                                        "calc.memory"
-                                      ]
-                                    },
-                                    "children": []
-                                  }
-                                ]
+                                "type": "container"
                               },
                               {
-                                "type": "sizedBox",
+                                "children": [],
                                 "props": {
                                   "height": 14
                                 },
-                                "children": []
+                                "type": "sizedBox"
                               },
                               {
-                                "type": "grid",
-                                "props": {
-                                  "columns": 4,
-                                  "spacing": 10
-                                },
                                 "children": [
                                   {
-                                    "type": "aspectRatio",
-                                    "props": {
-                                      "aspectRatio": 1
-                                    },
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "state.set",
                                                   "props": {
                                                     "key": "calc.memory",
                                                     "value": 0
-                                                  }
+                                                  },
+                                                  "type": "state.set"
                                                 },
                                                 {
-                                                  "type": "cache.set",
                                                   "props": {
                                                     "bucket": "state",
                                                     "key": "calculator_memory",
                                                     "priority": "normal",
                                                     "requestId": "calculator-save-memory",
                                                     "value": "{{state.calc.memory}}"
-                                                  }
+                                                  },
+                                                  "type": "cache.set"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FF202020",
                                           "borderColor": "#FF202020",
@@ -401,42 +249,42 @@
                                           "height": 68,
                                           "label": "mc"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "state.increment",
                                                   "props": {
                                                     "by": "{{state.calc.result}}",
                                                     "key": "calc.memory"
-                                                  }
+                                                  },
+                                                  "type": "state.increment"
                                                 },
                                                 {
-                                                  "type": "cache.set",
                                                   "props": {
                                                     "bucket": "state",
                                                     "key": "calculator_memory",
                                                     "priority": "normal",
                                                     "requestId": "calculator-save-memory",
                                                     "value": "{{state.calc.memory}}"
-                                                  }
+                                                  },
+                                                  "type": "cache.set"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FF202020",
                                           "borderColor": "#FF202020",
@@ -448,42 +296,42 @@
                                           "height": 68,
                                           "label": "m+"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "state.decrement",
                                                   "props": {
                                                     "by": "{{state.calc.result}}",
                                                     "key": "calc.memory"
-                                                  }
+                                                  },
+                                                  "type": "state.decrement"
                                                 },
                                                 {
-                                                  "type": "cache.set",
                                                   "props": {
                                                     "bucket": "state",
                                                     "key": "calculator_memory",
                                                     "priority": "normal",
                                                     "requestId": "calculator-save-memory",
                                                     "value": "{{state.calc.memory}}"
-                                                  }
+                                                  },
+                                                  "type": "cache.set"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FF202020",
                                           "borderColor": "#FF202020",
@@ -495,47 +343,47 @@
                                           "height": 68,
                                           "label": "m-"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "state.copy",
                                                   "props": {
                                                     "convertTo": "value",
                                                     "from": "calc.memory",
                                                     "to": "calc.result"
-                                                  }
+                                                  },
+                                                  "type": "state.copy"
                                                 },
                                                 {
-                                                  "type": "state.copy",
                                                   "props": {
                                                     "convertTo": "text",
                                                     "from": "calc.memory",
                                                     "to": "calc.expression"
-                                                  }
+                                                  },
+                                                  "type": "state.copy"
                                                 },
                                                 {
-                                                  "type": "state.remove",
                                                   "props": {
                                                     "key": "calc.error"
-                                                  }
+                                                  },
+                                                  "type": "state.remove"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FF202020",
                                           "borderColor": "#FF202020",
@@ -547,41 +395,39 @@
                                           "height": 68,
                                           "label": "mr"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
+                                    ],
+                                    "props": {
+                                      "aspectRatio": 1
+                                    },
+                                    "type": "aspectRatio"
                                   }
-                                ]
-                              },
-                              {
-                                "type": "sizedBox",
-                                "props": {
-                                  "height": 10
-                                },
-                                "children": []
-                              },
-                              {
-                                "type": "grid",
+                                ],
                                 "props": {
                                   "columns": 4,
                                   "spacing": 10
                                 },
+                                "type": "grid"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 10
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
                                 "children": [
                                   {
-                                    "type": "aspectRatio",
-                                    "props": {
-                                      "aspectRatio": 1
-                                    },
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "state.patch",
                                                   "props": {
                                                     "remove": [
                                                       "calc.error"
@@ -590,10 +436,12 @@
                                                       "calc.expression": "",
                                                       "calc.result": 0
                                                     }
-                                                  }
+                                                  },
+                                                  "type": "state.patch"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -605,25 +453,25 @@
                                           "height": 68,
                                           "label": "AC"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "iconButton",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.backspace",
                                             "props": {
                                               "count": 1,
                                               "key": "calc.expression"
-                                            }
+                                            },
+                                            "type": "state.backspace"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#00000000",
@@ -635,43 +483,43 @@
                                           "semanticLabel": "Backspace",
                                           "size": 68
                                         },
-                                        "children": []
+                                        "type": "iconButton"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "math.evaluate",
                                                   "props": {
                                                     "angleMode": "radians",
                                                     "errorState": "calc.error",
                                                     "expression": "-({{state.calc.expression}})",
                                                     "precision": 12,
                                                     "targetState": "calc.result"
-                                                  }
+                                                  },
+                                                  "type": "math.evaluate"
                                                 },
                                                 {
-                                                  "type": "state.copy",
                                                   "props": {
                                                     "convertTo": "text",
                                                     "from": "calc.result",
                                                     "to": "calc.expression"
-                                                  }
+                                                  },
+                                                  "type": "state.copy"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -683,26 +531,26 @@
                                           "height": 68,
                                           "label": "+/-"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "/"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF481719",
                                           "borderColor": "#FF481719",
@@ -714,26 +562,26 @@
                                           "height": 68,
                                           "label": "÷"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "7"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -745,26 +593,26 @@
                                           "height": 68,
                                           "label": "7"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "8"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -776,26 +624,26 @@
                                           "height": 68,
                                           "label": "8"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "9"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -807,26 +655,26 @@
                                           "height": 68,
                                           "label": "9"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "*"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF481719",
                                           "borderColor": "#FF481719",
@@ -838,26 +686,26 @@
                                           "height": 68,
                                           "label": "×"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "4"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -869,26 +717,26 @@
                                           "height": 68,
                                           "label": "4"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "5"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -900,26 +748,26 @@
                                           "height": 68,
                                           "label": "5"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "6"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -931,26 +779,26 @@
                                           "height": 68,
                                           "label": "6"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "-"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF481719",
                                           "borderColor": "#FF481719",
@@ -962,26 +810,26 @@
                                           "height": 68,
                                           "label": "−"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "1"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -993,26 +841,26 @@
                                           "height": 68,
                                           "label": "1"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "2"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -1024,26 +872,26 @@
                                           "height": 68,
                                           "label": "2"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "3"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -1055,26 +903,26 @@
                                           "height": 68,
                                           "label": "3"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "+"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF481719",
                                           "borderColor": "#FF481719",
@@ -1086,26 +934,26 @@
                                           "height": 68,
                                           "label": "+"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "%"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -1117,26 +965,26 @@
                                           "height": 68,
                                           "label": "%"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "0"
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -1148,26 +996,26 @@
                                           "height": 68,
                                           "label": "0"
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "state.appendText",
                                             "props": {
                                               "key": "calc.expression",
                                               "maxLength": 512,
                                               "text": "."
-                                            }
+                                            },
+                                            "type": "state.appendText"
                                           },
                                           "backgroundColor": "#FF252525",
                                           "borderColor": "#FF252525",
@@ -1179,35 +1027,33 @@
                                           "height": 68,
                                           "label": "."
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
-                                  },
-                                  {
-                                    "type": "aspectRatio",
+                                    ],
                                     "props": {
                                       "aspectRatio": 1
                                     },
+                                    "type": "aspectRatio"
+                                  },
+                                  {
                                     "children": [
                                       {
-                                        "type": "button",
+                                        "children": [],
                                         "props": {
                                           "action": {
-                                            "type": "sequence",
                                             "props": {
                                               "steps": [
                                                 {
-                                                  "type": "math.evaluate",
                                                   "props": {
                                                     "angleMode": "radians",
                                                     "errorState": "calc.error",
                                                     "expression": "{{state.calc.expression}}",
                                                     "precision": 12,
                                                     "targetState": "calc.result"
-                                                  }
+                                                  },
+                                                  "type": "math.evaluate"
                                                 },
                                                 {
-                                                  "type": "state.listPrepend",
                                                   "props": {
                                                     "key": "calc.history",
                                                     "maxItems": 50,
@@ -1215,28 +1061,30 @@
                                                       "expression": "{{state.calc.expression}}",
                                                       "result": "{{state.calc.result}}"
                                                     }
-                                                  }
+                                                  },
+                                                  "type": "state.listPrepend"
                                                 },
                                                 {
-                                                  "type": "cache.set",
                                                   "props": {
                                                     "bucket": "state",
                                                     "key": "calculator_history",
                                                     "priority": "normal",
                                                     "requestId": "calculator-save-history",
                                                     "value": "{{state.calc.history}}"
-                                                  }
+                                                  },
+                                                  "type": "cache.set"
                                                 },
                                                 {
-                                                  "type": "state.copy",
                                                   "props": {
                                                     "convertTo": "text",
                                                     "from": "calc.result",
                                                     "to": "calc.expression"
-                                                  }
+                                                  },
+                                                  "type": "state.copy"
                                                 }
                                               ]
-                                            }
+                                            },
+                                            "type": "sequence"
                                           },
                                           "backgroundColor": "#FFFF5258",
                                           "borderColor": "#FFFF5258",
@@ -1248,24 +1096,176 @@
                                           "height": 68,
                                           "label": "="
                                         },
-                                        "children": []
+                                        "type": "button"
                                       }
-                                    ]
+                                    ],
+                                    "props": {
+                                      "aspectRatio": 1
+                                    },
+                                    "type": "aspectRatio"
                                   }
-                                ]
+                                ],
+                                "props": {
+                                  "columns": 4,
+                                  "spacing": 10
+                                },
+                                "type": "grid"
                               }
-                            ]
+                            ],
+                            "props": {},
+                            "type": "column"
                           }
-                        ]
+                        ],
+                        "props": {
+                          "width": 420
+                        },
+                        "type": "container"
                       }
-                    ]
+                    ],
+                    "props": {},
+                    "type": "center"
                   }
-                ]
+                ],
+                "props": {
+                  "padding": {
+                    "bottom": 18,
+                    "left": 18,
+                    "right": 18,
+                    "top": 10
+                  }
+                },
+                "type": "scrollView"
               }
-            ]
+            ],
+            "props": {
+              "bottom": true,
+              "left": true,
+              "right": true,
+              "top": true
+            },
+            "type": "safeArea"
           }
-        ]
+        ],
+        "props": {
+          "backgroundColor": "#FF000000"
+        },
+        "type": "container"
       }
-    ]
-  }
+    ],
+    "props": {
+      "actions": [
+        {
+          "props": {
+            "bucket": "state",
+            "key": "calculator_memory",
+            "requestId": "calculator-load-memory",
+            "skipMissing": true,
+            "targetState": "calc.memory"
+          },
+          "type": "cache.get"
+        },
+        {
+          "props": {
+            "key": "calc.memory",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "bucket": "state",
+            "key": "calculator_history",
+            "requestId": "calculator-load-history",
+            "skipMissing": true,
+            "targetState": "calc.history"
+          },
+          "type": "cache.get"
+        },
+        {
+          "props": {
+            "key": "calc.history",
+            "value": []
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "calc.expression",
+            "value": ""
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "calc.result",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        }
+      ],
+      "error": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FF9A9A9A",
+                  "data": "Calculator could not start"
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "center"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF000000",
+          "padding": {
+            "bottom": 24,
+            "left": 24,
+            "right": 24,
+            "top": 24
+          }
+        },
+        "type": "container"
+      },
+      "errorState": "calc.startup_error",
+      "loading": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FF9A9A9A",
+                  "data": "Loading calculator"
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "center"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF000000",
+          "padding": {
+            "bottom": 24,
+            "left": 24,
+            "right": 24,
+            "top": 24
+          }
+        },
+        "type": "container"
+      },
+      "statusState": "calc.status"
+    },
+    "type": "initialize"
+  },
+  "schemaVersion": 1,
+  "screenId": "calculator_home"
 }

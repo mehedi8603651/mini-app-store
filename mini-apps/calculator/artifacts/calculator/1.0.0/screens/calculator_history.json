@@ -1,46 +1,20 @@
 {
-  "schemaVersion": 1,
-  "screenId": "calculator_history",
   "root": {
-    "type": "container",
-    "props": {
-      "backgroundColor": "#FF000000"
-    },
     "children": [
       {
-        "type": "safeArea",
-        "props": {
-          "bottom": true,
-          "left": true,
-          "right": true,
-          "top": true
-        },
         "children": [
           {
-            "type": "scrollView",
-            "props": {
-              "padding": {
-                "bottom": 18,
-                "left": 18,
-                "right": 18,
-                "top": 18
-              }
-            },
             "children": [
               {
-                "type": "column",
-                "props": {},
                 "children": [
                   {
-                    "type": "row",
-                    "props": {},
                     "children": [
                       {
-                        "type": "iconButton",
+                        "children": [],
                         "props": {
                           "action": {
-                            "type": "navigation.popScreen",
-                            "props": {}
+                            "props": {},
+                            "type": "navigation.popScreen"
                           },
                           "backgroundColor": "#FF000000",
                           "borderColor": "#00000000",
@@ -52,57 +26,57 @@
                           "semanticLabel": "Back to calculator",
                           "size": 46
                         },
-                        "children": []
+                        "type": "iconButton"
                       },
                       {
-                        "type": "sizedBox",
+                        "children": [],
                         "props": {
                           "width": 8
                         },
-                        "children": []
+                        "type": "sizedBox"
                       },
                       {
-                        "type": "expanded",
-                        "props": {
-                          "flex": 1
-                        },
                         "children": [
                           {
-                            "type": "text",
+                            "children": [],
                             "props": {
                               "color": "#FFF5F5F5",
                               "data": "History",
                               "size": 25,
                               "weight": "semibold"
                             },
-                            "children": []
+                            "type": "text"
                           }
-                        ]
+                        ],
+                        "props": {
+                          "flex": 1
+                        },
+                        "type": "expanded"
                       },
                       {
-                        "type": "button",
+                        "children": [],
                         "props": {
                           "action": {
-                            "type": "sequence",
                             "props": {
                               "steps": [
                                 {
-                                  "type": "cache.remove",
                                   "props": {
                                     "bucket": "state",
                                     "key": "calculator_history",
                                     "requestId": "calculator-clear-history"
-                                  }
+                                  },
+                                  "type": "cache.remove"
                                 },
                                 {
-                                  "type": "state.set",
                                   "props": {
                                     "key": "calc.history",
                                     "value": []
-                                  }
+                                  },
+                                  "type": "state.set"
                                 }
                               ]
-                            }
+                            },
+                            "type": "sequence"
                           },
                           "backgroundColor": "#FF1F1F1F",
                           "borderColor": "#FF1F1F1F",
@@ -114,25 +88,61 @@
                           "height": 42,
                           "label": "Clear"
                         },
-                        "children": []
+                        "type": "button"
                       }
-                    ]
+                    ],
+                    "props": {},
+                    "type": "row"
                   },
                   {
-                    "type": "sizedBox",
+                    "children": [],
                     "props": {
                       "height": 18
                     },
-                    "children": []
+                    "type": "sizedBox"
                   },
                   {
-                    "type": "stateBuilder",
+                    "children": [],
                     "props": {
                       "child": {
-                        "type": "repeat",
+                        "children": [],
                         "props": {
                           "empty": {
-                            "type": "container",
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "color": "#FF9A9A9A",
+                                      "name": "history",
+                                      "semanticLabel": "Empty calculation history",
+                                      "size": 32
+                                    },
+                                    "type": "icon"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FF9A9A9A",
+                                      "data": "No calculations yet",
+                                      "size": 16
+                                    },
+                                    "type": "text"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
                             "props": {
                               "backgroundColor": "#FF1F1F1F",
                               "borderRadius": 8,
@@ -143,44 +153,47 @@
                                 "top": 28
                               }
                             },
-                            "children": [
-                              {
-                                "type": "column",
-                                "props": {},
-                                "children": [
-                                  {
-                                    "type": "icon",
-                                    "props": {
-                                      "color": "#FF9A9A9A",
-                                      "name": "history",
-                                      "semanticLabel": "Empty calculation history",
-                                      "size": 32
-                                    },
-                                    "children": []
-                                  },
-                                  {
-                                    "type": "sizedBox",
-                                    "props": {
-                                      "height": 12
-                                    },
-                                    "children": []
-                                  },
-                                  {
-                                    "type": "text",
-                                    "props": {
-                                      "align": "center",
-                                      "color": "#FF9A9A9A",
-                                      "data": "No calculations yet",
-                                      "size": 16
-                                    },
-                                    "children": []
-                                  }
-                                ]
-                              }
-                            ]
+                            "type": "container"
                           },
                           "itemTemplate": {
-                            "type": "container",
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "end",
+                                      "color": "#FF9A9A9A",
+                                      "data": "{{item.expression}}",
+                                      "maxLines": 2,
+                                      "overflow": "ellipsis",
+                                      "size": 15
+                                    },
+                                    "type": "text"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 4
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "end",
+                                      "color": "#FFF5F5F5",
+                                      "data": "= {{item.result}}",
+                                      "size": 22,
+                                      "weight": "medium"
+                                    },
+                                    "type": "text"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
                             "props": {
                               "backgroundColor": "#FF1F1F1F",
                               "borderRadius": 8,
@@ -191,63 +204,50 @@
                                 "top": 13
                               }
                             },
-                            "children": [
-                              {
-                                "type": "column",
-                                "props": {},
-                                "children": [
-                                  {
-                                    "type": "text",
-                                    "props": {
-                                      "align": "end",
-                                      "color": "#FF9A9A9A",
-                                      "data": "{{item.expression}}",
-                                      "maxLines": 2,
-                                      "overflow": "ellipsis",
-                                      "size": 15
-                                    },
-                                    "children": []
-                                  },
-                                  {
-                                    "type": "sizedBox",
-                                    "props": {
-                                      "height": 4
-                                    },
-                                    "children": []
-                                  },
-                                  {
-                                    "type": "text",
-                                    "props": {
-                                      "align": "end",
-                                      "color": "#FFF5F5F5",
-                                      "data": "= {{item.result}}",
-                                      "size": 22,
-                                      "weight": "medium"
-                                    },
-                                    "children": []
-                                  }
-                                ]
-                              }
-                            ]
+                            "type": "container"
                           },
                           "limit": 50,
                           "source": "{{state.calc.history}}",
                           "spacing": 10
                         },
-                        "children": []
+                        "type": "repeat"
                       },
                       "keys": [
                         "calc.history"
                       ]
                     },
-                    "children": []
+                    "type": "stateBuilder"
                   }
-                ]
+                ],
+                "props": {},
+                "type": "column"
               }
-            ]
+            ],
+            "props": {
+              "padding": {
+                "bottom": 18,
+                "left": 18,
+                "right": 18,
+                "top": 18
+              }
+            },
+            "type": "scrollView"
           }
-        ]
+        ],
+        "props": {
+          "bottom": true,
+          "left": true,
+          "right": true,
+          "top": true
+        },
+        "type": "safeArea"
       }
-    ]
-  }
+    ],
+    "props": {
+      "backgroundColor": "#FF000000"
+    },
+    "type": "container"
+  },
+  "schemaVersion": 1,
+  "screenId": "calculator_history"
 }

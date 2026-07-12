@@ -1,10 +1,13 @@
 **/.dart_tool/
 **/.idea/
 **/.vscode/
+**/__pycache__/
 **/build/
 **/*.iml
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 mini-apps/*/mp/.build/
 test_artifacts/
+_site/
 *.log
+*.pyc

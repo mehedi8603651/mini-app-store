@@ -1,0 +1,31 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 0,
+      "path": "assets/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 585,
+      "path": "manifest.json",
+      "sha256": "f0ef7788d8fabcc421f44e3edd7a8e608bc04671e8093394a68a05feba045154"
+    },
+    {
+      "bytes": 222,
+      "path": "release.json",
+      "sha256": "5acc6109e8e42be29dc2ce205847dfa34c779104c4c20a83f80b7930726b4f1d"
+    },
+    {
+      "bytes": 9623,
+      "path": "screens/calculator_history.json",
+      "sha256": "0aba8fb2e4602ef110b0cb1ae8663b27789b38dfa5b3e460431247451808876d"
+    },
+    {
+      "bytes": 64659,
+      "path": "screens/calculator_home.json",
+      "sha256": "927e325e05775585971836f9b69861ce89741d7c5e7bbbcfad7f302940bcc237"
+    }
+  ],
+  "schemaVersion": 1
+}

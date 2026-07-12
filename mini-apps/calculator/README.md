@@ -26,7 +26,15 @@ Run from `D:/flutter-mini-program-platform`:
 ```powershell
 dart run packages/mini_program_tooling/bin/miniprogram.dart validate calculator `
   --mini-program-root D:\mini-app-store\mini-apps\calculator
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\calculator
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\calculator
 ```
+
+`miniprogram build` is the fast development build. `artifact build` creates
+the immutable portable release under `artifacts/calculator/<version>`.
+Increment the manifest version before rebuilding changed release content.
 
 The app has no required host capabilities and stores no login, token, or
 session data.
