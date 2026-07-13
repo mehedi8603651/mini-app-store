@@ -1,0 +1,518 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {},
+                                    "type": "router.pop"
+                                  },
+                                  "backgroundColor": "#FF1B202A",
+                                  "borderColor": "#FF242B36",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "color": "#FFF7F8FA",
+                                  "iconSize": 25,
+                                  "name": "arrowBack",
+                                  "semanticLabel": "Go back",
+                                  "size": 44
+                                },
+                                "type": "iconButton"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "width": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "color": "#FFF7F8FA",
+                                      "data": "History",
+                                      "maxLines": 1,
+                                      "overflow": "ellipsis",
+                                      "size": 22,
+                                      "weight": "semibold"
+                                    },
+                                    "type": "text"
+                                  }
+                                ],
+                                "props": {
+                                  "flex": 1
+                                },
+                                "type": "expanded"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "steps": [
+                                        {
+                                          "props": {
+                                            "key": "brain.profile.history",
+                                            "value": []
+                                          },
+                                          "type": "state.set"
+                                        },
+                                        {
+                                          "props": {
+                                            "bucket": "state",
+                                            "key": "brain_test_profile",
+                                            "priority": "normal",
+                                            "requestId": "brain-test-clear-history",
+                                            "value": "{{state.brain.profile}}"
+                                          },
+                                          "type": "cache.set"
+                                        }
+                                      ]
+                                    },
+                                    "type": "sequence"
+                                  },
+                                  "backgroundColor": "#FF1B202A",
+                                  "borderColor": "#FF242B36",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "fontSize": 13,
+                                  "fontWeight": "semibold",
+                                  "foregroundColor": "#FFFF6577",
+                                  "height": 40,
+                                  "label": "CLEAR"
+                                },
+                                "type": "button"
+                              }
+                            ],
+                            "props": {},
+                            "type": "row"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "height": 22
+                            },
+                            "type": "sizedBox"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "child": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFFFD84A",
+                                              "name": "trophy",
+                                              "semanticLabel": "Best scores",
+                                              "size": 24
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 9
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFF7F8FA",
+                                              "data": "BEST SCORES",
+                                              "size": 15,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 16
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FF4CD7D0",
+                                                      "data": "{{state.brain.profile.best.easy}}",
+                                                      "size": 25,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFA8B0BE",
+                                                      "data": "EASY",
+                                                      "size": 11
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFFFD84A",
+                                                      "data": "{{state.brain.profile.best.medium}}",
+                                                      "size": 25,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFA8B0BE",
+                                                      "data": "MEDIUM",
+                                                      "size": 11
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFFF6577",
+                                                      "data": "{{state.brain.profile.best.difficult}}",
+                                                      "size": 25,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFA8B0BE",
+                                                      "data": "HARD",
+                                                      "size": 11
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF1B202A",
+                                  "borderRadius": 8,
+                                  "padding": {
+                                    "bottom": 16,
+                                    "left": 16,
+                                    "right": 16,
+                                    "top": 16
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "keys": [
+                                "brain.profile.best.easy",
+                                "brain.profile.best.medium",
+                                "brain.profile.best.difficult"
+                              ]
+                            },
+                            "type": "stateBuilder"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "height": 22
+                            },
+                            "type": "sizedBox"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "child": {
+                                "children": [],
+                                "props": {
+                                  "empty": {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFA8B0BE",
+                                              "name": "history",
+                                              "semanticLabel": "Empty score history",
+                                              "size": 34
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FFA8B0BE",
+                                              "data": "No completed rounds yet",
+                                              "size": 16
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF1B202A",
+                                      "borderRadius": 8,
+                                      "padding": {
+                                        "bottom": 30,
+                                        "left": 30,
+                                        "right": 30,
+                                        "top": 30
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  "itemTemplate": {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFFFD84A",
+                                                      "name": "bolt",
+                                                      "semanticLabel": "Completed round",
+                                                      "size": 24
+                                                    },
+                                                    "type": "icon"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "center"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF3B3210",
+                                              "borderRadius": 8,
+                                              "height": 42,
+                                              "width": 42
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF7F8FA",
+                                                      "data": "{{item.difficulty}}",
+                                                      "size": 16,
+                                                      "weight": "semibold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 3
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFA8B0BE",
+                                                      "data": "{{item.reason}}",
+                                                      "size": 13
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "end",
+                                              "color": "#FF4CD7D0",
+                                              "data": "{{item.score}}",
+                                              "size": 26,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF1B202A",
+                                      "borderColor": "#FF242B36",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 14,
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 14
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  "limit": 30,
+                                  "source": "{{state.brain.profile.history}}",
+                                  "spacing": 10
+                                },
+                                "type": "repeat"
+                              },
+                              "keys": [
+                                "brain.profile.history"
+                              ]
+                            },
+                            "type": "stateBuilder"
+                          }
+                        ],
+                        "props": {},
+                        "type": "column"
+                      }
+                    ],
+                    "props": {
+                      "width": 440
+                    },
+                    "type": "container"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "padding": {
+                "bottom": 24,
+                "left": 20,
+                "right": 20,
+                "top": 16
+              }
+            },
+            "type": "scrollView"
+          }
+        ],
+        "props": {
+          "bottom": true,
+          "left": true,
+          "right": true,
+          "top": true
+        },
+        "type": "safeArea"
+      }
+    ],
+    "props": {
+      "backgroundColor": "#FF10131A"
+    },
+    "type": "container"
+  },
+  "schemaVersion": 1,
+  "screenId": "brain_test_history"
+}

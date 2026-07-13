@@ -27,9 +27,8 @@ MiniProgramConfig buildMiniProgramConfig({
       const <String, MiniProgramEndpoint>{},
   MiniProgramCacheBundle? cacheBundle,
 }) {
-  final locale = WidgetsFlutterBinding.ensureInitialized()
-      .platformDispatcher
-      .locale;
+  final locale =
+      WidgetsFlutterBinding.ensureInitialized().platformDispatcher.locale;
   final supportedCapabilities = <CapabilityId>{
     CapabilityIds.analytics,
     if (openNativeRoute != null) CapabilityIds.nativeNavigation,
@@ -56,7 +55,7 @@ MiniProgramConfig buildMiniProgramConfig({
         : buildEndpointRoutingBackendConnector(
             endpoints: endpoints,
             deliveryContext: deliveryContext,
-    ),
+          ),
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,
     cacheBundle: cacheBundle ?? MiniProgramCacheBundle.inMemory(),

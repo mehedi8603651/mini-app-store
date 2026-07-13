@@ -6,19 +6,21 @@ Flutter Mini Program Platform.
 ## Repository layout
 
 - `mini-apps/calculator`: Mp authoring source for the calculator.
+- `mini-apps/brain_test`: timed arithmetic challenge source and release.
 - `host_apps/mini_app_store_host`: Android-focused Flutter host application.
 - `.github/workflows/deploy-pages.yml`: validates, merges, and deploys all
   mini-program artifacts to GitHub Pages.
 
-The calculator supports offline expression evaluation, MC, M+, M-, MR,
-backspace, sign and percent controls, bounded history, and host-managed
-persistence. Only the accepted `state` cache bucket stores memory and history.
+The calculator supports offline expression evaluation, memory operations, and
+bounded history. Brain Test adds three arithmetic difficulty levels, lifecycle
+countdowns, true-or-false branching, best scores, and bounded round history.
+Both apps persist only through their accepted `state` cache policies.
 
 ## Local packages
 
 The source currently resolves SDK packages from the sibling checkout at
-`D:/flutter-mini-program-platform`. This is intentional while the calculator
-uses local `mini_program_ui 0.1.8` and `mini_program_sdk 0.5.7` changes.
+`D:/flutter-mini-program-platform`. This is intentional while the apps use
+local contracts `0.3.3`, UI `0.1.9`, SDK `0.5.9`, and tooling `0.6.9`.
 
 ## Build and verify portable artifacts
 
@@ -28,6 +30,10 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\calculator
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
   --mini-program-root D:\mini-app-store\mini-apps\calculator
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\brain_test
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\brain_test
 ```
 
 Each portable source bundle is generated under
@@ -55,7 +61,7 @@ For an emulator, reverse the port and run with a loopback override:
 
 cd D:\mini-app-store\host_apps\mini_app_store_host
 flutter run -d emulator-5554 `
-  --dart-define=MINI_PROGRAM_CALCULATOR_URL=http://127.0.0.1:8080
+  --dart-define=MINI_PROGRAM_ARTIFACT_URL=http://127.0.0.1:8080
 ```
 
 Without the override, the host uses the production endpoint configured in
@@ -71,6 +77,8 @@ and deploys the combined site. The partner handoff expects:
 
 The calculator latest manifest is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/calculator/latest.json`.
+Brain Test is served at
+`https://mehedi8603651.github.io/mini-app-store/artifacts/brain_test/latest.json`.
 
 For every additional mini-program:
 

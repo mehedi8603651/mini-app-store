@@ -1,6 +1,36 @@
 {
   "schemaVersion": 1,
   "apps": {
+    "brain_test": {
+      "requested": {
+        "source": "brain_test.partner.json",
+        "cache": {
+          "state": {
+            "enabled": true,
+            "reason": "Bounded score history and best scores by difficulty",
+            "recommendedMaxBytes": 262144,
+            "recommendedTtlDays": 90
+          }
+        },
+        "permissions": {}
+      },
+      "accepted": {
+        "cache": {
+          "state": {
+            "enabled": true,
+            "maxBytes": 262144,
+            "ttlDays": 90
+          }
+        },
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {}
+      }
+    },
     "calculator": {
       "requested": {
         "source": "calculator.partner.json",

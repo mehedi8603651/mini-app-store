@@ -1,0 +1,41 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 1,
+      "path": "assets/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 585,
+      "path": "manifest.json",
+      "sha256": "aa2ec3c4740bfac0631f0685671c631df9d42a253793b19294f97bb958459d2c"
+    },
+    {
+      "bytes": 222,
+      "path": "release.json",
+      "sha256": "8b86f4e8c8d80d61797e17c71bcddb3310259ead95e233ee960961307e5336e1"
+    },
+    {
+      "bytes": 128119,
+      "path": "screens/brain_test_game.json",
+      "sha256": "584f75bae77edd689a3a760aa152093a5c327fd4de8b1b11b581fdc73cf948e5"
+    },
+    {
+      "bytes": 25951,
+      "path": "screens/brain_test_history.json",
+      "sha256": "a25bb6508db34de6d916656c4dd123a9d06b4484bca07ece81efcc7f2cb9db6a"
+    },
+    {
+      "bytes": 27077,
+      "path": "screens/brain_test_home.json",
+      "sha256": "77d775fd0576a3f3713dffcab324439d20b98321e38491c113ad2d1aeaae81f4"
+    },
+    {
+      "bytes": 13642,
+      "path": "screens/brain_test_result.json",
+      "sha256": "956143abed1005082e143e2c8df8acf7cfd8f681c493fa44003cb37a3ca25a07"
+    }
+  ],
+  "schemaVersion": 1
+}

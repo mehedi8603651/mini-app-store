@@ -3,22 +3,47 @@
 
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 
-MiniProgramCachePolicy cachePolicyForMiniProgram(
-  String appId,
-) {
+MiniProgramCachePolicy cachePolicyForMiniProgram(String appId) {
   switch (appId) {
+    case "brain_test":
+      return const MiniProgramCachePolicy(
+        maxBytes: 262144,
+        maxStateBytes: 262144,
+        stateInactiveTtl: Duration(days: 90),
+        allowedMiniProgramCacheBuckets: <MiniProgramCacheBucket>{
+          MiniProgramCacheBucket.state,
+        },
+      );
     case "calculator":
-      return const MiniProgramCachePolicy(maxBytes: 1048576, maxStateBytes: 1048576, stateInactiveTtl: Duration(days: 30), allowedMiniProgramCacheBuckets: <MiniProgramCacheBucket>{MiniProgramCacheBucket.state});
+      return const MiniProgramCachePolicy(
+        maxBytes: 1048576,
+        maxStateBytes: 1048576,
+        stateInactiveTtl: Duration(days: 30),
+        allowedMiniProgramCacheBuckets: <MiniProgramCacheBucket>{
+          MiniProgramCacheBucket.state,
+        },
+      );
     default:
       return const MiniProgramCachePolicy();
   }
 }
-MiniProgramLiveStatePolicy liveStatePolicyForMiniProgram(
-  String appId,
-) {
+
+MiniProgramLiveStatePolicy liveStatePolicyForMiniProgram(String appId) {
   switch (appId) {
+    case "brain_test":
+      return const MiniProgramLiveStatePolicy(
+        maxBytes: 2097152,
+        maxEntries: 1000,
+        maxValueBytes: 262144,
+        maxDepth: 32,
+      );
     case "calculator":
-      return const MiniProgramLiveStatePolicy(maxBytes: 2097152, maxEntries: 1000, maxValueBytes: 262144, maxDepth: 32);
+      return const MiniProgramLiveStatePolicy(
+        maxBytes: 2097152,
+        maxEntries: 1000,
+        maxValueBytes: 262144,
+        maxDepth: 32,
+      );
     default:
       return const MiniProgramLiveStatePolicy();
   }

@@ -3,27 +3,29 @@
 // multiple mini-programs.
 
 class MiniProgramInfo {
-  const MiniProgramInfo({
-    required this.appId,
-    required this.title,
-  });
+  const MiniProgramInfo({required this.appId, required this.title});
 
   final String appId;
   final String title;
 }
+
 class MiniPrograms {
   const MiniPrograms._();
+
+  static const brainTest = MiniProgramInfo(
+    appId: "brain_test",
+    title: "Brain Test",
+  );
 
   static const calculator = MiniProgramInfo(
     appId: "calculator",
     title: "Calculator",
   );
 
-  static const values = <MiniProgramInfo>[
-    calculator,
-  ];
+  static const values = <MiniProgramInfo>[brainTest, calculator];
 
   static const byAppId = <String, MiniProgramInfo>{
+    "brain_test": brainTest,
     "calculator": calculator,
   };
 }
