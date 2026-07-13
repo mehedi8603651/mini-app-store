@@ -20,7 +20,7 @@ Both apps persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.3`, UI `0.1.9`, SDK `0.5.9`, and tooling `0.6.9`.
+local contracts `0.3.4`, UI `0.1.10`, SDK `0.5.10`, and tooling `0.6.10`.
 
 ## Build and verify portable artifacts
 

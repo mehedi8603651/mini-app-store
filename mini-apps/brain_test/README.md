@@ -30,3 +30,6 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
 The immutable release is generated under
 `artifacts/brain_test/<version>`. Increment `manifest.json` before rebuilding
 changed content after version `1.0.0` has been published.
+
+Version `1.0.1` keeps the current game screen mounted between correct answers,
+generates a new question in place, and restarts its countdown by question ID.

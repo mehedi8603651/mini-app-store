@@ -4,38 +4,43 @@ import '../brain_actions.dart';
 import '../brain_theme.dart';
 
 MpNode buildBrainTestGame() {
-  return Mp.initialize(
-    actions: initializeBrainRound(),
-    loading: brainScreenMessage('Preparing challenge'),
-    error: brainScreenMessage('Challenge could not start'),
-    statusState: 'brain.game_status',
-    errorState: 'brain.game_error',
-    child: Mp.timer.countdown(
-      duration: const Duration(seconds: 10),
-      running: '{{state.brain.round.active}}',
-      restartToken: '{{state.brain.round.question_id}}',
-      remainingState: 'brain.round.remaining',
-      onComplete: finishBrainRound('Time ran out'),
-      child: Mp.container(
-        backgroundColor: brainBackground,
-        child: Mp.safeArea(
-          child: Mp.scrollView(
-            paddingHorizontal: 20,
-            paddingTop: 16,
-            paddingBottom: 24,
-            child: Mp.center(
-              child: Mp.container(
-                width: 440,
-                child: Mp.column(
-                  children: <MpNode>[
-                    _gameHeader(),
-                    Mp.sizedBox(height: 18),
-                    _timerBand(),
-                    Mp.sizedBox(height: 24),
-                    _questionPanel(),
-                    Mp.sizedBox(height: 26),
-                    _answerButtons(),
-                  ],
+  return Mp.actionScope(
+    actions: <String, MpAction>{
+      brainNextQuestionAction: generateBrainQuestion(),
+    },
+    child: Mp.initialize(
+      actions: initializeBrainRound(),
+      loading: brainScreenMessage('Preparing challenge'),
+      error: brainScreenMessage('Challenge could not start'),
+      statusState: 'brain.game_status',
+      errorState: 'brain.game_error',
+      child: Mp.timer.countdown(
+        duration: const Duration(seconds: 10),
+        running: '{{state.brain.round.active}}',
+        restartToken: '{{state.brain.round.question_id}}',
+        remainingState: 'brain.round.remaining',
+        onComplete: finishBrainRound('Time ran out'),
+        child: Mp.container(
+          backgroundColor: brainBackground,
+          child: Mp.safeArea(
+            child: Mp.scrollView(
+              paddingHorizontal: 20,
+              paddingTop: 16,
+              paddingBottom: 24,
+              child: Mp.center(
+                child: Mp.container(
+                  width: 440,
+                  child: Mp.column(
+                    children: <MpNode>[
+                      _gameHeader(),
+                      Mp.sizedBox(height: 18),
+                      _timerBand(),
+                      Mp.sizedBox(height: 24),
+                      _questionPanel(),
+                      Mp.sizedBox(height: 26),
+                      _answerButtons(),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -1,0 +1,2191 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "child": {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "key": "brain.round.active",
+                                                            "value": false
+                                                          },
+                                                          "type": "state.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "requestId": "brain-test-leave-round"
+                                                          },
+                                                          "type": "router.pop"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#FF1B202A",
+                                                  "borderColor": "#FF242B36",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 1,
+                                                  "color": "#FFF7F8FA",
+                                                  "iconSize": 25,
+                                                  "name": "close",
+                                                  "semanticLabel": "Leave round",
+                                                  "size": 44
+                                                },
+                                                "type": "iconButton"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "width": 12
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF7F8FA",
+                                                      "data": "{{state.brain.round.difficulty_label}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 22,
+                                                      "weight": "semibold"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "flex": 1
+                                                },
+                                                "type": "expanded"
+                                              },
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFFFD84A",
+                                                      "data": "SCORE  {{state.brain.round.score}}",
+                                                      "size": 14,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FF1B202A",
+                                                  "borderRadius": 8,
+                                                  "padding": {
+                                                    "bottom": 9,
+                                                    "left": 12,
+                                                    "right": 12,
+                                                    "top": 9
+                                                  }
+                                                },
+                                                "type": "container"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "row"
+                                          },
+                                          "keys": [
+                                            "brain.round.difficulty_label",
+                                            "brain.round.score"
+                                          ]
+                                        },
+                                        "type": "stateBuilder"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 18
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "child": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FF4CD7D0",
+                                                      "name": "timer",
+                                                      "semanticLabel": "Time remaining",
+                                                      "size": 25
+                                                    },
+                                                    "type": "icon"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "width": 10
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFA8B0BE",
+                                                          "data": "TIME LEFT",
+                                                          "size": 13,
+                                                          "weight": "semibold"
+                                                        },
+                                                        "type": "text"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF7F8FA",
+                                                      "data": "{{state.brain.round.remaining}} s",
+                                                      "size": 22,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "row"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF1B202A",
+                                              "borderColor": "#FF242B36",
+                                              "borderRadius": 8,
+                                              "borderWidth": 1,
+                                              "padding": {
+                                                "bottom": 13,
+                                                "left": 16,
+                                                "right": 16,
+                                                "top": 13
+                                              }
+                                            },
+                                            "type": "container"
+                                          },
+                                          "keys": [
+                                            "brain.round.remaining"
+                                          ]
+                                        },
+                                        "type": "stateBuilder"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 24
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "child": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FF3B3210",
+                                                      "data": "TRUE OR FALSE?",
+                                                      "size": 13,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "spacer"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FF10131A",
+                                                      "data": "{{state.brain.round.expression}}",
+                                                      "maxLines": 2,
+                                                      "overflow": "ellipsis",
+                                                      "size": 33,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 12
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FF10131A",
+                                                      "data": "= {{state.brain.round.displayed_answer}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 45,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "spacer"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFF05262",
+                                                      "data": "{{state.brain.round.math_error.message}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 12
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FFFFD84A",
+                                              "borderRadius": 8,
+                                              "height": 260,
+                                              "padding": {
+                                                "bottom": 22,
+                                                "left": 20,
+                                                "right": 20,
+                                                "top": 22
+                                              }
+                                            },
+                                            "type": "container"
+                                          },
+                                          "keys": [
+                                            "brain.round.expression",
+                                            "brain.round.displayed_answer",
+                                            "brain.round.math_error"
+                                          ]
+                                        },
+                                        "type": "stateBuilder"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 26
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "key": "brain.round.active",
+                                                            "value": false
+                                                          },
+                                                          "type": "state.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "condition": "{{state.brain.round.statement_true}}",
+                                                            "else": {
+                                                              "props": {
+                                                                "steps": [
+                                                                  {
+                                                                    "props": {
+                                                                      "key": "brain.round.active",
+                                                                      "value": false
+                                                                    },
+                                                                    "type": "state.set"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "key": "brain.round.end_reason",
+                                                                      "value": "Wrong answer"
+                                                                    },
+                                                                    "type": "state.set"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "condition": "{{state.brain.round.is_easy}}",
+                                                                      "else": {
+                                                                        "props": {
+                                                                          "condition": "{{state.brain.round.is_medium}}",
+                                                                          "else": {
+                                                                            "props": {
+                                                                              "steps": [
+                                                                                {
+                                                                                  "props": {
+                                                                                    "comparison": "greaterThan",
+                                                                                    "left": "{{state.brain.round.score}}",
+                                                                                    "right": "{{state.brain.profile.best.difficult}}",
+                                                                                    "targetState": "brain.round.new_best",
+                                                                                    "tolerance": 1e-9
+                                                                                  },
+                                                                                  "type": "math.compare"
+                                                                                },
+                                                                                {
+                                                                                  "props": {
+                                                                                    "condition": "{{state.brain.round.new_best}}",
+                                                                                    "else": {
+                                                                                      "props": {
+                                                                                        "key": "brain.round.new_best",
+                                                                                        "value": false
+                                                                                      },
+                                                                                      "type": "state.set"
+                                                                                    },
+                                                                                    "then": {
+                                                                                      "props": {
+                                                                                        "convertTo": "value",
+                                                                                        "from": "brain.round.score",
+                                                                                        "to": "brain.profile.best.difficult"
+                                                                                      },
+                                                                                      "type": "state.copy"
+                                                                                    }
+                                                                                  },
+                                                                                  "type": "action.ifElse"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "type": "sequence"
+                                                                          },
+                                                                          "then": {
+                                                                            "props": {
+                                                                              "steps": [
+                                                                                {
+                                                                                  "props": {
+                                                                                    "comparison": "greaterThan",
+                                                                                    "left": "{{state.brain.round.score}}",
+                                                                                    "right": "{{state.brain.profile.best.medium}}",
+                                                                                    "targetState": "brain.round.new_best",
+                                                                                    "tolerance": 1e-9
+                                                                                  },
+                                                                                  "type": "math.compare"
+                                                                                },
+                                                                                {
+                                                                                  "props": {
+                                                                                    "condition": "{{state.brain.round.new_best}}",
+                                                                                    "else": {
+                                                                                      "props": {
+                                                                                        "key": "brain.round.new_best",
+                                                                                        "value": false
+                                                                                      },
+                                                                                      "type": "state.set"
+                                                                                    },
+                                                                                    "then": {
+                                                                                      "props": {
+                                                                                        "convertTo": "value",
+                                                                                        "from": "brain.round.score",
+                                                                                        "to": "brain.profile.best.medium"
+                                                                                      },
+                                                                                      "type": "state.copy"
+                                                                                    }
+                                                                                  },
+                                                                                  "type": "action.ifElse"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "type": "sequence"
+                                                                          }
+                                                                        },
+                                                                        "type": "action.ifElse"
+                                                                      },
+                                                                      "then": {
+                                                                        "props": {
+                                                                          "steps": [
+                                                                            {
+                                                                              "props": {
+                                                                                "comparison": "greaterThan",
+                                                                                "left": "{{state.brain.round.score}}",
+                                                                                "right": "{{state.brain.profile.best.easy}}",
+                                                                                "targetState": "brain.round.new_best",
+                                                                                "tolerance": 1e-9
+                                                                              },
+                                                                              "type": "math.compare"
+                                                                            },
+                                                                            {
+                                                                              "props": {
+                                                                                "condition": "{{state.brain.round.new_best}}",
+                                                                                "else": {
+                                                                                  "props": {
+                                                                                    "key": "brain.round.new_best",
+                                                                                    "value": false
+                                                                                  },
+                                                                                  "type": "state.set"
+                                                                                },
+                                                                                "then": {
+                                                                                  "props": {
+                                                                                    "convertTo": "value",
+                                                                                    "from": "brain.round.score",
+                                                                                    "to": "brain.profile.best.easy"
+                                                                                  },
+                                                                                  "type": "state.copy"
+                                                                                }
+                                                                              },
+                                                                              "type": "action.ifElse"
+                                                                            }
+                                                                          ]
+                                                                        },
+                                                                        "type": "sequence"
+                                                                      }
+                                                                    },
+                                                                    "type": "action.ifElse"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "by": 1,
+                                                                      "key": "brain.profile.rounds"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "by": "{{state.brain.round.score}}",
+                                                                      "key": "brain.profile.total_score"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "key": "brain.profile.history",
+                                                                      "maxItems": 30,
+                                                                      "value": {
+                                                                        "difficulty": "{{state.brain.round.difficulty_label}}",
+                                                                        "difficulty_key": "{{state.brain.round.difficulty_key}}",
+                                                                        "new_best": "{{state.brain.round.new_best}}",
+                                                                        "reason": "{{state.brain.round.end_reason}}",
+                                                                        "score": "{{state.brain.round.score}}"
+                                                                      }
+                                                                    },
+                                                                    "type": "state.listPrepend"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "bucket": "state",
+                                                                      "key": "brain_test_profile",
+                                                                      "priority": "normal",
+                                                                      "requestId": "brain-test-save-round",
+                                                                      "value": "{{state.brain.profile}}"
+                                                                    },
+                                                                    "type": "cache.set"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "requestId": "brain-test-show-result",
+                                                                      "screenId": "brain_test_result"
+                                                                    },
+                                                                    "type": "router.replace"
+                                                                  }
+                                                                ]
+                                                              },
+                                                              "type": "sequence"
+                                                            },
+                                                            "then": {
+                                                              "props": {
+                                                                "steps": [
+                                                                  {
+                                                                    "props": {
+                                                                      "by": 1,
+                                                                      "key": "brain.round.score"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "by": 1,
+                                                                      "key": "brain.round.question_id"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "name": "nextQuestion"
+                                                                    },
+                                                                    "type": "action.call"
+                                                                  }
+                                                                ]
+                                                              },
+                                                              "type": "sequence"
+                                                            }
+                                                          },
+                                                          "type": "action.ifElse"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#FF35C98A",
+                                                  "borderColor": "#FF35C98A",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 0,
+                                                  "fontSize": 24,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#FF10131A",
+                                                  "height": 128,
+                                                  "label": "TRUE"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "aspectRatio": 1.15
+                                            },
+                                            "type": "aspectRatio"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "key": "brain.round.active",
+                                                            "value": false
+                                                          },
+                                                          "type": "state.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "condition": "{{state.brain.round.statement_true}}",
+                                                            "else": {
+                                                              "props": {
+                                                                "steps": [
+                                                                  {
+                                                                    "props": {
+                                                                      "by": 1,
+                                                                      "key": "brain.round.score"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "by": 1,
+                                                                      "key": "brain.round.question_id"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "name": "nextQuestion"
+                                                                    },
+                                                                    "type": "action.call"
+                                                                  }
+                                                                ]
+                                                              },
+                                                              "type": "sequence"
+                                                            },
+                                                            "then": {
+                                                              "props": {
+                                                                "steps": [
+                                                                  {
+                                                                    "props": {
+                                                                      "key": "brain.round.active",
+                                                                      "value": false
+                                                                    },
+                                                                    "type": "state.set"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "key": "brain.round.end_reason",
+                                                                      "value": "Wrong answer"
+                                                                    },
+                                                                    "type": "state.set"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "condition": "{{state.brain.round.is_easy}}",
+                                                                      "else": {
+                                                                        "props": {
+                                                                          "condition": "{{state.brain.round.is_medium}}",
+                                                                          "else": {
+                                                                            "props": {
+                                                                              "steps": [
+                                                                                {
+                                                                                  "props": {
+                                                                                    "comparison": "greaterThan",
+                                                                                    "left": "{{state.brain.round.score}}",
+                                                                                    "right": "{{state.brain.profile.best.difficult}}",
+                                                                                    "targetState": "brain.round.new_best",
+                                                                                    "tolerance": 1e-9
+                                                                                  },
+                                                                                  "type": "math.compare"
+                                                                                },
+                                                                                {
+                                                                                  "props": {
+                                                                                    "condition": "{{state.brain.round.new_best}}",
+                                                                                    "else": {
+                                                                                      "props": {
+                                                                                        "key": "brain.round.new_best",
+                                                                                        "value": false
+                                                                                      },
+                                                                                      "type": "state.set"
+                                                                                    },
+                                                                                    "then": {
+                                                                                      "props": {
+                                                                                        "convertTo": "value",
+                                                                                        "from": "brain.round.score",
+                                                                                        "to": "brain.profile.best.difficult"
+                                                                                      },
+                                                                                      "type": "state.copy"
+                                                                                    }
+                                                                                  },
+                                                                                  "type": "action.ifElse"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "type": "sequence"
+                                                                          },
+                                                                          "then": {
+                                                                            "props": {
+                                                                              "steps": [
+                                                                                {
+                                                                                  "props": {
+                                                                                    "comparison": "greaterThan",
+                                                                                    "left": "{{state.brain.round.score}}",
+                                                                                    "right": "{{state.brain.profile.best.medium}}",
+                                                                                    "targetState": "brain.round.new_best",
+                                                                                    "tolerance": 1e-9
+                                                                                  },
+                                                                                  "type": "math.compare"
+                                                                                },
+                                                                                {
+                                                                                  "props": {
+                                                                                    "condition": "{{state.brain.round.new_best}}",
+                                                                                    "else": {
+                                                                                      "props": {
+                                                                                        "key": "brain.round.new_best",
+                                                                                        "value": false
+                                                                                      },
+                                                                                      "type": "state.set"
+                                                                                    },
+                                                                                    "then": {
+                                                                                      "props": {
+                                                                                        "convertTo": "value",
+                                                                                        "from": "brain.round.score",
+                                                                                        "to": "brain.profile.best.medium"
+                                                                                      },
+                                                                                      "type": "state.copy"
+                                                                                    }
+                                                                                  },
+                                                                                  "type": "action.ifElse"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "type": "sequence"
+                                                                          }
+                                                                        },
+                                                                        "type": "action.ifElse"
+                                                                      },
+                                                                      "then": {
+                                                                        "props": {
+                                                                          "steps": [
+                                                                            {
+                                                                              "props": {
+                                                                                "comparison": "greaterThan",
+                                                                                "left": "{{state.brain.round.score}}",
+                                                                                "right": "{{state.brain.profile.best.easy}}",
+                                                                                "targetState": "brain.round.new_best",
+                                                                                "tolerance": 1e-9
+                                                                              },
+                                                                              "type": "math.compare"
+                                                                            },
+                                                                            {
+                                                                              "props": {
+                                                                                "condition": "{{state.brain.round.new_best}}",
+                                                                                "else": {
+                                                                                  "props": {
+                                                                                    "key": "brain.round.new_best",
+                                                                                    "value": false
+                                                                                  },
+                                                                                  "type": "state.set"
+                                                                                },
+                                                                                "then": {
+                                                                                  "props": {
+                                                                                    "convertTo": "value",
+                                                                                    "from": "brain.round.score",
+                                                                                    "to": "brain.profile.best.easy"
+                                                                                  },
+                                                                                  "type": "state.copy"
+                                                                                }
+                                                                              },
+                                                                              "type": "action.ifElse"
+                                                                            }
+                                                                          ]
+                                                                        },
+                                                                        "type": "sequence"
+                                                                      }
+                                                                    },
+                                                                    "type": "action.ifElse"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "by": 1,
+                                                                      "key": "brain.profile.rounds"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "by": "{{state.brain.round.score}}",
+                                                                      "key": "brain.profile.total_score"
+                                                                    },
+                                                                    "type": "state.increment"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "key": "brain.profile.history",
+                                                                      "maxItems": 30,
+                                                                      "value": {
+                                                                        "difficulty": "{{state.brain.round.difficulty_label}}",
+                                                                        "difficulty_key": "{{state.brain.round.difficulty_key}}",
+                                                                        "new_best": "{{state.brain.round.new_best}}",
+                                                                        "reason": "{{state.brain.round.end_reason}}",
+                                                                        "score": "{{state.brain.round.score}}"
+                                                                      }
+                                                                    },
+                                                                    "type": "state.listPrepend"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "bucket": "state",
+                                                                      "key": "brain_test_profile",
+                                                                      "priority": "normal",
+                                                                      "requestId": "brain-test-save-round",
+                                                                      "value": "{{state.brain.profile}}"
+                                                                    },
+                                                                    "type": "cache.set"
+                                                                  },
+                                                                  {
+                                                                    "props": {
+                                                                      "requestId": "brain-test-show-result",
+                                                                      "screenId": "brain_test_result"
+                                                                    },
+                                                                    "type": "router.replace"
+                                                                  }
+                                                                ]
+                                                              },
+                                                              "type": "sequence"
+                                                            }
+                                                          },
+                                                          "type": "action.ifElse"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#FFF05262",
+                                                  "borderColor": "#FFF05262",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 0,
+                                                  "fontSize": 24,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#FFF7F8FA",
+                                                  "height": 128,
+                                                  "label": "FALSE"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "aspectRatio": 1.15
+                                            },
+                                            "type": "aspectRatio"
+                                          }
+                                        ],
+                                        "props": {
+                                          "columns": 2,
+                                          "spacing": 14
+                                        },
+                                        "type": "grid"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "width": 440
+                                },
+                                "type": "container"
+                              }
+                            ],
+                            "props": {},
+                            "type": "center"
+                          }
+                        ],
+                        "props": {
+                          "padding": {
+                            "bottom": 24,
+                            "left": 20,
+                            "right": 20,
+                            "top": 16
+                          }
+                        },
+                        "type": "scrollView"
+                      }
+                    ],
+                    "props": {
+                      "bottom": true,
+                      "left": true,
+                      "right": true,
+                      "top": true
+                    },
+                    "type": "safeArea"
+                  }
+                ],
+                "props": {
+                  "backgroundColor": "#FF10131A"
+                },
+                "type": "container"
+              }
+            ],
+            "props": {
+              "durationMs": 10000,
+              "onComplete": {
+                "props": {
+                  "steps": [
+                    {
+                      "props": {
+                        "key": "brain.round.active",
+                        "value": false
+                      },
+                      "type": "state.set"
+                    },
+                    {
+                      "props": {
+                        "key": "brain.round.end_reason",
+                        "value": "Time ran out"
+                      },
+                      "type": "state.set"
+                    },
+                    {
+                      "props": {
+                        "condition": "{{state.brain.round.is_easy}}",
+                        "else": {
+                          "props": {
+                            "condition": "{{state.brain.round.is_medium}}",
+                            "else": {
+                              "props": {
+                                "steps": [
+                                  {
+                                    "props": {
+                                      "comparison": "greaterThan",
+                                      "left": "{{state.brain.round.score}}",
+                                      "right": "{{state.brain.profile.best.difficult}}",
+                                      "targetState": "brain.round.new_best",
+                                      "tolerance": 1e-9
+                                    },
+                                    "type": "math.compare"
+                                  },
+                                  {
+                                    "props": {
+                                      "condition": "{{state.brain.round.new_best}}",
+                                      "else": {
+                                        "props": {
+                                          "key": "brain.round.new_best",
+                                          "value": false
+                                        },
+                                        "type": "state.set"
+                                      },
+                                      "then": {
+                                        "props": {
+                                          "convertTo": "value",
+                                          "from": "brain.round.score",
+                                          "to": "brain.profile.best.difficult"
+                                        },
+                                        "type": "state.copy"
+                                      }
+                                    },
+                                    "type": "action.ifElse"
+                                  }
+                                ]
+                              },
+                              "type": "sequence"
+                            },
+                            "then": {
+                              "props": {
+                                "steps": [
+                                  {
+                                    "props": {
+                                      "comparison": "greaterThan",
+                                      "left": "{{state.brain.round.score}}",
+                                      "right": "{{state.brain.profile.best.medium}}",
+                                      "targetState": "brain.round.new_best",
+                                      "tolerance": 1e-9
+                                    },
+                                    "type": "math.compare"
+                                  },
+                                  {
+                                    "props": {
+                                      "condition": "{{state.brain.round.new_best}}",
+                                      "else": {
+                                        "props": {
+                                          "key": "brain.round.new_best",
+                                          "value": false
+                                        },
+                                        "type": "state.set"
+                                      },
+                                      "then": {
+                                        "props": {
+                                          "convertTo": "value",
+                                          "from": "brain.round.score",
+                                          "to": "brain.profile.best.medium"
+                                        },
+                                        "type": "state.copy"
+                                      }
+                                    },
+                                    "type": "action.ifElse"
+                                  }
+                                ]
+                              },
+                              "type": "sequence"
+                            }
+                          },
+                          "type": "action.ifElse"
+                        },
+                        "then": {
+                          "props": {
+                            "steps": [
+                              {
+                                "props": {
+                                  "comparison": "greaterThan",
+                                  "left": "{{state.brain.round.score}}",
+                                  "right": "{{state.brain.profile.best.easy}}",
+                                  "targetState": "brain.round.new_best",
+                                  "tolerance": 1e-9
+                                },
+                                "type": "math.compare"
+                              },
+                              {
+                                "props": {
+                                  "condition": "{{state.brain.round.new_best}}",
+                                  "else": {
+                                    "props": {
+                                      "key": "brain.round.new_best",
+                                      "value": false
+                                    },
+                                    "type": "state.set"
+                                  },
+                                  "then": {
+                                    "props": {
+                                      "convertTo": "value",
+                                      "from": "brain.round.score",
+                                      "to": "brain.profile.best.easy"
+                                    },
+                                    "type": "state.copy"
+                                  }
+                                },
+                                "type": "action.ifElse"
+                              }
+                            ]
+                          },
+                          "type": "sequence"
+                        }
+                      },
+                      "type": "action.ifElse"
+                    },
+                    {
+                      "props": {
+                        "by": 1,
+                        "key": "brain.profile.rounds"
+                      },
+                      "type": "state.increment"
+                    },
+                    {
+                      "props": {
+                        "by": "{{state.brain.round.score}}",
+                        "key": "brain.profile.total_score"
+                      },
+                      "type": "state.increment"
+                    },
+                    {
+                      "props": {
+                        "key": "brain.profile.history",
+                        "maxItems": 30,
+                        "value": {
+                          "difficulty": "{{state.brain.round.difficulty_label}}",
+                          "difficulty_key": "{{state.brain.round.difficulty_key}}",
+                          "new_best": "{{state.brain.round.new_best}}",
+                          "reason": "{{state.brain.round.end_reason}}",
+                          "score": "{{state.brain.round.score}}"
+                        }
+                      },
+                      "type": "state.listPrepend"
+                    },
+                    {
+                      "props": {
+                        "bucket": "state",
+                        "key": "brain_test_profile",
+                        "priority": "normal",
+                        "requestId": "brain-test-save-round",
+                        "value": "{{state.brain.profile}}"
+                      },
+                      "type": "cache.set"
+                    },
+                    {
+                      "props": {
+                        "requestId": "brain-test-show-result",
+                        "screenId": "brain_test_result"
+                      },
+                      "type": "router.replace"
+                    }
+                  ]
+                },
+                "type": "sequence"
+              },
+              "remainingState": "brain.round.remaining",
+              "restartToken": "{{state.brain.round.question_id}}",
+              "running": "{{state.brain.round.active}}"
+            },
+            "type": "countdown"
+          }
+        ],
+        "props": {
+          "actions": [
+            {
+              "props": {
+                "remove": [
+                  "brain.round.answer_correct",
+                  "brain.round.end_reason",
+                  "brain.round.math_error"
+                ],
+                "values": {
+                  "brain.round.active": false,
+                  "brain.round.difficulty_key": "{{route.difficulty_key}}",
+                  "brain.round.difficulty_label": "{{route.difficulty_label}}",
+                  "brain.round.level": "{{route.level}}",
+                  "brain.round.new_best": false,
+                  "brain.round.question_id": "{{route.score}}",
+                  "brain.round.remaining": 10,
+                  "brain.round.score": "{{route.score}}"
+                }
+              },
+              "type": "state.patch"
+            },
+            {
+              "props": {
+                "comparison": "equal",
+                "left": "{{state.brain.round.level}}",
+                "right": 1,
+                "targetState": "brain.round.is_easy",
+                "tolerance": 1e-9
+              },
+              "type": "math.compare"
+            },
+            {
+              "props": {
+                "comparison": "equal",
+                "left": "{{state.brain.round.level}}",
+                "right": 2,
+                "targetState": "brain.round.is_medium",
+                "tolerance": 1e-9
+              },
+              "type": "math.compare"
+            },
+            {
+              "props": {
+                "name": "nextQuestion"
+              },
+              "type": "action.call"
+            }
+          ],
+          "error": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFA8B0BE",
+                      "data": "Challenge could not start",
+                      "size": 16
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF10131A",
+              "padding": {
+                "bottom": 24,
+                "left": 24,
+                "right": 24,
+                "top": 24
+              }
+            },
+            "type": "container"
+          },
+          "errorState": "brain.game_error",
+          "loading": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFA8B0BE",
+                      "data": "Preparing challenge",
+                      "size": 16
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF10131A",
+              "padding": {
+                "bottom": 24,
+                "left": 24,
+                "right": 24,
+                "top": 24
+              }
+            },
+            "type": "container"
+          },
+          "statusState": "brain.game_status"
+        },
+        "type": "initialize"
+      }
+    ],
+    "props": {
+      "actions": {
+        "nextQuestion": {
+          "props": {
+            "steps": [
+              {
+                "props": {
+                  "key": "brain.round.active",
+                  "value": false
+                },
+                "type": "state.set"
+              },
+              {
+                "props": {
+                  "condition": "{{state.brain.round.is_easy}}",
+                  "else": {
+                    "props": {
+                      "condition": "{{state.brain.round.is_medium}}",
+                      "else": {
+                        "props": {
+                          "steps": [
+                            {
+                              "props": {
+                                "max": 15,
+                                "min": 2,
+                                "targetState": "brain.round.a"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "max": 10,
+                                "min": 2,
+                                "targetState": "brain.round.b"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "max": 9,
+                                "min": 2,
+                                "targetState": "brain.round.c"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "max": 5,
+                                "min": 0,
+                                "targetState": "brain.round.operation"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 0,
+                                "targetState": "brain.round.op_0",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 1,
+                                "targetState": "brain.round.op_1",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 2,
+                                "targetState": "brain.round.op_2",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 3,
+                                "targetState": "brain.round.op_3",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 4,
+                                "targetState": "brain.round.op_4",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 5,
+                                "targetState": "brain.round.op_5",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "condition": "{{state.brain.round.op_0}}",
+                                "else": {
+                                  "props": {
+                                    "condition": "{{state.brain.round.op_1}}",
+                                    "else": {
+                                      "props": {
+                                        "condition": "{{state.brain.round.op_2}}",
+                                        "else": {
+                                          "props": {
+                                            "condition": "{{state.brain.round.op_3}}",
+                                            "else": {
+                                              "props": {
+                                                "condition": "{{state.brain.round.op_4}}",
+                                                "else": {
+                                                  "props": {
+                                                    "steps": [
+                                                      {
+                                                        "props": {
+                                                          "max": 9,
+                                                          "min": 2,
+                                                          "targetState": "brain.round.power_base"
+                                                        },
+                                                        "type": "math.randomInt"
+                                                      },
+                                                      {
+                                                        "props": {
+                                                          "max": 4,
+                                                          "min": 2,
+                                                          "targetState": "brain.round.power_exponent"
+                                                        },
+                                                        "type": "math.randomInt"
+                                                      },
+                                                      {
+                                                        "props": {
+                                                          "steps": [
+                                                            {
+                                                              "props": {
+                                                                "angleMode": "radians",
+                                                                "errorState": "brain.round.math_error",
+                                                                "expression": "{{state.brain.round.power_base}} ^ {{state.brain.round.power_exponent}}",
+                                                                "precision": 12,
+                                                                "targetState": "brain.round.expected"
+                                                              },
+                                                              "type": "math.evaluate"
+                                                            },
+                                                            {
+                                                              "props": {
+                                                                "key": "brain.round.expression",
+                                                                "value": "{{state.brain.round.power_base}} ^ {{state.brain.round.power_exponent}}"
+                                                              },
+                                                              "type": "state.set"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "type": "sequence"
+                                                      }
+                                                    ]
+                                                  },
+                                                  "type": "sequence"
+                                                },
+                                                "then": {
+                                                  "props": {
+                                                    "steps": [
+                                                      {
+                                                        "props": {
+                                                          "max": 9,
+                                                          "min": 1,
+                                                          "targetState": "brain.round.percent_step"
+                                                        },
+                                                        "type": "math.randomInt"
+                                                      },
+                                                      {
+                                                        "props": {
+                                                          "max": 20,
+                                                          "min": 2,
+                                                          "targetState": "brain.round.base_step"
+                                                        },
+                                                        "type": "math.randomInt"
+                                                      },
+                                                      {
+                                                        "props": {
+                                                          "angleMode": "radians",
+                                                          "errorState": "brain.round.math_error",
+                                                          "expression": "{{state.brain.round.percent_step}} * 10",
+                                                          "precision": 12,
+                                                          "targetState": "brain.round.percent"
+                                                        },
+                                                        "type": "math.evaluate"
+                                                      },
+                                                      {
+                                                        "props": {
+                                                          "angleMode": "radians",
+                                                          "errorState": "brain.round.math_error",
+                                                          "expression": "{{state.brain.round.base_step}} * 10",
+                                                          "precision": 12,
+                                                          "targetState": "brain.round.base"
+                                                        },
+                                                        "type": "math.evaluate"
+                                                      },
+                                                      {
+                                                        "props": {
+                                                          "steps": [
+                                                            {
+                                                              "props": {
+                                                                "angleMode": "radians",
+                                                                "errorState": "brain.round.math_error",
+                                                                "expression": "{{state.brain.round.percent}}% * {{state.brain.round.base}}",
+                                                                "precision": 12,
+                                                                "targetState": "brain.round.expected"
+                                                              },
+                                                              "type": "math.evaluate"
+                                                            },
+                                                            {
+                                                              "props": {
+                                                                "key": "brain.round.expression",
+                                                                "value": "{{state.brain.round.percent}}% of {{state.brain.round.base}}"
+                                                              },
+                                                              "type": "state.set"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "type": "sequence"
+                                                      }
+                                                    ]
+                                                  },
+                                                  "type": "sequence"
+                                                }
+                                              },
+                                              "type": "action.ifElse"
+                                            },
+                                            "then": {
+                                              "props": {
+                                                "steps": [
+                                                  {
+                                                    "props": {
+                                                      "angleMode": "radians",
+                                                      "errorState": "brain.round.math_error",
+                                                      "expression": "{{state.brain.round.a}} * {{state.brain.round.b}} * {{state.brain.round.c}}",
+                                                      "precision": 12,
+                                                      "targetState": "brain.round.dividend"
+                                                    },
+                                                    "type": "math.evaluate"
+                                                  },
+                                                  {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "angleMode": "radians",
+                                                            "errorState": "brain.round.math_error",
+                                                            "expression": "{{state.brain.round.dividend}} / {{state.brain.round.c}}",
+                                                            "precision": 12,
+                                                            "targetState": "brain.round.expected"
+                                                          },
+                                                          "type": "math.evaluate"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "key": "brain.round.expression",
+                                                            "value": "{{state.brain.round.dividend}} / {{state.brain.round.c}}"
+                                                          },
+                                                          "type": "state.set"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "sequence"
+                                            }
+                                          },
+                                          "type": "action.ifElse"
+                                        },
+                                        "then": {
+                                          "props": {
+                                            "steps": [
+                                              {
+                                                "props": {
+                                                  "angleMode": "radians",
+                                                  "errorState": "brain.round.math_error",
+                                                  "expression": "({{state.brain.round.a}} - {{state.brain.round.b}}) * {{state.brain.round.c}}",
+                                                  "precision": 12,
+                                                  "targetState": "brain.round.expected"
+                                                },
+                                                "type": "math.evaluate"
+                                              },
+                                              {
+                                                "props": {
+                                                  "key": "brain.round.expression",
+                                                  "value": "({{state.brain.round.a}} - {{state.brain.round.b}}) x {{state.brain.round.c}}"
+                                                },
+                                                "type": "state.set"
+                                              }
+                                            ]
+                                          },
+                                          "type": "sequence"
+                                        }
+                                      },
+                                      "type": "action.ifElse"
+                                    },
+                                    "then": {
+                                      "props": {
+                                        "steps": [
+                                          {
+                                            "props": {
+                                              "angleMode": "radians",
+                                              "errorState": "brain.round.math_error",
+                                              "expression": "{{state.brain.round.a}} * {{state.brain.round.b}} - {{state.brain.round.c}}",
+                                              "precision": 12,
+                                              "targetState": "brain.round.expected"
+                                            },
+                                            "type": "math.evaluate"
+                                          },
+                                          {
+                                            "props": {
+                                              "key": "brain.round.expression",
+                                              "value": "{{state.brain.round.a}} x {{state.brain.round.b}} - {{state.brain.round.c}}"
+                                            },
+                                            "type": "state.set"
+                                          }
+                                        ]
+                                      },
+                                      "type": "sequence"
+                                    }
+                                  },
+                                  "type": "action.ifElse"
+                                },
+                                "then": {
+                                  "props": {
+                                    "steps": [
+                                      {
+                                        "props": {
+                                          "angleMode": "radians",
+                                          "errorState": "brain.round.math_error",
+                                          "expression": "({{state.brain.round.a}} + {{state.brain.round.b}}) * {{state.brain.round.c}}",
+                                          "precision": 12,
+                                          "targetState": "brain.round.expected"
+                                        },
+                                        "type": "math.evaluate"
+                                      },
+                                      {
+                                        "props": {
+                                          "key": "brain.round.expression",
+                                          "value": "({{state.brain.round.a}} + {{state.brain.round.b}}) x {{state.brain.round.c}}"
+                                        },
+                                        "type": "state.set"
+                                      }
+                                    ]
+                                  },
+                                  "type": "sequence"
+                                }
+                              },
+                              "type": "action.ifElse"
+                            }
+                          ]
+                        },
+                        "type": "sequence"
+                      },
+                      "then": {
+                        "props": {
+                          "steps": [
+                            {
+                              "props": {
+                                "max": 25,
+                                "min": 4,
+                                "targetState": "brain.round.a"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "max": 18,
+                                "min": 3,
+                                "targetState": "brain.round.b"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "max": 8,
+                                "min": 2,
+                                "targetState": "brain.round.c"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "max": 4,
+                                "min": 0,
+                                "targetState": "brain.round.operation"
+                              },
+                              "type": "math.randomInt"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 0,
+                                "targetState": "brain.round.op_0",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 1,
+                                "targetState": "brain.round.op_1",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 2,
+                                "targetState": "brain.round.op_2",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 3,
+                                "targetState": "brain.round.op_3",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "comparison": "equal",
+                                "left": "{{state.brain.round.operation}}",
+                                "right": 4,
+                                "targetState": "brain.round.op_4",
+                                "tolerance": 1e-9
+                              },
+                              "type": "math.compare"
+                            },
+                            {
+                              "props": {
+                                "condition": "{{state.brain.round.op_0}}",
+                                "else": {
+                                  "props": {
+                                    "condition": "{{state.brain.round.op_1}}",
+                                    "else": {
+                                      "props": {
+                                        "condition": "{{state.brain.round.op_2}}",
+                                        "else": {
+                                          "props": {
+                                            "condition": "{{state.brain.round.op_3}}",
+                                            "else": {
+                                              "props": {
+                                                "steps": [
+                                                  {
+                                                    "props": {
+                                                      "max": 9,
+                                                      "min": 1,
+                                                      "targetState": "brain.round.percent_step"
+                                                    },
+                                                    "type": "math.randomInt"
+                                                  },
+                                                  {
+                                                    "props": {
+                                                      "max": 12,
+                                                      "min": 2,
+                                                      "targetState": "brain.round.base_step"
+                                                    },
+                                                    "type": "math.randomInt"
+                                                  },
+                                                  {
+                                                    "props": {
+                                                      "angleMode": "radians",
+                                                      "errorState": "brain.round.math_error",
+                                                      "expression": "{{state.brain.round.percent_step}} * 10",
+                                                      "precision": 12,
+                                                      "targetState": "brain.round.percent"
+                                                    },
+                                                    "type": "math.evaluate"
+                                                  },
+                                                  {
+                                                    "props": {
+                                                      "angleMode": "radians",
+                                                      "errorState": "brain.round.math_error",
+                                                      "expression": "{{state.brain.round.base_step}} * 10",
+                                                      "precision": 12,
+                                                      "targetState": "brain.round.base"
+                                                    },
+                                                    "type": "math.evaluate"
+                                                  },
+                                                  {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "angleMode": "radians",
+                                                            "errorState": "brain.round.math_error",
+                                                            "expression": "{{state.brain.round.percent}}% * {{state.brain.round.base}}",
+                                                            "precision": 12,
+                                                            "targetState": "brain.round.expected"
+                                                          },
+                                                          "type": "math.evaluate"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "key": "brain.round.expression",
+                                                            "value": "{{state.brain.round.percent}}% of {{state.brain.round.base}}"
+                                                          },
+                                                          "type": "state.set"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "sequence"
+                                            },
+                                            "then": {
+                                              "props": {
+                                                "steps": [
+                                                  {
+                                                    "props": {
+                                                      "angleMode": "radians",
+                                                      "errorState": "brain.round.math_error",
+                                                      "expression": "{{state.brain.round.a}} * {{state.brain.round.b}}",
+                                                      "precision": 12,
+                                                      "targetState": "brain.round.dividend"
+                                                    },
+                                                    "type": "math.evaluate"
+                                                  },
+                                                  {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "angleMode": "radians",
+                                                            "errorState": "brain.round.math_error",
+                                                            "expression": "{{state.brain.round.dividend}} / {{state.brain.round.b}}",
+                                                            "precision": 12,
+                                                            "targetState": "brain.round.expected"
+                                                          },
+                                                          "type": "math.evaluate"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "key": "brain.round.expression",
+                                                            "value": "{{state.brain.round.dividend}} / {{state.brain.round.b}}"
+                                                          },
+                                                          "type": "state.set"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "sequence"
+                                            }
+                                          },
+                                          "type": "action.ifElse"
+                                        },
+                                        "then": {
+                                          "props": {
+                                            "steps": [
+                                              {
+                                                "props": {
+                                                  "angleMode": "radians",
+                                                  "errorState": "brain.round.math_error",
+                                                  "expression": "{{state.brain.round.a}} * {{state.brain.round.b}} - {{state.brain.round.c}}",
+                                                  "precision": 12,
+                                                  "targetState": "brain.round.expected"
+                                                },
+                                                "type": "math.evaluate"
+                                              },
+                                              {
+                                                "props": {
+                                                  "key": "brain.round.expression",
+                                                  "value": "{{state.brain.round.a}} x {{state.brain.round.b}} - {{state.brain.round.c}}"
+                                                },
+                                                "type": "state.set"
+                                              }
+                                            ]
+                                          },
+                                          "type": "sequence"
+                                        }
+                                      },
+                                      "type": "action.ifElse"
+                                    },
+                                    "then": {
+                                      "props": {
+                                        "steps": [
+                                          {
+                                            "props": {
+                                              "angleMode": "radians",
+                                              "errorState": "brain.round.math_error",
+                                              "expression": "({{state.brain.round.a}} + {{state.brain.round.b}}) * {{state.brain.round.c}}",
+                                              "precision": 12,
+                                              "targetState": "brain.round.expected"
+                                            },
+                                            "type": "math.evaluate"
+                                          },
+                                          {
+                                            "props": {
+                                              "key": "brain.round.expression",
+                                              "value": "({{state.brain.round.a}} + {{state.brain.round.b}}) x {{state.brain.round.c}}"
+                                            },
+                                            "type": "state.set"
+                                          }
+                                        ]
+                                      },
+                                      "type": "sequence"
+                                    }
+                                  },
+                                  "type": "action.ifElse"
+                                },
+                                "then": {
+                                  "props": {
+                                    "steps": [
+                                      {
+                                        "props": {
+                                          "angleMode": "radians",
+                                          "errorState": "brain.round.math_error",
+                                          "expression": "{{state.brain.round.a}} + {{state.brain.round.b}} + {{state.brain.round.c}}",
+                                          "precision": 12,
+                                          "targetState": "brain.round.expected"
+                                        },
+                                        "type": "math.evaluate"
+                                      },
+                                      {
+                                        "props": {
+                                          "key": "brain.round.expression",
+                                          "value": "{{state.brain.round.a}} + {{state.brain.round.b}} + {{state.brain.round.c}}"
+                                        },
+                                        "type": "state.set"
+                                      }
+                                    ]
+                                  },
+                                  "type": "sequence"
+                                }
+                              },
+                              "type": "action.ifElse"
+                            }
+                          ]
+                        },
+                        "type": "sequence"
+                      }
+                    },
+                    "type": "action.ifElse"
+                  },
+                  "then": {
+                    "props": {
+                      "steps": [
+                        {
+                          "props": {
+                            "max": 12,
+                            "min": 1,
+                            "targetState": "brain.round.a"
+                          },
+                          "type": "math.randomInt"
+                        },
+                        {
+                          "props": {
+                            "max": 12,
+                            "min": 1,
+                            "targetState": "brain.round.b"
+                          },
+                          "type": "math.randomInt"
+                        },
+                        {
+                          "props": {
+                            "max": 6,
+                            "min": 2,
+                            "targetState": "brain.round.c"
+                          },
+                          "type": "math.randomInt"
+                        },
+                        {
+                          "props": {
+                            "max": 3,
+                            "min": 0,
+                            "targetState": "brain.round.operation"
+                          },
+                          "type": "math.randomInt"
+                        },
+                        {
+                          "props": {
+                            "comparison": "equal",
+                            "left": "{{state.brain.round.operation}}",
+                            "right": 0,
+                            "targetState": "brain.round.op_0",
+                            "tolerance": 1e-9
+                          },
+                          "type": "math.compare"
+                        },
+                        {
+                          "props": {
+                            "comparison": "equal",
+                            "left": "{{state.brain.round.operation}}",
+                            "right": 1,
+                            "targetState": "brain.round.op_1",
+                            "tolerance": 1e-9
+                          },
+                          "type": "math.compare"
+                        },
+                        {
+                          "props": {
+                            "comparison": "equal",
+                            "left": "{{state.brain.round.operation}}",
+                            "right": 2,
+                            "targetState": "brain.round.op_2",
+                            "tolerance": 1e-9
+                          },
+                          "type": "math.compare"
+                        },
+                        {
+                          "props": {
+                            "comparison": "equal",
+                            "left": "{{state.brain.round.operation}}",
+                            "right": 3,
+                            "targetState": "brain.round.op_3",
+                            "tolerance": 1e-9
+                          },
+                          "type": "math.compare"
+                        },
+                        {
+                          "props": {
+                            "condition": "{{state.brain.round.op_0}}",
+                            "else": {
+                              "props": {
+                                "condition": "{{state.brain.round.op_1}}",
+                                "else": {
+                                  "props": {
+                                    "condition": "{{state.brain.round.op_2}}",
+                                    "else": {
+                                      "props": {
+                                        "steps": [
+                                          {
+                                            "props": {
+                                              "angleMode": "radians",
+                                              "errorState": "brain.round.math_error",
+                                              "expression": "{{state.brain.round.a}} * {{state.brain.round.b}}",
+                                              "precision": 12,
+                                              "targetState": "brain.round.dividend"
+                                            },
+                                            "type": "math.evaluate"
+                                          },
+                                          {
+                                            "props": {
+                                              "steps": [
+                                                {
+                                                  "props": {
+                                                    "angleMode": "radians",
+                                                    "errorState": "brain.round.math_error",
+                                                    "expression": "{{state.brain.round.dividend}} / {{state.brain.round.b}}",
+                                                    "precision": 12,
+                                                    "targetState": "brain.round.expected"
+                                                  },
+                                                  "type": "math.evaluate"
+                                                },
+                                                {
+                                                  "props": {
+                                                    "key": "brain.round.expression",
+                                                    "value": "{{state.brain.round.dividend}} / {{state.brain.round.b}}"
+                                                  },
+                                                  "type": "state.set"
+                                                }
+                                              ]
+                                            },
+                                            "type": "sequence"
+                                          }
+                                        ]
+                                      },
+                                      "type": "sequence"
+                                    },
+                                    "then": {
+                                      "props": {
+                                        "steps": [
+                                          {
+                                            "props": {
+                                              "angleMode": "radians",
+                                              "errorState": "brain.round.math_error",
+                                              "expression": "{{state.brain.round.a}} * {{state.brain.round.b}}",
+                                              "precision": 12,
+                                              "targetState": "brain.round.expected"
+                                            },
+                                            "type": "math.evaluate"
+                                          },
+                                          {
+                                            "props": {
+                                              "key": "brain.round.expression",
+                                              "value": "{{state.brain.round.a}} x {{state.brain.round.b}}"
+                                            },
+                                            "type": "state.set"
+                                          }
+                                        ]
+                                      },
+                                      "type": "sequence"
+                                    }
+                                  },
+                                  "type": "action.ifElse"
+                                },
+                                "then": {
+                                  "props": {
+                                    "steps": [
+                                      {
+                                        "props": {
+                                          "angleMode": "radians",
+                                          "errorState": "brain.round.math_error",
+                                          "expression": "max({{state.brain.round.a}}, {{state.brain.round.b}})",
+                                          "precision": 12,
+                                          "targetState": "brain.round.left"
+                                        },
+                                        "type": "math.evaluate"
+                                      },
+                                      {
+                                        "props": {
+                                          "angleMode": "radians",
+                                          "errorState": "brain.round.math_error",
+                                          "expression": "min({{state.brain.round.a}}, {{state.brain.round.b}})",
+                                          "precision": 12,
+                                          "targetState": "brain.round.right"
+                                        },
+                                        "type": "math.evaluate"
+                                      },
+                                      {
+                                        "props": {
+                                          "steps": [
+                                            {
+                                              "props": {
+                                                "angleMode": "radians",
+                                                "errorState": "brain.round.math_error",
+                                                "expression": "{{state.brain.round.left}} - {{state.brain.round.right}}",
+                                                "precision": 12,
+                                                "targetState": "brain.round.expected"
+                                              },
+                                              "type": "math.evaluate"
+                                            },
+                                            {
+                                              "props": {
+                                                "key": "brain.round.expression",
+                                                "value": "{{state.brain.round.left}} - {{state.brain.round.right}}"
+                                              },
+                                              "type": "state.set"
+                                            }
+                                          ]
+                                        },
+                                        "type": "sequence"
+                                      }
+                                    ]
+                                  },
+                                  "type": "sequence"
+                                }
+                              },
+                              "type": "action.ifElse"
+                            },
+                            "then": {
+                              "props": {
+                                "steps": [
+                                  {
+                                    "props": {
+                                      "angleMode": "radians",
+                                      "errorState": "brain.round.math_error",
+                                      "expression": "{{state.brain.round.a}} + {{state.brain.round.b}}",
+                                      "precision": 12,
+                                      "targetState": "brain.round.expected"
+                                    },
+                                    "type": "math.evaluate"
+                                  },
+                                  {
+                                    "props": {
+                                      "key": "brain.round.expression",
+                                      "value": "{{state.brain.round.a}} + {{state.brain.round.b}}"
+                                    },
+                                    "type": "state.set"
+                                  }
+                                ]
+                              },
+                              "type": "sequence"
+                            }
+                          },
+                          "type": "action.ifElse"
+                        }
+                      ]
+                    },
+                    "type": "sequence"
+                  }
+                },
+                "type": "action.ifElse"
+              },
+              {
+                "props": {
+                  "max": 1,
+                  "min": 0,
+                  "targetState": "brain.round.truth_code"
+                },
+                "type": "math.randomInt"
+              },
+              {
+                "props": {
+                  "comparison": "equal",
+                  "left": "{{state.brain.round.truth_code}}",
+                  "right": 1,
+                  "targetState": "brain.round.statement_true",
+                  "tolerance": 1e-9
+                },
+                "type": "math.compare"
+              },
+              {
+                "props": {
+                  "max": 3,
+                  "min": 1,
+                  "targetState": "brain.round.wrong_offset"
+                },
+                "type": "math.randomInt"
+              },
+              {
+                "props": {
+                  "condition": "{{state.brain.round.statement_true}}",
+                  "else": {
+                    "props": {
+                      "angleMode": "radians",
+                      "errorState": "brain.round.math_error",
+                      "expression": "{{state.brain.round.expected}} + {{state.brain.round.wrong_offset}}",
+                      "precision": 12,
+                      "targetState": "brain.round.displayed_answer"
+                    },
+                    "type": "math.evaluate"
+                  },
+                  "then": {
+                    "props": {
+                      "convertTo": "value",
+                      "from": "brain.round.expected",
+                      "to": "brain.round.displayed_answer"
+                    },
+                    "type": "state.copy"
+                  }
+                },
+                "type": "action.ifElse"
+              },
+              {
+                "props": {
+                  "key": "brain.round.active",
+                  "value": true
+                },
+                "type": "state.set"
+              }
+            ]
+          },
+          "type": "sequence"
+        }
+      }
+    },
+    "type": "actionScope"
+  },
+  "schemaVersion": 1,
+  "screenId": "brain_test_game"
+}

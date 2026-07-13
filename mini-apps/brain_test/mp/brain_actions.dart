@@ -1,6 +1,7 @@
 import 'package:mini_program_ui/mini_program_ui.dart';
 
 const _profileCacheKey = 'brain_test_profile';
+const brainNextQuestionAction = 'nextQuestion';
 
 List<MpAction> initializeBrainProfile() {
   return <MpAction>[
@@ -66,7 +67,7 @@ List<MpAction> initializeBrainRound() {
       right: 2,
       targetState: 'brain.round.is_medium',
     ),
-    generateBrainQuestion(),
+    Mp.action.call(brainNextQuestionAction),
   ];
 }
 
@@ -154,16 +155,8 @@ MpAction generateBrainQuestion() {
 MpAction _correctAnswer() {
   return Mp.action.sequence(<MpAction>[
     Mp.state.increment('brain.round.score'),
-    Mp.router.replace(
-      'brain_test_game',
-      params: <String, Object?>{
-        'difficulty_key': '{{state.brain.round.difficulty_key}}',
-        'difficulty_label': '{{state.brain.round.difficulty_label}}',
-        'level': '{{state.brain.round.level}}',
-        'score': '{{state.brain.round.score}}',
-      },
-      requestId: 'brain-test-next-question',
-    ),
+    Mp.state.increment('brain.round.question_id'),
+    Mp.action.call(brainNextQuestionAction),
   ]);
 }
 

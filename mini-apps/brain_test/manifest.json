@@ -1,6 +1,6 @@
 {
   "id": "brain_test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "entry": "brain_test_home",
   "contractVersion": "1.0.0",
   "sdkVersionRange": ">=1.0.0 <2.0.0",

@@ -1,0 +1,314 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [],
+                        "props": {
+                          "child": {
+                            "children": [
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 34
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFFFD84A",
+                                          "name": "trophy",
+                                          "semanticLabel": "Round score",
+                                          "size": 68
+                                        },
+                                        "type": "icon"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "center"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF3B3210",
+                                  "borderColor": "#FFFFD84A",
+                                  "borderRadius": 8,
+                                  "borderWidth": 2,
+                                  "height": 112,
+                                  "width": 112
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 22
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "condition": "{{state.brain.round.new_best}}",
+                                  "whenFalse": {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FFA8B0BE",
+                                      "data": "ROUND COMPLETE",
+                                      "size": 15,
+                                      "weight": "bold"
+                                    },
+                                    "type": "text"
+                                  },
+                                  "whenTrue": {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FF4CD7D0",
+                                      "data": "NEW BEST",
+                                      "size": 15,
+                                      "weight": "bold"
+                                    },
+                                    "type": "text"
+                                  }
+                                },
+                                "type": "condition"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 8
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "align": "center",
+                                  "color": "#FFF7F8FA",
+                                  "data": "{{state.brain.round.score}}",
+                                  "size": 72,
+                                  "weight": "bold"
+                                },
+                                "type": "text"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "align": "center",
+                                  "color": "#FFA8B0BE",
+                                  "data": "correct answers",
+                                  "size": 16
+                                },
+                                "type": "text"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 20
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFF7F8FA",
+                                              "data": "{{state.brain.round.difficulty_label}}",
+                                              "size": 16,
+                                              "weight": "semibold"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {
+                                          "flex": 1
+                                        },
+                                        "type": "expanded"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFFF6577",
+                                          "data": "{{state.brain.round.end_reason}}",
+                                          "size": 14
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "row"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF1B202A",
+                                  "borderRadius": 8,
+                                  "padding": {
+                                    "bottom": 14,
+                                    "left": 16,
+                                    "right": 16,
+                                    "top": 14
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 28
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "params": {
+                                        "difficulty_key": "{{state.brain.round.difficulty_key}}",
+                                        "difficulty_label": "{{state.brain.round.difficulty_label}}",
+                                        "level": "{{state.brain.round.level}}",
+                                        "score": 0
+                                      },
+                                      "requestId": "brain-test-replay",
+                                      "screenId": "brain_test_game"
+                                    },
+                                    "type": "router.replace"
+                                  },
+                                  "backgroundColor": "#FFFFD84A",
+                                  "borderColor": "#FFFFD84A",
+                                  "borderRadius": 8,
+                                  "borderWidth": 0,
+                                  "fontSize": 17,
+                                  "fontWeight": "bold",
+                                  "foregroundColor": "#FF10131A",
+                                  "height": 58,
+                                  "label": "PLAY AGAIN"
+                                },
+                                "type": "button"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "requestId": "brain-test-home-from-result"
+                                    },
+                                    "type": "router.popToRoot"
+                                  },
+                                  "backgroundColor": "#FF1B202A",
+                                  "borderColor": "#FF242B36",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "fontSize": 16,
+                                  "fontWeight": "medium",
+                                  "foregroundColor": "#FFF7F8FA",
+                                  "height": 54,
+                                  "label": "BACK TO LEVELS"
+                                },
+                                "type": "button"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "screenId": "brain_test_history"
+                                    },
+                                    "type": "router.push"
+                                  },
+                                  "backgroundColor": "#FF10131A",
+                                  "borderColor": "#FF4CD7D0",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "fontSize": 16,
+                                  "fontWeight": "medium",
+                                  "foregroundColor": "#FF4CD7D0",
+                                  "height": 54,
+                                  "label": "VIEW HISTORY"
+                                },
+                                "type": "button"
+                              }
+                            ],
+                            "props": {},
+                            "type": "column"
+                          },
+                          "keys": [
+                            "brain.round.score",
+                            "brain.round.difficulty_label",
+                            "brain.round.end_reason",
+                            "brain.round.new_best"
+                          ]
+                        },
+                        "type": "stateBuilder"
+                      }
+                    ],
+                    "props": {
+                      "width": 440
+                    },
+                    "type": "container"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "padding": {
+                "bottom": 24,
+                "left": 20,
+                "right": 20,
+                "top": 24
+              }
+            },
+            "type": "scrollView"
+          }
+        ],
+        "props": {
+          "bottom": true,
+          "left": true,
+          "right": true,
+          "top": true
+        },
+        "type": "safeArea"
+      }
+    ],
+    "props": {
+      "backgroundColor": "#FF10131A"
+    },
+    "type": "container"
+  },
+  "schemaVersion": 1,
+  "screenId": "brain_test_result"
+}

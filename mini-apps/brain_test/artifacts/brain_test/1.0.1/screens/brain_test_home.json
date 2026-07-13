@@ -1,0 +1,609 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF10131A",
+                                              "name": "bolt",
+                                              "semanticLabel": "Brain Test mark",
+                                              "size": 27
+                                            },
+                                            "type": "icon"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "center"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FFFFD84A",
+                                      "borderRadius": 8,
+                                      "height": 44,
+                                      "width": 44
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "width": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFF7F8FA",
+                                          "data": "BRAIN TEST",
+                                          "size": 22,
+                                          "weight": "bold"
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {
+                                      "flex": 1
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "action": {
+                                        "props": {
+                                          "screenId": "brain_test_history"
+                                        },
+                                        "type": "router.push"
+                                      },
+                                      "backgroundColor": "#FF1B202A",
+                                      "borderColor": "#FF242B36",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "color": "#FFFFD84A",
+                                      "iconSize": 25,
+                                      "name": "history",
+                                      "semanticLabel": "Score history",
+                                      "size": 44
+                                    },
+                                    "type": "iconButton"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "row"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 26
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFFFD84A",
+                                              "name": "brain",
+                                              "semanticLabel": "Brain challenge",
+                                              "size": 82
+                                            },
+                                            "type": "icon"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "center"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF3B3210",
+                                      "borderColor": "#FFFFD84A",
+                                      "borderRadius": 8,
+                                      "borderWidth": 2,
+                                      "height": 132,
+                                      "width": 132
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 18
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FFF7F8FA",
+                                      "data": "Think fast. Trust the math.",
+                                      "size": 26,
+                                      "weight": "bold"
+                                    },
+                                    "type": "text"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 7
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FFA8B0BE",
+                                      "data": "10 seconds for every true-or-false challenge",
+                                      "size": 15
+                                    },
+                                    "type": "text"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 26
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFF7F8FA",
+                                                      "data": "{{state.brain.profile.rounds}}",
+                                                      "size": 24,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFA8B0BE",
+                                                      "data": "ROUNDS",
+                                                      "size": 11
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 1,
+                                                  "width": 1
+                                                },
+                                                "type": "sizedBox"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF242B36",
+                                              "height": 42,
+                                              "width": 1
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFF7F8FA",
+                                                      "data": "{{state.brain.profile.total_score}}",
+                                                      "size": 24,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#FFA8B0BE",
+                                                      "data": "CORRECT",
+                                                      "size": 11
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF1B202A",
+                                      "borderColor": "#FF242B36",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 15,
+                                        "left": 18,
+                                        "right": 18,
+                                        "top": 15
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  "keys": [
+                                    "brain.profile.rounds",
+                                    "brain.profile.total_score"
+                                  ]
+                                },
+                                "type": "stateBuilder"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 28
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "color": "#FFF7F8FA",
+                                  "data": "Choose a challenge",
+                                  "size": 21,
+                                  "weight": "semibold"
+                                },
+                                "type": "text"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "action": {
+                                            "props": {
+                                              "params": {
+                                                "difficulty_key": "easy",
+                                                "difficulty_label": "Easy",
+                                                "level": 1,
+                                                "score": 0
+                                              },
+                                              "requestId": "brain-test-start-easy",
+                                              "screenId": "brain_test_game"
+                                            },
+                                            "type": "router.push"
+                                          },
+                                          "backgroundColor": "#FF4CD7D0",
+                                          "borderColor": "#FF4CD7D0",
+                                          "borderRadius": 8,
+                                          "borderWidth": 0,
+                                          "fontSize": 16,
+                                          "fontWeight": "bold",
+                                          "foregroundColor": "#FF10131A",
+                                          "height": 72,
+                                          "label": "EASY   +  -  x  /     BEST {{state.brain.profile.best.easy}}"
+                                        },
+                                        "type": "button"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 12
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "action": {
+                                            "props": {
+                                              "params": {
+                                                "difficulty_key": "medium",
+                                                "difficulty_label": "Medium",
+                                                "level": 2,
+                                                "score": 0
+                                              },
+                                              "requestId": "brain-test-start-medium",
+                                              "screenId": "brain_test_game"
+                                            },
+                                            "type": "router.push"
+                                          },
+                                          "backgroundColor": "#FFFFD84A",
+                                          "borderColor": "#FFFFD84A",
+                                          "borderRadius": 8,
+                                          "borderWidth": 0,
+                                          "fontSize": 16,
+                                          "fontWeight": "bold",
+                                          "foregroundColor": "#FF10131A",
+                                          "height": 72,
+                                          "label": "MEDIUM   MIXED + %     BEST {{state.brain.profile.best.medium}}"
+                                        },
+                                        "type": "button"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 12
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "action": {
+                                            "props": {
+                                              "params": {
+                                                "difficulty_key": "difficult",
+                                                "difficulty_label": "Difficult",
+                                                "level": 3,
+                                                "score": 0
+                                              },
+                                              "requestId": "brain-test-start-difficult",
+                                              "screenId": "brain_test_game"
+                                            },
+                                            "type": "router.push"
+                                          },
+                                          "backgroundColor": "#FFFF6577",
+                                          "borderColor": "#FFFF6577",
+                                          "borderRadius": 8,
+                                          "borderWidth": 0,
+                                          "fontSize": 16,
+                                          "fontWeight": "bold",
+                                          "foregroundColor": "#FFF7F8FA",
+                                          "height": 72,
+                                          "label": "DIFFICULT   ( )  %  ^     BEST {{state.brain.profile.best.difficult}}"
+                                        },
+                                        "type": "button"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  },
+                                  "keys": [
+                                    "brain.profile.best.easy",
+                                    "brain.profile.best.medium",
+                                    "brain.profile.best.difficult"
+                                  ]
+                                },
+                                "type": "stateBuilder"
+                              }
+                            ],
+                            "props": {},
+                            "type": "column"
+                          }
+                        ],
+                        "props": {
+                          "width": 440
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "props": {},
+                    "type": "center"
+                  }
+                ],
+                "props": {
+                  "padding": {
+                    "bottom": 24,
+                    "left": 20,
+                    "right": 20,
+                    "top": 16
+                  }
+                },
+                "type": "scrollView"
+              }
+            ],
+            "props": {
+              "bottom": true,
+              "left": true,
+              "right": true,
+              "top": true
+            },
+            "type": "safeArea"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF10131A"
+        },
+        "type": "container"
+      }
+    ],
+    "props": {
+      "actions": [
+        {
+          "props": {
+            "bucket": "state",
+            "key": "brain_test_profile",
+            "requestId": "brain-test-load-profile",
+            "skipMissing": true,
+            "targetState": "brain.profile"
+          },
+          "type": "cache.get"
+        },
+        {
+          "props": {
+            "key": "brain.profile",
+            "value": {}
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "brain.profile.best.easy",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "brain.profile.best.medium",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "brain.profile.best.difficult",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "brain.profile.rounds",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "brain.profile.total_score",
+            "value": 0
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "brain.profile.history",
+            "value": []
+          },
+          "type": "state.setDefault"
+        }
+      ],
+      "error": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFA8B0BE",
+                  "data": "Brain Test could not start",
+                  "size": 16
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "center"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF10131A",
+          "padding": {
+            "bottom": 24,
+            "left": 24,
+            "right": 24,
+            "top": 24
+          }
+        },
+        "type": "container"
+      },
+      "errorState": "brain.home_error",
+      "loading": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFA8B0BE",
+                  "data": "Loading Brain Test",
+                  "size": 16
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "center"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF10131A",
+          "padding": {
+            "bottom": 24,
+            "left": 24,
+            "right": 24,
+            "top": 24
+          }
+        },
+        "type": "container"
+      },
+      "statusState": "brain.home_status"
+    },
+    "type": "initialize"
+  },
+  "schemaVersion": 1,
+  "screenId": "brain_test_home"
+}

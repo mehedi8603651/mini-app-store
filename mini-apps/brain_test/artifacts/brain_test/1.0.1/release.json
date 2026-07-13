@@ -1,0 +1,10 @@
+{
+  "appId": "brain_test",
+  "artifactLayoutVersion": 1,
+  "assetsPath": "assets/",
+  "checksums": "checksums.json",
+  "manifest": "manifest.json",
+  "schemaVersion": 1,
+  "screensPath": "screens/",
+  "version": "1.0.1"
+}
