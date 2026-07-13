@@ -309,7 +309,7 @@ packages:
       path: "../../../flutter-mini-program-platform/packages/mini_program_sdk"
       relative: true
     source: path
-    version: "0.5.9"
+    version: "0.5.10"
   objective_c:
     dependency: transitive
     description:
