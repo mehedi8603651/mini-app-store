@@ -3,12 +3,14 @@
 // multiple mini-programs.
 
 class MiniProgramInfo {
-  const MiniProgramInfo({required this.appId, required this.title});
+  const MiniProgramInfo({
+    required this.appId,
+    required this.title,
+  });
 
   final String appId;
   final String title;
 }
-
 class MiniPrograms {
   const MiniPrograms._();
 
@@ -22,10 +24,20 @@ class MiniPrograms {
     title: "Calculator",
   );
 
-  static const values = <MiniProgramInfo>[brainTest, calculator];
+  static const weather = MiniProgramInfo(
+    appId: "weather",
+    title: "Bangladesh Weather",
+  );
+
+  static const values = <MiniProgramInfo>[
+    brainTest,
+    calculator,
+    weather,
+  ];
 
   static const byAppId = <String, MiniProgramInfo>{
     "brain_test": brainTest,
     "calculator": calculator,
+    "weather": weather,
   };
 }

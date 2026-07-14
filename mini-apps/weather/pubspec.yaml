@@ -1,0 +1,19 @@
+name: weather_mini_program
+description: Bangladesh-first seven-day weather mini-program powered by Open-Meteo.
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  mini_program_ui:
+    path: D:/flutter-mini-program-platform/packages/mini_program_ui
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.26.0
+
+dependency_overrides:
+  mini_program_contracts:
+    path: D:/flutter-mini-program-platform/packages/mini_program_contracts

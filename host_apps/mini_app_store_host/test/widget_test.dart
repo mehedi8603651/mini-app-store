@@ -13,5 +13,10 @@ void main() {
       find.text('Timed true-or-false arithmetic challenges'),
       findsOneWidget,
     );
+    expect(find.text('Bangladesh Weather'), findsOneWidget);
+    expect(
+      find.text('Bangladesh locations and 7-day global forecasts'),
+      findsOneWidget,
+    );
   });
 }

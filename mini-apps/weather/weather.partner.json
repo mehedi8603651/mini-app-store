@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "type": "mini_program_partner_handoff",
+  "appId": "weather",
+  "title": "Bangladesh Weather",
+  "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
+  "generatedAtUtc": "2026-07-14T09:55:07Z",
+  "requestedCache": {
+    "data": {
+      "enabled": true,
+      "reason": "Searchable Bangladesh thana, area, upazila and union location indexes",
+      "recommendedMaxBytes": 4194304,
+      "recommendedTtlDays": 30
+    },
+    "state": {
+      "enabled": true,
+      "reason": "Selected weather location and recent app preferences",
+      "recommendedMaxBytes": 131072,
+      "recommendedTtlDays": 90
+    }
+  }
+}

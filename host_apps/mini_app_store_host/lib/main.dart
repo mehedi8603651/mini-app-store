@@ -20,6 +20,10 @@ const _brainTestEndpointOverride = String.fromEnvironment(
   'MINI_PROGRAM_BRAIN_TEST_URL',
   defaultValue: '',
 );
+const _weatherEndpointOverride = String.fromEnvironment(
+  'MINI_PROGRAM_WEATHER_URL',
+  defaultValue: '',
+);
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,6 +71,13 @@ Map<String, MiniProgramEndpoint> _buildEndpoints() {
     _brainTestEndpointOverride.trim().isEmpty
         ? sharedOverride
         : _brainTestEndpointOverride.trim(),
+  );
+  _overrideEndpoint(
+    endpoints,
+    MiniPrograms.weather.appId,
+    _weatherEndpointOverride.trim().isEmpty
+        ? sharedOverride
+        : _weatherEndpointOverride.trim(),
   );
   return endpoints;
 }
@@ -142,6 +153,15 @@ class MiniAppCatalogPage extends StatelessWidget {
             iconBackground: const Color(0xFFFFD84A),
             iconForeground: const Color(0xFF10131A),
             launchBackground: const Color(0xFF10131A),
+          ),
+          const SizedBox(height: 12),
+          _MiniProgramCatalogTile(
+            app: MiniPrograms.weather,
+            description: 'Bangladesh locations and 7-day global forecasts',
+            icon: Icons.cloud_outlined,
+            iconBackground: const Color(0xFF00D6D2),
+            iconForeground: const Color(0xFF10131A),
+            launchBackground: const Color(0xFF10151E),
           ),
         ],
       ),

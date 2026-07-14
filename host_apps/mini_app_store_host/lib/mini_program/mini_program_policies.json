@@ -60,6 +60,47 @@
         },
         "permissions": {}
       }
+    },
+    "weather": {
+      "requested": {
+        "source": "weather.partner.json",
+        "cache": {
+          "data": {
+            "enabled": true,
+            "reason": "Searchable Bangladesh thana, area, upazila and union location indexes",
+            "recommendedMaxBytes": 4194304,
+            "recommendedTtlDays": 30
+          },
+          "state": {
+            "enabled": true,
+            "reason": "Selected weather location and recent app preferences",
+            "recommendedMaxBytes": 131072,
+            "recommendedTtlDays": 90
+          }
+        },
+        "permissions": {}
+      },
+      "accepted": {
+        "cache": {
+          "data": {
+            "enabled": true,
+            "maxBytes": 4194304,
+            "ttlDays": 30
+          },
+          "state": {
+            "enabled": true,
+            "maxBytes": 131072,
+            "ttlDays": 90
+          }
+        },
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {}
+      }
     }
   }
 }

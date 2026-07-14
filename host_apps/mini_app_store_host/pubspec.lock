@@ -73,6 +73,22 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.9"
+  diacritic:
+    dependency: transitive
+    description:
+      name: diacritic
+      sha256: "12981945ec38931748836cd76f2b38773118d0baef3c68404bdfde9566147876"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.6"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: "3bce007a596ff8b3119c45d68aaef631272537c03d30e5d4534dd24bf4c5eaa2"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.0"
   fake_async:
     dependency: transitive
     description:
@@ -105,6 +121,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.0.1"
+  fl_chart:
+    dependency: transitive
+    description:
+      name: fl_chart
+      sha256: b938f77d042cbcd822936a7a359a7235bad8bd72070de1f827efc2cc297ac888
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.2.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -193,7 +217,7 @@ packages:
     source: hosted
     version: "2.0.2"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       sha256: "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412"
@@ -302,21 +326,21 @@ packages:
       path: "../../../flutter-mini-program-platform/packages/mini_program_contracts"
       relative: true
     source: path
-    version: "0.3.4"
+    version: "0.3.5"
   mini_program_sdk:
     dependency: "direct main"
     description:
       path: "../../../flutter-mini-program-platform/packages/mini_program_sdk"
       relative: true
     source: path
-    version: "0.5.10"
+    version: "0.5.11"
   mini_program_ui:
     dependency: "direct overridden"
     description:
       path: "../../../flutter-mini-program-platform/packages/mini_program_ui"
       relative: true
     source: path
-    version: "0.1.10"
+    version: "0.1.11"
   objective_c:
     dependency: transitive
     description:

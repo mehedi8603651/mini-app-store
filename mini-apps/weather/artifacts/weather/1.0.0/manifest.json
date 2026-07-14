@@ -1,0 +1,25 @@
+{
+  "artifactLayoutVersion": 1,
+  "cachePolicy": {
+    "entryScreen": {
+      "maxStaleSeconds": 21600,
+      "mode": "staleWhileError"
+    },
+    "manifest": {
+      "maxStaleSeconds": 86400,
+      "mode": "staleWhileError"
+    }
+  },
+  "contractVersion": "1.0.0",
+  "entry": "weather_home",
+  "fallback": {
+    "message": "Weather is temporarily unavailable in this host app.",
+    "strategy": "errorView"
+  },
+  "id": "weather",
+  "requiredCapabilities": [],
+  "screenFormat": "mp",
+  "screenSchemaVersion": 1,
+  "sdkVersionRange": ">=1.0.0 <2.0.0",
+  "version": "1.0.0"
+}

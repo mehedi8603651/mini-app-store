@@ -1,0 +1,36 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 73474,
+      "path": "assets/data/bangladesh_thana_area.json",
+      "sha256": "7de2928082e959977ddf598fbbfc4e4057401b32c18daff7f01ba1a47a00d951"
+    },
+    {
+      "bytes": 1180724,
+      "path": "assets/data/bangladesh_upzila_area.json",
+      "sha256": "a808e7c02932cf1fc0779108046ee6317b53d7bb5b9add13b3ece50c11347fd1"
+    },
+    {
+      "bytes": 576,
+      "path": "manifest.json",
+      "sha256": "2a41270ac81f0e7e2ba6e76f67df04d58f77008937bb882485c6b52713450d49"
+    },
+    {
+      "bytes": 219,
+      "path": "release.json",
+      "sha256": "efb2ba8716009968435bcf1b708211fdea463a79af42ddf352f4c1ec620daea7"
+    },
+    {
+      "bytes": 88080,
+      "path": "screens/weather_home.json",
+      "sha256": "8a24e7358e23e2bc80d113f78388ef693234ee12723010cd1885dd1bb0e77086"
+    },
+    {
+      "bytes": 56068,
+      "path": "screens/weather_search.json",
+      "sha256": "32ce3502a54aefaf67051b8e1b7dc08fa854796dd95eb28c47e6b00350a31572"
+    }
+  ],
+  "schemaVersion": 1
+}

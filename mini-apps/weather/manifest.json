@@ -1,0 +1,24 @@
+{
+  "id": "weather",
+  "version": "1.0.0",
+  "entry": "weather_home",
+  "contractVersion": "1.0.0",
+  "sdkVersionRange": ">=1.0.0 <2.0.0",
+  "requiredCapabilities": [],
+  "screenFormat": "mp",
+  "screenSchemaVersion": 1,
+  "cachePolicy": {
+    "manifest": {
+      "mode": "staleWhileError",
+      "maxStaleSeconds": 86400
+    },
+    "entryScreen": {
+      "mode": "staleWhileError",
+      "maxStaleSeconds": 21600
+    }
+  },
+  "fallback": {
+    "strategy": "errorView",
+    "message": "Weather is temporarily unavailable in this host app."
+  }
+}
