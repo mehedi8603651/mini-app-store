@@ -4,6 +4,7 @@
   "contractVersion": "1",
   "appId": "weather",
   "backendBaseUrl": "https://5ibchf95dc.execute-api.ap-south-1.amazonaws.com",
+  "permissionReason": "Load current forecasts and global fallback locations.",
   "healthEndpoint": "health",
   "smokeTests": [
     {

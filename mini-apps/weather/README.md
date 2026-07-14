@@ -31,9 +31,10 @@ dart run D:\flutter-mini-program-platform\packages\mini_program_tooling\bin\mini
 dart run D:\flutter-mini-program-platform\packages\mini_program_tooling\bin\miniprogram.dart artifact verify --mini-program-root .
 ```
 
-The Mini App Store host contains a Weather-only Open-Meteo adapter for local
-testing. A production publisher should expose the same relative `forecast` and
-`geocoding` routes from its HTTPS middle-server.
+Root `publisher_backend.json` declares the production HTTPS middle-server.
+The host accepts or denies Publisher API permission; it does not configure a
+Weather-specific URL or adapter. Screen actions use relative `forecast` and
+`geocoding` routes.
 
 Weather and geocoding data are provided by Open-Meteo. Global location data is
 based on GeoNames as documented by Open-Meteo.

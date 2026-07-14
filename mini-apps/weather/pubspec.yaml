@@ -1,7 +1,7 @@
 name: weather_mini_program
 description: Bangladesh-first seven-day weather mini-program powered by Open-Meteo.
 publish_to: none
-version: 1.0.1
+version: 1.0.2
 
 environment:
   sdk: ^3.10.0

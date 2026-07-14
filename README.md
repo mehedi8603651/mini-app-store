@@ -22,7 +22,7 @@ Both apps persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.5`, UI `0.1.11`, SDK `0.5.11`, and tooling `0.6.11`.
+local contracts `0.3.6`, UI `0.1.11`, SDK `0.5.12`, and tooling `0.6.12`.
 
 ## Weather Publisher API
 
@@ -36,9 +36,10 @@ npm test
 .\deploy.ps1
 ```
 
-The generated host endpoint currently routes Weather's relative `forecast`
-and `geocoding` actions to the deployed API Gateway URL. No AWS credentials or
-Open-Meteo secrets are stored in the mini-program artifact.
+Weather declares the deployed API Gateway URL in its artifact-owned
+`publisher_backend.json`. The host accepts Publisher API permission but does
+not duplicate or override that URL. No AWS credentials or Open-Meteo secrets
+are stored in the mini-program artifact.
 
 ## Build and verify portable artifacts
 

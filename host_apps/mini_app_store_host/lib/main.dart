@@ -97,9 +97,9 @@ void _overrideEndpoint(
     headers: current.headers,
     requestTimeout: current.requestTimeout,
     enableLocalLoopbackFallback: current.enableLocalLoopbackFallback,
-    backend: current.backend,
     cachePolicy: current.cachePolicy,
     liveStatePolicy: current.liveStatePolicy,
+    publisherApiPolicy: current.publisherApiPolicy,
   );
 }
 

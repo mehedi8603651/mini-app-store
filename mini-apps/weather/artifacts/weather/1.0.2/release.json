@@ -1,0 +1,11 @@
+{
+  "appId": "weather",
+  "artifactLayoutVersion": 1,
+  "assetsPath": "assets/",
+  "checksums": "checksums.json",
+  "manifest": "manifest.json",
+  "publisherBackend": "publisher_backend.json",
+  "schemaVersion": 1,
+  "screensPath": "screens/",
+  "version": "1.0.2"
+}

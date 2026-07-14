@@ -44,19 +44,11 @@ MiniProgramConfig buildMiniProgramConfig({
   final source = endpoints.isEmpty
       ? _buildDefaultHttpSource(deliveryContext)
       : _buildEndpointRoutingSource(endpoints, deliveryContext);
-  final routedBackendConnector = endpoints.isEmpty
-      ? null
-      : buildEndpointRoutingBackendConnector(
-          endpoints: endpoints,
-          deliveryContext: deliveryContext,
-        );
-
   return MiniProgramConfig(
     sdkVersion: _sdkVersion,
     source: source,
     hostBridge: AppHostBridge(openNativeRoute: openNativeRoute),
     capabilityRegistry: CapabilityRegistry(supportedCapabilities),
-    backendConnector: routedBackendConnector,
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,
     cacheBundle: cacheBundle ?? MiniProgramCacheBundle.inMemory(),

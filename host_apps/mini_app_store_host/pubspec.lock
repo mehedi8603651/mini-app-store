@@ -326,14 +326,14 @@ packages:
       path: "../../../flutter-mini-program-platform/packages/mini_program_contracts"
       relative: true
     source: path
-    version: "0.3.5"
+    version: "0.3.6"
   mini_program_sdk:
     dependency: "direct main"
     description:
       path: "../../../flutter-mini-program-platform/packages/mini_program_sdk"
       relative: true
     source: path
-    version: "0.5.11"
+    version: "0.5.12"
   mini_program_ui:
     dependency: "direct overridden"
     description:

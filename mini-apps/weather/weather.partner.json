@@ -4,7 +4,7 @@
   "appId": "weather",
   "title": "Bangladesh Weather",
   "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
-  "generatedAtUtc": "2026-07-14T10:15:00Z",
+  "generatedAtUtc": "2026-07-14T15:57:36.098483Z",
   "requestedCache": {
     "data": {
       "enabled": true,
@@ -18,5 +18,10 @@
       "recommendedMaxBytes": 131072,
       "recommendedTtlDays": 90
     }
+  },
+  "requestedPublisherApi": {
+    "enabled": true,
+    "reason": "Load current forecasts and global fallback locations.",
+    "contract": "publisher_backend.json"
   }
 }

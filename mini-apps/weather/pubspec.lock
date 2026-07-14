@@ -191,7 +191,7 @@ packages:
       path: "D:/flutter-mini-program-platform/packages/mini_program_contracts"
       relative: false
     source: path
-    version: "0.3.5"
+    version: "0.3.6"
   mini_program_ui:
     dependency: "direct main"
     description:

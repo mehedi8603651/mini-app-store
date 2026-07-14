@@ -28,7 +28,10 @@
           "maxValueBytes": 262144,
           "maxDepth": 32
         },
-        "permissions": {}
+        "permissions": {},
+        "publisherApi": {
+          "enabled": false
+        }
       }
     },
     "calculator": {
@@ -58,7 +61,10 @@
           "maxValueBytes": 262144,
           "maxDepth": 32
         },
-        "permissions": {}
+        "permissions": {},
+        "publisherApi": {
+          "enabled": false
+        }
       }
     },
     "weather": {
@@ -77,6 +83,11 @@
             "recommendedMaxBytes": 131072,
             "recommendedTtlDays": 90
           }
+        },
+        "publisherApi": {
+          "enabled": true,
+          "reason": "Load current forecasts and global fallback locations.",
+          "contract": "publisher_backend.json"
         },
         "permissions": {}
       },
@@ -99,7 +110,10 @@
           "maxValueBytes": 262144,
           "maxDepth": 32
         },
-        "permissions": {}
+        "permissions": {},
+        "publisherApi": {
+          "enabled": true
+        }
       }
     }
   }
