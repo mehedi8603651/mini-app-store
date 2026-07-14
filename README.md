@@ -7,6 +7,8 @@ Flutter Mini Program Platform.
 
 - `mini-apps/calculator`: Mp authoring source for the calculator.
 - `mini-apps/brain_test`: timed arithmetic challenge source and release.
+- `mini-apps/weather`: Bangladesh-first location search and global forecasts.
+- `backends/weather_api`: AWS Lambda middle-server for Weather runtime data.
 - `host_apps/mini_app_store_host`: Android-focused Flutter host application.
 - `.github/workflows/deploy-pages.yml`: validates, merges, and deploys all
   mini-program artifacts to GitHub Pages.
@@ -20,7 +22,23 @@ Both apps persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.4`, UI `0.1.10`, SDK `0.5.10`, and tooling `0.6.10`.
+local contracts `0.3.5`, UI `0.1.11`, SDK `0.5.11`, and tooling `0.6.11`.
+
+## Weather Publisher API
+
+Weather keeps Bangladesh location search in its immutable artifact. Forecasts
+and global fallback geocoding use the publisher-owned AWS API in
+`backends/weather_api`. Deploy or update it with:
+
+```powershell
+cd D:\mini-app-store\backends\weather_api
+npm test
+.\deploy.ps1
+```
+
+The generated host endpoint currently routes Weather's relative `forecast`
+and `geocoding` actions to the deployed API Gateway URL. No AWS credentials or
+Open-Meteo secrets are stored in the mini-program artifact.
 
 ## Build and verify portable artifacts
 

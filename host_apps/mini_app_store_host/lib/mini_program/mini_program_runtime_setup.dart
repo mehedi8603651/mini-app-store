@@ -4,7 +4,6 @@ import 'package:mini_program_contracts/mini_program_contracts.dart';
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 
 import 'app_host_bridge.dart';
-import 'weather_open_meteo_connector.dart';
 
 const String _hostAppId = 'mini_app_store_host';
 const String _sdkVersion = '1.0.0';
@@ -57,9 +56,7 @@ MiniProgramConfig buildMiniProgramConfig({
     source: source,
     hostBridge: AppHostBridge(openNativeRoute: openNativeRoute),
     capabilityRegistry: CapabilityRegistry(supportedCapabilities),
-    backendConnector: routedBackendConnector == null
-        ? null
-        : WeatherOpenMeteoConnector(fallback: routedBackendConnector),
+    backendConnector: routedBackendConnector,
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,
     cacheBundle: cacheBundle ?? MiniProgramCacheBundle.inMemory(),

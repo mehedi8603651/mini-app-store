@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "type": "mini_program_publisher_backend_contract",
+  "contractVersion": "1",
+  "appId": "weather",
+  "backendBaseUrl": "https://5ibchf95dc.execute-api.ap-south-1.amazonaws.com",
+  "healthEndpoint": "health",
+  "smokeTests": [
+    {
+      "id": "health",
+      "method": "GET",
+      "endpoint": "health",
+      "expectedStatus": 200,
+      "expectJsonObject": true
+    }
+  ]
+}
