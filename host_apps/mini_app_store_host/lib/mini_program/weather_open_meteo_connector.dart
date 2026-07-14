@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 
@@ -402,6 +403,10 @@ MiniProgramBackendResult _failure(
   int? statusCode,
   Map<String, dynamic> data = const <String, dynamic>{},
 }) {
+  debugPrint(
+    '[weather][open_meteo] $code: $message '
+    '(endpoint=${request.endpoint}, statusCode=${statusCode ?? 'none'})',
+  );
   return MiniProgramBackendResult.failed(
     requestId: request.requestId,
     endpoint: request.endpoint,

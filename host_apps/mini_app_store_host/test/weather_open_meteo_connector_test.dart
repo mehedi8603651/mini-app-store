@@ -7,6 +7,56 @@ import 'package:mini_app_store_host/mini_program/weather_open_meteo_connector.da
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 
 void main() {
+  test(
+    'live Open-Meteo smoke check',
+    () async {
+      final connector = WeatherOpenMeteoConnector(
+        fallback: _RecordingFallback(),
+      );
+
+      final forecast = await connector.call(
+        const MiniProgramBackendRequest(
+          miniProgramId: 'weather',
+          requestId: 'live-forecast',
+          endpoint: 'forecast',
+          method: 'POST',
+          body: <String, dynamic>{
+            'latitude': 23.8103,
+            'longitude': 90.4125,
+            'locationName': 'Dhaka',
+          },
+          forceRefresh: true,
+        ),
+      );
+      final geocoding = await connector.call(
+        const MiniProgramBackendRequest(
+          miniProgramId: 'weather',
+          requestId: 'live-geocoding',
+          endpoint: 'geocoding',
+          method: 'POST',
+          body: <String, dynamic>{'query': 'London', 'count': 2},
+          forceRefresh: true,
+        ),
+      );
+
+      expect(
+        forecast.isSuccess,
+        isTrue,
+        reason: '${forecast.errorCode}: ${forecast.message}',
+      );
+      expect(forecast.data['hourly'], isNotEmpty);
+      expect(forecast.data['daily'], hasLength(7));
+      expect(
+        geocoding.isSuccess,
+        isTrue,
+        reason: '${geocoding.errorCode}: ${geocoding.message}',
+      );
+      expect(geocoding.data['results'], isNotEmpty);
+      connector.dispose();
+    },
+    skip: !const bool.fromEnvironment('RUN_LIVE_WEATHER_TESTS'),
+  );
+
   test('normalizes forecast data and honors cache and force refresh', () async {
     var requestCount = 0;
     final fallback = _RecordingFallback();

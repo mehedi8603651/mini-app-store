@@ -1,9 +1,10 @@
 {
   "appId": "weather",
   "artifactLayoutVersion": 1,
-  "latestVersion": "1.0.0",
+  "latestVersion": "1.0.1",
   "schemaVersion": 1,
   "versions": [
-    "1.0.0"
+    "1.0.0",
+    "1.0.1"
   ]
 }

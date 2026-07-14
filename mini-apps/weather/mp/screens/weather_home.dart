@@ -79,6 +79,8 @@ MpNode _weatherHeader() {
                 color: weatherMuted,
                 size: 12,
                 align: 'center',
+                maxLines: 1,
+                overflow: 'ellipsis',
               ),
             ],
           ),
@@ -130,12 +132,61 @@ MpNode _forecastLoading() {
 }
 
 MpNode _forecastError() {
-  return Mp.emptyState(
-    title: 'Forecast unavailable',
-    message: 'Check your connection and refresh again.',
-    icon: 'cloudy',
-    actionLabel: 'Retry',
-    action: refreshWeather(forceRefresh: true),
+  return Mp.container(
+    paddingHorizontal: 24,
+    paddingVertical: 32,
+    backgroundColor: weatherSurface,
+    borderColor: weatherSurfaceStrong,
+    borderWidth: 1,
+    borderRadius: 8,
+    child: Mp.column(
+      children: <MpNode>[
+        Mp.icon(
+          'cloudy',
+          semanticLabel: 'Forecast unavailable',
+          size: 56,
+          color: weatherCoral,
+        ),
+        Mp.sizedBox(height: 16),
+        Mp.text(
+          'Forecast unavailable',
+          color: weatherText,
+          size: 21,
+          weight: 'semibold',
+          align: 'center',
+        ),
+        Mp.sizedBox(height: 8),
+        Mp.text(
+          '{{backend.weather_forecast.message}}',
+          color: weatherMuted,
+          size: 14,
+          align: 'center',
+          maxLines: 4,
+          overflow: 'ellipsis',
+        ),
+        Mp.sizedBox(height: 6),
+        Mp.text(
+          'Error: {{backend.weather_forecast.errorCode}}',
+          color: weatherCoral,
+          size: 12,
+          align: 'center',
+          maxLines: 2,
+          overflow: 'ellipsis',
+        ),
+        Mp.sizedBox(height: 20),
+        Mp.button(
+          label: 'Retry',
+          action: refreshWeather(forceRefresh: true),
+          height: 48,
+          backgroundColor: weatherCyan,
+          foregroundColor: weatherBackground,
+          borderColor: weatherCyan,
+          borderRadius: 8,
+          fontSize: 16,
+          fontWeight: 'semibold',
+        ),
+      ],
+    ),
   );
 }
 
