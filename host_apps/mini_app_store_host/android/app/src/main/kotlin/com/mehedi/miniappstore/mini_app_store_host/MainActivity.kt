@@ -29,6 +29,8 @@ class MainActivity : FlutterActivity() {
         private const val PREFS_NAME = "mini_program_location"
         private const val PREF_PERMISSION_REQUESTED = "coarse_permission_requested"
         private const val DEFAULT_TIMEOUT_MS = 10_000L
+        private const val MAX_CACHED_LOCATION_AGE_MS = 15 * 60_000L
+        private const val CACHED_FALLBACK_DELAY_MS = 2_500L
     }
 
     private val mainHandler = Handler(Looper.getMainLooper())
@@ -39,6 +41,8 @@ class MainActivity : FlutterActivity() {
     private var locationListener: LocationListener? = null
     private var cancellationSignal: CancellationSignal? = null
     private var timeoutRunnable: Runnable? = null
+    private var cachedFallbackRunnable: Runnable? = null
+    private var cachedFallbackLocation: Location? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -185,6 +189,7 @@ class MainActivity : FlutterActivity() {
         }
 
         try {
+            cachedFallbackLocation = recentNetworkLocation(locationManager)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 val signal = CancellationSignal()
                 cancellationSignal = signal
@@ -194,14 +199,17 @@ class MainActivity : FlutterActivity() {
                     mainExecutor,
                 ) { location ->
                     if (location == null) {
-                        failPending(
-                            "location_unavailable",
-                            "Android could not determine the current location.",
-                        )
+                        if (!completeWithCachedFallback()) {
+                            failPending(
+                                "location_unavailable",
+                                "Android could not determine the current location.",
+                            )
+                        }
                     } else {
                         completePending(location)
                     }
                 }
+                scheduleCachedFallback()
             } else {
                 @Suppress("DEPRECATION")
                 val listener = object : LocationListener {
@@ -228,6 +236,7 @@ class MainActivity : FlutterActivity() {
                     listener,
                     Looper.getMainLooper(),
                 )
+                scheduleCachedFallback()
             }
         } catch (_: SecurityException) {
             failPending(
@@ -235,19 +244,60 @@ class MainActivity : FlutterActivity() {
                 "Approximate location permission was denied.",
             )
         } catch (_: Exception) {
-            failPending(
-                "location_unavailable",
-                "Android current location is unavailable.",
-            )
+            if (!completeWithCachedFallback()) {
+                failPending(
+                    "location_unavailable",
+                    "Android current location is unavailable.",
+                )
+            }
         }
+    }
+
+    private fun recentNetworkLocation(locationManager: LocationManager): Location? {
+        val location = try {
+            @Suppress("MissingPermission")
+            locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        } catch (_: Exception) {
+            null
+        } ?: return null
+        val ageMs = System.currentTimeMillis() - location.time
+        if (ageMs !in 0..MAX_CACHED_LOCATION_AGE_MS) return null
+        if (!location.latitude.isFinite() || location.latitude !in -90.0..90.0) return null
+        if (!location.longitude.isFinite() || location.longitude !in -180.0..180.0) return null
+        if (location.hasAccuracy() &&
+            (!location.accuracy.isFinite() || location.accuracy < 0f)
+        ) {
+            return null
+        }
+        return location
+    }
+
+    private fun scheduleCachedFallback() {
+        if (cachedFallbackLocation == null) return
+        val delayMs = minOf(
+            CACHED_FALLBACK_DELAY_MS,
+            (pendingTimeoutMs - 500L).coerceAtLeast(500L),
+        )
+        val runnable = Runnable { completeWithCachedFallback() }
+        cachedFallbackRunnable = runnable
+        mainHandler.postDelayed(runnable, delayMs)
+    }
+
+    private fun completeWithCachedFallback(): Boolean {
+        val location = cachedFallbackLocation ?: return false
+        if (pendingResult == null) return false
+        completePending(location)
+        return true
     }
 
     private fun scheduleTimeout() {
         val runnable = Runnable {
-            failPending(
-                "location_timeout",
-                "The current-location request timed out.",
-            )
+            if (!completeWithCachedFallback()) {
+                failPending(
+                    "location_timeout",
+                    "The current-location request timed out. Check Wi-Fi, mobile data, and Android location accuracy settings.",
+                )
+            }
         }
         timeoutRunnable = runnable
         mainHandler.postDelayed(runnable, pendingTimeoutMs)
@@ -282,6 +332,9 @@ class MainActivity : FlutterActivity() {
     private fun clearPending() {
         timeoutRunnable?.let(mainHandler::removeCallbacks)
         timeoutRunnable = null
+        cachedFallbackRunnable?.let(mainHandler::removeCallbacks)
+        cachedFallbackRunnable = null
+        cachedFallbackLocation = null
         cancellationSignal?.cancel()
         cancellationSignal = null
         val listener = locationListener

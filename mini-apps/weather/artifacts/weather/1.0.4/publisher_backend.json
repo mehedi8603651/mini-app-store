@@ -1,0 +1,18 @@
+{
+  "appId": "weather",
+  "backendBaseUrl": "https://5ibchf95dc.execute-api.ap-south-1.amazonaws.com",
+  "contractVersion": "1",
+  "healthEndpoint": "health",
+  "permissionReason": "Load current forecasts and global fallback locations.",
+  "schemaVersion": 1,
+  "smokeTests": [
+    {
+      "endpoint": "health",
+      "expectJsonObject": true,
+      "expectedStatus": 200,
+      "id": "health",
+      "method": "GET"
+    }
+  ],
+  "type": "mini_program_publisher_backend_contract"
+}

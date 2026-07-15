@@ -43,3 +43,5 @@ based on GeoNames as documented by Open-Meteo.
 Device location is foreground-only and user initiated. The mini-program does
 not reverse geocode or track location; it stores the coordinates under the
 existing selected-location cache and labels them `Current location`.
+The request allows 30 seconds because Android network location can be slow
+indoors or immediately after permission is granted.

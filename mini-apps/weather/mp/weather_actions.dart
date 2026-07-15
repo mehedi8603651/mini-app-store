@@ -156,7 +156,7 @@ MpAction useCurrentWeatherLocation() {
   return Mp.action.sequence(<MpAction>[
     Mp.location.getCurrent(
       accuracy: 'approximate',
-      timeout: const Duration(seconds: 10),
+      timeout: const Duration(seconds: 30),
       targetState: 'weather.search.current_location',
       statusState: 'weather.search.location_status',
       errorState: 'weather.search.location_error',

@@ -60,7 +60,7 @@ void main() {
     );
   });
 
-  test('Weather 1.0.3 artifact owns its Publisher API declaration', () async {
+  test('Weather 1.0.4 artifact owns its Publisher API declaration', () async {
     final contractFile = _weatherArtifactFile('publisher_backend.json');
     final releaseFile = _weatherArtifactFile('release.json');
 
@@ -133,5 +133,5 @@ void main() {
 }
 
 File _weatherArtifactFile(String name) {
-  return File('../../mini-apps/weather/artifacts/weather/1.0.3/$name');
+  return File('../../mini-apps/weather/artifacts/weather/1.0.4/$name');
 }

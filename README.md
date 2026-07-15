@@ -47,6 +47,10 @@ Weather requests it in the partner handoff, the host accepts it in
 coarse location. Offline Bangladesh search and global geocoding remain
 available when location is denied or unavailable.
 
+The native provider prefers a fresh Android network fix and may fall back to a
+validated network fix from the previous 15 minutes. This avoids unnecessary
+timeouts indoors without enabling precise or background location.
+
 ## Build and verify portable artifacts
 
 ```powershell

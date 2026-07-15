@@ -39,9 +39,11 @@ void main() {
   });
 
   test('current location is persisted before forecast refresh', () {
-    final encoded = jsonEncode(useCurrentWeatherLocation().toJson());
+    final action = useCurrentWeatherLocation().toJson();
+    final encoded = jsonEncode(action);
 
     expect(encoded, contains('weather-current-location'));
+    expect(encoded, contains('"timeoutMs":30000'));
     expect(encoded, contains('Current location'));
     expect(encoded, contains('weather_selected_location'));
     expect(encoded, contains(weatherForecastRequest));
