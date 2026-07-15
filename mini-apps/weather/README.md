@@ -9,6 +9,7 @@ Features:
 - current conditions, 24-hour chart and cards, and seven-day forecast
 - pull-to-refresh and explicit refresh controls
 - persistent selected location and host-approved local data caching
+- optional one-time approximate current location through host-approved policy
 
 ## Build location assets
 
@@ -38,3 +39,7 @@ Weather-specific URL or adapter. Screen actions use relative `forecast` and
 
 Weather and geocoding data are provided by Open-Meteo. Global location data is
 based on GeoNames as documented by Open-Meteo.
+
+Device location is foreground-only and user initiated. The mini-program does
+not reverse geocode or track location; it stores the coordinates under the
+existing selected-location cache and labels them `Current location`.

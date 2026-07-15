@@ -1,0 +1,1061 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "action": {
+                                            "props": {},
+                                            "type": "router.pop"
+                                          },
+                                          "backgroundColor": "#FF171D2D",
+                                          "borderColor": "#FF222A3C",
+                                          "borderRadius": 8,
+                                          "borderWidth": 1,
+                                          "color": "#FFF7F9FC",
+                                          "iconSize": 24,
+                                          "name": "arrowBack",
+                                          "semanticLabel": "Back to forecast",
+                                          "size": 46
+                                        },
+                                        "type": "iconButton"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "width": 12
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFF7F9FC",
+                                                  "data": "Find a location",
+                                                  "size": 22,
+                                                  "weight": "semibold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFAAB3C5",
+                                                  "data": "Bangladesh first, global fallback",
+                                                  "size": 12
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "flex": 1
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "row"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 18
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "debounceMs": 300,
+                                      "hint": "Dhaka or another city",
+                                      "initialValue": "",
+                                      "label": "Search location",
+                                      "maxLength": 256,
+                                      "onChanged": {
+                                        "props": {
+                                          "steps": [
+                                            {
+                                              "props": {
+                                                "errorState": "weather.search.thana_error",
+                                                "fields": [
+                                                  "name",
+                                                  "kind",
+                                                  "parent",
+                                                  "district",
+                                                  "division"
+                                                ],
+                                                "itemsPath": "locations",
+                                                "limit": 8,
+                                                "minQueryLength": 2,
+                                                "query": "{{state.weather.search.query}}",
+                                                "resourceId": "bd_thana_area",
+                                                "statusState": "weather.search.thana_status",
+                                                "targetState": "weather.search.thana"
+                                              },
+                                              "type": "data.search"
+                                            },
+                                            {
+                                              "props": {
+                                                "errorState": "weather.search.upazila_error",
+                                                "fields": [
+                                                  "name",
+                                                  "kind",
+                                                  "parent",
+                                                  "district",
+                                                  "division"
+                                                ],
+                                                "itemsPath": "locations",
+                                                "limit": 8,
+                                                "minQueryLength": 2,
+                                                "query": "{{state.weather.search.query}}",
+                                                "resourceId": "bd_upazila_area",
+                                                "statusState": "weather.search.upazila_status",
+                                                "targetState": "weather.search.upazila"
+                                              },
+                                              "type": "data.search"
+                                            },
+                                            {
+                                              "props": {
+                                                "angleMode": "radians",
+                                                "errorState": "weather.search.count_error",
+                                                "expression": "{{state.weather.search.thana.matchCount}} + {{state.weather.search.upazila.matchCount}}",
+                                                "precision": 12,
+                                                "targetState": "weather.search.local_count"
+                                              },
+                                              "type": "math.evaluate"
+                                            },
+                                            {
+                                              "props": {
+                                                "comparison": "equal",
+                                                "errorState": "weather.search.compare_error",
+                                                "left": "{{state.weather.search.local_count}}",
+                                                "right": 0,
+                                                "targetState": "weather.search.use_remote",
+                                                "tolerance": 1e-9
+                                              },
+                                              "type": "math.compare"
+                                            },
+                                            {
+                                              "props": {
+                                                "condition": "{{state.weather.search.use_remote}}",
+                                                "else": {
+                                                  "props": {
+                                                    "key": "weather.search.remote_skipped",
+                                                    "value": true
+                                                  },
+                                                  "type": "state.set"
+                                                },
+                                                "then": {
+                                                  "props": {
+                                                    "body": {
+                                                      "count": 10,
+                                                      "query": "{{state.weather.search.query}}"
+                                                    },
+                                                    "cacheTtlSeconds": 86400,
+                                                    "endpoint": "geocoding",
+                                                    "method": "POST",
+                                                    "requestId": "weather_geocoding"
+                                                  },
+                                                  "type": "backend.query"
+                                                }
+                                              },
+                                              "type": "action.ifElse"
+                                            }
+                                          ]
+                                        },
+                                        "type": "sequence"
+                                      },
+                                      "onSubmitted": {
+                                        "props": {
+                                          "steps": [
+                                            {
+                                              "props": {
+                                                "errorState": "weather.search.thana_error",
+                                                "fields": [
+                                                  "name",
+                                                  "kind",
+                                                  "parent",
+                                                  "district",
+                                                  "division"
+                                                ],
+                                                "itemsPath": "locations",
+                                                "limit": 8,
+                                                "minQueryLength": 2,
+                                                "query": "{{state.weather.search.query}}",
+                                                "resourceId": "bd_thana_area",
+                                                "statusState": "weather.search.thana_status",
+                                                "targetState": "weather.search.thana"
+                                              },
+                                              "type": "data.search"
+                                            },
+                                            {
+                                              "props": {
+                                                "errorState": "weather.search.upazila_error",
+                                                "fields": [
+                                                  "name",
+                                                  "kind",
+                                                  "parent",
+                                                  "district",
+                                                  "division"
+                                                ],
+                                                "itemsPath": "locations",
+                                                "limit": 8,
+                                                "minQueryLength": 2,
+                                                "query": "{{state.weather.search.query}}",
+                                                "resourceId": "bd_upazila_area",
+                                                "statusState": "weather.search.upazila_status",
+                                                "targetState": "weather.search.upazila"
+                                              },
+                                              "type": "data.search"
+                                            },
+                                            {
+                                              "props": {
+                                                "angleMode": "radians",
+                                                "errorState": "weather.search.count_error",
+                                                "expression": "{{state.weather.search.thana.matchCount}} + {{state.weather.search.upazila.matchCount}}",
+                                                "precision": 12,
+                                                "targetState": "weather.search.local_count"
+                                              },
+                                              "type": "math.evaluate"
+                                            },
+                                            {
+                                              "props": {
+                                                "comparison": "equal",
+                                                "errorState": "weather.search.compare_error",
+                                                "left": "{{state.weather.search.local_count}}",
+                                                "right": 0,
+                                                "targetState": "weather.search.use_remote",
+                                                "tolerance": 1e-9
+                                              },
+                                              "type": "math.compare"
+                                            },
+                                            {
+                                              "props": {
+                                                "condition": "{{state.weather.search.use_remote}}",
+                                                "else": {
+                                                  "props": {
+                                                    "key": "weather.search.remote_skipped",
+                                                    "value": true
+                                                  },
+                                                  "type": "state.set"
+                                                },
+                                                "then": {
+                                                  "props": {
+                                                    "body": {
+                                                      "count": 10,
+                                                      "query": "{{state.weather.search.query}}"
+                                                    },
+                                                    "cacheTtlSeconds": 86400,
+                                                    "endpoint": "geocoding",
+                                                    "method": "POST",
+                                                    "requestId": "weather_geocoding"
+                                                  },
+                                                  "type": "backend.query"
+                                                }
+                                              },
+                                              "type": "action.ifElse"
+                                            }
+                                          ]
+                                        },
+                                        "type": "sequence"
+                                      },
+                                      "showClearButton": true,
+                                      "stateKey": "weather.search.query"
+                                    },
+                                    "type": "searchField"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "accuracy": "approximate",
+                                                            "errorState": "weather.search.location_error",
+                                                            "requestId": "weather-current-location",
+                                                            "statusState": "weather.search.location_status",
+                                                            "targetState": "weather.search.current_location",
+                                                            "timeoutMs": 10000
+                                                          },
+                                                          "type": "location.getCurrent"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "key": "weather.location",
+                                                            "value": {
+                                                              "country": "Device location",
+                                                              "latitude": "{{state.weather.search.current_location.latitude}}",
+                                                              "longitude": "{{state.weather.search.current_location.longitude}}",
+                                                              "name": "Current location",
+                                                              "source": "Device approximate location",
+                                                              "subtitle": "Approximate device coordinates"
+                                                            }
+                                                          },
+                                                          "type": "state.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "bucket": "state",
+                                                            "key": "weather_selected_location",
+                                                            "priority": "normal",
+                                                            "requestId": "weather-save-current-location",
+                                                            "value": "{{state.weather.location}}"
+                                                          },
+                                                          "type": "cache.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Loading forecast for Current location"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "body": {
+                                                              "latitude": "{{state.weather.location.latitude}}",
+                                                              "locationName": "{{state.weather.location.name}}",
+                                                              "longitude": "{{state.weather.location.longitude}}"
+                                                            },
+                                                            "cacheTtlSeconds": 600,
+                                                            "endpoint": "forecast",
+                                                            "forceRefresh": true,
+                                                            "method": "POST",
+                                                            "requestId": "weather_forecast"
+                                                          },
+                                                          "type": "backend.query"
+                                                        },
+                                                        {
+                                                          "props": {},
+                                                          "type": "router.pop"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "leadingIcon": "location",
+                                                  "subtitle": "Approximate device location - {{state.weather.search.location_status}}",
+                                                  "title": "Use current location",
+                                                  "trailingIcon": "chevronRight"
+                                                },
+                                                "type": "listTile"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFFF6B72",
+                                                  "data": "{{state.weather.search.location_error.message}}",
+                                                  "maxLines": 2,
+                                                  "overflow": "ellipsis",
+                                                  "size": 12
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF171D2D",
+                                          "borderColor": "#FF222A3C",
+                                          "borderRadius": 8,
+                                          "borderWidth": 1
+                                        },
+                                        "type": "container"
+                                      },
+                                      "keys": [
+                                        "weather.search.location_status",
+                                        "weather.search.location_error"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 18
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [],
+                                        "props": {
+                                          "condition": "{{state.weather.search.use_remote}}",
+                                          "whenFalse": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFF7F9FC",
+                                                          "data": "Bangladesh locations",
+                                                          "size": 18,
+                                                          "weight": "semibold"
+                                                        },
+                                                        "type": "text"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFAAB3C5",
+                                                      "data": "{{state.weather.search.local_count}} matches",
+                                                      "size": 12
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "row"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 10
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "itemTemplate": {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "steps": [
+                                                                {
+                                                                  "props": {
+                                                                    "key": "weather.location",
+                                                                    "value": {
+                                                                      "country": "Bangladesh",
+                                                                      "latitude": "{{item.latitude}}",
+                                                                      "longitude": "{{item.longitude}}",
+                                                                      "name": "{{item.name}}",
+                                                                      "source": "Bangladesh local index",
+                                                                      "subtitle": "{{item.subtitle}}"
+                                                                    }
+                                                                  },
+                                                                  "type": "state.set"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "bucket": "state",
+                                                                    "key": "weather_selected_location",
+                                                                    "priority": "normal",
+                                                                    "requestId": "weather-save-location",
+                                                                    "value": "{{state.weather.location}}"
+                                                                  },
+                                                                  "type": "cache.set"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "durationMs": 2400,
+                                                                    "message": "Loading forecast for {{item.name}}"
+                                                                  },
+                                                                  "type": "ui.toast"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "body": {
+                                                                      "latitude": "{{state.weather.location.latitude}}",
+                                                                      "locationName": "{{state.weather.location.name}}",
+                                                                      "longitude": "{{state.weather.location.longitude}}"
+                                                                    },
+                                                                    "cacheTtlSeconds": 600,
+                                                                    "endpoint": "forecast",
+                                                                    "forceRefresh": true,
+                                                                    "method": "POST",
+                                                                    "requestId": "weather_forecast"
+                                                                  },
+                                                                  "type": "backend.query"
+                                                                },
+                                                                {
+                                                                  "props": {},
+                                                                  "type": "router.pop"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "type": "sequence"
+                                                          },
+                                                          "leadingIcon": "location",
+                                                          "subtitle": "{{item.subtitle}}",
+                                                          "title": "{{item.name}}",
+                                                          "trailingIcon": "chevronRight"
+                                                        },
+                                                        "type": "listTile"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "backgroundColor": "#FF171D2D",
+                                                      "borderColor": "#FF222A3C",
+                                                      "borderRadius": 8,
+                                                      "borderWidth": 1
+                                                    },
+                                                    "type": "container"
+                                                  },
+                                                  "limit": 8,
+                                                  "source": "{{state.weather.search.thana.items}}",
+                                                  "spacing": 8
+                                                },
+                                                "type": "repeat"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "itemTemplate": {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "steps": [
+                                                                {
+                                                                  "props": {
+                                                                    "key": "weather.location",
+                                                                    "value": {
+                                                                      "country": "Bangladesh",
+                                                                      "latitude": "{{item.latitude}}",
+                                                                      "longitude": "{{item.longitude}}",
+                                                                      "name": "{{item.name}}",
+                                                                      "source": "Bangladesh local index",
+                                                                      "subtitle": "{{item.subtitle}}"
+                                                                    }
+                                                                  },
+                                                                  "type": "state.set"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "bucket": "state",
+                                                                    "key": "weather_selected_location",
+                                                                    "priority": "normal",
+                                                                    "requestId": "weather-save-location",
+                                                                    "value": "{{state.weather.location}}"
+                                                                  },
+                                                                  "type": "cache.set"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "durationMs": 2400,
+                                                                    "message": "Loading forecast for {{item.name}}"
+                                                                  },
+                                                                  "type": "ui.toast"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "body": {
+                                                                      "latitude": "{{state.weather.location.latitude}}",
+                                                                      "locationName": "{{state.weather.location.name}}",
+                                                                      "longitude": "{{state.weather.location.longitude}}"
+                                                                    },
+                                                                    "cacheTtlSeconds": 600,
+                                                                    "endpoint": "forecast",
+                                                                    "forceRefresh": true,
+                                                                    "method": "POST",
+                                                                    "requestId": "weather_forecast"
+                                                                  },
+                                                                  "type": "backend.query"
+                                                                },
+                                                                {
+                                                                  "props": {},
+                                                                  "type": "router.pop"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "type": "sequence"
+                                                          },
+                                                          "leadingIcon": "location",
+                                                          "subtitle": "{{item.subtitle}}",
+                                                          "title": "{{item.name}}",
+                                                          "trailingIcon": "chevronRight"
+                                                        },
+                                                        "type": "listTile"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "backgroundColor": "#FF171D2D",
+                                                      "borderColor": "#FF222A3C",
+                                                      "borderRadius": 8,
+                                                      "borderWidth": 1
+                                                    },
+                                                    "type": "container"
+                                                  },
+                                                  "limit": 8,
+                                                  "source": "{{state.weather.search.upazila.items}}",
+                                                  "spacing": 8
+                                                },
+                                                "type": "repeat"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          },
+                                          "whenTrue": {
+                                            "children": [],
+                                            "props": {
+                                              "height": 1
+                                            },
+                                            "type": "sizedBox"
+                                          }
+                                        },
+                                        "type": "condition"
+                                      },
+                                      "keys": [
+                                        "weather.search.thana",
+                                        "weather.search.upazila",
+                                        "weather.search.use_remote"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 14
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [],
+                                        "props": {
+                                          "condition": "{{state.weather.search.use_remote}}",
+                                          "whenFalse": {
+                                            "children": [],
+                                            "props": {
+                                              "height": 1
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          "whenTrue": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFF7F9FC",
+                                                          "data": "Global results",
+                                                          "size": 18,
+                                                          "weight": "semibold"
+                                                        },
+                                                        "type": "text"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFAAB3C5",
+                                                      "data": "Open-Meteo",
+                                                      "size": 12
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "row"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 10
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "body": {
+                                                    "count": 10,
+                                                    "query": "{{state.weather.search.query}}"
+                                                  },
+                                                  "cacheTtlSeconds": 86400,
+                                                  "child": {
+                                                    "children": [],
+                                                    "props": {
+                                                      "itemTemplate": {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "action": {
+                                                                "props": {
+                                                                  "steps": [
+                                                                    {
+                                                                      "props": {
+                                                                        "key": "weather.location",
+                                                                        "value": {
+                                                                          "country": "{{item.country}}",
+                                                                          "latitude": "{{item.latitude}}",
+                                                                          "longitude": "{{item.longitude}}",
+                                                                          "name": "{{item.name}}",
+                                                                          "source": "{{item.source}}",
+                                                                          "subtitle": "{{item.subtitle}}"
+                                                                        }
+                                                                      },
+                                                                      "type": "state.set"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "bucket": "state",
+                                                                        "key": "weather_selected_location",
+                                                                        "priority": "normal",
+                                                                        "requestId": "weather-save-location",
+                                                                        "value": "{{state.weather.location}}"
+                                                                      },
+                                                                      "type": "cache.set"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "durationMs": 2400,
+                                                                        "message": "Loading forecast for {{item.name}}"
+                                                                      },
+                                                                      "type": "ui.toast"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "body": {
+                                                                          "latitude": "{{state.weather.location.latitude}}",
+                                                                          "locationName": "{{state.weather.location.name}}",
+                                                                          "longitude": "{{state.weather.location.longitude}}"
+                                                                        },
+                                                                        "cacheTtlSeconds": 600,
+                                                                        "endpoint": "forecast",
+                                                                        "forceRefresh": true,
+                                                                        "method": "POST",
+                                                                        "requestId": "weather_forecast"
+                                                                      },
+                                                                      "type": "backend.query"
+                                                                    },
+                                                                    {
+                                                                      "props": {},
+                                                                      "type": "router.pop"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                "type": "sequence"
+                                                              },
+                                                              "leadingIcon": "location",
+                                                              "subtitle": "{{item.subtitle}}",
+                                                              "title": "{{item.name}}",
+                                                              "trailingIcon": "chevronRight"
+                                                            },
+                                                            "type": "listTile"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "backgroundColor": "#FF171D2D",
+                                                          "borderColor": "#FF222A3C",
+                                                          "borderRadius": 8,
+                                                          "borderWidth": 1
+                                                        },
+                                                        "type": "container"
+                                                      },
+                                                      "limit": 10,
+                                                      "source": "{{backend.weather_geocoding.data.results}}",
+                                                      "spacing": 8
+                                                    },
+                                                    "type": "repeat"
+                                                  },
+                                                  "empty": {
+                                                    "children": [],
+                                                    "props": {
+                                                      "icon": "search",
+                                                      "message": "Try a city name with at least two letters.",
+                                                      "title": "No global matches"
+                                                    },
+                                                    "type": "emptyState"
+                                                  },
+                                                  "endpoint": "geocoding",
+                                                  "error": {
+                                                    "children": [],
+                                                    "props": {
+                                                      "icon": "public",
+                                                      "message": "Bangladesh search remains available offline.",
+                                                      "title": "Global search unavailable"
+                                                    },
+                                                    "type": "emptyState"
+                                                  },
+                                                  "loading": {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "align": "center",
+                                                              "color": "#FFAAB3C5",
+                                                              "data": "Searching global locations",
+                                                              "size": 16
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {},
+                                                        "type": "center"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "backgroundColor": "#FF0B1020",
+                                                      "padding": {
+                                                        "bottom": 24,
+                                                        "left": 24,
+                                                        "right": 24,
+                                                        "top": 24
+                                                      }
+                                                    },
+                                                    "type": "container"
+                                                  },
+                                                  "method": "POST",
+                                                  "requestId": "weather_geocoding"
+                                                },
+                                                "type": "backendBuilder"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        },
+                                        "type": "condition"
+                                      },
+                                      "keys": [
+                                        "weather.search.use_remote"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "width": 520
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "center"
+                      }
+                    ],
+                    "props": {
+                      "padding": {
+                        "bottom": 28,
+                        "left": 18,
+                        "right": 18,
+                        "top": 12
+                      }
+                    },
+                    "type": "scrollView"
+                  }
+                ],
+                "props": {
+                  "bottom": true,
+                  "left": true,
+                  "right": true,
+                  "top": true
+                },
+                "type": "safeArea"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF0B1020"
+            },
+            "type": "container"
+          }
+        ],
+        "props": {
+          "actions": [
+            {
+              "props": {
+                "asset": "data/bangladesh_thana_area.json",
+                "errorState": "weather.search.thana_resource_error",
+                "forceRefresh": false,
+                "id": "bd_thana_area",
+                "requestId": "weather-search-load-thana-area",
+                "statusState": "weather.search.thana_resource_status",
+                "ttlMs": 2592000000
+              },
+              "type": "data.loadJsonAsset"
+            },
+            {
+              "props": {
+                "asset": "data/bangladesh_upzila_area.json",
+                "errorState": "weather.search.upazila_resource_error",
+                "forceRefresh": false,
+                "id": "bd_upazila_area",
+                "requestId": "weather-search-load-upazila-area",
+                "statusState": "weather.search.upazila_resource_status",
+                "ttlMs": 2592000000
+              },
+              "type": "data.loadJsonAsset"
+            },
+            {
+              "props": {
+                "key": "weather.search.query",
+                "value": ""
+              },
+              "type": "state.setDefault"
+            },
+            {
+              "props": {
+                "key": "weather.search.local_count",
+                "value": 0
+              },
+              "type": "state.setDefault"
+            },
+            {
+              "props": {
+                "key": "weather.search.use_remote",
+                "value": false
+              },
+              "type": "state.setDefault"
+            },
+            {
+              "props": {
+                "key": "weather.search.location_status",
+                "value": "ready"
+              },
+              "type": "state.setDefault"
+            }
+          ],
+          "error": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFFF6B72",
+                      "data": "Location search is unavailable",
+                      "size": 16
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF0B1020",
+              "padding": {
+                "bottom": 24,
+                "left": 24,
+                "right": 24,
+                "top": 24
+              }
+            },
+            "type": "container"
+          },
+          "errorState": "weather.search.startup_error",
+          "loading": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFAAB3C5",
+                      "data": "Opening location search",
+                      "size": 16
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF0B1020",
+              "padding": {
+                "bottom": 24,
+                "left": 24,
+                "right": 24,
+                "top": 24
+              }
+            },
+            "type": "container"
+          },
+          "statusState": "weather.search.startup_status"
+        },
+        "type": "initialize"
+      }
+    ],
+    "props": {
+      "prefix": "weather.search"
+    },
+    "type": "stateScope"
+  },
+  "schemaVersion": 1,
+  "screenId": "weather_search"
+}

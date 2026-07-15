@@ -1,6 +1,6 @@
 {
   "id": "weather",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "entry": "weather_home",
   "contractVersion": "1.0.0",
   "sdkVersionRange": ">=1.0.0 <2.0.0",

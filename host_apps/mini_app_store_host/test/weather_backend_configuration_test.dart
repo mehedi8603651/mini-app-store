@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mini_program_contracts/mini_program_contracts.dart';
 import 'package:mini_app_store_host/mini_program/mini_program_endpoints.dart';
 import 'package:mini_app_store_host/mini_program/mini_program_registry.dart';
+import 'package:mini_app_store_host/mini_program/mini_program_runtime_setup.dart';
+import 'package:mini_app_store_host/mini_program/app_android_location_provider.dart';
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 
 void main() {
@@ -25,7 +27,40 @@ void main() {
     );
   });
 
-  test('Weather 1.0.2 artifact owns its Publisher API declaration', () async {
+  test('only Weather accepts location and capability needs a provider', () {
+    final endpoints = buildMiniProgramEndpoints();
+
+    expect(
+      endpoints[MiniPrograms.calculator.appId]!.locationPolicy.enabled,
+      isFalse,
+    );
+    expect(
+      endpoints[MiniPrograms.brainTest.appId]!.locationPolicy.enabled,
+      isFalse,
+    );
+    expect(
+      endpoints[MiniPrograms.weather.appId]!.locationPolicy.enabled,
+      isTrue,
+    );
+
+    final withoutProvider = buildMiniProgramConfig(endpoints: endpoints);
+    final withProvider = buildMiniProgramConfig(
+      endpoints: endpoints,
+      locationProvider: const AppAndroidLocationProvider(),
+    );
+    expect(
+      withoutProvider.capabilityRegistry.supports(
+        CapabilityIds.locationCurrent,
+      ),
+      isFalse,
+    );
+    expect(
+      withProvider.capabilityRegistry.supports(CapabilityIds.locationCurrent),
+      isTrue,
+    );
+  });
+
+  test('Weather 1.0.3 artifact owns its Publisher API declaration', () async {
     final contractFile = _weatherArtifactFile('publisher_backend.json');
     final releaseFile = _weatherArtifactFile('release.json');
 
@@ -98,5 +133,5 @@ void main() {
 }
 
 File _weatherArtifactFile(String name) {
-  return File('../../mini-apps/weather/artifacts/weather/1.0.2/$name');
+  return File('../../mini-apps/weather/artifacts/weather/1.0.3/$name');
 }

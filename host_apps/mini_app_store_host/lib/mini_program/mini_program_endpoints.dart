@@ -20,6 +20,9 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
       publisherApiPolicy: publisherApiPolicyForMiniProgram(
         MiniPrograms.brainTest.appId,
       ),
+      locationPolicy: locationPolicyForMiniProgram(
+        MiniPrograms.brainTest.appId,
+      ),
       requestTimeout: const Duration(seconds: 20),
     ),
     MiniPrograms.calculator.appId: MiniProgramEndpoint.public(
@@ -29,6 +32,9 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
         MiniPrograms.calculator.appId,
       ),
       publisherApiPolicy: publisherApiPolicyForMiniProgram(
+        MiniPrograms.calculator.appId,
+      ),
+      locationPolicy: locationPolicyForMiniProgram(
         MiniPrograms.calculator.appId,
       ),
       requestTimeout: const Duration(seconds: 20),
@@ -42,6 +48,7 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
       publisherApiPolicy: publisherApiPolicyForMiniProgram(
         MiniPrograms.weather.appId,
       ),
+      locationPolicy: locationPolicyForMiniProgram(MiniPrograms.weather.appId),
       requestTimeout: const Duration(seconds: 20),
     ),
   };

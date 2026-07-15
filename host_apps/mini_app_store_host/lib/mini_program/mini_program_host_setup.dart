@@ -4,6 +4,7 @@ import 'package:mini_program_sdk/mini_program_sdk.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'app_host_bridge.dart';
+import 'app_android_location_provider.dart';
 import 'mini_program_endpoints.dart';
 import 'mini_program_registry.dart';
 import 'mini_program_runtime_setup.dart';
@@ -34,12 +35,17 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
   AppNativeRouteOpener? openNativeRoute,
   Map<String, MiniProgramEndpoint>? endpoints,
   MiniProgramCacheBundle? cacheBundle,
+  MiniProgramLocationProvider? locationProvider,
 }) async {
   final resolvedCacheBundle = cacheBundle ?? await _buildPersistentCache();
+  final resolvedLocationProvider =
+      locationProvider ??
+      (Platform.isAndroid ? const AppAndroidLocationProvider() : null);
   return buildMiniProgramConfig(
     openNativeRoute: openNativeRoute,
     endpoints: endpoints ?? _buildConfiguredEndpoints(),
     cacheBundle: resolvedCacheBundle,
+    locationProvider: resolvedLocationProvider,
   );
 }
 
@@ -100,5 +106,6 @@ void _applyEndpointOverride(
     cachePolicy: current.cachePolicy,
     liveStatePolicy: current.liveStatePolicy,
     publisherApiPolicy: current.publisherApiPolicy,
+    locationPolicy: current.locationPolicy,
   );
 }

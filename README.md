@@ -22,7 +22,7 @@ Both apps persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.6`, UI `0.1.11`, SDK `0.5.12`, and tooling `0.6.12`.
+local contracts `0.3.7`, UI `0.1.12`, SDK `0.5.13`, and tooling `0.6.14`.
 
 ## Weather Publisher API
 
@@ -40,6 +40,12 @@ Weather declares the deployed API Gateway URL in its artifact-owned
 `publisher_backend.json`. The host accepts Publisher API permission but does
 not duplicate or override that URL. No AWS credentials or Open-Meteo secrets
 are stored in the mini-program artifact.
+
+The Android host also provides explicit one-time approximate current location.
+Weather requests it in the partner handoff, the host accepts it in
+`mini_program_policies.json`, and the native provider uses only foreground
+coarse location. Offline Bangladesh search and global geocoding remain
+available when location is denied or unavailable.
 
 ## Build and verify portable artifacts
 

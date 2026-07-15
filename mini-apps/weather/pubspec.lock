@@ -191,14 +191,14 @@ packages:
       path: "D:/flutter-mini-program-platform/packages/mini_program_contracts"
       relative: false
     source: path
-    version: "0.3.6"
+    version: "0.3.7"
   mini_program_ui:
     dependency: "direct main"
     description:
       path: "D:/flutter-mini-program-platform/packages/mini_program_ui"
       relative: false
     source: path
-    version: "0.1.11"
+    version: "0.1.12"
   node_preamble:
     dependency: transitive
     description:

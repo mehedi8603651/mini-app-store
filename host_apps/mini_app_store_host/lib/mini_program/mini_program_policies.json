@@ -89,7 +89,14 @@
           "reason": "Load current forecasts and global fallback locations.",
           "contract": "publisher_backend.json"
         },
-        "permissions": {}
+        "permissions": {
+          "location": {
+            "enabled": true,
+            "reason": "Use your approximate device location to load local weather.",
+            "accuracy": "approximate",
+            "mode": "whenInUse"
+          }
+        }
       },
       "accepted": {
         "cache": {
@@ -110,7 +117,13 @@
           "maxValueBytes": 262144,
           "maxDepth": 32
         },
-        "permissions": {},
+        "permissions": {
+          "location": {
+            "accuracy": "approximate",
+            "enabled": true,
+            "mode": "whenInUse"
+          }
+        },
         "publisherApi": {
           "enabled": true
         }

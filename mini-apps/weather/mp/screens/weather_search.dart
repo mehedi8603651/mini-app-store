@@ -42,6 +42,8 @@ MpNode buildWeatherSearch() {
                       onSubmitted: searchWeatherLocations(),
                       showClearButton: true,
                     ),
+                    Mp.sizedBox(height: 12),
+                    _currentLocationControl(),
                     Mp.sizedBox(height: 18),
                     _localResults(),
                     Mp.sizedBox(height: 14),
@@ -52,6 +54,41 @@ MpNode buildWeatherSearch() {
             ),
           ),
         ),
+      ),
+    ),
+  );
+}
+
+MpNode _currentLocationControl() {
+  return Mp.stateBuilder(
+    keys: const <String>[
+      'weather.search.location_status',
+      'weather.search.location_error',
+    ],
+    child: Mp.container(
+      backgroundColor: weatherSurface,
+      borderColor: weatherSurfaceStrong,
+      borderWidth: 1,
+      borderRadius: 8,
+      child: Mp.column(
+        children: <MpNode>[
+          Mp.listTile(
+            title: 'Use current location',
+            subtitle:
+                'Approximate device location - {{state.weather.search.location_status}}',
+            leadingIcon: 'location',
+            trailingIcon: 'chevronRight',
+            action: useCurrentWeatherLocation(),
+          ),
+          Mp.text(
+            '{{state.weather.search.location_error.message}}',
+            color: weatherCoral,
+            size: 12,
+            align: 'center',
+            maxLines: 2,
+            overflow: 'ellipsis',
+          ),
+        ],
       ),
     ),
   );

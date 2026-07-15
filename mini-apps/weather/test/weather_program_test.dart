@@ -26,11 +26,23 @@ void main() {
     expect(encoded, contains('bd_upazila_area'));
     expect(encoded, contains(weatherGeocodingRequest));
     expect(encoded, contains('action.ifElse'));
+    expect(encoded, contains('location.getCurrent'));
+    expect(encoded, contains('Use current location'));
   });
 
   test('selected location is persisted before forecast refresh', () {
     final encoded = jsonEncode(selectWeatherLocation(local: true).toJson());
 
+    expect(encoded, contains('weather_selected_location'));
+    expect(encoded, contains(weatherForecastRequest));
+    expect(encoded, contains('router.pop'));
+  });
+
+  test('current location is persisted before forecast refresh', () {
+    final encoded = jsonEncode(useCurrentWeatherLocation().toJson());
+
+    expect(encoded, contains('weather-current-location'));
+    expect(encoded, contains('Current location'));
     expect(encoded, contains('weather_selected_location'));
     expect(encoded, contains(weatherForecastRequest));
     expect(encoded, contains('router.pop'));

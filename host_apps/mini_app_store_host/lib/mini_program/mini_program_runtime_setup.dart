@@ -23,15 +23,18 @@ const int _configuredBackendPort = int.fromEnvironment(
 
 MiniProgramConfig buildMiniProgramConfig({
   AppNativeRouteOpener? openNativeRoute,
+  MiniProgramLocationProvider? locationProvider,
   Map<String, MiniProgramEndpoint> endpoints =
       const <String, MiniProgramEndpoint>{},
   MiniProgramCacheBundle? cacheBundle,
 }) {
-  final locale =
-      WidgetsFlutterBinding.ensureInitialized().platformDispatcher.locale;
+  final locale = WidgetsFlutterBinding.ensureInitialized()
+      .platformDispatcher
+      .locale;
   final supportedCapabilities = <CapabilityId>{
     CapabilityIds.analytics,
     if (openNativeRoute != null) CapabilityIds.nativeNavigation,
+    if (locationProvider != null) CapabilityIds.locationCurrent,
   };
   final deliveryContext = MiniProgramDeliveryContext(
     hostApp: _hostAppId,
@@ -49,6 +52,7 @@ MiniProgramConfig buildMiniProgramConfig({
     sdkVersion: _sdkVersion,
     source: source,
     hostBridge: AppHostBridge(openNativeRoute: openNativeRoute),
+    locationProvider: locationProvider,
     capabilityRegistry: CapabilityRegistry(supportedCapabilities),
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,

@@ -58,6 +58,7 @@ List<MpAction> initializeWeatherSearch() => <MpAction>[
   Mp.state.setDefault('weather.search.query', ''),
   Mp.state.setDefault('weather.search.local_count', 0),
   Mp.state.setDefault('weather.search.use_remote', false),
+  Mp.state.setDefault('weather.search.location_status', 'ready'),
 ];
 
 MpAction refreshWeather({bool forceRefresh = false}) {
@@ -146,6 +147,35 @@ MpAction selectWeatherLocation({required bool local}) {
       requestId: 'weather-save-location',
     ),
     Mp.toast(message: 'Loading forecast for {{item.name}}'),
+    refreshWeather(forceRefresh: true),
+    Mp.router.pop(),
+  ]);
+}
+
+MpAction useCurrentWeatherLocation() {
+  return Mp.action.sequence(<MpAction>[
+    Mp.location.getCurrent(
+      accuracy: 'approximate',
+      timeout: const Duration(seconds: 10),
+      targetState: 'weather.search.current_location',
+      statusState: 'weather.search.location_status',
+      errorState: 'weather.search.location_error',
+      requestId: 'weather-current-location',
+    ),
+    Mp.state.set('weather.location', const <String, Object?>{
+      'name': 'Current location',
+      'subtitle': 'Approximate device coordinates',
+      'country': 'Device location',
+      'latitude': '{{state.weather.search.current_location.latitude}}',
+      'longitude': '{{state.weather.search.current_location.longitude}}',
+      'source': 'Device approximate location',
+    }),
+    Mp.cache.state.set(
+      'weather_selected_location',
+      '{{state.weather.location}}',
+      requestId: 'weather-save-current-location',
+    ),
+    Mp.toast(message: 'Loading forecast for Current location'),
     refreshWeather(forceRefresh: true),
     Mp.router.pop(),
   ]);

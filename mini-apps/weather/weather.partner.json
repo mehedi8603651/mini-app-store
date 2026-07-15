@@ -23,5 +23,13 @@
     "enabled": true,
     "reason": "Load current forecasts and global fallback locations.",
     "contract": "publisher_backend.json"
+  },
+  "requestedPermissions": {
+    "location": {
+      "enabled": true,
+      "reason": "Use your approximate device location to load local weather.",
+      "accuracy": "approximate",
+      "mode": "whenInUse"
+    }
   }
 }

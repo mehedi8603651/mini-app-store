@@ -22,8 +22,8 @@ Integration files:
 
 ```yaml
 dependencies:
-  mini_program_sdk: ^0.5.12
-  mini_program_contracts: ^0.3.6
+  mini_program_sdk: ^0.5.13
+  mini_program_contracts: ^0.3.7
 ```
 
 `embed init` updates `pubspec.yaml` to add these hosted packages if they are
