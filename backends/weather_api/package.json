@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node --test"
   },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1087.0"
+  },
   "engines": {
     "node": ">=22"
   }

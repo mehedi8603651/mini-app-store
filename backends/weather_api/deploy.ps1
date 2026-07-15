@@ -1,7 +1,10 @@
 param(
   [string]$Region = 'ap-south-1',
   [string]$FunctionName = 'mini-app-store-weather-api',
-  [string]$ApiName = 'mini-app-store-weather-api'
+  [string]$ApiName = 'mini-app-store-weather-api',
+  [string]$QuotaTableName = '',
+  [ValidateRange(1, 2147483647)]
+  [int]$DailyRequestLimit = 1000
 )
 
 $ErrorActionPreference = 'Stop'
@@ -9,9 +12,32 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $buildRoot = Join-Path $root '.build'
 $zipPath = Join-Path $buildRoot 'weather-api.zip'
 $roleName = "$FunctionName-role"
+if (-not $QuotaTableName) {
+  $QuotaTableName = "$FunctionName-daily-quota"
+}
 
 New-Item -ItemType Directory -Force -Path $buildRoot | Out-Null
-Compress-Archive -LiteralPath (Join-Path $root 'index.mjs') -DestinationPath $zipPath -Force
+Push-Location $root
+try {
+  npm ci --omit=dev --ignore-scripts
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Failed to install the Weather Lambda production dependencies.'
+  }
+} finally {
+  Pop-Location
+}
+if (Test-Path -LiteralPath $zipPath) {
+  Remove-Item -LiteralPath $zipPath -Force
+}
+Push-Location $root
+try {
+  tar.exe -a -c -f $zipPath index.mjs package.json package-lock.json node_modules
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Failed to package the Weather Lambda deployment archive.'
+  }
+} finally {
+  Pop-Location
+}
 
 $accountId = aws sts get-caller-identity --query Account --output text
 $roleArn = "arn:aws:iam::$accountId`:role/$roleName"
@@ -42,15 +68,70 @@ if ($roleLookupExitCode -ne 0) {
 }
 
 $ErrorActionPreference = 'SilentlyContinue'
+aws dynamodb describe-table `
+  --table-name $QuotaTableName `
+  --region $Region 2>$null | Out-Null
+$tableLookupExitCode = $LASTEXITCODE
+$ErrorActionPreference = $previousErrorActionPreference
+if ($tableLookupExitCode -ne 0) {
+  aws dynamodb create-table `
+    --table-name $QuotaTableName `
+    --region $Region `
+    --attribute-definitions AttributeName=quotaDate,AttributeType=S `
+    --key-schema AttributeName=quotaDate,KeyType=HASH `
+    --billing-mode PAY_PER_REQUEST | Out-Null
+  aws dynamodb wait table-exists --table-name $QuotaTableName --region $Region
+}
+
+$ttlStatus = aws dynamodb describe-time-to-live `
+  --table-name $QuotaTableName `
+  --region $Region `
+  --query TimeToLiveDescription.TimeToLiveStatus `
+  --output text
+if ($ttlStatus -eq 'DISABLED') {
+  $ttlSpecificationPath = Join-Path $buildRoot 'quota-ttl.json'
+  @{
+    Enabled = $true
+    AttributeName = 'expiresAt'
+  } | ConvertTo-Json | Set-Content -Encoding ascii $ttlSpecificationPath
+  aws dynamodb update-time-to-live `
+    --table-name $QuotaTableName `
+    --region $Region `
+    --time-to-live-specification "file://$ttlSpecificationPath" | Out-Null
+} elseif ($ttlStatus -eq 'DISABLING') {
+  throw "DynamoDB TTL is currently being disabled for table '$QuotaTableName'."
+}
+
+$quotaPolicyPath = Join-Path $buildRoot 'lambda-quota-policy.json'
+@{
+  Version = '2012-10-17'
+  Statement = @(
+    @{
+      Effect = 'Allow'
+      Action = 'dynamodb:UpdateItem'
+      Resource = "arn:aws:dynamodb:$Region`:$accountId`:table/$QuotaTableName"
+    }
+  )
+} | ConvertTo-Json -Depth 5 | Set-Content -Encoding ascii $quotaPolicyPath
+aws iam put-role-policy `
+  --role-name $roleName `
+  --policy-name "$FunctionName-daily-quota" `
+  --policy-document "file://$quotaPolicyPath"
+
+$lambdaEnvironmentPath = Join-Path $buildRoot 'lambda-environment.json'
+@{
+  Variables = @{
+    ALLOWED_ORIGIN = '*'
+    QUOTA_TABLE_NAME = $QuotaTableName
+    DAILY_REQUEST_LIMIT = [string]$DailyRequestLimit
+  }
+} | ConvertTo-Json -Depth 3 | Set-Content -Encoding ascii $lambdaEnvironmentPath
+
+$ErrorActionPreference = 'SilentlyContinue'
 $existingFunction = aws lambda get-function --function-name $FunctionName --region $Region --query Configuration.FunctionArn --output text 2>$null
 $functionLookupExitCode = $LASTEXITCODE
 $ErrorActionPreference = $previousErrorActionPreference
 if ($functionLookupExitCode -eq 0) {
-  aws lambda update-function-code `
-    --function-name $FunctionName `
-    --region $Region `
-    --zip-file "fileb://$zipPath" | Out-Null
-  aws lambda wait function-updated --function-name $FunctionName --region $Region
   aws lambda update-function-configuration `
     --function-name $FunctionName `
     --region $Region `
@@ -58,7 +139,12 @@ if ($functionLookupExitCode -eq 0) {
     --handler index.handler `
     --timeout 15 `
     --memory-size 256 `
-    --environment 'Variables={ALLOWED_ORIGIN=*}' | Out-Null
+    --environment "file://$lambdaEnvironmentPath" | Out-Null
+  aws lambda wait function-updated --function-name $FunctionName --region $Region
+  aws lambda update-function-code `
+    --function-name $FunctionName `
+    --region $Region `
+    --zip-file "fileb://$zipPath" | Out-Null
   aws lambda wait function-updated --function-name $FunctionName --region $Region
 } else {
   aws lambda create-function `
@@ -69,7 +155,7 @@ if ($functionLookupExitCode -eq 0) {
     --role $roleArn `
     --timeout 15 `
     --memory-size 256 `
-    --environment 'Variables={ALLOWED_ORIGIN=*}' `
+    --environment "file://$lambdaEnvironmentPath" `
     --zip-file "fileb://$zipPath" | Out-Null
   aws lambda wait function-active-v2 --function-name $FunctionName --region $Region
 }
@@ -118,5 +204,7 @@ $endpoint = aws apigatewayv2 get-api --api-id $apiId --region $Region --query Ap
   region = $Region
   functionName = $FunctionName
   apiId = $apiId
+  quotaTableName = $QuotaTableName
+  dailyRequestLimit = $DailyRequestLimit
   backendBaseUrl = "$endpoint/"
 } | ConvertTo-Json

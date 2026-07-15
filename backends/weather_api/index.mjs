@@ -1,7 +1,17 @@
+import {
+  DynamoDBClient,
+  UpdateItemCommand,
+} from '@aws-sdk/client-dynamodb';
+
 const OPEN_METEO_FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
 const OPEN_METEO_GEOCODING_URL =
   'https://geocoding-api.open-meteo.com/v1/search';
 const REQUEST_TIMEOUT_MS = 10000;
+const DEFAULT_DAILY_REQUEST_LIMIT = 1000;
+const QUOTA_RETENTION_DAYS = 7;
+const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+
+let quotaClient;
 
 export async function handler(event, context = {}) {
   const traceId = context.awsRequestId || crypto.randomUUID();
@@ -53,14 +63,19 @@ export async function handler(event, context = {}) {
         message: normalized.message,
       }),
     );
+    const payload = {
+      errorCode: normalized.errorCode,
+      message: normalized.message,
+      traceId,
+    };
+    if (normalized.retryAfterUtc) {
+      payload.retryAfterUtc = normalized.retryAfterUtc;
+    }
     return response(
       normalized.statusCode,
-      {
-        errorCode: normalized.errorCode,
-        message: normalized.message,
-        traceId,
-      },
+      payload,
       traceId,
+      normalized.headers,
     );
   }
 }
@@ -89,6 +104,7 @@ async function loadForecast(body) {
     forecast_days: '7',
   });
 
+  await consumeDailyQuota();
   const decoded = await getJson(url);
   const current = asObject(decoded.current);
   const hourly = asObject(decoded.hourly);
@@ -157,6 +173,7 @@ async function searchLocations(body) {
     language: 'en',
     format: 'json',
   });
+  await consumeDailyQuota();
   const decoded = await getJson(url);
   const results = [];
   for (const raw of asArray(decoded.results).slice(0, count)) {
@@ -216,6 +233,119 @@ async function getJson(url) {
     );
   }
   return asObject(decoded);
+}
+
+async function consumeDailyQuota(now = new Date()) {
+  const window = utcQuotaWindow(now);
+  let config;
+  try {
+    config = quotaConfig();
+  } catch (error) {
+    console.error(
+      JSON.stringify({
+        event: 'daily_quota_configuration_invalid',
+        message: error?.message || String(error),
+      }),
+    );
+    throw quotaUnavailableError();
+  }
+
+  const command = new UpdateItemCommand({
+    TableName: config.tableName,
+    Key: {
+      quotaDate: { S: window.quotaDate },
+    },
+    UpdateExpression:
+      'SET #requestCount = if_not_exists(#requestCount, :zero) + :one, #expiresAt = :expiresAt',
+    ConditionExpression:
+      'attribute_not_exists(#requestCount) OR #requestCount < :limit',
+    ExpressionAttributeNames: {
+      '#requestCount': 'requestCount',
+      '#expiresAt': 'expiresAt',
+    },
+    ExpressionAttributeValues: {
+      ':zero': { N: '0' },
+      ':one': { N: '1' },
+      ':limit': { N: String(config.limit) },
+      ':expiresAt': { N: String(window.expiresAt) },
+    },
+    ReturnValues: 'UPDATED_NEW',
+  });
+
+  try {
+    quotaClient ??= new DynamoDBClient({});
+    await quotaClient.send(command);
+  } catch (error) {
+    if (error?.name === 'ConditionalCheckFailedException') {
+      throw new ApiError(
+        429,
+        'daily_request_limit_reached',
+        'Weather service daily request limit reached.',
+        {
+          retryAfterUtc: window.retryAfterUtc,
+          headers: {
+            'retry-after': String(window.retryAfterSeconds),
+          },
+        },
+      );
+    }
+    console.error(
+      JSON.stringify({
+        event: 'daily_quota_check_failed',
+        errorName: error?.name || 'Error',
+        message: error?.message || String(error),
+      }),
+    );
+    throw quotaUnavailableError();
+  }
+}
+
+function quotaConfig() {
+  const tableName = text(process.env.QUOTA_TABLE_NAME);
+  if (!tableName) {
+    throw new Error('QUOTA_TABLE_NAME is required.');
+  }
+
+  const rawLimit = text(
+    process.env.DAILY_REQUEST_LIMIT,
+    String(DEFAULT_DAILY_REQUEST_LIMIT),
+  );
+  const limit = Number(rawLimit);
+  if (!Number.isSafeInteger(limit) || limit < 1) {
+    throw new Error('DAILY_REQUEST_LIMIT must be a positive safe integer.');
+  }
+  return { tableName, limit };
+}
+
+function utcQuotaWindow(now) {
+  if (!(now instanceof Date) || Number.isNaN(now.valueOf())) {
+    throw new Error('A valid quota timestamp is required.');
+  }
+  const startUtc = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+  );
+  const retryAfterMs = startUtc + MILLISECONDS_PER_DAY;
+  return {
+    quotaDate: new Date(startUtc).toISOString().slice(0, 10),
+    retryAfterUtc: new Date(retryAfterMs).toISOString(),
+    retryAfterSeconds: Math.max(
+      1,
+      Math.ceil((retryAfterMs - now.valueOf()) / 1000),
+    ),
+    expiresAt: Math.floor(
+      (retryAfterMs + QUOTA_RETENTION_DAYS * MILLISECONDS_PER_DAY) / 1000,
+    ),
+  };
+}
+
+function quotaUnavailableError() {
+  return new ApiError(
+    503,
+    'daily_quota_unavailable',
+    'Weather request quota could not be verified. Try again later.',
+  );
 }
 
 function normalizeHourly(hourly, currentTime) {
@@ -294,7 +424,7 @@ function validateMiniProgram(headers = {}) {
   }
 }
 
-function response(statusCode, payload, traceId) {
+function response(statusCode, payload, traceId, additionalHeaders = {}) {
   return {
     statusCode,
     headers: {
@@ -302,8 +432,10 @@ function response(statusCode, payload, traceId) {
       'access-control-allow-methods': 'GET,POST,OPTIONS',
       'access-control-allow-headers':
         'content-type,authorization,x-mini-program-app-id,x-mini-program-host-app,x-mini-program-host-version,x-mini-program-sdk-version,x-mini-program-platform,x-mini-program-locale',
+      'access-control-expose-headers': 'retry-after,x-backend-trace-id',
       'content-type': 'application/json; charset=utf-8',
       'x-backend-trace-id': traceId,
+      ...additionalHeaders,
     },
     body: payload === '' ? '' : JSON.stringify(payload),
   };
@@ -434,9 +566,11 @@ function weatherLabel(code) {
 }
 
 class ApiError extends Error {
-  constructor(statusCode, errorCode, message) {
+  constructor(statusCode, errorCode, message, options = {}) {
     super(message);
     this.statusCode = statusCode;
     this.errorCode = errorCode;
+    this.retryAfterUtc = options.retryAfterUtc;
+    this.headers = options.headers || {};
   }
 }
