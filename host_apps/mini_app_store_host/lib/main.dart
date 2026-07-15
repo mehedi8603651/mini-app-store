@@ -1,29 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 
 import 'mini_program/mini_program.dart';
-import 'mini_program/mini_program_endpoints.dart';
-import 'mini_program/mini_program_registry.dart';
-
-const _artifactEndpointOverride = String.fromEnvironment(
-  'MINI_PROGRAM_ARTIFACT_URL',
-  defaultValue: '',
-);
-const _calculatorEndpointOverride = String.fromEnvironment(
-  'MINI_PROGRAM_CALCULATOR_URL',
-  defaultValue: '',
-);
-const _brainTestEndpointOverride = String.fromEnvironment(
-  'MINI_PROGRAM_BRAIN_TEST_URL',
-  defaultValue: '',
-);
-const _weatherEndpointOverride = String.fromEnvironment(
-  'MINI_PROGRAM_WEATHER_URL',
-  defaultValue: '',
-);
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,69 +15,13 @@ Future<void> main() async {
     ),
   );
 
-  final supportDirectory = await getApplicationSupportDirectory();
-  final cacheBundle = MiniProgramCacheBundle.fileBacked(
-    rootDirectory: Directory(
-      '${supportDirectory.path}${Platform.pathSeparator}mini_program_cache',
-    ),
-  );
+  final miniProgramConfig = await buildHostMiniProgramConfig();
 
   runApp(
     MiniProgramScope(
-      config: buildMiniProgramConfig(
-        endpoints: _buildEndpoints(),
-        cacheBundle: cacheBundle,
-      ),
+      config: miniProgramConfig,
       child: const MiniAppStoreHost(),
     ),
-  );
-}
-
-Map<String, MiniProgramEndpoint> _buildEndpoints() {
-  final endpoints = buildMiniProgramEndpoints();
-  final sharedOverride = _artifactEndpointOverride.trim();
-  _overrideEndpoint(
-    endpoints,
-    MiniPrograms.calculator.appId,
-    _calculatorEndpointOverride.trim().isEmpty
-        ? sharedOverride
-        : _calculatorEndpointOverride.trim(),
-  );
-  _overrideEndpoint(
-    endpoints,
-    MiniPrograms.brainTest.appId,
-    _brainTestEndpointOverride.trim().isEmpty
-        ? sharedOverride
-        : _brainTestEndpointOverride.trim(),
-  );
-  _overrideEndpoint(
-    endpoints,
-    MiniPrograms.weather.appId,
-    _weatherEndpointOverride.trim().isEmpty
-        ? sharedOverride
-        : _weatherEndpointOverride.trim(),
-  );
-  return endpoints;
-}
-
-void _overrideEndpoint(
-  Map<String, MiniProgramEndpoint> endpoints,
-  String appId,
-  String override,
-) {
-  if (override.isEmpty) {
-    return;
-  }
-
-  final current = endpoints[appId]!;
-  endpoints[appId] = MiniProgramEndpoint.public(
-    apiBaseUri: Uri.parse(override),
-    headers: current.headers,
-    requestTimeout: current.requestTimeout,
-    enableLocalLoopbackFallback: current.enableLocalLoopbackFallback,
-    cachePolicy: current.cachePolicy,
-    liveStatePolicy: current.liveStatePolicy,
-    publisherApiPolicy: current.publisherApiPolicy,
   );
 }
 
@@ -193,10 +115,9 @@ class _MiniProgramCatalogTile extends StatelessWidget {
       borderRadius: BorderRadius.circular(8),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () => openAppMiniProgram<void>(
+        onTap: () => openRegisteredMiniProgram<void>(
           context,
-          appId: app.appId,
-          title: app.title,
+          app,
           options: MiniProgramLaunchOptions(
             showAppBar: false,
             backgroundColor: launchBackground,

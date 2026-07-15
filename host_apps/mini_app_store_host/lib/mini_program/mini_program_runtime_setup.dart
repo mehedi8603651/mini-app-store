@@ -44,6 +44,7 @@ MiniProgramConfig buildMiniProgramConfig({
   final source = endpoints.isEmpty
       ? _buildDefaultHttpSource(deliveryContext)
       : _buildEndpointRoutingSource(endpoints, deliveryContext);
+
   return MiniProgramConfig(
     sdkVersion: _sdkVersion,
     source: source,
