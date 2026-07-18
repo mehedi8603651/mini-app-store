@@ -44,17 +44,17 @@ packages:
   mini_program_contracts:
     dependency: "direct overridden"
     description:
-      path: "D:\\flutter-mini-program-platform\\packages\\mini_program_contracts"
+      path: "D:/flutter-mini-program-platform/packages/mini_program_contracts"
       relative: false
     source: path
-    version: "0.3.2"
+    version: "0.3.7"
   mini_program_ui:
     dependency: "direct main"
     description:
       path: "D:/flutter-mini-program-platform/packages/mini_program_ui"
       relative: false
     source: path
-    version: "0.1.8"
+    version: "0.2.0"
   pub_semver:
     dependency: transitive
     description:

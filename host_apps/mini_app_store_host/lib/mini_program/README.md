@@ -22,7 +22,7 @@ Integration files:
 
 ```yaml
 dependencies:
-  mini_program_sdk: ^0.5.13
+  mini_program_sdk: ^0.6.0
   mini_program_contracts: ^0.3.7
 ```
 

@@ -198,7 +198,7 @@ packages:
       path: "D:/flutter-mini-program-platform/packages/mini_program_ui"
       relative: false
     source: path
-    version: "0.1.12"
+    version: "0.2.0"
   node_preamble:
     dependency: transitive
     description:

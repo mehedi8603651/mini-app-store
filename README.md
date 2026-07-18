@@ -22,7 +22,7 @@ Both apps persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.7`, UI `0.1.12`, SDK `0.5.13`, and tooling `0.6.14`.
+local contracts `0.3.7`, UI `0.2.0`, SDK `0.6.0`, and tooling `0.7.0`.
 
 ## Weather Publisher API
 
@@ -63,6 +63,10 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\brain_test
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
   --mini-program-root D:\mini-app-store\mini-apps\brain_test
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\weather
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\weather
 ```
 
 Each portable source bundle is generated under
