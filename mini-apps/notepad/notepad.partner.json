@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 3,
+  "type": "mini_program_partner_handoff",
+  "appId": "notepad",
+  "title": "Notepad",
+  "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
+  "generatedAtUtc": "2026-07-19T00:00:00Z",
+  "requestedCache": {
+    "state": {
+      "enabled": true,
+      "reason": "Bounded local notes and note text",
+      "recommendedMaxBytes": 1048576,
+      "recommendedTtlDays": 365
+    }
+  }
+}

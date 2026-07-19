@@ -13,6 +13,11 @@ void main() {
       find.text('Timed true-or-false arithmetic challenges'),
       findsOneWidget,
     );
+    expect(find.text('Notepad'), findsOneWidget);
+    expect(
+      find.text('Private offline notes saved on this device'),
+      findsOneWidget,
+    );
     expect(find.text('Bangladesh Weather'), findsOneWidget);
     expect(
       find.text('Bangladesh locations and 7-day global forecasts'),

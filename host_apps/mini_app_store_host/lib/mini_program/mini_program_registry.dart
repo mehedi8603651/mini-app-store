@@ -22,16 +22,24 @@ class MiniPrograms {
     title: "Calculator",
   );
 
+  static const notepad = MiniProgramInfo(appId: "notepad", title: "Notepad");
+
   static const weather = MiniProgramInfo(
     appId: "weather",
     title: "Bangladesh Weather",
   );
 
-  static const values = <MiniProgramInfo>[brainTest, calculator, weather];
+  static const values = <MiniProgramInfo>[
+    brainTest,
+    calculator,
+    notepad,
+    weather,
+  ];
 
   static const byAppId = <String, MiniProgramInfo>{
     "brain_test": brainTest,
     "calculator": calculator,
+    "notepad": notepad,
     "weather": weather,
   };
 }

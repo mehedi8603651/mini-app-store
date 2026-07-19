@@ -67,6 +67,39 @@
         }
       }
     },
+    "notepad": {
+      "requested": {
+        "source": "notepad.partner.json",
+        "cache": {
+          "state": {
+            "enabled": true,
+            "reason": "Bounded local notes and note text",
+            "recommendedMaxBytes": 1048576,
+            "recommendedTtlDays": 365
+          }
+        },
+        "permissions": {}
+      },
+      "accepted": {
+        "cache": {
+          "state": {
+            "enabled": true,
+            "maxBytes": 1048576,
+            "ttlDays": 365
+          }
+        },
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {},
+        "publisherApi": {
+          "enabled": false
+        }
+      }
+    },
     "weather": {
       "requested": {
         "source": "weather.partner.json",

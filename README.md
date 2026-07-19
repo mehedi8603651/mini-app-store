@@ -7,6 +7,7 @@ Flutter Mini Program Platform.
 
 - `mini-apps/calculator`: Mp authoring source for the calculator.
 - `mini-apps/brain_test`: timed arithmetic challenge source and release.
+- `mini-apps/notepad`: offline cache-backed note editor and release.
 - `mini-apps/weather`: Bangladesh-first location search and global forecasts.
 - `backends/weather_api`: AWS Lambda middle-server for Weather runtime data.
 - `host_apps/mini_app_store_host`: Android-focused Flutter host application.
@@ -16,13 +17,14 @@ Flutter Mini Program Platform.
 The calculator supports offline expression evaluation, memory operations, and
 bounded history. Brain Test adds three arithmetic difficulty levels, lifecycle
 countdowns, true-or-false branching, best scores, and bounded round history.
-Both apps persist only through their accepted `state` cache policies.
+Notepad provides bounded create, edit, delete, and list workflows. These apps
+persist only through their accepted `state` cache policies.
 
 ## Local packages
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.7`, UI `0.2.0`, SDK `0.6.0`, and tooling `0.7.0`.
+local contracts `0.3.7`, UI `0.2.1`, SDK `0.6.1`, and tooling `0.7.0`.
 
 ## Weather Publisher API
 
@@ -63,6 +65,10 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\brain_test
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
   --mini-program-root D:\mini-app-store\mini-apps\brain_test
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\notepad
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\notepad
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\weather
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
@@ -112,6 +118,8 @@ The calculator latest manifest is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/calculator/latest.json`.
 Brain Test is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/brain_test/latest.json`.
+Notepad is served at
+`https://mehedi8603651.github.io/mini-app-store/artifacts/notepad/latest.json`.
 
 For every additional mini-program:
 

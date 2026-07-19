@@ -25,6 +25,10 @@ const _weatherEndpointOverride = String.fromEnvironment(
   'MINI_PROGRAM_WEATHER_URL',
   defaultValue: '',
 );
+const _notepadEndpointOverride = String.fromEnvironment(
+  'MINI_PROGRAM_NOTEPAD_URL',
+  defaultValue: '',
+);
 
 /// Host-owned composition point for mini-program runtime configuration.
 ///
@@ -81,6 +85,13 @@ Map<String, MiniProgramEndpoint> _buildConfiguredEndpoints() {
     _weatherEndpointOverride.trim().isEmpty
         ? sharedOverride
         : _weatherEndpointOverride.trim(),
+  );
+  _applyEndpointOverride(
+    endpoints,
+    MiniPrograms.notepad.appId,
+    _notepadEndpointOverride.trim().isEmpty
+        ? sharedOverride
+        : _notepadEndpointOverride.trim(),
   );
   return endpoints;
 }

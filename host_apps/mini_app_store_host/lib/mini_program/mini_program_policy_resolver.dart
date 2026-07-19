@@ -25,6 +25,15 @@ MiniProgramCachePolicy cachePolicyForMiniProgram(String appId) {
           MiniProgramCacheBucket.state,
         },
       );
+    case "notepad":
+      return const MiniProgramCachePolicy(
+        maxBytes: 1048576,
+        maxStateBytes: 1048576,
+        stateInactiveTtl: Duration(days: 365),
+        allowedMiniProgramCacheBuckets: <MiniProgramCacheBucket>{
+          MiniProgramCacheBucket.state,
+        },
+      );
     case "weather":
       return const MiniProgramCachePolicy(
         maxBytes: 4325376,
@@ -58,6 +67,13 @@ MiniProgramLiveStatePolicy liveStatePolicyForMiniProgram(String appId) {
         maxValueBytes: 262144,
         maxDepth: 32,
       );
+    case "notepad":
+      return const MiniProgramLiveStatePolicy(
+        maxBytes: 2097152,
+        maxEntries: 1000,
+        maxValueBytes: 262144,
+        maxDepth: 32,
+      );
     case "weather":
       return const MiniProgramLiveStatePolicy(
         maxBytes: 2097152,
@@ -76,6 +92,8 @@ MiniProgramPublisherApiPolicy publisherApiPolicyForMiniProgram(String appId) {
       return const MiniProgramPublisherApiPolicy(enabled: false);
     case "calculator":
       return const MiniProgramPublisherApiPolicy(enabled: false);
+    case "notepad":
+      return const MiniProgramPublisherApiPolicy(enabled: false);
     case "weather":
       return const MiniProgramPublisherApiPolicy(enabled: true);
     default:
@@ -92,6 +110,12 @@ MiniProgramLocationPolicy locationPolicyForMiniProgram(String appId) {
         mode: MiniProgramLocationMode.whenInUse,
       );
     case "calculator":
+      return const MiniProgramLocationPolicy(
+        enabled: false,
+        accuracy: MiniProgramLocationAccuracy.approximate,
+        mode: MiniProgramLocationMode.whenInUse,
+      );
+    case "notepad":
       return const MiniProgramLocationPolicy(
         enabled: false,
         accuracy: MiniProgramLocationAccuracy.approximate,

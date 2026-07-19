@@ -1,0 +1,457 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFF0F0F0",
+                                          "name": "note",
+                                          "semanticLabel": "Notepad",
+                                          "size": 28
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "width": 14
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFF0F0F0",
+                                              "data": "Notepad",
+                                              "maxLines": 1,
+                                              "overflow": "ellipsis",
+                                              "size": 27,
+                                              "weight": "medium"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {
+                                          "flex": 1
+                                        },
+                                        "type": "expanded"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "action": {
+                                            "props": {
+                                              "params": {
+                                                "body": "",
+                                                "existing": false,
+                                                "index": -1,
+                                                "title": "Untitled"
+                                              },
+                                              "requestId": "notepad-create-note",
+                                              "screenId": "notepad_editor"
+                                            },
+                                            "type": "router.push"
+                                          },
+                                          "backgroundColor": "#FF303030",
+                                          "borderColor": "#00000000",
+                                          "borderRadius": 23,
+                                          "borderWidth": 0,
+                                          "color": "#FFF0F0F0",
+                                          "iconSize": 26,
+                                          "name": "add",
+                                          "semanticLabel": "Create note",
+                                          "size": 46
+                                        },
+                                        "type": "iconButton"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "row"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF303030",
+                                  "height": 72,
+                                  "padding": {
+                                    "left": 18,
+                                    "right": 18
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 10
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "child": {
+                                    "children": [],
+                                    "props": {
+                                      "empty": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFAAAAAA",
+                                                  "name": "note",
+                                                  "semanticLabel": "No notes",
+                                                  "size": 44
+                                                },
+                                                "type": "icon"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 18
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFF0F0F0",
+                                                  "data": "No notes yet",
+                                                  "size": 24,
+                                                  "weight": "medium"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 10
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFAAAAAA",
+                                                  "data": "Tap the plus button to create your first note.",
+                                                  "maxLines": 2,
+                                                  "size": 16
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF000000",
+                                          "padding": {
+                                            "bottom": 90,
+                                            "left": 28,
+                                            "right": 28,
+                                            "top": 110
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      "itemTemplate": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF0F0F0",
+                                                      "data": "{{item.title}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 20,
+                                                      "weight": "medium"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 7
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFAAAAAA",
+                                                      "data": "{{item.body}}",
+                                                      "maxLines": 2,
+                                                      "overflow": "ellipsis",
+                                                      "size": 14
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 9
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "end",
+                                                      "color": "#FFAAAAAA",
+                                                      "data": "Saved on this device",
+                                                      "size": 12
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF121212",
+                                              "borderColor": "#FF4A4A4A",
+                                              "borderRadius": 6,
+                                              "borderWidth": 1,
+                                              "padding": {
+                                                "bottom": 15,
+                                                "left": 18,
+                                                "right": 18,
+                                                "top": 15
+                                              }
+                                            },
+                                            "type": "container"
+                                          }
+                                        ],
+                                        "props": {
+                                          "action": {
+                                            "props": {
+                                              "params": {
+                                                "body": "{{item.body}}",
+                                                "existing": true,
+                                                "index": "{{index}}",
+                                                "title": "{{item.title}}"
+                                              },
+                                              "requestId": "notepad-open-note",
+                                              "screenId": "notepad_editor"
+                                            },
+                                            "type": "router.push"
+                                          },
+                                          "semanticLabel": "Open {{item.title}}"
+                                        },
+                                        "type": "tap"
+                                      },
+                                      "limit": 50,
+                                      "source": "{{state.notepad.notes}}",
+                                      "spacing": 6
+                                    },
+                                    "type": "repeat"
+                                  },
+                                  "keys": [
+                                    "notepad.notes"
+                                  ]
+                                },
+                                "type": "stateBuilder"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 28
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "action": {
+                                        "props": {
+                                          "params": {
+                                            "body": "",
+                                            "existing": false,
+                                            "index": -1,
+                                            "title": "Untitled"
+                                          },
+                                          "requestId": "notepad-create-note",
+                                          "screenId": "notepad_editor"
+                                        },
+                                        "type": "router.push"
+                                      },
+                                      "backgroundColor": "#FF8EAD7C",
+                                      "borderColor": "#FF8EAD7C",
+                                      "borderRadius": 34,
+                                      "borderWidth": 0,
+                                      "color": "#FFF0F0F0",
+                                      "iconSize": 34,
+                                      "name": "add",
+                                      "semanticLabel": "Create a new note",
+                                      "size": 68
+                                    },
+                                    "type": "iconButton"
+                                  }
+                                ],
+                                "props": {
+                                  "alignment": "centerRight"
+                                },
+                                "type": "align"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 20
+                                },
+                                "type": "sizedBox"
+                              }
+                            ],
+                            "props": {},
+                            "type": "column"
+                          }
+                        ],
+                        "props": {
+                          "width": 520
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "props": {},
+                    "type": "center"
+                  }
+                ],
+                "props": {
+                  "padding": {
+                    "bottom": 24
+                  }
+                },
+                "type": "scrollView"
+              }
+            ],
+            "props": {
+              "bottom": true,
+              "left": true,
+              "right": true,
+              "top": true
+            },
+            "type": "safeArea"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF000000"
+        },
+        "type": "container"
+      }
+    ],
+    "props": {
+      "actions": [
+        {
+          "props": {
+            "bucket": "state",
+            "key": "notepad_notes",
+            "requestId": "notepad-load-notes",
+            "skipMissing": true,
+            "targetState": "notepad.notes"
+          },
+          "type": "cache.get"
+        },
+        {
+          "props": {
+            "key": "notepad.notes",
+            "value": []
+          },
+          "type": "state.setDefault"
+        }
+      ],
+      "error": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFAAAAAA",
+                  "data": "Notes could not be loaded",
+                  "size": 16
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "center"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF000000",
+          "padding": {
+            "bottom": 28,
+            "left": 28,
+            "right": 28,
+            "top": 28
+          }
+        },
+        "type": "container"
+      },
+      "errorState": "notepad.startup_error",
+      "loading": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFAAAAAA",
+                  "data": "Loading notes",
+                  "size": 16
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "center"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF000000",
+          "padding": {
+            "bottom": 28,
+            "left": 28,
+            "right": 28,
+            "top": 28
+          }
+        },
+        "type": "container"
+      },
+      "statusState": "notepad.status"
+    },
+    "type": "initialize"
+  },
+  "schemaVersion": 1,
+  "screenId": "notepad_home"
+}

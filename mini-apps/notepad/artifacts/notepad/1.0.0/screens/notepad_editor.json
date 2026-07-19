@@ -1,0 +1,484 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "requestId": "notepad-cancel-editor"
+                                                },
+                                                "type": "router.pop"
+                                              },
+                                              "backgroundColor": "#FF303030",
+                                              "borderColor": "#00000000",
+                                              "borderRadius": 24,
+                                              "borderWidth": 0,
+                                              "color": "#FFF0F0F0",
+                                              "iconSize": 29,
+                                              "name": "arrowBack",
+                                              "semanticLabel": "Back to notes",
+                                              "size": 48
+                                            },
+                                            "type": "iconButton"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 6
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFF0F0F0",
+                                                  "data": "Notepad",
+                                                  "maxLines": 1,
+                                                  "overflow": "ellipsis",
+                                                  "size": 25,
+                                                  "weight": "medium"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "child": {
+                                                "children": [],
+                                                "props": {
+                                                  "condition": "{{state.notepad.editor.existing}}",
+                                                  "whenFalse": {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 1,
+                                                      "width": 1
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  "whenTrue": {
+                                                    "children": [],
+                                                    "props": {
+                                                      "action": {
+                                                        "props": {
+                                                          "steps": [
+                                                            {
+                                                              "props": {
+                                                                "index": "{{state.notepad.editor.index}}",
+                                                                "key": "notepad.notes"
+                                                              },
+                                                              "type": "state.listRemoveAt"
+                                                            },
+                                                            {
+                                                              "props": {
+                                                                "bucket": "state",
+                                                                "key": "notepad_notes",
+                                                                "priority": "normal",
+                                                                "requestId": "notepad-delete-note",
+                                                                "value": "{{state.notepad.notes}}"
+                                                              },
+                                                              "type": "cache.set"
+                                                            },
+                                                            {
+                                                              "props": {
+                                                                "durationMs": 2400,
+                                                                "message": "Note deleted"
+                                                              },
+                                                              "type": "ui.toast"
+                                                            },
+                                                            {
+                                                              "props": {
+                                                                "requestId": "notepad-close-deleted-note"
+                                                              },
+                                                              "type": "router.pop"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "type": "sequence"
+                                                      },
+                                                      "backgroundColor": "#FF303030",
+                                                      "borderColor": "#00000000",
+                                                      "borderRadius": 23,
+                                                      "borderWidth": 0,
+                                                      "color": "#FFE57373",
+                                                      "iconSize": 24,
+                                                      "name": "delete",
+                                                      "semanticLabel": "Delete note",
+                                                      "size": 46
+                                                    },
+                                                    "type": "iconButton"
+                                                  }
+                                                },
+                                                "type": "condition"
+                                              },
+                                              "keys": [
+                                                "notepad.editor.existing"
+                                              ]
+                                            },
+                                            "type": "stateBuilder"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 6
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "condition": "{{state.notepad.editor.existing}}",
+                                                  "else": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "key": "notepad.notes",
+                                                            "maxItems": 50,
+                                                            "value": {
+                                                              "body": "{{state.notepad.editor.body}}",
+                                                              "title": "{{state.notepad.editor.title}}"
+                                                            }
+                                                          },
+                                                          "type": "state.listPrepend"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "bucket": "state",
+                                                            "key": "notepad_notes",
+                                                            "priority": "normal",
+                                                            "requestId": "notepad-save-new",
+                                                            "value": "{{state.notepad.notes}}"
+                                                          },
+                                                          "type": "cache.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Saved"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "requestId": "notepad-close-new-note"
+                                                          },
+                                                          "type": "router.pop"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "then": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "index": "{{state.notepad.editor.index}}",
+                                                            "key": "notepad.notes"
+                                                          },
+                                                          "type": "state.listRemoveAt"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "index": "{{state.notepad.editor.index}}",
+                                                            "key": "notepad.notes",
+                                                            "value": {
+                                                              "body": "{{state.notepad.editor.body}}",
+                                                              "title": "{{state.notepad.editor.title}}"
+                                                            }
+                                                          },
+                                                          "type": "state.listInsert"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "bucket": "state",
+                                                            "key": "notepad_notes",
+                                                            "priority": "normal",
+                                                            "requestId": "notepad-save-existing",
+                                                            "value": "{{state.notepad.notes}}"
+                                                          },
+                                                          "type": "cache.set"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Saved"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "requestId": "notepad-close-saved-note"
+                                                          },
+                                                          "type": "router.pop"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  }
+                                                },
+                                                "type": "action.ifElse"
+                                              },
+                                              "backgroundColor": "#FF303030",
+                                              "borderColor": "#FF303030",
+                                              "borderRadius": 4,
+                                              "borderWidth": 0,
+                                              "fontSize": 16,
+                                              "fontWeight": "medium",
+                                              "foregroundColor": "#FFF0F0F0",
+                                              "height": 44,
+                                              "label": "SAVE"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF303030",
+                                      "height": 72,
+                                      "padding": {
+                                        "left": 10,
+                                        "right": 10
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 8
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "autofocus": true,
+                                              "backgroundColor": "#FF121212",
+                                              "borderColor": "#FF4A4A4A",
+                                              "borderRadius": 5,
+                                              "borderWidth": 1,
+                                              "cursorColor": "#FF8EAD7C",
+                                              "debounceMs": 0,
+                                              "focusedBorderColor": "#FF8EAD7C",
+                                              "fontSize": 22,
+                                              "hint": "Enter title...",
+                                              "hintColor": "#FFAAAAAA",
+                                              "initialValue": "",
+                                              "keyboardType": "text",
+                                              "maxLength": 120,
+                                              "maxLines": 1,
+                                              "minLines": 1,
+                                              "paddingHorizontal": 12,
+                                              "paddingVertical": 12,
+                                              "stateKey": "notepad.editor.title",
+                                              "textColor": "#FFF0F0F0",
+                                              "textInputAction": "next"
+                                            },
+                                            "type": "stateTextField"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "autofocus": false,
+                                              "backgroundColor": "#FF121212",
+                                              "borderColor": "#FF4A4A4A",
+                                              "borderRadius": 5,
+                                              "borderWidth": 1,
+                                              "cursorColor": "#FF8EAD7C",
+                                              "debounceMs": 0,
+                                              "focusedBorderColor": "#FF8EAD7C",
+                                              "fontSize": 18,
+                                              "hint": "Enter text...",
+                                              "hintColor": "#FFAAAAAA",
+                                              "initialValue": "",
+                                              "keyboardType": "multiline",
+                                              "maxLength": 4096,
+                                              "maxLines": 30,
+                                              "minLines": 14,
+                                              "paddingHorizontal": 12,
+                                              "paddingVertical": 14,
+                                              "stateKey": "notepad.editor.body",
+                                              "textColor": "#FFF0F0F0",
+                                              "textInputAction": "newline"
+                                            },
+                                            "type": "stateTextField"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF000000",
+                                      "padding": {
+                                        "bottom": 8,
+                                        "left": 8,
+                                        "right": 8,
+                                        "top": 8
+                                      }
+                                    },
+                                    "type": "container"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "width": 520
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "center"
+                      }
+                    ],
+                    "props": {
+                      "padding": {
+                        "bottom": 24
+                      }
+                    },
+                    "type": "scrollView"
+                  }
+                ],
+                "props": {
+                  "bottom": true,
+                  "left": true,
+                  "right": true,
+                  "top": true
+                },
+                "type": "safeArea"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF000000"
+            },
+            "type": "container"
+          }
+        ],
+        "props": {
+          "actions": [
+            {
+              "props": {
+                "values": {
+                  "notepad.editor.body": "{{route.body}}",
+                  "notepad.editor.existing": "{{route.existing}}",
+                  "notepad.editor.index": "{{route.index}}",
+                  "notepad.editor.title": "{{route.title}}"
+                }
+              },
+              "type": "state.patch"
+            }
+          ],
+          "error": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFAAAAAA",
+                      "data": "Note could not be opened",
+                      "size": 16
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF000000",
+              "padding": {
+                "bottom": 28,
+                "left": 28,
+                "right": 28,
+                "top": 28
+              }
+            },
+            "type": "container"
+          },
+          "errorState": "notepad.editor.error",
+          "loading": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFAAAAAA",
+                      "data": "Opening note",
+                      "size": 16
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF000000",
+              "padding": {
+                "bottom": 28,
+                "left": 28,
+                "right": 28,
+                "top": 28
+              }
+            },
+            "type": "container"
+          },
+          "statusState": "notepad.editor.status"
+        },
+        "type": "initialize"
+      }
+    ],
+    "props": {
+      "prefix": "notepad.editor"
+    },
+    "type": "stateScope"
+  },
+  "schemaVersion": 1,
+  "screenId": "notepad_editor"
+}

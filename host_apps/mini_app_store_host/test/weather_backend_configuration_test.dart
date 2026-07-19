@@ -22,6 +22,10 @@ void main() {
       isFalse,
     );
     expect(
+      endpoints[MiniPrograms.notepad.appId]!.publisherApiPolicy.enabled,
+      isFalse,
+    );
+    expect(
       endpoints[MiniPrograms.weather.appId]!.publisherApiPolicy.enabled,
       isTrue,
     );
@@ -36,6 +40,10 @@ void main() {
     );
     expect(
       endpoints[MiniPrograms.brainTest.appId]!.locationPolicy.enabled,
+      isFalse,
+    );
+    expect(
+      endpoints[MiniPrograms.notepad.appId]!.locationPolicy.enabled,
       isFalse,
     );
     expect(

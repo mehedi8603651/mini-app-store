@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   path_provider: ^2.1.5
 
-  mini_program_sdk: ^0.6.0
+  mini_program_sdk: ^0.6.1
   mini_program_contracts: ^0.3.7
 dev_dependencies:
   flutter_test:

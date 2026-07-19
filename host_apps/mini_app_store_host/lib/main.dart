@@ -78,6 +78,14 @@ class MiniAppCatalogPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _MiniProgramCatalogTile(
+            app: MiniPrograms.notepad,
+            description: 'Private offline notes saved on this device',
+            icon: Icons.note_alt_outlined,
+            iconBackground: const Color(0xFF8BA779),
+            launchBackground: Colors.black,
+          ),
+          const SizedBox(height: 12),
+          _MiniProgramCatalogTile(
             app: MiniPrograms.weather,
             description: 'Bangladesh locations and 7-day global forecasts',
             icon: Icons.cloud_outlined,
