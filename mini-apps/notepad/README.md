@@ -26,6 +26,6 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify note
   --mini-program-root D:\mini-app-store\mini-apps\notepad
 ```
 
-The current source uses local UI `0.2.1` while the new controlled editor is
-being device-tested. The host uses local SDK `0.6.1` through its existing path
-override.
+The current source uses local UI `0.2.1`. Notepad `1.0.1` remains compatible
+with SDK `0.6.1`; SDK `0.6.2` separately corrects strict validation for the
+new add, delete, edit, and note icon names.

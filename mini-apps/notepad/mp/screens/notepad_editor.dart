@@ -70,7 +70,7 @@ MpNode _editorHeader() {
           child: Mp.condition(
             condition: '{{state.notepad.editor.existing}}',
             whenTrue: Mp.iconButton(
-              'delete',
+              'close',
               semanticLabel: 'Delete note',
               action: deleteNote(),
               size: 46,

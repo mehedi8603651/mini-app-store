@@ -1,0 +1,31 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 1,
+      "path": "assets/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 576,
+      "path": "manifest.json",
+      "sha256": "074ff252ee606e7629d101d79e7f87d89a6d99c4cf680660d25ee67f043e7ca7"
+    },
+    {
+      "bytes": 219,
+      "path": "release.json",
+      "sha256": "a7c25c357194edbde40df7c2f5980c653d54bc69c1a296173c95246d328aae60"
+    },
+    {
+      "bytes": 25882,
+      "path": "screens/notepad_editor.json",
+      "sha256": "50ed957742e8f583289646c5d1e0413ba6a7c27b83e2db624e956e4988969a1a"
+    },
+    {
+      "bytes": 21782,
+      "path": "screens/notepad_home.json",
+      "sha256": "1e5bb4cb8bb478e9ee2fbf072188386b38304a693abfd8efff90b12264352011"
+    }
+  ],
+  "schemaVersion": 1
+}

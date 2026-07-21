@@ -35,16 +35,18 @@ MpNode buildNotepadHome() {
                   Mp.sizedBox(height: 28),
                   Mp.align(
                     alignment: 'centerRight',
-                    child: Mp.iconButton(
-                      'add',
-                      semanticLabel: 'Create a new note',
-                      action: createNote(),
-                      size: 68,
-                      iconSize: 34,
-                      color: notepadText,
-                      backgroundColor: notepadAccent,
-                      borderColor: notepadAccent,
-                      borderRadius: 34,
+                    child: Mp.container(
+                      width: 68,
+                      child: Mp.button(
+                        label: '+',
+                        action: createNote(),
+                        height: 68,
+                        backgroundColor: notepadAccent,
+                        foregroundColor: notepadText,
+                        borderColor: notepadAccent,
+                        borderRadius: 34,
+                        fontSize: 34,
+                      ),
                     ),
                   ),
                   Mp.sizedBox(height: 20),
@@ -65,7 +67,7 @@ MpNode _homeHeader() {
     backgroundColor: notepadAppBar,
     child: Mp.row(
       children: <MpNode>[
-        Mp.icon('note', semanticLabel: 'Notepad', size: 28, color: notepadText),
+        Mp.icon('menu', semanticLabel: 'Notepad', size: 28, color: notepadText),
         Mp.sizedBox(width: 14),
         Mp.expanded(
           child: Mp.text(
@@ -77,15 +79,18 @@ MpNode _homeHeader() {
             overflow: 'ellipsis',
           ),
         ),
-        Mp.iconButton(
-          'add',
-          semanticLabel: 'Create note',
-          action: createNote(),
-          size: 46,
-          iconSize: 26,
-          color: notepadText,
-          backgroundColor: notepadAppBar,
-          borderRadius: 23,
+        Mp.container(
+          width: 46,
+          child: Mp.button(
+            label: '+',
+            action: createNote(),
+            height: 46,
+            backgroundColor: notepadAppBar,
+            foregroundColor: notepadText,
+            borderColor: notepadAppBar,
+            borderRadius: 23,
+            fontSize: 26,
+          ),
         ),
       ],
     ),
@@ -143,7 +148,7 @@ MpNode _emptyNotes() {
     child: Mp.column(
       children: <MpNode>[
         Mp.icon(
-          'note',
+          'mail',
           semanticLabel: 'No notes',
           size: 44,
           color: notepadMuted,
