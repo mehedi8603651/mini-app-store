@@ -2,6 +2,11 @@
   "algorithm": "sha256",
   "files": [
     {
+      "bytes": 1,
+      "path": "assets/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
       "bytes": 612,
       "path": "manifest.json",
       "sha256": "d1b59fb2e082a13a46c58a72141442a8a0265679b958bc855c04f6cedba2d11e"
