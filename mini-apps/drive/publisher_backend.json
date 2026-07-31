@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "type": "mini_program_publisher_backend_contract",
+  "contractVersion": "1",
+  "appId": "drive",
+  "backendBaseUrl": "https://rxbbwqtqrk.execute-api.ap-south-1.amazonaws.com",
+  "permissionReason": "Authenticate a Drive account and manage its private test files.",
+  "healthEndpoint": "health",
+  "smokeTests": [
+    {
+      "id": "health",
+      "method": "GET",
+      "endpoint": "health",
+      "expectedStatus": 200,
+      "expectJsonObject": true
+    }
+  ]
+}

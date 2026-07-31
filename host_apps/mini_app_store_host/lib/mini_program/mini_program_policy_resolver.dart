@@ -25,6 +25,8 @@ MiniProgramCachePolicy cachePolicyForMiniProgram(String appId) {
           MiniProgramCacheBucket.state,
         },
       );
+    case "drive":
+      return const MiniProgramCachePolicy();
     case "notepad":
       return const MiniProgramCachePolicy(
         maxBytes: 1048576,
@@ -67,6 +69,13 @@ MiniProgramLiveStatePolicy liveStatePolicyForMiniProgram(String appId) {
         maxValueBytes: 262144,
         maxDepth: 32,
       );
+    case "drive":
+      return const MiniProgramLiveStatePolicy(
+        maxBytes: 2097152,
+        maxEntries: 1000,
+        maxValueBytes: 262144,
+        maxDepth: 32,
+      );
     case "notepad":
       return const MiniProgramLiveStatePolicy(
         maxBytes: 2097152,
@@ -92,6 +101,8 @@ MiniProgramPublisherApiPolicy publisherApiPolicyForMiniProgram(String appId) {
       return const MiniProgramPublisherApiPolicy(enabled: false);
     case "calculator":
       return const MiniProgramPublisherApiPolicy(enabled: false);
+    case "drive":
+      return const MiniProgramPublisherApiPolicy(enabled: true);
     case "notepad":
       return const MiniProgramPublisherApiPolicy(enabled: false);
     case "weather":
@@ -115,6 +126,12 @@ MiniProgramLocationPolicy locationPolicyForMiniProgram(String appId) {
         accuracy: MiniProgramLocationAccuracy.approximate,
         mode: MiniProgramLocationMode.whenInUse,
       );
+    case "drive":
+      return const MiniProgramLocationPolicy(
+        enabled: false,
+        accuracy: MiniProgramLocationAccuracy.approximate,
+        mode: MiniProgramLocationMode.whenInUse,
+      );
     case "notepad":
       return const MiniProgramLocationPolicy(
         enabled: false,
@@ -129,5 +146,35 @@ MiniProgramLocationPolicy locationPolicyForMiniProgram(String appId) {
       );
     default:
       return const MiniProgramLocationPolicy();
+  }
+}
+
+MiniProgramFilePolicy filePolicyForMiniProgram(String appId) {
+  switch (appId) {
+    case "brain_test":
+      return const MiniProgramFilePolicy();
+    case "calculator":
+      return const MiniProgramFilePolicy();
+    case "drive":
+      return const MiniProgramFilePolicy(
+        enabled: true,
+        allowUpload: true,
+        allowDownload: true,
+        allowedMimeTypes: <String>{"*/*"},
+        allowedDestinations: <MiniProgramFileDownloadDestination>{
+          MiniProgramFileDownloadDestination.downloads,
+          MiniProgramFileDownloadDestination.choose,
+        },
+        maxFilesPerUpload: 3,
+        maxConcurrentTransfers: 2,
+        maxFileBytes: 3145728,
+        minimumFreeBytes: 268435456,
+      );
+    case "notepad":
+      return const MiniProgramFilePolicy();
+    case "weather":
+      return const MiniProgramFilePolicy();
+    default:
+      return const MiniProgramFilePolicy();
   }
 }

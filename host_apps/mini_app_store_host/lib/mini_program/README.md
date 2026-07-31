@@ -22,8 +22,8 @@ Integration files:
 
 ```yaml
 dependencies:
-  mini_program_sdk: ^0.6.0
-  mini_program_contracts: ^0.3.7
+  mini_program_sdk: ^0.6.3
+  mini_program_contracts: ^0.3.8
 ```
 
 `embed init` updates `pubspec.yaml` to add these hosted packages if they are
@@ -83,6 +83,26 @@ miniprogram host endpoint import ../my_data.partner.json
 `buildHostMiniProgramConfig()` automatically uses the generated endpoint map.
 No additional import or runtime wiring is required when another mini-program is
 added.
+
+For Android apps that request explicit one-time approximate location, install
+the generic host provider once:
+
+```bash
+miniprogram host capability init location --platform android
+```
+
+The command does not accept location policy for any mini-program. Continue to
+review each app in `mini_program_policies.json`.
+
+For Android apps that request Publisher API uploads or downloads, install the
+generic streaming provider once:
+
+```bash
+miniprogram host capability init file --platform android
+```
+
+This also leaves every app denied until its `permissions.files` policy is
+reviewed and accepted.
 
 Rule: host UI opens by `appId`; endpoint config owns static artifact URLs.
 An optional `publisher_backend.json` declares the mini-program's Publisher API,

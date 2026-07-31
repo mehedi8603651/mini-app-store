@@ -9,7 +9,9 @@ Flutter Mini Program Platform.
 - `mini-apps/brain_test`: timed arithmetic challenge source and release.
 - `mini-apps/notepad`: offline cache-backed note editor and release.
 - `mini-apps/weather`: Bangladesh-first location search and global forecasts.
+- `mini-apps/drive`: authenticated private test storage with native transfers.
 - `backends/weather_api`: AWS Lambda middle-server for Weather runtime data.
+- `backends/drive_api`: bounded Cognito, Lambda, DynamoDB, and S3 test backend.
 - `host_apps/mini_app_store_host`: Android-focused Flutter host application.
 - `.github/workflows/deploy-pages.yml`: validates, merges, and deploys all
   mini-program artifacts to GitHub Pages.
@@ -24,7 +26,7 @@ persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.7`, UI `0.2.1`, SDK `0.6.1`, and tooling `0.7.0`.
+local contracts `0.3.8`, UI `0.2.2`, SDK `0.6.3`, and tooling `0.7.1`.
 
 ## Weather Publisher API
 
@@ -53,6 +55,19 @@ The native provider prefers a fresh Android network fix and may fall back to a
 validated network fix from the previous 15 minutes. This avoids unnecessary
 timeouts indoors without enabling precise or background location.
 
+## Drive Publisher API
+
+Drive uses Cognito email authentication and stores private user objects in S3.
+Lambda owns file metadata and atomic per-user/global usage counters in
+DynamoDB. The test deployment is deliberately bounded to 3 MiB per file,
+10 MiB and 20 files per user, 50 MiB and 100 files globally, and 500 protected
+API calls per UTC day. See `backends/drive_api/README.md` for deployment and
+service details.
+
+The Drive artifact declares its Publisher API URL. The host accepts the API
+and native file-transfer permissions, while Android performs streamed document
+selection, upload, download, cancellation, and Storage Access Framework saves.
+
 ## Build and verify portable artifacts
 
 ```powershell
@@ -73,6 +88,10 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\weather
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
   --mini-program-root D:\mini-app-store\mini-apps\weather
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\drive
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\drive
 ```
 
 Each portable source bundle is generated under
@@ -120,6 +139,10 @@ Brain Test is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/brain_test/latest.json`.
 Notepad is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/notepad/latest.json`.
+Weather is served at
+`https://mehedi8603651.github.io/mini-app-store/artifacts/weather/latest.json`.
+Drive is served at
+`https://mehedi8603651.github.io/mini-app-store/artifacts/drive/latest.json`.
 
 For every additional mini-program:
 

@@ -23,5 +23,10 @@ void main() {
       find.text('Bangladesh locations and 7-day global forecasts'),
       findsOneWidget,
     );
+    expect(find.text('Drive'), findsOneWidget);
+    expect(
+      find.text('Private test storage with upload and download'),
+      findsOneWidget,
+    );
   });
 }

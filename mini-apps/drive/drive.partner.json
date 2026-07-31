@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "type": "mini_program_partner_handoff",
+  "appId": "drive",
+  "title": "Drive",
+  "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
+  "generatedAtUtc": "2026-08-01T00:00:00Z",
+  "requestedPublisherApi": {
+    "enabled": true,
+    "reason": "Authenticate a Drive account and manage its private test files.",
+    "contract": "publisher_backend.json"
+  },
+  "requestedPermissions": {
+    "files": {
+      "enabled": true,
+      "upload": true,
+      "download": true,
+      "reason": "Select files for upload and save downloaded Drive files.",
+      "mimeTypes": [
+        "*/*"
+      ],
+      "destinations": [
+        "downloads",
+        "choose"
+      ],
+      "recommendedMaxFileBytes": 3145728,
+      "recommendedMaxFilesPerUpload": 3,
+      "recommendedMaxConcurrentTransfers": 2
+    }
+  }
+}

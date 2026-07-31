@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'app_host_bridge.dart';
+import 'app_android_file_transfer_provider.dart';
 import 'app_android_location_provider.dart';
+import 'app_host_bridge.dart';
 import 'mini_program_endpoints.dart';
 import 'mini_program_registry.dart';
 import 'mini_program_runtime_setup.dart';
@@ -29,6 +31,10 @@ const _notepadEndpointOverride = String.fromEnvironment(
   'MINI_PROGRAM_NOTEPAD_URL',
   defaultValue: '',
 );
+const _driveEndpointOverride = String.fromEnvironment(
+  'MINI_PROGRAM_DRIVE_URL',
+  defaultValue: '',
+);
 
 /// Host-owned composition point for mini-program runtime configuration.
 ///
@@ -40,16 +46,24 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
   Map<String, MiniProgramEndpoint>? endpoints,
   MiniProgramCacheBundle? cacheBundle,
   MiniProgramLocationProvider? locationProvider,
+  MiniProgramFileTransferProvider? fileTransferProvider,
 }) async {
   final resolvedCacheBundle = cacheBundle ?? await _buildPersistentCache();
   final resolvedLocationProvider =
       locationProvider ??
       (Platform.isAndroid ? const AppAndroidLocationProvider() : null);
+  final resolvedFileTransferProvider =
+      fileTransferProvider ??
+      (!kIsWeb && defaultTargetPlatform == TargetPlatform.android
+          ? AppAndroidFileTransferProvider()
+          : null);
+
   return buildMiniProgramConfig(
     openNativeRoute: openNativeRoute,
     endpoints: endpoints ?? _buildConfiguredEndpoints(),
     cacheBundle: resolvedCacheBundle,
     locationProvider: resolvedLocationProvider,
+    fileTransferProvider: resolvedFileTransferProvider,
   );
 }
 
@@ -93,6 +107,13 @@ Map<String, MiniProgramEndpoint> _buildConfiguredEndpoints() {
         ? sharedOverride
         : _notepadEndpointOverride.trim(),
   );
+  _applyEndpointOverride(
+    endpoints,
+    MiniPrograms.drive.appId,
+    _driveEndpointOverride.trim().isEmpty
+        ? sharedOverride
+        : _driveEndpointOverride.trim(),
+  );
   return endpoints;
 }
 
@@ -118,5 +139,6 @@ void _applyEndpointOverride(
     liveStatePolicy: current.liveStatePolicy,
     publisherApiPolicy: current.publisherApiPolicy,
     locationPolicy: current.locationPolicy,
+    filePolicy: current.filePolicy,
   );
 }

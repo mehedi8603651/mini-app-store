@@ -93,6 +93,14 @@ class MiniAppCatalogPage extends StatelessWidget {
             iconForeground: const Color(0xFF10131A),
             launchBackground: const Color(0xFF10151E),
           ),
+          const SizedBox(height: 12),
+          _MiniProgramCatalogTile(
+            app: MiniPrograms.drive,
+            description: 'Private test storage with upload and download',
+            icon: Icons.cloud_upload_outlined,
+            iconBackground: const Color(0xFF4EA1FF),
+            launchBackground: const Color(0xFF0B1017),
+          ),
         ],
       ),
     );

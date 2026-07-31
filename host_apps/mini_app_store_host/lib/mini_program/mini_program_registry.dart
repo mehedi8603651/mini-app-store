@@ -22,6 +22,8 @@ class MiniPrograms {
     title: "Calculator",
   );
 
+  static const drive = MiniProgramInfo(appId: "drive", title: "Drive");
+
   static const notepad = MiniProgramInfo(appId: "notepad", title: "Notepad");
 
   static const weather = MiniProgramInfo(
@@ -32,6 +34,7 @@ class MiniPrograms {
   static const values = <MiniProgramInfo>[
     brainTest,
     calculator,
+    drive,
     notepad,
     weather,
   ];
@@ -39,6 +42,7 @@ class MiniPrograms {
   static const byAppId = <String, MiniProgramInfo>{
     "brain_test": brainTest,
     "calculator": calculator,
+    "drive": drive,
     "notepad": notepad,
     "weather": weather,
   };

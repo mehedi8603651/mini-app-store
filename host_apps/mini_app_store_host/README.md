@@ -2,13 +2,17 @@
 
 Flutter host application for mini-programs in this repository.
 
-## Calculator integration
+## Mini-program integration
 
 - Production artifacts resolve from GitHub Pages.
 - `MINI_PROGRAM_CALCULATOR_URL` can override delivery for local development.
 - `MiniProgramCacheBundle.fileBacked(...)` persists accepted cache buckets.
 - `lib/mini_program/mini_program_policies.json` is the host-owned policy source.
 - The calculator receives a 1 MiB, 30-day `state` cache allowance.
+- Drive receives only its accepted Publisher API and file upload/download
+  permissions, including the 3 MiB host file limit.
+- Android file transfers use the generated native MethodChannel adapter and
+  the system document picker; the host never stores Publisher API credentials.
 - The mini-program launches without host app chrome for its full-screen UI.
 
 ## Run on Android emulator

@@ -24,6 +24,7 @@ const int _configuredBackendPort = int.fromEnvironment(
 MiniProgramConfig buildMiniProgramConfig({
   AppNativeRouteOpener? openNativeRoute,
   MiniProgramLocationProvider? locationProvider,
+  MiniProgramFileTransferProvider? fileTransferProvider,
   Map<String, MiniProgramEndpoint> endpoints =
       const <String, MiniProgramEndpoint>{},
   MiniProgramCacheBundle? cacheBundle,
@@ -34,6 +35,8 @@ MiniProgramConfig buildMiniProgramConfig({
     CapabilityIds.analytics,
     if (openNativeRoute != null) CapabilityIds.nativeNavigation,
     if (locationProvider != null) CapabilityIds.locationCurrent,
+    if (fileTransferProvider != null) CapabilityIds.fileUpload,
+    if (fileTransferProvider != null) CapabilityIds.fileDownload,
   };
   final deliveryContext = MiniProgramDeliveryContext(
     hostApp: _hostAppId,
@@ -52,6 +55,7 @@ MiniProgramConfig buildMiniProgramConfig({
     source: source,
     hostBridge: AppHostBridge(openNativeRoute: openNativeRoute),
     locationProvider: locationProvider,
+    fileTransferProvider: fileTransferProvider,
     capabilityRegistry: CapabilityRegistry(supportedCapabilities),
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,

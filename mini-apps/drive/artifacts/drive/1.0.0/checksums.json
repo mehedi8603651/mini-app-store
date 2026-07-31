@@ -1,0 +1,31 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 612,
+      "path": "manifest.json",
+      "sha256": "d1b59fb2e082a13a46c58a72141442a8a0265679b958bc855c04f6cedba2d11e"
+    },
+    {
+      "bytes": 490,
+      "path": "publisher_backend.json",
+      "sha256": "9eb79bb868db8c2d3e13b37c6b88bed8e286ab36aaae3e3a6157232fd017ec5e"
+    },
+    {
+      "bytes": 265,
+      "path": "release.json",
+      "sha256": "e6532fb35a525c1d8f508fe6b0207705d758a1b209fd22571f6d4212f5ee6c83"
+    },
+    {
+      "bytes": 102253,
+      "path": "screens/drive_home.json",
+      "sha256": "175a3fff2850c59e4901e9aa1b68545f3b86be166f141b1f4f54f6fa0f3eec29"
+    },
+    {
+      "bytes": 23998,
+      "path": "screens/drive_rename.json",
+      "sha256": "b9974a8aaf1069f402c986c069e55b7d5a258b3602cde00c7a7f02fca6a165aa"
+    }
+  ],
+  "schemaVersion": 1
+}

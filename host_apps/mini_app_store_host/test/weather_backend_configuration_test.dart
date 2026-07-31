@@ -10,7 +10,7 @@ import 'package:mini_app_store_host/mini_program/app_android_location_provider.d
 import 'package:mini_program_sdk/mini_program_sdk.dart';
 
 void main() {
-  test('only Weather has accepted Publisher API permission', () {
+  test('Weather and Drive have accepted Publisher API permission', () {
     final endpoints = buildMiniProgramEndpoints();
 
     expect(
@@ -24,6 +24,10 @@ void main() {
     expect(
       endpoints[MiniPrograms.notepad.appId]!.publisherApiPolicy.enabled,
       isFalse,
+    );
+    expect(
+      endpoints[MiniPrograms.drive.appId]!.publisherApiPolicy.enabled,
+      isTrue,
     );
     expect(
       endpoints[MiniPrograms.weather.appId]!.publisherApiPolicy.enabled,
@@ -44,6 +48,10 @@ void main() {
     );
     expect(
       endpoints[MiniPrograms.notepad.appId]!.locationPolicy.enabled,
+      isFalse,
+    );
+    expect(
+      endpoints[MiniPrograms.drive.appId]!.locationPolicy.enabled,
       isFalse,
     );
     expect(
