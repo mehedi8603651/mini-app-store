@@ -11,9 +11,13 @@ Flutter host application for mini-programs in this repository.
 - The calculator receives a 1 MiB, 30-day `state` cache allowance.
 - Drive receives only its accepted Publisher API and file upload/download
   permissions, including the 3 MiB host file limit.
+- Friends receives accepted Publisher API and QR scanner permissions; QR torch
+  control is scoped to the scanner and does not grant flashlight permission.
 - Android file transfers use the generated native MethodChannel adapter and
   the system document picker; the host never stores Publisher API credentials.
 - The mini-program launches without host app chrome for its full-screen UI.
+- `MINI_PROGRAM_FRIENDS_URL` can override only Friends artifact delivery during
+  local development without changing its accepted policies.
 
 ## Run on Android emulator
 

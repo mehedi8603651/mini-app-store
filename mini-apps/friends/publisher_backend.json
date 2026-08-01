@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "type": "mini_program_publisher_backend_contract",
+  "contractVersion": "1",
+  "appId": "friends",
+  "backendBaseUrl": "https://mooawrs6og.execute-api.ap-south-1.amazonaws.com",
+  "permissionReason": "Authenticate users and manage QR invitations, pending requests, and accepted friendships.",
+  "healthEndpoint": "health",
+  "smokeTests": [
+    {
+      "id": "health",
+      "method": "GET",
+      "endpoint": "health",
+      "expectedStatus": 200,
+      "expectJsonObject": true
+    }
+  ]
+}

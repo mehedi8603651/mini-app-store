@@ -1,0 +1,561 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "requestId": "friends-back"
+                                    },
+                                    "type": "router.pop"
+                                  },
+                                  "backgroundColor": "#FF202735",
+                                  "borderColor": "#FF303A4D",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "color": "#FFF6F8FC",
+                                  "iconSize": 24,
+                                  "name": "arrowBack",
+                                  "semanticLabel": "Back",
+                                  "size": 44
+                                },
+                                "type": "iconButton"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "width": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFF6F8FC",
+                                          "data": "MY FRIENDS",
+                                          "size": 22,
+                                          "weight": "bold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 2
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FF9BA6B8",
+                                          "data": "ACCEPTED CONNECTIONS",
+                                          "size": 11,
+                                          "weight": "medium"
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "flex": 1
+                                },
+                                "type": "expanded"
+                              }
+                            ],
+                            "props": {},
+                            "type": "row"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "height": 20
+                            },
+                            "type": "sizedBox"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "child": {
+                                "children": [],
+                                "props": {
+                                  "empty": {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFFF647C",
+                                              "name": "warning",
+                                              "semanticLabel": "No friends yet",
+                                              "size": 38
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 14
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FFF6F8FC",
+                                              "data": "No friends yet",
+                                              "size": 19,
+                                              "weight": "semibold"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FF9BA6B8",
+                                              "data": "Create a QR invitation or scan one, then accept the pending request.",
+                                              "maxLines": 5,
+                                              "size": 13
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF171C26",
+                                      "borderColor": "#FFFF647C",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 44,
+                                        "left": 24,
+                                        "right": 24,
+                                        "top": 44
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  "itemTemplate": {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FF38D6A5",
+                                                      "name": "person",
+                                                      "semanticLabel": "Friend",
+                                                      "size": 25
+                                                    },
+                                                    "type": "icon"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "center"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF202735",
+                                              "borderRadius": 23,
+                                              "height": 46,
+                                              "width": 46
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF6F8FC",
+                                                      "data": "{{item.email}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 15,
+                                                      "weight": "semibold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 3
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FF9BA6B8",
+                                                      "data": "Friends since {{item.friendsSinceUtc}}",
+                                                      "size": 10
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "steps": [
+                                                    {
+                                                      "props": {
+                                                        "body": {
+                                                          "friendUserId": "{{item.userId}}"
+                                                        },
+                                                        "endpoint": "friends/remove",
+                                                        "method": "POST",
+                                                        "requestId": "friends-remove"
+                                                      },
+                                                      "type": "backend.call"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "endpoint": "friends",
+                                                        "forceRefresh": true,
+                                                        "method": "GET",
+                                                        "requestId": "friends_list"
+                                                      },
+                                                      "type": "backend.query"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "durationMs": 2400,
+                                                        "message": "Friend removed"
+                                                      },
+                                                      "type": "ui.toast"
+                                                    }
+                                                  ]
+                                                },
+                                                "type": "sequence"
+                                              },
+                                              "backgroundColor": "#FF171C26",
+                                              "borderColor": "#00000000",
+                                              "borderRadius": 21,
+                                              "borderWidth": 0,
+                                              "color": "#FFFF647C",
+                                              "iconSize": 20,
+                                              "name": "delete",
+                                              "semanticLabel": "Remove {{item.email}}",
+                                              "size": 42
+                                            },
+                                            "type": "iconButton"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF171C26",
+                                      "borderColor": "#FF303A4D",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 15,
+                                        "left": 15,
+                                        "right": 15,
+                                        "top": 15
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  "limit": 100,
+                                  "source": "{{backend.friends_list.data.items}}",
+                                  "spacing": 9
+                                },
+                                "type": "repeat"
+                              },
+                              "empty": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFFF647C",
+                                          "name": "warning",
+                                          "semanticLabel": "No friends yet",
+                                          "size": 38
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 14
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FFF6F8FC",
+                                          "data": "No friends yet",
+                                          "size": 19,
+                                          "weight": "semibold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 8
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FF9BA6B8",
+                                          "data": "Create a QR invitation or scan one, then accept the pending request.",
+                                          "maxLines": 5,
+                                          "size": 13
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF171C26",
+                                  "borderColor": "#FFFF647C",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 44,
+                                    "left": 24,
+                                    "right": 24,
+                                    "top": 44
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "endpoint": "friends",
+                              "error": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFFF647C",
+                                          "name": "warning",
+                                          "semanticLabel": "Friends unavailable",
+                                          "size": 38
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 14
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FFF6F8FC",
+                                          "data": "Friends unavailable",
+                                          "size": 19,
+                                          "weight": "semibold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 8
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FF9BA6B8",
+                                          "data": "{{backend.friends_list.message}}",
+                                          "maxLines": 5,
+                                          "size": 13
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF171C26",
+                                  "borderColor": "#FFFF647C",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 44,
+                                    "left": 24,
+                                    "right": 24,
+                                    "top": 44
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "loading": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FF57A6FF",
+                                          "name": "refresh",
+                                          "semanticLabel": "Loading",
+                                          "size": 34
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 16
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FF9BA6B8",
+                                          "data": "Loading friends",
+                                          "size": 14
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF171C26",
+                                  "borderColor": "#FF303A4D",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 72,
+                                    "left": 24,
+                                    "right": 24,
+                                    "top": 72
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "method": "GET",
+                              "requestId": "friends_list"
+                            },
+                            "type": "backendBuilder"
+                          }
+                        ],
+                        "props": {},
+                        "type": "column"
+                      }
+                    ],
+                    "props": {
+                      "width": 600
+                    },
+                    "type": "container"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "padding": {
+                "bottom": 30,
+                "left": 16,
+                "right": 16,
+                "top": 18
+              }
+            },
+            "type": "scrollView"
+          }
+        ],
+        "props": {
+          "bottom": true,
+          "left": true,
+          "right": true,
+          "top": true
+        },
+        "type": "safeArea"
+      }
+    ],
+    "props": {
+      "backgroundColor": "#FF0E1118"
+    },
+    "type": "container"
+  },
+  "schemaVersion": 1,
+  "screenId": "friends_list"
+}

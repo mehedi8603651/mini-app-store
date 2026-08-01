@@ -1,0 +1,46 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 596,
+      "path": "manifest.json",
+      "sha256": "82ff125bb5d35ea88498511084e142b49c67dcba550e0bba48c2875fded53bd2"
+    },
+    {
+      "bytes": 518,
+      "path": "publisher_backend.json",
+      "sha256": "67fc4024801a6457af5ba3ee50cc5fcb782ee4f3bee4538667048250e6537a88"
+    },
+    {
+      "bytes": 267,
+      "path": "release.json",
+      "sha256": "f04f9c9a5cff4c26f50319e0d06e02cdc2bdd0554ccaa1338295dc551d955228"
+    },
+    {
+      "bytes": 64590,
+      "path": "screens/friends_home.json",
+      "sha256": "5fdb51346dcb614d03126ed668105700eed0f07423ea6ad2fec72c79b43c16ec"
+    },
+    {
+      "bytes": 16946,
+      "path": "screens/friends_invite.json",
+      "sha256": "1c3c2cefaeb1f86a0ed757b62ac10650c92456b6990c6f062fdd824bea507960"
+    },
+    {
+      "bytes": 28029,
+      "path": "screens/friends_list.json",
+      "sha256": "51ab594468767d57e94fabed482a5b643d03b16840a9f50bc20a6da108e24ff1"
+    },
+    {
+      "bytes": 33570,
+      "path": "screens/friends_requests.json",
+      "sha256": "cc3839802b3af4c242b208d0c4c44e304260494ab0b2efb6da9c247aef2de3b8"
+    },
+    {
+      "bytes": 13418,
+      "path": "screens/friends_scan.json",
+      "sha256": "62ce597fcca6abb45cc117511dd686228f1ef8cae9e75b78c4377e2cd858ce6e"
+    }
+  ],
+  "schemaVersion": 1
+}

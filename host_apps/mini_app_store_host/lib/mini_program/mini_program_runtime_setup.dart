@@ -31,6 +31,7 @@ MiniProgramConfig buildMiniProgramConfig({
       const <String, MiniProgramEndpoint>{},
   MiniProgramCacheBundle? cacheBundle,
   MiniProgramFlashlightProvider? flashlightProvider,
+  MiniProgramQrScannerProvider? qrScannerProvider,
 }) {
   final locale =
       WidgetsFlutterBinding.ensureInitialized().platformDispatcher.locale;
@@ -43,6 +44,7 @@ MiniProgramConfig buildMiniProgramConfig({
     if (cameraProvider != null) CapabilityIds.cameraCapturePhoto,
     if (mediaProvider != null) CapabilityIds.mediaPreview,
     if (flashlightProvider != null) CapabilityIds.flashlightControl,
+    if (qrScannerProvider != null) CapabilityIds.qrScanner,
   };
   final deliveryContext = MiniProgramDeliveryContext(
     hostApp: _hostAppId,
@@ -69,6 +71,7 @@ MiniProgramConfig buildMiniProgramConfig({
     disposeAuthController: true,
     cacheBundle: cacheBundle ?? MiniProgramCacheBundle.inMemory(),
     flashlightProvider: flashlightProvider,
+    qrScannerProvider: qrScannerProvider,
   );
 }
 

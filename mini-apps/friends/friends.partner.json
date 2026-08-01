@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "type": "mini_program_partner_handoff",
+  "appId": "friends",
+  "title": "Friends",
+  "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
+  "generatedAtUtc": "2026-08-01T00:00:00Z",
+  "requestedPublisherApi": {
+    "enabled": true,
+    "reason": "Authenticate users and manage QR invitations, pending requests, and accepted friendships.",
+    "contract": "publisher_backend.json"
+  },
+  "requestedPermissions": {
+    "qrScanner": {
+      "enabled": true,
+      "reason": "Scan a short-lived friend invitation QR code after an explicit user action.",
+      "allowTorch": true
+    }
+  }
+}

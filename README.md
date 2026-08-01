@@ -10,8 +10,11 @@ Flutter Mini Program Platform.
 - `mini-apps/notepad`: offline cache-backed note editor and release.
 - `mini-apps/weather`: Bangladesh-first location search and global forecasts.
 - `mini-apps/drive`: authenticated private test storage with native transfers.
+- `mini-apps/flashlight`: host-controlled Android torch utility.
+- `mini-apps/friends`: QR invitations and explicitly accepted friendships.
 - `backends/weather_api`: AWS Lambda middle-server for Weather runtime data.
 - `backends/drive_api`: bounded Cognito, Lambda, DynamoDB, and S3 test backend.
+- `backends/friends_api`: bounded Cognito, Lambda, and DynamoDB social backend.
 - `host_apps/mini_app_store_host`: Android-focused Flutter host application.
 - `.github/workflows/deploy-pages.yml`: validates, merges, and deploys all
   mini-program artifacts to GitHub Pages.
@@ -26,7 +29,7 @@ persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.8`, UI `0.2.2`, SDK `0.6.3`, and tooling `0.7.1`.
+local contracts `0.3.10`, UI `0.2.4`, SDK `0.6.5`, and tooling `0.7.3`.
 
 ## Weather Publisher API
 
@@ -68,6 +71,20 @@ The Drive artifact declares its Publisher API URL. The host accepts the API
 and native file-transfer permissions, while Android performs streamed document
 selection, upload, download, cancellation, and Storage Access Framework saves.
 
+## Friends Publisher API
+
+Friends uses Cognito email authentication plus short-lived, single-use QR
+invitations. Scanning creates a pending request; the recipient must explicitly
+accept before the backend creates the friendship in both directions. Lambda
+enforces per-user limits and a 500-request UTC daily quota, while DynamoDB
+stores invitation hashes, requests, friendships, and counters. See
+`backends/friends_api/README.md` for deployment details.
+
+The Friends artifact owns its Publisher API URL. The host separately accepts
+Publisher API and QR scanner permissions. Android uses the generated QR-only
+scanner with scanner-local torch control; scanned values are returned to the
+mini-program and are never opened as URLs.
+
 ## Build and verify portable artifacts
 
 ```powershell
@@ -92,6 +109,10 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\drive
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
   --mini-program-root D:\mini-app-store\mini-apps\drive
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\friends
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\friends
 ```
 
 Each portable source bundle is generated under
@@ -143,6 +164,8 @@ Weather is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/weather/latest.json`.
 Drive is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/drive/latest.json`.
+Friends is served at
+`https://mehedi8603651.github.io/mini-app-store/artifacts/friends/latest.json`.
 
 For every additional mini-program:
 

@@ -103,6 +103,15 @@ class MiniAppCatalogPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _MiniProgramCatalogTile(
+            app: MiniPrograms.friends,
+            description: 'QR invitations with explicit friend acceptance',
+            icon: Icons.people_alt_outlined,
+            iconBackground: const Color(0xFF38D6A5),
+            iconForeground: const Color(0xFF07110E),
+            launchBackground: const Color(0xFF0E1118),
+          ),
+          const SizedBox(height: 12),
+          _MiniProgramCatalogTile(
             app: MiniPrograms.flashlight,
             description: 'Foreground device torch control',
             icon: Icons.flashlight_on_outlined,

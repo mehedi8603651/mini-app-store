@@ -28,6 +28,12 @@ void main() {
       find.text('Private test storage with upload and download'),
       findsOneWidget,
     );
+    expect(find.text('Friends'), findsOneWidget);
+    expect(
+      find.text('QR invitations with explicit friend acceptance'),
+      findsOneWidget,
+    );
+    await tester.scrollUntilVisible(find.text('Flashlight'), 300);
     expect(find.text('Flashlight'), findsOneWidget);
     expect(find.text('Foreground device torch control'), findsOneWidget);
   });

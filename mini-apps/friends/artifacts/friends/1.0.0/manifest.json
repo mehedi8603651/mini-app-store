@@ -1,0 +1,27 @@
+{
+  "artifactLayoutVersion": 1,
+  "cachePolicy": {
+    "entryScreen": {
+      "maxStaleSeconds": 21600,
+      "mode": "staleWhileError"
+    },
+    "manifest": {
+      "maxStaleSeconds": 86400,
+      "mode": "staleWhileError"
+    }
+  },
+  "contractVersion": "1.0.0",
+  "entry": "friends_home",
+  "fallback": {
+    "message": "Friends is temporarily unavailable in this host app.",
+    "strategy": "errorView"
+  },
+  "id": "friends",
+  "requiredCapabilities": [
+    "qr.scanner"
+  ],
+  "screenFormat": "mp",
+  "screenSchemaVersion": 1,
+  "sdkVersionRange": ">=1.0.0 <2.0.0",
+  "version": "1.0.0"
+}

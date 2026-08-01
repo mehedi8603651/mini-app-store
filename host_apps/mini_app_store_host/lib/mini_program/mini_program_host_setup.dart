@@ -8,6 +8,7 @@ import 'app_android_file_transfer_provider.dart';
 import 'app_android_location_provider.dart';
 import 'app_android_camera_provider.dart';
 import 'app_android_flashlight_provider.dart';
+import 'app_android_qr_scanner_provider.dart';
 import 'app_host_bridge.dart';
 import 'mini_program_endpoints.dart';
 import 'mini_program_registry.dart';
@@ -41,6 +42,10 @@ const _flashlightEndpointOverride = String.fromEnvironment(
   'MINI_PROGRAM_FLASHLIGHT_URL',
   defaultValue: '',
 );
+const _friendsEndpointOverride = String.fromEnvironment(
+  'MINI_PROGRAM_FRIENDS_URL',
+  defaultValue: '',
+);
 
 /// Host-owned composition point for mini-program runtime configuration.
 ///
@@ -56,6 +61,7 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
   MiniProgramCameraProvider? cameraProvider,
   MiniProgramMediaProvider? mediaProvider,
   MiniProgramFlashlightProvider? flashlightProvider,
+  MiniProgramQrScannerProvider? qrScannerProvider,
 }) async {
   final resolvedCacheBundle = cacheBundle ?? await _buildPersistentCache();
   final resolvedLocationProvider =
@@ -85,6 +91,12 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
           ? const AppAndroidFlashlightProvider()
           : null);
 
+  final resolvedQrScannerProvider =
+      qrScannerProvider ??
+      (!kIsWeb && defaultTargetPlatform == TargetPlatform.android
+          ? const AppAndroidQrScannerProvider()
+          : null);
+
   return buildMiniProgramConfig(
     openNativeRoute: openNativeRoute,
     endpoints: endpoints ?? _buildConfiguredEndpoints(),
@@ -94,6 +106,7 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
     cameraProvider: resolvedCameraProvider,
     mediaProvider: resolvedMediaProvider,
     flashlightProvider: resolvedFlashlightProvider,
+    qrScannerProvider: resolvedQrScannerProvider,
   );
 }
 
@@ -151,6 +164,13 @@ Map<String, MiniProgramEndpoint> _buildConfiguredEndpoints() {
         ? sharedOverride
         : _flashlightEndpointOverride.trim(),
   );
+  _applyEndpointOverride(
+    endpoints,
+    MiniPrograms.friends.appId,
+    _friendsEndpointOverride.trim().isEmpty
+        ? sharedOverride
+        : _friendsEndpointOverride.trim(),
+  );
   return endpoints;
 }
 
@@ -179,5 +199,6 @@ void _applyEndpointOverride(
     filePolicy: current.filePolicy,
     cameraPolicy: current.cameraPolicy,
     flashlightPolicy: current.flashlightPolicy,
+    qrPolicy: current.qrPolicy,
   );
 }

@@ -1,0 +1,299 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "requestId": "friends-back"
+                                    },
+                                    "type": "router.pop"
+                                  },
+                                  "backgroundColor": "#FF202735",
+                                  "borderColor": "#FF303A4D",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "color": "#FFF6F8FC",
+                                  "iconSize": 24,
+                                  "name": "arrowBack",
+                                  "semanticLabel": "Back",
+                                  "size": 44
+                                },
+                                "type": "iconButton"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "width": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFF6F8FC",
+                                          "data": "SCAN INVITE",
+                                          "size": 22,
+                                          "weight": "bold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 2
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FF9BA6B8",
+                                          "data": "REQUESTS NEED ACCEPTANCE",
+                                          "size": 11,
+                                          "weight": "medium"
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "flex": 1
+                                },
+                                "type": "expanded"
+                              }
+                            ],
+                            "props": {},
+                            "type": "row"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "height": 46
+                            },
+                            "type": "sizedBox"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "color": "#FF57A6FF",
+                                      "name": "search",
+                                      "semanticLabel": "QR scanner",
+                                      "size": 60
+                                    },
+                                    "type": "icon"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 20
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FFF6F8FC",
+                                      "data": "Scan your friend's code",
+                                      "size": 23,
+                                      "weight": "bold"
+                                    },
+                                    "type": "text"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 10
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "align": "center",
+                                      "color": "#FF9BA6B8",
+                                      "data": "The scanner returns inert text. Friends validates the one-time token before creating a pending request.",
+                                      "maxLines": 5,
+                                      "size": 13
+                                    },
+                                    "type": "text"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 28
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "action": {
+                                        "props": {
+                                          "steps": [
+                                            {
+                                              "props": {
+                                                "allowTorch": true,
+                                                "errorState": "friends.scan_error",
+                                                "requestId": "friends-scan-invite",
+                                                "statusState": "friends.scan_status",
+                                                "targetState": "friends.scanned_invite",
+                                                "timeoutMs": 60000
+                                              },
+                                              "type": "qr.scan"
+                                            },
+                                            {
+                                              "props": {
+                                                "body": {
+                                                  "payload": "{{state.friends.scanned_invite.rawValue}}"
+                                                },
+                                                "endpoint": "friend-invites/redeem",
+                                                "method": "POST",
+                                                "requestId": "friends-redeem-invite"
+                                              },
+                                              "type": "backend.call"
+                                            },
+                                            {
+                                              "props": {
+                                                "durationMs": 2400,
+                                                "message": "Friend request sent"
+                                              },
+                                              "type": "ui.toast"
+                                            },
+                                            {
+                                              "props": {
+                                                "requestId": "friends-scan-complete"
+                                              },
+                                              "type": "router.pop"
+                                            }
+                                          ]
+                                        },
+                                        "type": "sequence"
+                                      },
+                                      "backgroundColor": "#FF57A6FF",
+                                      "borderColor": "#FF57A6FF",
+                                      "borderRadius": 6,
+                                      "borderWidth": 0,
+                                      "fontSize": 15,
+                                      "fontWeight": "semibold",
+                                      "foregroundColor": "#FF0E1118",
+                                      "height": 54,
+                                      "label": "OPEN QR SCANNER"
+                                    },
+                                    "type": "button"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 14
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FFFF647C",
+                                          "data": "{{state.friends.scan_error.message}}",
+                                          "maxLines": 4,
+                                          "size": 12
+                                        },
+                                        "type": "text"
+                                      },
+                                      "keys": [
+                                        "friends.scan_status",
+                                        "friends.scan_error"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "backgroundColor": "#FF171C26",
+                              "borderColor": "#FF303A4D",
+                              "borderRadius": 8,
+                              "borderWidth": 1,
+                              "padding": {
+                                "bottom": 48,
+                                "left": 28,
+                                "right": 28,
+                                "top": 48
+                              }
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "column"
+                      }
+                    ],
+                    "props": {
+                      "width": 560
+                    },
+                    "type": "container"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "padding": {
+                "bottom": 30,
+                "left": 18,
+                "right": 18,
+                "top": 18
+              }
+            },
+            "type": "scrollView"
+          }
+        ],
+        "props": {
+          "bottom": true,
+          "left": true,
+          "right": true,
+          "top": true
+        },
+        "type": "safeArea"
+      }
+    ],
+    "props": {
+      "backgroundColor": "#FF0E1118"
+    },
+    "type": "container"
+  },
+  "schemaVersion": 1,
+  "screenId": "friends_scan"
+}

@@ -3,10 +3,7 @@
 // multiple mini-programs.
 
 class MiniProgramInfo {
-  const MiniProgramInfo({
-    required this.appId,
-    required this.title,
-  });
+  const MiniProgramInfo({required this.appId, required this.title});
 
   final String appId;
   final String title;
@@ -25,20 +22,16 @@ class MiniPrograms {
     title: "Calculator",
   );
 
-  static const drive = MiniProgramInfo(
-    appId: "drive",
-    title: "Drive",
-  );
+  static const drive = MiniProgramInfo(appId: "drive", title: "Drive");
 
   static const flashlight = MiniProgramInfo(
     appId: "flashlight",
     title: "Flashlight",
   );
 
-  static const notepad = MiniProgramInfo(
-    appId: "notepad",
-    title: "Notepad",
-  );
+  static const friends = MiniProgramInfo(appId: "friends", title: "Friends");
+
+  static const notepad = MiniProgramInfo(appId: "notepad", title: "Notepad");
 
   static const weather = MiniProgramInfo(
     appId: "weather",
@@ -50,6 +43,7 @@ class MiniPrograms {
     calculator,
     drive,
     flashlight,
+    friends,
     notepad,
     weather,
   ];
@@ -59,6 +53,7 @@ class MiniPrograms {
     "calculator": calculator,
     "drive": drive,
     "flashlight": flashlight,
+    "friends": friends,
     "notepad": notepad,
     "weather": weather,
   };

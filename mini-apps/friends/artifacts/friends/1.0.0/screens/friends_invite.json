@@ -1,0 +1,369 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [],
+                                "props": {
+                                  "action": {
+                                    "props": {
+                                      "requestId": "friends-back"
+                                    },
+                                    "type": "router.pop"
+                                  },
+                                  "backgroundColor": "#FF202735",
+                                  "borderColor": "#FF303A4D",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "color": "#FFF6F8FC",
+                                  "iconSize": 24,
+                                  "name": "arrowBack",
+                                  "semanticLabel": "Back",
+                                  "size": 44
+                                },
+                                "type": "iconButton"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "width": 12
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFF6F8FC",
+                                          "data": "MY INVITE",
+                                          "size": 22,
+                                          "weight": "bold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 2
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FF9BA6B8",
+                                          "data": "ONE PERSON, FIVE MINUTES",
+                                          "size": 11,
+                                          "weight": "medium"
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "flex": 1
+                                },
+                                "type": "expanded"
+                              }
+                            ],
+                            "props": {},
+                            "type": "row"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "height": 24
+                            },
+                            "type": "sizedBox"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "child": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "backgroundColor": "#FFFFFFFF",
+                                          "errorCorrection": "medium",
+                                          "foregroundColor": "#FF11151D",
+                                          "padding": 14,
+                                          "semanticLabel": "Friend invitation QR code",
+                                          "size": 270,
+                                          "value": "{{backend.friend_invite.data.qrPayload}}"
+                                        },
+                                        "type": "qrCode"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 18
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FFF6F8FC",
+                                          "data": "Let your friend scan this code.",
+                                          "size": 17,
+                                          "weight": "semibold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 7
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FF9BA6B8",
+                                          "data": "Expires {{backend.friend_invite.data.expiresAtUtc}}",
+                                          "size": 11
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 18
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "action": {
+                                            "props": {
+                                              "endpoint": "friend-invites",
+                                              "forceRefresh": true,
+                                              "method": "POST",
+                                              "requestId": "friend_invite"
+                                            },
+                                            "type": "backend.query"
+                                          },
+                                          "backgroundColor": "#FF202735",
+                                          "borderColor": "#FF303A4D",
+                                          "borderRadius": 6,
+                                          "borderWidth": 1,
+                                          "fontSize": 12,
+                                          "fontWeight": "medium",
+                                          "foregroundColor": "#FF57A6FF",
+                                          "height": 44,
+                                          "label": "CREATE NEW CODE"
+                                        },
+                                        "type": "button"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF171C26",
+                                  "borderColor": "#FF303A4D",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 28,
+                                    "left": 22,
+                                    "right": 22,
+                                    "top": 28
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "endpoint": "friend-invites",
+                              "error": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FFFF647C",
+                                          "name": "warning",
+                                          "semanticLabel": "Invite unavailable",
+                                          "size": 38
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 14
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FFF6F8FC",
+                                          "data": "Invite unavailable",
+                                          "size": 19,
+                                          "weight": "semibold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 8
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FF9BA6B8",
+                                          "data": "{{backend.friend_invite.message}}",
+                                          "maxLines": 5,
+                                          "size": 13
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF171C26",
+                                  "borderColor": "#FFFF647C",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 44,
+                                    "left": 24,
+                                    "right": 24,
+                                    "top": 44
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "forceRefresh": true,
+                              "loading": {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#FF57A6FF",
+                                          "name": "refresh",
+                                          "semanticLabel": "Loading",
+                                          "size": 34
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 16
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "align": "center",
+                                          "color": "#FF9BA6B8",
+                                          "data": "Creating a secure invite",
+                                          "size": 14
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#FF171C26",
+                                  "borderColor": "#FF303A4D",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 72,
+                                    "left": 24,
+                                    "right": 24,
+                                    "top": 72
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              "method": "POST",
+                              "requestId": "friend_invite"
+                            },
+                            "type": "backendBuilder"
+                          }
+                        ],
+                        "props": {},
+                        "type": "column"
+                      }
+                    ],
+                    "props": {
+                      "width": 560
+                    },
+                    "type": "container"
+                  }
+                ],
+                "props": {},
+                "type": "center"
+              }
+            ],
+            "props": {
+              "padding": {
+                "bottom": 30,
+                "left": 18,
+                "right": 18,
+                "top": 18
+              }
+            },
+            "type": "scrollView"
+          }
+        ],
+        "props": {
+          "bottom": true,
+          "left": true,
+          "right": true,
+          "top": true
+        },
+        "type": "safeArea"
+      }
+    ],
+    "props": {
+      "backgroundColor": "#FF0E1118"
+    },
+    "type": "container"
+  },
+  "schemaVersion": 1,
+  "screenId": "friends_invite"
+}

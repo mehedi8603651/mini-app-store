@@ -164,6 +164,42 @@
         }
       }
     },
+    "friends": {
+      "requested": {
+        "source": "friends.partner.json",
+        "cache": {},
+        "publisherApi": {
+          "enabled": true,
+          "reason": "Authenticate users and manage QR invitations, pending requests, and accepted friendships.",
+          "contract": "publisher_backend.json"
+        },
+        "permissions": {
+          "qrScanner": {
+            "enabled": true,
+            "reason": "Scan a short-lived friend invitation QR code after an explicit user action.",
+            "allowTorch": true
+          }
+        }
+      },
+      "accepted": {
+        "cache": {},
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {
+          "qrScanner": {
+            "allowTorch": true,
+            "enabled": true
+          }
+        },
+        "publisherApi": {
+          "enabled": true
+        }
+      }
+    },
     "notepad": {
       "requested": {
         "source": "notepad.partner.json",
