@@ -1,0 +1,26 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 0,
+      "path": "assets/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 613,
+      "path": "manifest.json",
+      "sha256": "addf2e37b77d173cacafa26c06bbb643498fac2f2f8e6dd66ec2370699f9d88e"
+    },
+    {
+      "bytes": 222,
+      "path": "release.json",
+      "sha256": "9701bf9ef6b5fd199d8210f34fd86b7316b51185dfdda2e45bf0cdc7d1bba149"
+    },
+    {
+      "bytes": 39713,
+      "path": "screens/flashlight_home.json",
+      "sha256": "7de3aaed40944c59e4c9aefffbe9051a81abc97aa4ce3c205e05404c9c18e8d2"
+    }
+  ],
+  "schemaVersion": 1
+}

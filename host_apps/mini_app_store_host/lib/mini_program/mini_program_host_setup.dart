@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'app_android_file_transfer_provider.dart';
 import 'app_android_location_provider.dart';
 import 'app_android_camera_provider.dart';
+import 'app_android_flashlight_provider.dart';
 import 'app_host_bridge.dart';
 import 'mini_program_endpoints.dart';
 import 'mini_program_registry.dart';
@@ -36,6 +37,10 @@ const _driveEndpointOverride = String.fromEnvironment(
   'MINI_PROGRAM_DRIVE_URL',
   defaultValue: '',
 );
+const _flashlightEndpointOverride = String.fromEnvironment(
+  'MINI_PROGRAM_FLASHLIGHT_URL',
+  defaultValue: '',
+);
 
 /// Host-owned composition point for mini-program runtime configuration.
 ///
@@ -50,6 +55,7 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
   MiniProgramFileTransferProvider? fileTransferProvider,
   MiniProgramCameraProvider? cameraProvider,
   MiniProgramMediaProvider? mediaProvider,
+  MiniProgramFlashlightProvider? flashlightProvider,
 }) async {
   final resolvedCacheBundle = cacheBundle ?? await _buildPersistentCache();
   final resolvedLocationProvider =
@@ -73,6 +79,12 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
           ? resolvedCameraProvider as MiniProgramMediaProvider
           : null);
 
+  final resolvedFlashlightProvider =
+      flashlightProvider ??
+      (!kIsWeb && defaultTargetPlatform == TargetPlatform.android
+          ? const AppAndroidFlashlightProvider()
+          : null);
+
   return buildMiniProgramConfig(
     openNativeRoute: openNativeRoute,
     endpoints: endpoints ?? _buildConfiguredEndpoints(),
@@ -81,6 +93,7 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
     fileTransferProvider: resolvedFileTransferProvider,
     cameraProvider: resolvedCameraProvider,
     mediaProvider: resolvedMediaProvider,
+    flashlightProvider: resolvedFlashlightProvider,
   );
 }
 
@@ -130,6 +143,13 @@ Map<String, MiniProgramEndpoint> _buildConfiguredEndpoints() {
     _driveEndpointOverride.trim().isEmpty
         ? sharedOverride
         : _driveEndpointOverride.trim(),
+  );
+  _applyEndpointOverride(
+    endpoints,
+    MiniPrograms.flashlight.appId,
+    _flashlightEndpointOverride.trim().isEmpty
+        ? sharedOverride
+        : _flashlightEndpointOverride.trim(),
   );
   return endpoints;
 }

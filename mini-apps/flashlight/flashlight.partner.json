@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "type": "mini_program_partner_handoff",
+  "appId": "flashlight",
+  "title": "Flashlight",
+  "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
+  "generatedAtUtc": "2026-08-01T00:00:00Z",
+  "requestedPermissions": {
+    "flashlight": {
+      "enabled": true,
+      "reason": "Turn the Android device flashlight on or off while this mini-program is open."
+    }
+  }
+}

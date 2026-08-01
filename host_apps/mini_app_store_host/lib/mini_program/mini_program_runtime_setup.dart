@@ -30,6 +30,7 @@ MiniProgramConfig buildMiniProgramConfig({
   Map<String, MiniProgramEndpoint> endpoints =
       const <String, MiniProgramEndpoint>{},
   MiniProgramCacheBundle? cacheBundle,
+  MiniProgramFlashlightProvider? flashlightProvider,
 }) {
   final locale =
       WidgetsFlutterBinding.ensureInitialized().platformDispatcher.locale;
@@ -41,6 +42,7 @@ MiniProgramConfig buildMiniProgramConfig({
     if (fileTransferProvider != null) CapabilityIds.fileDownload,
     if (cameraProvider != null) CapabilityIds.cameraCapturePhoto,
     if (mediaProvider != null) CapabilityIds.mediaPreview,
+    if (flashlightProvider != null) CapabilityIds.flashlightControl,
   };
   final deliveryContext = MiniProgramDeliveryContext(
     hostApp: _hostAppId,
@@ -66,6 +68,7 @@ MiniProgramConfig buildMiniProgramConfig({
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,
     cacheBundle: cacheBundle ?? MiniProgramCacheBundle.inMemory(),
+    flashlightProvider: flashlightProvider,
   );
 }
 

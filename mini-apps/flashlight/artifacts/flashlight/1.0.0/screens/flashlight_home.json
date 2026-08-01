@@ -1,0 +1,766 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFFFC83D",
+                                              "name": "bolt",
+                                              "semanticLabel": "Flashlight",
+                                              "size": 27
+                                            },
+                                            "type": "icon"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "center"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF1A2330",
+                                      "borderColor": "#FF293445",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "height": 44,
+                                      "width": 44
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "width": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFF7F9FC",
+                                              "data": "FLASHLIGHT",
+                                              "size": 21,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 2
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF9CA8B8",
+                                              "data": "DEVICE TORCH",
+                                              "size": 11,
+                                              "weight": "medium"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "flex": 1
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "action": {
+                                        "props": {
+                                          "errorState": "flashlight.error",
+                                          "requestId": "flashlight-refresh-status",
+                                          "statusState": "flashlight.operation_status",
+                                          "targetState": "flashlight.device"
+                                        },
+                                        "type": "flashlight.getStatus"
+                                      },
+                                      "backgroundColor": "#FF1A2330",
+                                      "borderColor": "#FF293445",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "color": "#FFF7F9FC",
+                                      "iconSize": 23,
+                                      "name": "refresh",
+                                      "semanticLabel": "Refresh flashlight status",
+                                      "size": 44
+                                    },
+                                    "type": "iconButton"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "row"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 46
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "child": {
+                                    "children": [],
+                                    "props": {
+                                      "condition": "{{state.flashlight.device.available}}",
+                                      "whenFalse": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFFF647C",
+                                                  "name": "warning",
+                                                  "semanticLabel": "Flashlight unavailable",
+                                                  "size": 56
+                                                },
+                                                "type": "icon"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 18
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFF7F9FC",
+                                                  "data": "NO FLASHLIGHT FOUND",
+                                                  "size": 19,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 10
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FF9CA8B8",
+                                                  "data": "{{state.flashlight.error.message}}",
+                                                  "maxLines": 4,
+                                                  "size": 13
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 22
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "errorState": "flashlight.error",
+                                                      "requestId": "flashlight-refresh-status",
+                                                      "statusState": "flashlight.operation_status",
+                                                      "targetState": "flashlight.device"
+                                                    },
+                                                    "type": "flashlight.getStatus"
+                                                  },
+                                                  "backgroundColor": "#FF1A2330",
+                                                  "borderColor": "#FF293445",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 14,
+                                                  "fontWeight": "semibold",
+                                                  "foregroundColor": "#FFF7F9FC",
+                                                  "height": 52,
+                                                  "label": "CHECK AGAIN"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF111722",
+                                          "borderColor": "#FF293445",
+                                          "borderRadius": 8,
+                                          "borderWidth": 1,
+                                          "padding": {
+                                            "bottom": 42,
+                                            "left": 24,
+                                            "right": 24,
+                                            "top": 42
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      "whenTrue": {
+                                        "children": [],
+                                        "props": {
+                                          "condition": "{{state.flashlight.device.enabled}}",
+                                          "whenFalse": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FF657184",
+                                                          "name": "bolt",
+                                                          "semanticLabel": "LIGHT IS OFF",
+                                                          "size": 112
+                                                        },
+                                                        "type": "icon"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "center"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FF1A2330",
+                                                  "borderColor": "#FF657184",
+                                                  "borderRadius": 115,
+                                                  "borderWidth": 2,
+                                                  "height": 230,
+                                                  "width": 230
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 34
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FF657184",
+                                                  "data": "LIGHT IS OFF",
+                                                  "size": 18,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 8
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FF9CA8B8",
+                                                  "data": "READY",
+                                                  "size": 12,
+                                                  "weight": "medium"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 34
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "errorState": "flashlight.error",
+                                                      "requestId": "flashlight-toggle",
+                                                      "statusState": "flashlight.operation_status",
+                                                      "targetState": "flashlight.device"
+                                                    },
+                                                    "type": "flashlight.toggle"
+                                                  },
+                                                  "backgroundColor": "#FFFFC83D",
+                                                  "borderColor": "#FFFFC83D",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 0,
+                                                  "fontSize": 18,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#FF080B10",
+                                                  "height": 62,
+                                                  "label": "TURN ON"
+                                                },
+                                                "type": "button"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 18
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FF9CA8B8",
+                                                          "name": "info",
+                                                          "semanticLabel": "Operation status",
+                                                          "size": 19
+                                                        },
+                                                        "type": "icon"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "width": 10
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#FFFF647C",
+                                                              "data": "{{state.flashlight.error.message}}",
+                                                              "maxLines": 3,
+                                                              "overflow": "ellipsis",
+                                                              "size": 12
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FF111722",
+                                                  "borderColor": "#FF293445",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 1,
+                                                  "padding": {
+                                                    "bottom": 13,
+                                                    "left": 16,
+                                                    "right": 16,
+                                                    "top": 13
+                                                  }
+                                                },
+                                                "type": "container"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          },
+                                          "whenTrue": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FF080B10",
+                                                          "name": "bolt",
+                                                          "semanticLabel": "LIGHT IS ON",
+                                                          "size": 112
+                                                        },
+                                                        "type": "icon"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "center"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FFFFE9A6",
+                                                  "borderColor": "#FFFFC83D",
+                                                  "borderRadius": 115,
+                                                  "borderWidth": 4,
+                                                  "height": 230,
+                                                  "width": 230
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 34
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFFFC83D",
+                                                  "data": "LIGHT IS ON",
+                                                  "size": 18,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 8
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FF9CA8B8",
+                                                  "data": "ACTIVE",
+                                                  "size": 12,
+                                                  "weight": "medium"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 34
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "errorState": "flashlight.error",
+                                                      "requestId": "flashlight-toggle",
+                                                      "statusState": "flashlight.operation_status",
+                                                      "targetState": "flashlight.device"
+                                                    },
+                                                    "type": "flashlight.toggle"
+                                                  },
+                                                  "backgroundColor": "#FF1A2330",
+                                                  "borderColor": "#FFFFC83D",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 2,
+                                                  "fontSize": 18,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#FFFFC83D",
+                                                  "height": 62,
+                                                  "label": "TURN OFF"
+                                                },
+                                                "type": "button"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 18
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FF9CA8B8",
+                                                          "name": "info",
+                                                          "semanticLabel": "Operation status",
+                                                          "size": 19
+                                                        },
+                                                        "type": "icon"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "width": 10
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#FFFF647C",
+                                                              "data": "{{state.flashlight.error.message}}",
+                                                              "maxLines": 3,
+                                                              "overflow": "ellipsis",
+                                                              "size": 12
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FF111722",
+                                                  "borderColor": "#FF293445",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 1,
+                                                  "padding": {
+                                                    "bottom": 13,
+                                                    "left": 16,
+                                                    "right": 16,
+                                                    "top": 13
+                                                  }
+                                                },
+                                                "type": "container"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        },
+                                        "type": "condition"
+                                      }
+                                    },
+                                    "type": "condition"
+                                  },
+                                  "keys": [
+                                    "flashlight.device",
+                                    "flashlight.operation_status",
+                                    "flashlight.error"
+                                  ]
+                                },
+                                "type": "stateBuilder"
+                              }
+                            ],
+                            "props": {},
+                            "type": "column"
+                          }
+                        ],
+                        "props": {
+                          "width": 480
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "props": {},
+                    "type": "center"
+                  }
+                ],
+                "props": {
+                  "padding": {
+                    "bottom": 32,
+                    "left": 22,
+                    "right": 22,
+                    "top": 18
+                  }
+                },
+                "type": "scrollView"
+              }
+            ],
+            "props": {
+              "bottom": true,
+              "left": true,
+              "right": true,
+              "top": true
+            },
+            "type": "safeArea"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF080B10"
+        },
+        "type": "container"
+      }
+    ],
+    "props": {
+      "actions": [
+        {
+          "props": {
+            "errorState": "flashlight.error",
+            "requestId": "flashlight-initial-status",
+            "statusState": "flashlight.operation_status",
+            "targetState": "flashlight.device"
+          },
+          "type": "flashlight.getStatus"
+        }
+      ],
+      "error": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "color": "#FFFF647C",
+                  "name": "warning",
+                  "semanticLabel": "Flashlight unavailable",
+                  "size": 50
+                },
+                "type": "icon"
+              },
+              {
+                "children": [],
+                "props": {
+                  "height": 18
+                },
+                "type": "sizedBox"
+              },
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFF7F9FC",
+                  "data": "Flashlight unavailable",
+                  "size": 21,
+                  "weight": "semibold"
+                },
+                "type": "text"
+              },
+              {
+                "children": [],
+                "props": {
+                  "height": 10
+                },
+                "type": "sizedBox"
+              },
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FF9CA8B8",
+                  "data": "{{state.flashlight.error.message}}",
+                  "maxLines": 4,
+                  "size": 13
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "column"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF080B10",
+          "padding": {
+            "bottom": 96,
+            "left": 30,
+            "right": 30,
+            "top": 96
+          }
+        },
+        "type": "container"
+      },
+      "errorState": "flashlight.error",
+      "loading": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "color": "#FFFFC83D",
+                  "name": "bolt",
+                  "semanticLabel": "Checking flashlight",
+                  "size": 50
+                },
+                "type": "icon"
+              },
+              {
+                "children": [],
+                "props": {
+                  "height": 18
+                },
+                "type": "sizedBox"
+              },
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFF7F9FC",
+                  "data": "Checking flashlight",
+                  "size": 21,
+                  "weight": "semibold"
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "column"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF080B10",
+          "padding": {
+            "bottom": 96,
+            "left": 30,
+            "right": 30,
+            "top": 96
+          }
+        },
+        "type": "container"
+      },
+      "retry": 1,
+      "statusState": "flashlight.initialization_status"
+    },
+    "type": "initialize"
+  },
+  "schemaVersion": 1,
+  "screenId": "flashlight_home"
+}

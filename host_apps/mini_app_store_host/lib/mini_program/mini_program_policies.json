@@ -135,6 +135,35 @@
         }
       }
     },
+    "flashlight": {
+      "requested": {
+        "source": "flashlight.partner.json",
+        "cache": {},
+        "permissions": {
+          "flashlight": {
+            "enabled": true,
+            "reason": "Turn the Android device flashlight on or off while this mini-program is open."
+          }
+        }
+      },
+      "accepted": {
+        "cache": {},
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {
+          "flashlight": {
+            "enabled": true
+          }
+        },
+        "publisherApi": {
+          "enabled": false
+        }
+      }
+    },
     "notepad": {
       "requested": {
         "source": "notepad.partner.json",
