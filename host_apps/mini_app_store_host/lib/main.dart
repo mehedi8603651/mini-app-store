@@ -101,6 +101,15 @@ class MiniAppCatalogPage extends StatelessWidget {
             iconBackground: const Color(0xFF4EA1FF),
             launchBackground: const Color(0xFF0B1017),
           ),
+          const SizedBox(height: 12),
+          _MiniProgramCatalogTile(
+            app: MiniPrograms.flashlight,
+            description: 'Foreground device torch control',
+            icon: Icons.flashlight_on_outlined,
+            iconBackground: const Color(0xFFFFC83D),
+            iconForeground: const Color(0xFF080B10),
+            launchBackground: const Color(0xFF080B10),
+          ),
         ],
       ),
     );

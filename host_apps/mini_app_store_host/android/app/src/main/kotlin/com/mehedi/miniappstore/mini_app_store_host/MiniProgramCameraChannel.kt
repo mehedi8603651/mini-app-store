@@ -1,13 +1,18 @@
 package com.mehedi.miniappstore.mini_app_store_host
 
+import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -36,11 +41,23 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
     companion object {
         private const val CHANNEL_NAME = "mini_program/camera"
         private const val FILE_PROVIDER_SUFFIX = ".mini_program_camera_files"
+        private const val PREFS_NAME = "mini_program_camera"
+        private const val PREF_PERMISSION_REQUESTED = "camera_permission_requested"
 
         fun register(flutterEngine: FlutterEngine) {
             flutterEngine.plugins.add(MiniProgramCameraChannel())
         }
     }
+
+    private data class CaptureRequest(
+        val captureId: String,
+        val miniProgramId: String,
+        val quality: Int,
+        val maxWidth: Int?,
+        val maxHeight: Int?,
+        val result: MethodChannel.Result,
+        var cancelled: Boolean = false,
+    )
 
     private data class PendingCapture(
         val captureId: String,
@@ -57,6 +74,9 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
     private var channel: MethodChannel? = null
     private var activity: ComponentActivity? = null
     private var launcher: ActivityResultLauncher<Uri>? = null
+    private var permissionLauncher: ActivityResultLauncher<String>? = null
+    private var pendingPermission: CaptureRequest? = null
+    private var permissionHadBeenRequested = false
     private var pending: PendingCapture? = null
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
@@ -67,6 +87,10 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         failPending(
+            "camera_unavailable",
+            "The camera provider detached from the Flutter engine.",
+        )
+        failPendingPermission(
             "camera_unavailable",
             "The camera provider detached from the Flutter engine.",
         )
@@ -103,14 +127,23 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
             ActivityResultContracts.TakePicture(),
             ::completeCapture,
         )
+        permissionLauncher?.unregister()
+        permissionLauncher = componentActivity.activityResultRegistry.register(
+            "mini_program_camera_permission",
+            ActivityResultContracts.RequestPermission(),
+            ::completePermissionRequest,
+        )
     }
 
     private fun detach(message: String) {
         if (pending != null) {
             failPending("camera_unavailable", message)
         }
+        failPendingPermission("camera_unavailable", message)
         launcher?.unregister()
         launcher = null
+        permissionLauncher?.unregister()
+        permissionLauncher = null
         activity = null
     }
 
@@ -126,7 +159,7 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
     }
 
     private fun capturePhoto(call: MethodCall, result: MethodChannel.Result) {
-        if (pending != null) {
+        if (pending != null || pendingPermission != null) {
             result.error(
                 "camera_request_in_progress",
                 "A photo capture request is already in progress.",
@@ -135,8 +168,7 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
             return
         }
         val currentActivity = activity
-        val currentLauncher = launcher
-        if (currentActivity == null || currentLauncher == null) {
+        if (currentActivity == null || launcher == null) {
             result.error(
                 "camera_unavailable",
                 "Android system-camera capture requires a foreground activity.",
@@ -163,9 +195,109 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
             return
         }
 
+        val request = CaptureRequest(
+            captureId = captureId,
+            miniProgramId = miniProgramId,
+            quality = quality,
+            maxWidth = maxWidth,
+            maxHeight = maxHeight,
+            result = result,
+        )
+        if (isCameraPermissionDeclared(currentActivity) &&
+            ContextCompat.checkSelfPermission(
+                currentActivity,
+                Manifest.permission.CAMERA,
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            val currentPermissionLauncher = permissionLauncher
+            if (currentPermissionLauncher == null) {
+                result.error(
+                    "camera_unavailable",
+                    "Android camera permission handling is unavailable.",
+                    null,
+                )
+                return
+            }
+            val preferences = currentActivity.getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE,
+            )
+            permissionHadBeenRequested = preferences.getBoolean(
+                PREF_PERMISSION_REQUESTED,
+                false,
+            )
+            pendingPermission = request
+            preferences.edit().putBoolean(PREF_PERMISSION_REQUESTED, true).apply()
+            currentPermissionLauncher.launch(Manifest.permission.CAMERA)
+            return
+        }
+        launchCapture(request)
+    }
+
+    private fun isCameraPermissionDeclared(currentActivity: ComponentActivity): Boolean {
+        val requestedPermissions = try {
+            @Suppress("DEPRECATION")
+            currentActivity.packageManager.getPackageInfo(
+                currentActivity.packageName,
+                PackageManager.GET_PERMISSIONS,
+            ).requestedPermissions
+        } catch (_: Exception) {
+            null
+        }
+        return requestedPermissions?.contains(Manifest.permission.CAMERA) == true
+    }
+
+    private fun completePermissionRequest(granted: Boolean) {
+        val request = pendingPermission ?: return
+        pendingPermission = null
+        if (request.cancelled) {
+            request.result.error(
+                "camera_capture_cancelled",
+                "Photo capture was cancelled.",
+                null,
+            )
+            return
+        }
+        if (granted) {
+            launchCapture(request)
+            return
+        }
+        val currentActivity = activity
+        val permanentlyDenied = permissionHadBeenRequested &&
+            currentActivity != null &&
+            !ActivityCompat.shouldShowRequestPermissionRationale(
+                currentActivity,
+                Manifest.permission.CAMERA,
+            )
+        request.result.error(
+            if (permanentlyDenied) {
+                "camera_permission_denied_permanently"
+            } else {
+                "camera_permission_denied"
+            },
+            if (permanentlyDenied) {
+                "Camera permission is permanently denied."
+            } else {
+                "Camera permission was denied."
+            },
+            null,
+        )
+    }
+
+    private fun launchCapture(request: CaptureRequest) {
+        val currentActivity = activity
+        val currentLauncher = launcher
+        if (currentActivity == null || currentLauncher == null) {
+            request.result.error(
+                "camera_unavailable",
+                "Android system-camera capture requires a foreground activity.",
+                null,
+            )
+            return
+        }
         val captureIntent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
         if (captureIntent.resolveActivity(currentActivity.packageManager) == null) {
-            result.error(
+            request.result.error(
                 "camera_unavailable",
                 "No Android system camera is available.",
                 null,
@@ -195,19 +327,19 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
                     )
                 }
             pending = PendingCapture(
-                captureId = captureId,
-                miniProgramId = miniProgramId,
+                captureId = request.captureId,
+                miniProgramId = request.miniProgramId,
                 file = file,
                 uri = uri,
-                quality = quality,
-                maxWidth = maxWidth,
-                maxHeight = maxHeight,
-                result = result,
+                quality = request.quality,
+                maxWidth = request.maxWidth,
+                maxHeight = request.maxHeight,
+                result = request.result,
             )
             currentLauncher.launch(uri)
         } catch (_: Exception) {
             pending = null
-            result.error(
+            request.result.error(
                 "camera_storage_unavailable",
                 "The host could not prepare private camera storage.",
                 null,
@@ -273,6 +405,12 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
 
     private fun cancel(call: MethodCall, result: MethodChannel.Result) {
         val captureId = (call.arguments as? Map<*, *>)?.get("captureId") as? String
+        val permissionRequest = pendingPermission
+        if (permissionRequest != null && permissionRequest.captureId == captureId) {
+            permissionRequest.cancelled = true
+            result.success(true)
+            return
+        }
         val request = pending
         if (request == null || request.captureId != captureId) {
             result.success(false)
@@ -403,6 +541,12 @@ internal class MiniProgramCameraChannel : FlutterPlugin, ActivityAware {
         pending = null
         revoke(request.uri)
         request.file.delete()
+        request.result.error(code, message, null)
+    }
+
+    private fun failPendingPermission(code: String, message: String) {
+        val request = pendingPermission ?: return
+        pendingPermission = null
         request.result.error(code, message, null)
     }
 

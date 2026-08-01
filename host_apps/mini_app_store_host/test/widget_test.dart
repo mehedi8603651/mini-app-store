@@ -28,5 +28,7 @@ void main() {
       find.text('Private test storage with upload and download'),
       findsOneWidget,
     );
+    expect(find.text('Flashlight'), findsOneWidget);
+    expect(find.text('Foreground device torch control'), findsOneWidget);
   });
 }
