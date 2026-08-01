@@ -178,3 +178,52 @@ MiniProgramFilePolicy filePolicyForMiniProgram(String appId) {
       return const MiniProgramFilePolicy();
   }
 }
+
+MiniProgramCameraPolicy cameraPolicyForMiniProgram(String appId) {
+  switch (appId) {
+    case "brain_test":
+      return const MiniProgramCameraPolicy(
+        enabled: false,
+        allowPhotoCapture: false,
+      );
+    case "calculator":
+      return const MiniProgramCameraPolicy(
+        enabled: false,
+        allowPhotoCapture: false,
+      );
+    case "drive":
+      return const MiniProgramCameraPolicy(
+        enabled: true,
+        allowPhotoCapture: true,
+      );
+    case "notepad":
+      return const MiniProgramCameraPolicy(
+        enabled: false,
+        allowPhotoCapture: false,
+      );
+    case "weather":
+      return const MiniProgramCameraPolicy(
+        enabled: false,
+        allowPhotoCapture: false,
+      );
+    default:
+      return const MiniProgramCameraPolicy();
+  }
+}
+
+MiniProgramFlashlightPolicy flashlightPolicyForMiniProgram(String appId) {
+  switch (appId) {
+    case "brain_test":
+      return const MiniProgramFlashlightPolicy(enabled: false);
+    case "calculator":
+      return const MiniProgramFlashlightPolicy(enabled: false);
+    case "drive":
+      return const MiniProgramFlashlightPolicy(enabled: false);
+    case "notepad":
+      return const MiniProgramFlashlightPolicy(enabled: false);
+    case "weather":
+      return const MiniProgramFlashlightPolicy(enabled: false);
+    default:
+      return const MiniProgramFlashlightPolicy();
+  }
+}

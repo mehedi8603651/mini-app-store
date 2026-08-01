@@ -15,6 +15,10 @@ void main() {
     expect(home, contains('file.upload'));
     expect(home, contains('file.download'));
     expect(home, contains('file.cancel'));
+    expect(home, contains('camera.capturePhoto'));
+    expect(home, contains('hostMedia'));
+    expect(home, contains('media.release'));
+    expect(home, contains('mediaRefs'));
     expect(home, contains('backendBuilder'));
     expect(home, contains('files/delete'));
     expect(rename, contains('files/rename'));

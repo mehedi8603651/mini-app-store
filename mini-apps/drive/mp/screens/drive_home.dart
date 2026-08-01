@@ -119,9 +119,155 @@ MpNode _signedIn() {
             Mp.sizedBox(height: 14),
             _accountBand(),
             Mp.sizedBox(height: 12),
+            _cameraBand(),
+            Mp.sizedBox(height: 12),
             _transferBand(),
             Mp.sizedBox(height: 12),
             _filesBuilder(),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+MpNode _cameraBand() {
+  return Mp.stateBuilder(
+    keys: const <String>[
+      'drive.has_captured_photo',
+      'drive.captured_photo',
+      'drive.camera_status',
+      'drive.camera_error',
+    ],
+    child: Mp.condition(
+      condition: '{{state.drive.has_captured_photo}}',
+      whenFalse: Mp.container(
+        paddingHorizontal: 16,
+        paddingVertical: 14,
+        backgroundColor: driveSurface,
+        borderColor: driveBorder,
+        borderWidth: 1,
+        borderRadius: 8,
+        child: Mp.row(
+          children: <MpNode>[
+            Mp.icon(
+              'note',
+              semanticLabel: 'Camera upload',
+              size: 28,
+              color: driveGreen,
+            ),
+            Mp.sizedBox(width: 12),
+            Mp.expanded(
+              child: Mp.column(
+                children: <MpNode>[
+                  Mp.text(
+                    'Upload a new photo',
+                    color: driveText,
+                    size: 15,
+                    weight: 'semibold',
+                  ),
+                  Mp.sizedBox(height: 3),
+                  Mp.text(
+                    '{{state.drive.camera_error.message}}',
+                    color: driveDanger,
+                    size: 11,
+                    maxLines: 2,
+                    overflow: 'ellipsis',
+                  ),
+                ],
+              ),
+            ),
+            Mp.button(
+              label: 'TAKE PHOTO',
+              action: captureDrivePhoto(),
+              height: 44,
+              backgroundColor: driveGreen,
+              foregroundColor: driveBackground,
+              borderColor: driveGreen,
+              borderRadius: 6,
+              fontSize: 12,
+              fontWeight: 'semibold',
+            ),
+          ],
+        ),
+      ),
+      whenTrue: Mp.container(
+        paddingHorizontal: 14,
+        paddingVertical: 14,
+        backgroundColor: driveSurface,
+        borderColor: driveGreen,
+        borderWidth: 1,
+        borderRadius: 8,
+        child: Mp.column(
+          children: <MpNode>[
+            Mp.image(
+              src: '{{state.drive.captured_photo.mediaRef}}',
+              source: MpImageSource.hostMedia,
+              height: 230,
+              width: 590,
+              fit: MpImageFit.contain,
+              alt: 'Captured photo ready to upload',
+              placeholder: driveLoading('Preparing photo preview'),
+              error: driveErrorPanel(
+                title: 'Preview unavailable',
+                message: 'Discard this photo and capture it again.',
+              ),
+            ),
+            Mp.sizedBox(height: 12),
+            Mp.text(
+              '{{state.drive.captured_photo.fileName}}',
+              color: driveText,
+              size: 14,
+              weight: 'medium',
+              maxLines: 1,
+              overflow: 'ellipsis',
+            ),
+            Mp.sizedBox(height: 12),
+            Mp.row(
+              children: <MpNode>[
+                Mp.expanded(
+                  child: Mp.button(
+                    label: 'DISCARD',
+                    action: discardDrivePhoto(),
+                    height: 42,
+                    backgroundColor: driveSurfaceStrong,
+                    foregroundColor: driveDanger,
+                    borderColor: driveBorder,
+                    borderWidth: 1,
+                    borderRadius: 6,
+                    fontSize: 11,
+                  ),
+                ),
+                Mp.sizedBox(width: 8),
+                Mp.expanded(
+                  child: Mp.button(
+                    label: 'RETAKE',
+                    action: retakeDrivePhoto(),
+                    height: 42,
+                    backgroundColor: driveSurfaceStrong,
+                    foregroundColor: driveText,
+                    borderColor: driveBorder,
+                    borderWidth: 1,
+                    borderRadius: 6,
+                    fontSize: 11,
+                  ),
+                ),
+                Mp.sizedBox(width: 8),
+                Mp.expanded(
+                  child: Mp.button(
+                    label: 'UPLOAD',
+                    action: uploadDrivePhoto(),
+                    height: 42,
+                    backgroundColor: driveBlue,
+                    foregroundColor: driveBackground,
+                    borderColor: driveBlue,
+                    borderRadius: 6,
+                    fontSize: 11,
+                    fontWeight: 'semibold',
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

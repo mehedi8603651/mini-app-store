@@ -1,0 +1,498 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "requestId": "drive-cancel-rename"
+                                                },
+                                                "type": "router.pop"
+                                              },
+                                              "backgroundColor": "#FF121A24",
+                                              "borderColor": "#00000000",
+                                              "borderRadius": 24,
+                                              "borderWidth": 0,
+                                              "color": "#FFF5F7FA",
+                                              "iconSize": 27,
+                                              "name": "arrowBack",
+                                              "semanticLabel": "Back to Drive",
+                                              "size": 48
+                                            },
+                                            "type": "iconButton"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFF5F7FA",
+                                                  "data": "Drive",
+                                                  "size": 24,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "steps": [
+                                                    {
+                                                      "props": {
+                                                        "body": {
+                                                          "fileId": "{{state.drive.rename.file_id}}",
+                                                          "fileName": "{{state.drive.rename.file_name}}"
+                                                        },
+                                                        "endpoint": "files/rename",
+                                                        "method": "POST",
+                                                        "requestId": "drive-rename"
+                                                      },
+                                                      "type": "backend.call"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "endpoint": "files",
+                                                        "forceRefresh": true,
+                                                        "method": "GET",
+                                                        "requestId": "drive_files"
+                                                      },
+                                                      "type": "backend.query"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "durationMs": 2400,
+                                                        "message": "File renamed"
+                                                      },
+                                                      "type": "ui.toast"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "requestId": "drive-close-rename"
+                                                      },
+                                                      "type": "router.pop"
+                                                    }
+                                                  ]
+                                                },
+                                                "type": "sequence"
+                                              },
+                                              "backgroundColor": "#FF121A24",
+                                              "borderColor": "#FF121A24",
+                                              "borderRadius": 4,
+                                              "borderWidth": 0,
+                                              "fontSize": 14,
+                                              "fontWeight": "semibold",
+                                              "foregroundColor": "#FF4EA1FF",
+                                              "height": 42,
+                                              "label": "SAVE"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF121A24",
+                                      "height": 70,
+                                      "padding": {
+                                        "left": 10,
+                                        "right": 10
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 24
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FFF5F7FA",
+                                              "data": "Rename file",
+                                              "size": 20,
+                                              "weight": "semibold"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 16
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "autofocus": true,
+                                              "backgroundColor": "#FF203044",
+                                              "borderColor": "#FF2B3C50",
+                                              "borderRadius": 6,
+                                              "borderWidth": 1,
+                                              "cursorColor": "#FF4EA1FF",
+                                              "debounceMs": 0,
+                                              "focusedBorderColor": "#FF4EA1FF",
+                                              "fontSize": 17,
+                                              "hintColor": "#FFA9B5C4",
+                                              "initialValue": "",
+                                              "keyboardType": "text",
+                                              "label": "File name",
+                                              "maxLength": 160,
+                                              "maxLines": 1,
+                                              "minLines": 1,
+                                              "onSubmitted": {
+                                                "props": {
+                                                  "steps": [
+                                                    {
+                                                      "props": {
+                                                        "body": {
+                                                          "fileId": "{{state.drive.rename.file_id}}",
+                                                          "fileName": "{{state.drive.rename.file_name}}"
+                                                        },
+                                                        "endpoint": "files/rename",
+                                                        "method": "POST",
+                                                        "requestId": "drive-rename"
+                                                      },
+                                                      "type": "backend.call"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "endpoint": "files",
+                                                        "forceRefresh": true,
+                                                        "method": "GET",
+                                                        "requestId": "drive_files"
+                                                      },
+                                                      "type": "backend.query"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "durationMs": 2400,
+                                                        "message": "File renamed"
+                                                      },
+                                                      "type": "ui.toast"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "requestId": "drive-close-rename"
+                                                      },
+                                                      "type": "router.pop"
+                                                    }
+                                                  ]
+                                                },
+                                                "type": "sequence"
+                                              },
+                                              "paddingHorizontal": 12,
+                                              "paddingVertical": 13,
+                                              "stateKey": "drive.rename.file_name",
+                                              "textColor": "#FFF5F7FA",
+                                              "textInputAction": "done"
+                                            },
+                                            "type": "stateTextField"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 18
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "steps": [
+                                                    {
+                                                      "props": {
+                                                        "body": {
+                                                          "fileId": "{{state.drive.rename.file_id}}",
+                                                          "fileName": "{{state.drive.rename.file_name}}"
+                                                        },
+                                                        "endpoint": "files/rename",
+                                                        "method": "POST",
+                                                        "requestId": "drive-rename"
+                                                      },
+                                                      "type": "backend.call"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "endpoint": "files",
+                                                        "forceRefresh": true,
+                                                        "method": "GET",
+                                                        "requestId": "drive_files"
+                                                      },
+                                                      "type": "backend.query"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "durationMs": 2400,
+                                                        "message": "File renamed"
+                                                      },
+                                                      "type": "ui.toast"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "requestId": "drive-close-rename"
+                                                      },
+                                                      "type": "router.pop"
+                                                    }
+                                                  ]
+                                                },
+                                                "type": "sequence"
+                                              },
+                                              "backgroundColor": "#FF4EA1FF",
+                                              "borderColor": "#FF4EA1FF",
+                                              "borderRadius": 6,
+                                              "borderWidth": 0,
+                                              "fontSize": 15,
+                                              "fontWeight": "semibold",
+                                              "foregroundColor": "#FF0B1017",
+                                              "height": 50,
+                                              "label": "SAVE NAME"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF172230",
+                                      "borderColor": "#FF2B3C50",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 22,
+                                        "left": 18,
+                                        "right": 18,
+                                        "top": 22
+                                      }
+                                    },
+                                    "type": "container"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "width": 520
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "center"
+                      }
+                    ],
+                    "props": {
+                      "padding": {
+                        "bottom": 28,
+                        "left": 16,
+                        "right": 16
+                      }
+                    },
+                    "type": "scrollView"
+                  }
+                ],
+                "props": {
+                  "bottom": true,
+                  "left": true,
+                  "right": true,
+                  "top": true
+                },
+                "type": "safeArea"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF0B1017"
+            },
+            "type": "container"
+          }
+        ],
+        "props": {
+          "actions": [
+            {
+              "props": {
+                "values": {
+                  "drive.rename.file_id": "{{route.fileId}}",
+                  "drive.rename.file_name": "{{route.fileName}}"
+                }
+              },
+              "type": "state.patch"
+            }
+          ],
+          "error": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "color": "#FFFF647C",
+                      "name": "warning",
+                      "semanticLabel": "File could not be opened",
+                      "size": 38
+                    },
+                    "type": "icon"
+                  },
+                  {
+                    "children": [],
+                    "props": {
+                      "height": 14
+                    },
+                    "type": "sizedBox"
+                  },
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFF5F7FA",
+                      "data": "File could not be opened",
+                      "size": 20,
+                      "weight": "semibold"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "children": [],
+                    "props": {
+                      "height": 8
+                    },
+                    "type": "sizedBox"
+                  },
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFA9B5C4",
+                      "data": "{{state.drive.rename_error.message}}",
+                      "maxLines": 4,
+                      "overflow": "ellipsis",
+                      "size": 14
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "column"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF172230",
+              "borderColor": "#FF2B3C50",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "padding": {
+                "bottom": 28,
+                "left": 22,
+                "right": 22,
+                "top": 28
+              }
+            },
+            "type": "container"
+          },
+          "errorState": "drive.rename_error",
+          "loading": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "props": {
+                      "max": 1,
+                      "tone": "info",
+                      "value": 0.5
+                    },
+                    "type": "progress"
+                  },
+                  {
+                    "children": [],
+                    "props": {
+                      "height": 18
+                    },
+                    "type": "sizedBox"
+                  },
+                  {
+                    "children": [],
+                    "props": {
+                      "align": "center",
+                      "color": "#FFA9B5C4",
+                      "data": "Opening file",
+                      "size": 15
+                    },
+                    "type": "text"
+                  }
+                ],
+                "props": {},
+                "type": "column"
+              }
+            ],
+            "props": {
+              "backgroundColor": "#FF0B1017",
+              "padding": {
+                "bottom": 80,
+                "left": 28,
+                "right": 28,
+                "top": 80
+              }
+            },
+            "type": "container"
+          },
+          "statusState": "drive.rename_status"
+        },
+        "type": "initialize"
+      }
+    ],
+    "props": {
+      "prefix": "drive.rename"
+    },
+    "type": "stateScope"
+  },
+  "schemaVersion": 1,
+  "screenId": "drive_rename"
+}

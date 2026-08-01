@@ -1,0 +1,2375 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "error": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF4EA1FF",
+                                              "name": "note",
+                                              "semanticLabel": "Drive",
+                                              "size": 28
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFF5F7FA",
+                                                  "data": "Drive",
+                                                  "maxLines": 1,
+                                                  "size": 26,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF121A24",
+                                      "height": 70,
+                                      "padding": {
+                                        "left": 16,
+                                        "right": 16
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 64
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF4EA1FF",
+                                              "name": "lock",
+                                              "semanticLabel": "Secure Drive account",
+                                              "size": 50
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 18
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FFF5F7FA",
+                                              "data": "Your Drive",
+                                              "size": 28,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 10
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FFFF647C",
+                                              "data": "{{auth.message}}",
+                                              "maxLines": 4,
+                                              "size": 15
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 26
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "mode": "signIn"
+                                                },
+                                                "type": "auth.showEmailAuth"
+                                              },
+                                              "backgroundColor": "#FF4EA1FF",
+                                              "borderColor": "#FF4EA1FF",
+                                              "borderRadius": 6,
+                                              "borderWidth": 0,
+                                              "fontSize": 16,
+                                              "fontWeight": "semibold",
+                                              "foregroundColor": "#FF0B1017",
+                                              "height": 50,
+                                              "label": "SIGN IN"
+                                            },
+                                            "type": "button"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 10
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "mode": "signUp"
+                                                },
+                                                "type": "auth.showEmailAuth"
+                                              },
+                                              "backgroundColor": "#FF172230",
+                                              "borderColor": "#FF2B3C50",
+                                              "borderRadius": 6,
+                                              "borderWidth": 1,
+                                              "fontSize": 14,
+                                              "fontWeight": "medium",
+                                              "foregroundColor": "#FFF5F7FA",
+                                              "height": 50,
+                                              "label": "CREATE TEST ACCOUNT"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF172230",
+                                      "borderColor": "#FF2B3C50",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 34,
+                                        "left": 26,
+                                        "right": 26,
+                                        "top": 34
+                                      }
+                                    },
+                                    "type": "container"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "width": 520
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "center"
+                      }
+                    ],
+                    "props": {
+                      "padding": {
+                        "bottom": 28,
+                        "left": 20,
+                        "right": 20
+                      }
+                    },
+                    "type": "scrollView"
+                  },
+                  "loading": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "props": {
+                              "max": 1,
+                              "tone": "info",
+                              "value": 0.5
+                            },
+                            "type": "progress"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "height": 18
+                            },
+                            "type": "sizedBox"
+                          },
+                          {
+                            "children": [],
+                            "props": {
+                              "align": "center",
+                              "color": "#FFA9B5C4",
+                              "data": "Restoring secure session",
+                              "size": 15
+                            },
+                            "type": "text"
+                          }
+                        ],
+                        "props": {},
+                        "type": "column"
+                      }
+                    ],
+                    "props": {
+                      "backgroundColor": "#FF0B1017",
+                      "padding": {
+                        "bottom": 80,
+                        "left": 28,
+                        "right": 28,
+                        "top": 80
+                      }
+                    },
+                    "type": "container"
+                  },
+                  "signedIn": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF4EA1FF",
+                                              "name": "note",
+                                              "semanticLabel": "Drive",
+                                              "size": 28
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFF5F7FA",
+                                                  "data": "Drive",
+                                                  "maxLines": 1,
+                                                  "size": 26,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "endpoint": "files",
+                                                  "forceRefresh": true,
+                                                  "method": "GET",
+                                                  "requestId": "drive_files"
+                                                },
+                                                "type": "backend.query"
+                                              },
+                                              "backgroundColor": "#FF121A24",
+                                              "borderColor": "#00000000",
+                                              "borderRadius": 22,
+                                              "borderWidth": 0,
+                                              "color": "#FF4EA1FF",
+                                              "iconSize": 23,
+                                              "name": "refresh",
+                                              "semanticLabel": "Refresh files",
+                                              "size": 44
+                                            },
+                                            "type": "iconButton"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 6
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {},
+                                                "type": "auth.signOut"
+                                              },
+                                              "backgroundColor": "#FF121A24",
+                                              "borderColor": "#FF2B3C50",
+                                              "borderRadius": 6,
+                                              "borderWidth": 1,
+                                              "fontSize": 12,
+                                              "fontWeight": "medium",
+                                              "foregroundColor": "#FFA9B5C4",
+                                              "height": 42,
+                                              "label": "SIGN OUT"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF121A24",
+                                      "height": 70,
+                                      "padding": {
+                                        "left": 16,
+                                        "right": 16
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 14
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF43C59E",
+                                              "name": "person",
+                                              "semanticLabel": "Signed in account",
+                                              "size": 26
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF5F7FA",
+                                                      "data": "{{auth.user.email}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 15,
+                                                      "weight": "medium"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 3
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFA9B5C4",
+                                                      "data": "Private AWS test workspace",
+                                                      "maxLines": 1,
+                                                      "size": 12
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "steps": [
+                                                    {
+                                                      "props": {
+                                                        "endpoint": "files/upload",
+                                                        "errorState": "drive.transfer_error",
+                                                        "fieldName": "file",
+                                                        "mimeTypes": [
+                                                          "*/*"
+                                                        ],
+                                                        "multiple": true,
+                                                        "progressState": "drive.transfer_progress",
+                                                        "requestId": "drive-upload",
+                                                        "statusState": "drive.transfer_status",
+                                                        "targetState": "drive.upload_result"
+                                                      },
+                                                      "type": "file.upload"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "endpoint": "files",
+                                                        "forceRefresh": true,
+                                                        "method": "GET",
+                                                        "requestId": "drive_files"
+                                                      },
+                                                      "type": "backend.query"
+                                                    },
+                                                    {
+                                                      "props": {
+                                                        "durationMs": 2400,
+                                                        "message": "Upload complete"
+                                                      },
+                                                      "type": "ui.toast"
+                                                    }
+                                                  ]
+                                                },
+                                                "type": "sequence"
+                                              },
+                                              "backgroundColor": "#FF4EA1FF",
+                                              "borderColor": "#FF4EA1FF",
+                                              "borderRadius": 6,
+                                              "borderWidth": 0,
+                                              "fontSize": 13,
+                                              "fontWeight": "semibold",
+                                              "foregroundColor": "#FF0B1017",
+                                              "height": 44,
+                                              "label": "UPLOAD"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF172230",
+                                      "borderColor": "#FF2B3C50",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 14,
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 14
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [],
+                                        "props": {
+                                          "condition": "{{state.drive.has_captured_photo}}",
+                                          "whenFalse": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FF43C59E",
+                                                      "name": "note",
+                                                      "semanticLabel": "Camera upload",
+                                                      "size": 28
+                                                    },
+                                                    "type": "icon"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "width": 12
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#FFF5F7FA",
+                                                              "data": "Upload a new photo",
+                                                              "size": 15,
+                                                              "weight": "semibold"
+                                                            },
+                                                            "type": "text"
+                                                          },
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "height": 3
+                                                            },
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#FFFF647C",
+                                                              "data": "{{state.drive.camera_error.message}}",
+                                                              "maxLines": 2,
+                                                              "overflow": "ellipsis",
+                                                              "size": 11
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {},
+                                                        "type": "column"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "action": {
+                                                        "props": {
+                                                          "steps": [
+                                                            {
+                                                              "props": {
+                                                                "errorState": "drive.camera_error",
+                                                                "maxHeight": 1600,
+                                                                "maxWidth": 1600,
+                                                                "quality": 85,
+                                                                "requestId": "drive-capture-photo",
+                                                                "statusState": "drive.camera_status",
+                                                                "targetState": "drive.captured_photo"
+                                                              },
+                                                              "type": "camera.capturePhoto"
+                                                            },
+                                                            {
+                                                              "props": {
+                                                                "key": "drive.has_captured_photo",
+                                                                "value": true
+                                                              },
+                                                              "type": "state.set"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "type": "sequence"
+                                                      },
+                                                      "backgroundColor": "#FF43C59E",
+                                                      "borderColor": "#FF43C59E",
+                                                      "borderRadius": 6,
+                                                      "borderWidth": 0,
+                                                      "fontSize": 12,
+                                                      "fontWeight": "semibold",
+                                                      "foregroundColor": "#FF0B1017",
+                                                      "height": 44,
+                                                      "label": "TAKE PHOTO"
+                                                    },
+                                                    "type": "button"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "row"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF172230",
+                                              "borderColor": "#FF2B3C50",
+                                              "borderRadius": 8,
+                                              "borderWidth": 1,
+                                              "padding": {
+                                                "bottom": 14,
+                                                "left": 16,
+                                                "right": 16,
+                                                "top": 14
+                                              }
+                                            },
+                                            "type": "container"
+                                          },
+                                          "whenTrue": {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "alt": "Captured photo ready to upload",
+                                                      "cache": true,
+                                                      "error": {
+                                                        "children": [
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "color": "#FFFF647C",
+                                                                  "name": "warning",
+                                                                  "semanticLabel": "Preview unavailable",
+                                                                  "size": 38
+                                                                },
+                                                                "type": "icon"
+                                                              },
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "height": 14
+                                                                },
+                                                                "type": "sizedBox"
+                                                              },
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "align": "center",
+                                                                  "color": "#FFF5F7FA",
+                                                                  "data": "Preview unavailable",
+                                                                  "size": 20,
+                                                                  "weight": "semibold"
+                                                                },
+                                                                "type": "text"
+                                                              },
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "height": 8
+                                                                },
+                                                                "type": "sizedBox"
+                                                              },
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "align": "center",
+                                                                  "color": "#FFA9B5C4",
+                                                                  "data": "Discard this photo and capture it again.",
+                                                                  "maxLines": 4,
+                                                                  "overflow": "ellipsis",
+                                                                  "size": 14
+                                                                },
+                                                                "type": "text"
+                                                              }
+                                                            ],
+                                                            "props": {},
+                                                            "type": "column"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "backgroundColor": "#FF172230",
+                                                          "borderColor": "#FF2B3C50",
+                                                          "borderRadius": 8,
+                                                          "borderWidth": 1,
+                                                          "padding": {
+                                                            "bottom": 28,
+                                                            "left": 22,
+                                                            "right": 22,
+                                                            "top": 28
+                                                          }
+                                                        },
+                                                        "type": "container"
+                                                      },
+                                                      "fadeInDurationMs": 200,
+                                                      "fit": "contain",
+                                                      "height": 230.0,
+                                                      "placeholder": {
+                                                        "children": [
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "max": 1,
+                                                                  "tone": "info",
+                                                                  "value": 0.5
+                                                                },
+                                                                "type": "progress"
+                                                              },
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "height": 18
+                                                                },
+                                                                "type": "sizedBox"
+                                                              },
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "align": "center",
+                                                                  "color": "#FFA9B5C4",
+                                                                  "data": "Preparing photo preview",
+                                                                  "size": 15
+                                                                },
+                                                                "type": "text"
+                                                              }
+                                                            ],
+                                                            "props": {},
+                                                            "type": "column"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "backgroundColor": "#FF0B1017",
+                                                          "padding": {
+                                                            "bottom": 80,
+                                                            "left": 28,
+                                                            "right": 28,
+                                                            "top": 80
+                                                          }
+                                                        },
+                                                        "type": "container"
+                                                      },
+                                                      "semanticLabel": "Captured photo ready to upload",
+                                                      "source": "hostMedia",
+                                                      "src": "{{state.drive.captured_photo.mediaRef}}",
+                                                      "width": 590.0
+                                                    },
+                                                    "type": "image"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 12
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#FFF5F7FA",
+                                                      "data": "{{state.drive.captured_photo.fileName}}",
+                                                      "maxLines": 1,
+                                                      "overflow": "ellipsis",
+                                                      "size": 14,
+                                                      "weight": "medium"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 12
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "action": {
+                                                                "props": {
+                                                                  "steps": [
+                                                                    {
+                                                                      "props": {
+                                                                        "errorState": "drive.camera_error",
+                                                                        "mediaRef": "{{state.drive.captured_photo.mediaRef}}",
+                                                                        "requestId": "drive-discard-photo",
+                                                                        "statusState": "drive.camera_status"
+                                                                      },
+                                                                      "type": "media.release"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "remove": [
+                                                                          "drive.captured_photo"
+                                                                        ],
+                                                                        "values": {
+                                                                          "drive.has_captured_photo": false
+                                                                        }
+                                                                      },
+                                                                      "type": "state.patch"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                "type": "sequence"
+                                                              },
+                                                              "backgroundColor": "#FF203044",
+                                                              "borderColor": "#FF2B3C50",
+                                                              "borderRadius": 6,
+                                                              "borderWidth": 1,
+                                                              "fontSize": 11,
+                                                              "fontWeight": "medium",
+                                                              "foregroundColor": "#FFFF647C",
+                                                              "height": 42,
+                                                              "label": "DISCARD"
+                                                            },
+                                                            "type": "button"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "width": 8
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "action": {
+                                                                "props": {
+                                                                  "steps": [
+                                                                    {
+                                                                      "props": {
+                                                                        "steps": [
+                                                                          {
+                                                                            "props": {
+                                                                              "errorState": "drive.camera_error",
+                                                                              "mediaRef": "{{state.drive.captured_photo.mediaRef}}",
+                                                                              "requestId": "drive-discard-photo",
+                                                                              "statusState": "drive.camera_status"
+                                                                            },
+                                                                            "type": "media.release"
+                                                                          },
+                                                                          {
+                                                                            "props": {
+                                                                              "remove": [
+                                                                                "drive.captured_photo"
+                                                                              ],
+                                                                              "values": {
+                                                                                "drive.has_captured_photo": false
+                                                                              }
+                                                                            },
+                                                                            "type": "state.patch"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      "type": "sequence"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "steps": [
+                                                                          {
+                                                                            "props": {
+                                                                              "errorState": "drive.camera_error",
+                                                                              "maxHeight": 1600,
+                                                                              "maxWidth": 1600,
+                                                                              "quality": 85,
+                                                                              "requestId": "drive-capture-photo",
+                                                                              "statusState": "drive.camera_status",
+                                                                              "targetState": "drive.captured_photo"
+                                                                            },
+                                                                            "type": "camera.capturePhoto"
+                                                                          },
+                                                                          {
+                                                                            "props": {
+                                                                              "key": "drive.has_captured_photo",
+                                                                              "value": true
+                                                                            },
+                                                                            "type": "state.set"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      "type": "sequence"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                "type": "sequence"
+                                                              },
+                                                              "backgroundColor": "#FF203044",
+                                                              "borderColor": "#FF2B3C50",
+                                                              "borderRadius": 6,
+                                                              "borderWidth": 1,
+                                                              "fontSize": 11,
+                                                              "fontWeight": "medium",
+                                                              "foregroundColor": "#FFF5F7FA",
+                                                              "height": 42,
+                                                              "label": "RETAKE"
+                                                            },
+                                                            "type": "button"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "width": 8
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "action": {
+                                                                "props": {
+                                                                  "steps": [
+                                                                    {
+                                                                      "props": {
+                                                                        "endpoint": "files/upload",
+                                                                        "errorState": "drive.transfer_error",
+                                                                        "fieldName": "file",
+                                                                        "mediaRefs": [
+                                                                          "{{state.drive.captured_photo.mediaRef}}"
+                                                                        ],
+                                                                        "mimeTypes": [
+                                                                          "image/jpeg"
+                                                                        ],
+                                                                        "progressState": "drive.transfer_progress",
+                                                                        "requestId": "drive-upload-photo",
+                                                                        "statusState": "drive.transfer_status",
+                                                                        "targetState": "drive.upload_result"
+                                                                      },
+                                                                      "type": "file.upload"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "mediaRef": "{{state.drive.captured_photo.mediaRef}}",
+                                                                        "requestId": "drive-release-uploaded-photo"
+                                                                      },
+                                                                      "type": "media.release"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "remove": [
+                                                                          "drive.camera_error",
+                                                                          "drive.captured_photo"
+                                                                        ],
+                                                                        "values": {
+                                                                          "drive.has_captured_photo": false
+                                                                        }
+                                                                      },
+                                                                      "type": "state.patch"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "endpoint": "files",
+                                                                        "forceRefresh": true,
+                                                                        "method": "GET",
+                                                                        "requestId": "drive_files"
+                                                                      },
+                                                                      "type": "backend.query"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "durationMs": 2400,
+                                                                        "message": "Photo uploaded"
+                                                                      },
+                                                                      "type": "ui.toast"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                "type": "sequence"
+                                                              },
+                                                              "backgroundColor": "#FF4EA1FF",
+                                                              "borderColor": "#FF4EA1FF",
+                                                              "borderRadius": 6,
+                                                              "borderWidth": 0,
+                                                              "fontSize": 11,
+                                                              "fontWeight": "semibold",
+                                                              "foregroundColor": "#FF0B1017",
+                                                              "height": 42,
+                                                              "label": "UPLOAD"
+                                                            },
+                                                            "type": "button"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF172230",
+                                              "borderColor": "#FF43C59E",
+                                              "borderRadius": 8,
+                                              "borderWidth": 1,
+                                              "padding": {
+                                                "bottom": 14,
+                                                "left": 14,
+                                                "right": 14,
+                                                "top": 14
+                                              }
+                                            },
+                                            "type": "container"
+                                          }
+                                        },
+                                        "type": "condition"
+                                      },
+                                      "keys": [
+                                        "drive.has_captured_photo",
+                                        "drive.captured_photo",
+                                        "drive.camera_status",
+                                        "drive.camera_error"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFF5F7FA",
+                                                          "data": "Transfer: {{state.drive.transfer_status}}",
+                                                          "maxLines": 1,
+                                                          "size": 13,
+                                                          "weight": "medium"
+                                                        },
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "height": 3
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFA9B5C4",
+                                                          "data": "{{state.drive.transfer_progress.bytesTransferred}} bytes",
+                                                          "maxLines": 1,
+                                                          "size": 12
+                                                        },
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFFF647C",
+                                                          "data": "{{state.drive.transfer_error.message}}",
+                                                          "maxLines": 2,
+                                                          "overflow": "ellipsis",
+                                                          "size": 11
+                                                        },
+                                                        "type": "text"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "column"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "flex": 1
+                                                },
+                                                "type": "expanded"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "errorState": "drive.transfer_error",
+                                                      "requestId": "drive-cancel-transfer",
+                                                      "statusState": "drive.transfer_status",
+                                                      "transferId": "{{state.drive.transfer_progress.transferId}}"
+                                                    },
+                                                    "type": "file.cancel"
+                                                  },
+                                                  "backgroundColor": "#FF203044",
+                                                  "borderColor": "#FF2B3C50",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "medium",
+                                                  "foregroundColor": "#FFFFC857",
+                                                  "height": 38,
+                                                  "label": "CANCEL"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "row"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF203044",
+                                          "borderColor": "#FF2B3C50",
+                                          "borderRadius": 8,
+                                          "borderWidth": 1,
+                                          "padding": {
+                                            "bottom": 12,
+                                            "left": 16,
+                                            "right": 16,
+                                            "top": 12
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      "keys": [
+                                        "drive.transfer_status",
+                                        "drive.transfer_progress",
+                                        "drive.transfer_error"
+                                      ]
+                                    },
+                                    "type": "stateBuilder"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 12
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "child": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#FFF5F7FA",
+                                                              "data": "{{backend.drive_files.data.count}} files",
+                                                              "size": 14,
+                                                              "weight": "semibold"
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "align": "end",
+                                                          "color": "#FFA9B5C4",
+                                                          "data": "{{backend.drive_files.data.usage.remainingBytes}} bytes free",
+                                                          "size": 12
+                                                        },
+                                                        "type": "text"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#FF172230",
+                                              "borderColor": "#FF2B3C50",
+                                              "borderRadius": 8,
+                                              "borderWidth": 1,
+                                              "padding": {
+                                                "bottom": 14,
+                                                "left": 16,
+                                                "right": 16,
+                                                "top": 14
+                                              }
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "empty": {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "color": "#FFA9B5C4",
+                                                          "name": "note",
+                                                          "semanticLabel": "No files",
+                                                          "size": 48
+                                                        },
+                                                        "type": "icon"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "height": 16
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "align": "center",
+                                                          "color": "#FFF5F7FA",
+                                                          "data": "No files yet",
+                                                          "size": 22,
+                                                          "weight": "semibold"
+                                                        },
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "height": 8
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "align": "center",
+                                                          "color": "#FFA9B5C4",
+                                                          "data": "Upload a file to this account.",
+                                                          "size": 14
+                                                        },
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "height": 20
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "steps": [
+                                                                {
+                                                                  "props": {
+                                                                    "endpoint": "files/upload",
+                                                                    "errorState": "drive.transfer_error",
+                                                                    "fieldName": "file",
+                                                                    "mimeTypes": [
+                                                                      "*/*"
+                                                                    ],
+                                                                    "multiple": true,
+                                                                    "progressState": "drive.transfer_progress",
+                                                                    "requestId": "drive-upload",
+                                                                    "statusState": "drive.transfer_status",
+                                                                    "targetState": "drive.upload_result"
+                                                                  },
+                                                                  "type": "file.upload"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "endpoint": "files",
+                                                                    "forceRefresh": true,
+                                                                    "method": "GET",
+                                                                    "requestId": "drive_files"
+                                                                  },
+                                                                  "type": "backend.query"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "durationMs": 2400,
+                                                                    "message": "Upload complete"
+                                                                  },
+                                                                  "type": "ui.toast"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "type": "sequence"
+                                                          },
+                                                          "backgroundColor": "#FF4EA1FF",
+                                                          "borderColor": "#FF4EA1FF",
+                                                          "borderRadius": 6,
+                                                          "borderWidth": 0,
+                                                          "fontSize": 14,
+                                                          "fontWeight": "semibold",
+                                                          "foregroundColor": "#FF0B1017",
+                                                          "height": 48,
+                                                          "label": "UPLOAD FILE"
+                                                        },
+                                                        "type": "button"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "column"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FF172230",
+                                                  "borderColor": "#FF2B3C50",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 1,
+                                                  "padding": {
+                                                    "bottom": 72,
+                                                    "left": 28,
+                                                    "right": 28,
+                                                    "top": 72
+                                                  }
+                                                },
+                                                "type": "container"
+                                              },
+                                              "itemTemplate": {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "children": [],
+                                                                    "props": {
+                                                                      "color": "#FF4EA1FF",
+                                                                      "name": "note",
+                                                                      "semanticLabel": "File",
+                                                                      "size": 24
+                                                                    },
+                                                                    "type": "icon"
+                                                                  }
+                                                                ],
+                                                                "props": {},
+                                                                "type": "center"
+                                                              }
+                                                            ],
+                                                            "props": {
+                                                              "backgroundColor": "#FF203044",
+                                                              "borderColor": "#FF2B3C50",
+                                                              "borderRadius": 7,
+                                                              "borderWidth": 1,
+                                                              "height": 46,
+                                                              "width": 46
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "width": 12
+                                                            },
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "children": [],
+                                                                    "props": {
+                                                                      "color": "#FFF5F7FA",
+                                                                      "data": "{{item.name}}",
+                                                                      "maxLines": 1,
+                                                                      "overflow": "ellipsis",
+                                                                      "size": 16,
+                                                                      "weight": "medium"
+                                                                    },
+                                                                    "type": "text"
+                                                                  },
+                                                                  {
+                                                                    "children": [],
+                                                                    "props": {
+                                                                      "height": 4
+                                                                    },
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "children": [],
+                                                                    "props": {
+                                                                      "color": "#FFA9B5C4",
+                                                                      "data": "{{item.sizeLabel}}  |  {{item.mimeType}}",
+                                                                      "maxLines": 1,
+                                                                      "overflow": "ellipsis",
+                                                                      "size": 11
+                                                                    },
+                                                                    "type": "text"
+                                                                  }
+                                                                ],
+                                                                "props": {},
+                                                                "type": "column"
+                                                              }
+                                                            ],
+                                                            "props": {
+                                                              "flex": 1
+                                                            },
+                                                            "type": "expanded"
+                                                          },
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "action": {
+                                                                "props": {
+                                                                  "steps": [
+                                                                    {
+                                                                      "props": {
+                                                                        "body": {
+                                                                          "fileId": "{{item.id}}"
+                                                                        },
+                                                                        "endpoint": "files/delete",
+                                                                        "method": "POST",
+                                                                        "requestId": "drive-delete"
+                                                                      },
+                                                                      "type": "backend.call"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "endpoint": "files",
+                                                                        "forceRefresh": true,
+                                                                        "method": "GET",
+                                                                        "requestId": "drive_files"
+                                                                      },
+                                                                      "type": "backend.query"
+                                                                    },
+                                                                    {
+                                                                      "props": {
+                                                                        "durationMs": 2400,
+                                                                        "message": "File deleted"
+                                                                      },
+                                                                      "type": "ui.toast"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                "type": "sequence"
+                                                              },
+                                                              "backgroundColor": "#FF172230",
+                                                              "borderColor": "#00000000",
+                                                              "borderRadius": 21,
+                                                              "borderWidth": 0,
+                                                              "color": "#FFFF647C",
+                                                              "iconSize": 21,
+                                                              "name": "delete",
+                                                              "semanticLabel": "Delete {{item.name}}",
+                                                              "size": 42
+                                                            },
+                                                            "type": "iconButton"
+                                                          }
+                                                        ],
+                                                        "props": {},
+                                                        "type": "row"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "height": 10
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "action": {
+                                                                    "props": {
+                                                                      "steps": [
+                                                                        {
+                                                                          "props": {
+                                                                            "destination": "downloads",
+                                                                            "endpoint": "files/download",
+                                                                            "errorState": "drive.transfer_error",
+                                                                            "method": "GET",
+                                                                            "progressState": "drive.transfer_progress",
+                                                                            "request": {
+                                                                              "fileId": "{{item.id}}"
+                                                                            },
+                                                                            "requestId": "drive-download",
+                                                                            "statusState": "drive.transfer_status",
+                                                                            "suggestedName": "{{item.name}}",
+                                                                            "targetState": "drive.download_result"
+                                                                          },
+                                                                          "type": "file.download"
+                                                                        },
+                                                                        {
+                                                                          "props": {
+                                                                            "durationMs": 2400,
+                                                                            "message": "Saved to Downloads"
+                                                                          },
+                                                                          "type": "ui.toast"
+                                                                        }
+                                                                      ]
+                                                                    },
+                                                                    "type": "sequence"
+                                                                  },
+                                                                  "backgroundColor": "#FF203044",
+                                                                  "borderColor": "#FF2B3C50",
+                                                                  "borderRadius": 6,
+                                                                  "borderWidth": 1,
+                                                                  "fontSize": 12,
+                                                                  "fontWeight": "medium",
+                                                                  "foregroundColor": "#FF4EA1FF",
+                                                                  "height": 40,
+                                                                  "label": "DOWNLOAD"
+                                                                },
+                                                                "type": "button"
+                                                              }
+                                                            ],
+                                                            "props": {
+                                                              "flex": 1
+                                                            },
+                                                            "type": "expanded"
+                                                          },
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "width": 8
+                                                            },
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [],
+                                                                "props": {
+                                                                  "action": {
+                                                                    "props": {
+                                                                      "params": {
+                                                                        "fileId": "{{item.id}}",
+                                                                        "fileName": "{{item.name}}"
+                                                                      },
+                                                                      "requestId": "drive-open-rename",
+                                                                      "screenId": "drive_rename"
+                                                                    },
+                                                                    "type": "router.push"
+                                                                  },
+                                                                  "backgroundColor": "#FF203044",
+                                                                  "borderColor": "#FF2B3C50",
+                                                                  "borderRadius": 6,
+                                                                  "borderWidth": 1,
+                                                                  "fontSize": 12,
+                                                                  "fontWeight": "medium",
+                                                                  "foregroundColor": "#FFF5F7FA",
+                                                                  "height": 40,
+                                                                  "label": "RENAME"
+                                                                },
+                                                                "type": "button"
+                                                              }
+                                                            ],
+                                                            "props": {
+                                                              "flex": 1
+                                                            },
+                                                            "type": "expanded"
+                                                          }
+                                                        ],
+                                                        "props": {},
+                                                        "type": "row"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "column"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "backgroundColor": "#FF172230",
+                                                  "borderColor": "#FF2B3C50",
+                                                  "borderRadius": 8,
+                                                  "borderWidth": 1,
+                                                  "padding": {
+                                                    "bottom": 14,
+                                                    "left": 14,
+                                                    "right": 14,
+                                                    "top": 14
+                                                  }
+                                                },
+                                                "type": "container"
+                                              },
+                                              "limit": 100,
+                                              "source": "{{backend.drive_files.data.items}}",
+                                              "spacing": 8
+                                            },
+                                            "type": "repeat"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      },
+                                      "empty": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFA9B5C4",
+                                                  "name": "note",
+                                                  "semanticLabel": "No files",
+                                                  "size": 48
+                                                },
+                                                "type": "icon"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 16
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFF5F7FA",
+                                                  "data": "No files yet",
+                                                  "size": 22,
+                                                  "weight": "semibold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 8
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFA9B5C4",
+                                                  "data": "Upload a file to this account.",
+                                                  "size": 14
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 20
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "endpoint": "files/upload",
+                                                            "errorState": "drive.transfer_error",
+                                                            "fieldName": "file",
+                                                            "mimeTypes": [
+                                                              "*/*"
+                                                            ],
+                                                            "multiple": true,
+                                                            "progressState": "drive.transfer_progress",
+                                                            "requestId": "drive-upload",
+                                                            "statusState": "drive.transfer_status",
+                                                            "targetState": "drive.upload_result"
+                                                          },
+                                                          "type": "file.upload"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "endpoint": "files",
+                                                            "forceRefresh": true,
+                                                            "method": "GET",
+                                                            "requestId": "drive_files"
+                                                          },
+                                                          "type": "backend.query"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Upload complete"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#FF4EA1FF",
+                                                  "borderColor": "#FF4EA1FF",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 0,
+                                                  "fontSize": 14,
+                                                  "fontWeight": "semibold",
+                                                  "foregroundColor": "#FF0B1017",
+                                                  "height": 48,
+                                                  "label": "UPLOAD FILE"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF172230",
+                                          "borderColor": "#FF2B3C50",
+                                          "borderRadius": 8,
+                                          "borderWidth": 1,
+                                          "padding": {
+                                            "bottom": 72,
+                                            "left": 28,
+                                            "right": 28,
+                                            "top": 72
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      "endpoint": "files",
+                                      "error": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFFF647C",
+                                                  "name": "warning",
+                                                  "semanticLabel": "Files unavailable",
+                                                  "size": 38
+                                                },
+                                                "type": "icon"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 14
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFF5F7FA",
+                                                  "data": "Files unavailable",
+                                                  "size": 20,
+                                                  "weight": "semibold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 8
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFA9B5C4",
+                                                  "data": "{{backend.drive_files.message}}",
+                                                  "maxLines": 4,
+                                                  "overflow": "ellipsis",
+                                                  "size": 14
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF172230",
+                                          "borderColor": "#FF2B3C50",
+                                          "borderRadius": 8,
+                                          "borderWidth": 1,
+                                          "padding": {
+                                            "bottom": 28,
+                                            "left": 22,
+                                            "right": 22,
+                                            "top": 28
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      "loading": {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "max": 1,
+                                                  "tone": "info",
+                                                  "value": 0.5
+                                                },
+                                                "type": "progress"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 18
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "align": "center",
+                                                  "color": "#FFA9B5C4",
+                                                  "data": "Loading files",
+                                                  "size": 15
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "backgroundColor": "#FF0B1017",
+                                          "padding": {
+                                            "bottom": 80,
+                                            "left": 28,
+                                            "right": 28,
+                                            "top": 80
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      "method": "GET",
+                                      "requestId": "drive_files"
+                                    },
+                                    "type": "backendBuilder"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "width": 620
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "center"
+                      }
+                    ],
+                    "props": {
+                      "padding": {
+                        "bottom": 28,
+                        "left": 14,
+                        "right": 14
+                      }
+                    },
+                    "type": "scrollView"
+                  },
+                  "signedOut": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF4EA1FF",
+                                              "name": "note",
+                                              "semanticLabel": "Drive",
+                                              "size": 28
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FFF5F7FA",
+                                                  "data": "Drive",
+                                                  "maxLines": 1,
+                                                  "size": 26,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF121A24",
+                                      "height": 70,
+                                      "padding": {
+                                        "left": 16,
+                                        "right": 16
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "height": 64
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#FF4EA1FF",
+                                              "name": "lock",
+                                              "semanticLabel": "Secure Drive account",
+                                              "size": 50
+                                            },
+                                            "type": "icon"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 18
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FFF5F7FA",
+                                              "data": "Your Drive",
+                                              "size": 28,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 10
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#FFA9B5C4",
+                                              "data": "Sign in to access files stored in your private test workspace.",
+                                              "maxLines": 4,
+                                              "size": 15
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 26
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "mode": "signIn"
+                                                },
+                                                "type": "auth.showEmailAuth"
+                                              },
+                                              "backgroundColor": "#FF4EA1FF",
+                                              "borderColor": "#FF4EA1FF",
+                                              "borderRadius": 6,
+                                              "borderWidth": 0,
+                                              "fontSize": 16,
+                                              "fontWeight": "semibold",
+                                              "foregroundColor": "#FF0B1017",
+                                              "height": 50,
+                                              "label": "SIGN IN"
+                                            },
+                                            "type": "button"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 10
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "action": {
+                                                "props": {
+                                                  "mode": "signUp"
+                                                },
+                                                "type": "auth.showEmailAuth"
+                                              },
+                                              "backgroundColor": "#FF172230",
+                                              "borderColor": "#FF2B3C50",
+                                              "borderRadius": 6,
+                                              "borderWidth": 1,
+                                              "fontSize": 14,
+                                              "fontWeight": "medium",
+                                              "foregroundColor": "#FFF5F7FA",
+                                              "height": 50,
+                                              "label": "CREATE TEST ACCOUNT"
+                                            },
+                                            "type": "button"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#FF172230",
+                                      "borderColor": "#FF2B3C50",
+                                      "borderRadius": 8,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 34,
+                                        "left": 26,
+                                        "right": 26,
+                                        "top": 34
+                                      }
+                                    },
+                                    "type": "container"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "column"
+                              }
+                            ],
+                            "props": {
+                              "width": 520
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "props": {},
+                        "type": "center"
+                      }
+                    ],
+                    "props": {
+                      "padding": {
+                        "bottom": 28,
+                        "left": 20,
+                        "right": 20
+                      }
+                    },
+                    "type": "scrollView"
+                  }
+                },
+                "type": "authBuilder"
+              }
+            ],
+            "props": {
+              "bottom": true,
+              "left": true,
+              "right": true,
+              "top": true
+            },
+            "type": "safeArea"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF0B1017"
+        },
+        "type": "container"
+      }
+    ],
+    "props": {
+      "actions": [
+        {
+          "props": {},
+          "type": "auth.restore"
+        },
+        {
+          "props": {
+            "key": "drive.transfer_status",
+            "value": "idle"
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "drive.transfer_progress",
+            "value": {
+              "bytesTransferred": 0,
+              "status": "idle",
+              "transferId": ""
+            }
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "drive.has_captured_photo",
+            "value": false
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "drive.camera_status",
+            "value": "idle"
+          },
+          "type": "state.setDefault"
+        }
+      ],
+      "error": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "color": "#FFFF647C",
+                  "name": "warning",
+                  "semanticLabel": "Drive could not start",
+                  "size": 38
+                },
+                "type": "icon"
+              },
+              {
+                "children": [],
+                "props": {
+                  "height": 14
+                },
+                "type": "sizedBox"
+              },
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFF5F7FA",
+                  "data": "Drive could not start",
+                  "size": 20,
+                  "weight": "semibold"
+                },
+                "type": "text"
+              },
+              {
+                "children": [],
+                "props": {
+                  "height": 8
+                },
+                "type": "sizedBox"
+              },
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFA9B5C4",
+                  "data": "{{state.drive.startup_error.message}}",
+                  "maxLines": 4,
+                  "overflow": "ellipsis",
+                  "size": 14
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "column"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF172230",
+          "borderColor": "#FF2B3C50",
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "padding": {
+            "bottom": 28,
+            "left": 22,
+            "right": 22,
+            "top": 28
+          }
+        },
+        "type": "container"
+      },
+      "errorState": "drive.startup_error",
+      "loading": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "props": {
+                  "max": 1,
+                  "tone": "info",
+                  "value": 0.5
+                },
+                "type": "progress"
+              },
+              {
+                "children": [],
+                "props": {
+                  "height": 18
+                },
+                "type": "sizedBox"
+              },
+              {
+                "children": [],
+                "props": {
+                  "align": "center",
+                  "color": "#FFA9B5C4",
+                  "data": "Opening Drive",
+                  "size": 15
+                },
+                "type": "text"
+              }
+            ],
+            "props": {},
+            "type": "column"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#FF0B1017",
+          "padding": {
+            "bottom": 80,
+            "left": 28,
+            "right": 28,
+            "top": 80
+          }
+        },
+        "type": "container"
+      },
+      "statusState": "drive.startup_status"
+    },
+    "type": "initialize"
+  },
+  "schemaVersion": 1,
+  "screenId": "drive_home"
+}

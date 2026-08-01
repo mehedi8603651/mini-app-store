@@ -24,6 +24,10 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
         MiniPrograms.brainTest.appId,
       ),
       filePolicy: filePolicyForMiniProgram(MiniPrograms.brainTest.appId),
+      cameraPolicy: cameraPolicyForMiniProgram(MiniPrograms.brainTest.appId),
+      flashlightPolicy: flashlightPolicyForMiniProgram(
+        MiniPrograms.brainTest.appId,
+      ),
       requestTimeout: const Duration(seconds: 20),
     ),
     MiniPrograms.calculator.appId: MiniProgramEndpoint.public(
@@ -39,6 +43,10 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
         MiniPrograms.calculator.appId,
       ),
       filePolicy: filePolicyForMiniProgram(MiniPrograms.calculator.appId),
+      cameraPolicy: cameraPolicyForMiniProgram(MiniPrograms.calculator.appId),
+      flashlightPolicy: flashlightPolicyForMiniProgram(
+        MiniPrograms.calculator.appId,
+      ),
       requestTimeout: const Duration(seconds: 20),
     ),
     MiniPrograms.drive.appId: MiniProgramEndpoint.public(
@@ -50,6 +58,10 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
       ),
       locationPolicy: locationPolicyForMiniProgram(MiniPrograms.drive.appId),
       filePolicy: filePolicyForMiniProgram(MiniPrograms.drive.appId),
+      cameraPolicy: cameraPolicyForMiniProgram(MiniPrograms.drive.appId),
+      flashlightPolicy: flashlightPolicyForMiniProgram(
+        MiniPrograms.drive.appId,
+      ),
       requestTimeout: const Duration(seconds: 20),
     ),
     MiniPrograms.notepad.appId: MiniProgramEndpoint.public(
@@ -63,6 +75,10 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
       ),
       locationPolicy: locationPolicyForMiniProgram(MiniPrograms.notepad.appId),
       filePolicy: filePolicyForMiniProgram(MiniPrograms.notepad.appId),
+      cameraPolicy: cameraPolicyForMiniProgram(MiniPrograms.notepad.appId),
+      flashlightPolicy: flashlightPolicyForMiniProgram(
+        MiniPrograms.notepad.appId,
+      ),
       requestTimeout: const Duration(seconds: 20),
     ),
     MiniPrograms.weather.appId: MiniProgramEndpoint.public(
@@ -76,6 +92,10 @@ Map<String, MiniProgramEndpoint> buildMiniProgramEndpoints() {
       ),
       locationPolicy: locationPolicyForMiniProgram(MiniPrograms.weather.appId),
       filePolicy: filePolicyForMiniProgram(MiniPrograms.weather.appId),
+      cameraPolicy: cameraPolicyForMiniProgram(MiniPrograms.weather.appId),
+      flashlightPolicy: flashlightPolicyForMiniProgram(
+        MiniPrograms.weather.appId,
+      ),
       requestTimeout: const Duration(seconds: 20),
     ),
   };

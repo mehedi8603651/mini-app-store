@@ -1,0 +1,36 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "bytes": 1,
+      "path": "assets/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 661,
+      "path": "manifest.json",
+      "sha256": "4f5a18b33a4022afb1e02867095ac0ee64c761b7f77796b6d831ef8eab2e6cff"
+    },
+    {
+      "bytes": 490,
+      "path": "publisher_backend.json",
+      "sha256": "9eb79bb868db8c2d3e13b37c6b88bed8e286ab36aaae3e3a6157232fd017ec5e"
+    },
+    {
+      "bytes": 265,
+      "path": "release.json",
+      "sha256": "4a55bd96dea562e437bdb9dfb17d9ce457a79aacff76ed54735e0bd7e3cf065c"
+    },
+    {
+      "bytes": 143936,
+      "path": "screens/drive_home.json",
+      "sha256": "91eff6485d71dd0dce1c95d4c9d948d945040123a7018449c2cd939b6a28cfc3"
+    },
+    {
+      "bytes": 23998,
+      "path": "screens/drive_rename.json",
+      "sha256": "b9974a8aaf1069f402c986c069e55b7d5a258b3602cde00c7a7f02fca6a165aa"
+    }
+  ],
+  "schemaVersion": 1
+}

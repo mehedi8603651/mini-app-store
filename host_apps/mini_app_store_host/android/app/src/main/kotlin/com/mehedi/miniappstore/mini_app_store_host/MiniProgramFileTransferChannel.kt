@@ -136,6 +136,47 @@ internal class MiniProgramFileTransferChannel :
     }
 
     private fun beginUpload(args: Map<String, Any?>, result: MethodChannel.Result) {
+        val transferId = requiredString(args, "transferId", result) ?: return
+        val mediaRefs = stringList(args["mediaRefs"])
+        if (mediaRefs.isNotEmpty()) {
+            val miniProgramId = requiredString(args, "miniProgramId", result) ?: return
+            val maxFiles = (args["maxFiles"] as? Number)?.toInt() ?: 1
+            if (mediaRefs.size > maxFiles) {
+                result.error(
+                    "file_transfer_limit_exceeded",
+                    "The selected media count exceeds the accepted host limit.",
+                    null,
+                )
+                return
+            }
+            val uris = mutableListOf<Uri>()
+            for (mediaRef in mediaRefs) {
+                val existing = MiniProgramHostMediaRegistry.find(mediaRef)
+                if (existing == null) {
+                    result.error(
+                        "media_not_found",
+                        "Temporary media is no longer available.",
+                        null,
+                    )
+                    return
+                }
+                val entry = MiniProgramHostMediaRegistry.findOwned(
+                    miniProgramId,
+                    mediaRef,
+                )
+                if (entry == null) {
+                    result.error(
+                        "media_not_owned",
+                        "Temporary media belongs to another mini-program.",
+                        null,
+                    )
+                    return
+                }
+                uris.add(entry.uri)
+            }
+            startUpload(args, result, uris)
+            return
+        }
         val currentActivity = activity
         if (currentActivity == null) {
             result.error(
@@ -153,7 +194,6 @@ internal class MiniProgramFileTransferChannel :
             )
             return
         }
-        val transferId = requiredString(args, "transferId", result) ?: return
         val mimeTypes = stringList(args["mimeTypes"])
         if (mimeTypes.isEmpty()) {
             result.error("file_type_not_accepted", "No upload MIME types were accepted.", null)

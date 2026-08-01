@@ -1,12 +1,14 @@
 {
   "id": "drive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "entry": "drive_home",
   "contractVersion": "1.0.0",
   "sdkVersionRange": ">=1.0.0 <2.0.0",
   "requiredCapabilities": [
     "file.upload",
-    "file.download"
+    "file.download",
+    "camera.capture_photo",
+    "media.preview"
   ],
   "screenFormat": "mp",
   "screenSchemaVersion": 1,

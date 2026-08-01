@@ -31,6 +31,7 @@ class AppAndroidFileTransferProvider
       onProgress: onProgress,
       method: 'upload',
       arguments: <String, Object?>{
+        'miniProgramId': request.miniProgramId,
         'transferId': request.transferId,
         'candidateUrls': request.backend.candidateUris
             .map((uri) => uri.toString())
@@ -44,6 +45,7 @@ class AppAndroidFileTransferProvider
         'fieldName': request.fieldName,
         'metadata': request.metadata,
         'maxFileBytes': request.maxFileBytes,
+        'mediaRefs': request.mediaRefs,
       },
     );
   }
@@ -225,6 +227,8 @@ class AppAndroidFileTransferProvider
       MiniProgramErrorCodes.fileTransferCancelled,
       MiniProgramErrorCodes.fileTransferLimitExceeded,
       MiniProgramErrorCodes.fileInvalidResult,
+      MiniProgramErrorCodes.mediaNotFound,
+      MiniProgramErrorCodes.mediaNotOwned,
     };
     final code = stable.contains(error.code) ? error.code : fallback;
     return MiniProgramFileException(

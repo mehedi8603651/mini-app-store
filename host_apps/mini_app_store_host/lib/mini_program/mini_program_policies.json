@@ -92,6 +92,11 @@
             "recommendedMaxFileBytes": 3145728,
             "recommendedMaxFilesPerUpload": 3,
             "recommendedMaxConcurrentTransfers": 2
+          },
+          "camera": {
+            "enabled": true,
+            "reason": "Capture a photo for preview and upload to the user's Drive workspace.",
+            "capturePhoto": true
           }
         }
       },
@@ -104,6 +109,10 @@
           "maxDepth": 32
         },
         "permissions": {
+          "camera": {
+            "allowPhotoCapture": true,
+            "enabled": true
+          },
           "files": {
             "allowDownload": true,
             "allowUpload": true,

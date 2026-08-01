@@ -13,7 +13,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -22,7 +22,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-class MainActivity : FlutterActivity() {
+class MainActivity : FlutterFragmentActivity() {
     companion object {
         private const val CHANNEL_NAME = "mini_program/location"
         private const val LOCATION_PERMISSION_REQUEST = 4101
@@ -46,6 +46,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        MiniProgramCameraChannel.register(flutterEngine)
         MiniProgramFileTransferChannel.register(flutterEngine)
         MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,

@@ -25,6 +25,8 @@ MiniProgramConfig buildMiniProgramConfig({
   AppNativeRouteOpener? openNativeRoute,
   MiniProgramLocationProvider? locationProvider,
   MiniProgramFileTransferProvider? fileTransferProvider,
+  MiniProgramCameraProvider? cameraProvider,
+  MiniProgramMediaProvider? mediaProvider,
   Map<String, MiniProgramEndpoint> endpoints =
       const <String, MiniProgramEndpoint>{},
   MiniProgramCacheBundle? cacheBundle,
@@ -37,6 +39,8 @@ MiniProgramConfig buildMiniProgramConfig({
     if (locationProvider != null) CapabilityIds.locationCurrent,
     if (fileTransferProvider != null) CapabilityIds.fileUpload,
     if (fileTransferProvider != null) CapabilityIds.fileDownload,
+    if (cameraProvider != null) CapabilityIds.cameraCapturePhoto,
+    if (mediaProvider != null) CapabilityIds.mediaPreview,
   };
   final deliveryContext = MiniProgramDeliveryContext(
     hostApp: _hostAppId,
@@ -56,6 +60,8 @@ MiniProgramConfig buildMiniProgramConfig({
     hostBridge: AppHostBridge(openNativeRoute: openNativeRoute),
     locationProvider: locationProvider,
     fileTransferProvider: fileTransferProvider,
+    cameraProvider: cameraProvider,
+    mediaProvider: mediaProvider,
     capabilityRegistry: CapabilityRegistry(supportedCapabilities),
     authController: MiniProgramAuthController.secure(),
     disposeAuthController: true,

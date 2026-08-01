@@ -1,7 +1,7 @@
 name: drive_mini_program
 description: Authenticated Publisher API file drive mini-program.
 publish_to: none
-version: 1.0.0
+version: 1.0.1
 
 environment:
   sdk: ^3.10.0

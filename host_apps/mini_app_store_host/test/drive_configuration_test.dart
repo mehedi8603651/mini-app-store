@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mini_app_store_host/mini_program/app_android_camera_provider.dart';
 import 'package:mini_app_store_host/mini_program/app_android_file_transfer_provider.dart';
 import 'package:mini_app_store_host/mini_program/mini_program_endpoints.dart';
 import 'package:mini_app_store_host/mini_program/mini_program_registry.dart';
@@ -19,6 +20,8 @@ void main() {
     expect(endpoint.filePolicy.maxFileBytes, 3 * 1024 * 1024);
     expect(endpoint.filePolicy.maxFilesPerUpload, 3);
     expect(endpoint.filePolicy.maxConcurrentTransfers, 2);
+    expect(endpoint.cameraPolicy.enabled, isTrue);
+    expect(endpoint.cameraPolicy.allowPhotoCapture, isTrue);
   });
 
   test('file capabilities are advertised only with a host provider', () {
@@ -47,7 +50,39 @@ void main() {
     );
   });
 
-  test('Drive 1.0.0 artifact owns its Publisher API declaration', () async {
+  test('camera and media capabilities require installed host providers', () {
+    final endpoints = buildMiniProgramEndpoints();
+    final withoutProvider = buildMiniProgramConfig(endpoints: endpoints);
+    const cameraProvider = AppAndroidCameraProvider();
+    final withProvider = buildMiniProgramConfig(
+      endpoints: endpoints,
+      cameraProvider: cameraProvider,
+      mediaProvider: cameraProvider,
+    );
+
+    expect(
+      withoutProvider.capabilityRegistry.supports(
+        CapabilityIds.cameraCapturePhoto,
+      ),
+      isFalse,
+    );
+    expect(
+      withoutProvider.capabilityRegistry.supports(CapabilityIds.mediaPreview),
+      isFalse,
+    );
+    expect(
+      withProvider.capabilityRegistry.supports(
+        CapabilityIds.cameraCapturePhoto,
+      ),
+      isTrue,
+    );
+    expect(
+      withProvider.capabilityRegistry.supports(CapabilityIds.mediaPreview),
+      isTrue,
+    );
+  });
+
+  test('Drive 1.0.1 artifact owns its Publisher API declaration', () async {
     final contract = MiniProgramPublisherBackendContract.fromJson(
       jsonDecode(
         await _driveArtifactFile('publisher_backend.json').readAsString(),
@@ -65,11 +100,13 @@ void main() {
     expect(manifest['requiredCapabilities'], <String>[
       CapabilityIds.fileUpload,
       CapabilityIds.fileDownload,
+      CapabilityIds.cameraCapturePhoto,
+      CapabilityIds.mediaPreview,
     ]);
     expect(release['publisherBackend'], 'publisher_backend.json');
   });
 }
 
 File _driveArtifactFile(String name) {
-  return File('../../mini-apps/drive/artifacts/drive/1.0.0/$name');
+  return File('../../mini-apps/drive/artifacts/drive/1.0.1/$name');
 }

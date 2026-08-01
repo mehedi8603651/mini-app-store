@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'app_android_file_transfer_provider.dart';
 import 'app_android_location_provider.dart';
+import 'app_android_camera_provider.dart';
 import 'app_host_bridge.dart';
 import 'mini_program_endpoints.dart';
 import 'mini_program_registry.dart';
@@ -47,6 +48,8 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
   MiniProgramCacheBundle? cacheBundle,
   MiniProgramLocationProvider? locationProvider,
   MiniProgramFileTransferProvider? fileTransferProvider,
+  MiniProgramCameraProvider? cameraProvider,
+  MiniProgramMediaProvider? mediaProvider,
 }) async {
   final resolvedCacheBundle = cacheBundle ?? await _buildPersistentCache();
   final resolvedLocationProvider =
@@ -58,12 +61,26 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
           ? AppAndroidFileTransferProvider()
           : null);
 
+  final resolvedCameraProvider =
+      cameraProvider ??
+      (!kIsWeb && defaultTargetPlatform == TargetPlatform.android
+          ? const AppAndroidCameraProvider()
+          : null);
+
+  final MiniProgramMediaProvider? resolvedMediaProvider =
+      mediaProvider ??
+      (resolvedCameraProvider is MiniProgramMediaProvider
+          ? resolvedCameraProvider as MiniProgramMediaProvider
+          : null);
+
   return buildMiniProgramConfig(
     openNativeRoute: openNativeRoute,
     endpoints: endpoints ?? _buildConfiguredEndpoints(),
     cacheBundle: resolvedCacheBundle,
     locationProvider: resolvedLocationProvider,
     fileTransferProvider: resolvedFileTransferProvider,
+    cameraProvider: resolvedCameraProvider,
+    mediaProvider: resolvedMediaProvider,
   );
 }
 
@@ -140,5 +157,7 @@ void _applyEndpointOverride(
     publisherApiPolicy: current.publisherApiPolicy,
     locationPolicy: current.locationPolicy,
     filePolicy: current.filePolicy,
+    cameraPolicy: current.cameraPolicy,
+    flashlightPolicy: current.flashlightPolicy,
   );
 }

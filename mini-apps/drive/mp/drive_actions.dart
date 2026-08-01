@@ -10,6 +10,8 @@ List<MpAction> initializeDrive() => <MpAction>[
     'bytesTransferred': 0,
     'status': 'idle',
   }),
+  Mp.state.setDefault('drive.has_captured_photo', false),
+  Mp.state.setDefault('drive.camera_status', 'idle'),
 ];
 
 MpAction refreshDriveFiles() => Mp.backend.query(
@@ -31,6 +33,58 @@ MpAction uploadDriveFiles() => Mp.action.sequence(<MpAction>[
   ),
   refreshDriveFiles(),
   Mp.toast(message: 'Upload complete'),
+]);
+
+MpAction captureDrivePhoto() => Mp.action.sequence(<MpAction>[
+  Mp.camera.capturePhoto(
+    maxWidth: 1600,
+    maxHeight: 1600,
+    quality: 85,
+    targetState: 'drive.captured_photo',
+    statusState: 'drive.camera_status',
+    errorState: 'drive.camera_error',
+    requestId: 'drive-capture-photo',
+  ),
+  Mp.state.set('drive.has_captured_photo', true),
+]);
+
+MpAction discardDrivePhoto() => Mp.action.sequence(<MpAction>[
+  Mp.media.release(
+    mediaRef: '{{state.drive.captured_photo.mediaRef}}',
+    statusState: 'drive.camera_status',
+    errorState: 'drive.camera_error',
+    requestId: 'drive-discard-photo',
+  ),
+  Mp.state.patch(
+    const <String, Object?>{'drive.has_captured_photo': false},
+    remove: const <String>['drive.captured_photo'],
+  ),
+]);
+
+MpAction retakeDrivePhoto() =>
+    Mp.action.sequence(<MpAction>[discardDrivePhoto(), captureDrivePhoto()]);
+
+MpAction uploadDrivePhoto() => Mp.action.sequence(<MpAction>[
+  Mp.file.upload(
+    endpoint: 'files/upload',
+    mimeTypes: const <String>['image/jpeg'],
+    mediaRefs: const <String>['{{state.drive.captured_photo.mediaRef}}'],
+    progressState: 'drive.transfer_progress',
+    targetState: 'drive.upload_result',
+    statusState: 'drive.transfer_status',
+    errorState: 'drive.transfer_error',
+    requestId: 'drive-upload-photo',
+  ),
+  Mp.media.release(
+    mediaRef: '{{state.drive.captured_photo.mediaRef}}',
+    requestId: 'drive-release-uploaded-photo',
+  ),
+  Mp.state.patch(
+    const <String, Object?>{'drive.has_captured_photo': false},
+    remove: const <String>['drive.captured_photo', 'drive.camera_error'],
+  ),
+  refreshDriveFiles(),
+  Mp.toast(message: 'Photo uploaded'),
 ]);
 
 MpAction cancelDriveTransfer() => Mp.file.cancel(
