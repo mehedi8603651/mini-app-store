@@ -47,11 +47,7 @@ class MainActivity : FlutterFragmentActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         // <mini-program-native-capabilities>
-        MiniProgramFileTransferChannel.register(flutterEngine)
-        MiniProgramCameraChannel.register(flutterEngine)
-        MiniProgramFlashlightChannel.register(flutterEngine)
-        MiniProgramQrScannerChannel.register(flutterEngine)
-        MiniProgramMediaPlaybackPlugin.register(flutterEngine)
+        MiniProgramNativeSetup.register(flutterEngine)
         // </mini-program-native-capabilities>
         MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
