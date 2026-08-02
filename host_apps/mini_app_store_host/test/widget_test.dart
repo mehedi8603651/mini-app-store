@@ -36,5 +36,8 @@ void main() {
     await tester.scrollUntilVisible(find.text('Flashlight'), 300);
     expect(find.text('Flashlight'), findsOneWidget);
     expect(find.text('Foreground device torch control'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Media Lab'), 300);
+    expect(find.text('Media Lab'), findsOneWidget);
+    expect(find.text('MP4, HLS and foreground audio playback'), findsOneWidget);
   });
 }

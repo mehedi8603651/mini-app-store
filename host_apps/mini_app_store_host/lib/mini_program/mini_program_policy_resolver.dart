@@ -31,6 +31,15 @@ MiniProgramCachePolicy cachePolicyForMiniProgram(String appId) {
       return const MiniProgramCachePolicy();
     case "friends":
       return const MiniProgramCachePolicy();
+    case "media":
+      return const MiniProgramCachePolicy(
+        maxBytes: 73400320,
+        maxAudioBytes: 20971520,
+        audioTtl: Duration(days: 1),
+        maxVideoBytes: 52428800,
+        videoTtl: Duration(days: 1),
+        allowedMiniProgramCacheBuckets: <MiniProgramCacheBucket>{},
+      );
     case "notepad":
       return const MiniProgramCachePolicy(
         maxBytes: 1048576,
@@ -94,6 +103,13 @@ MiniProgramLiveStatePolicy liveStatePolicyForMiniProgram(String appId) {
         maxValueBytes: 262144,
         maxDepth: 32,
       );
+    case "media":
+      return const MiniProgramLiveStatePolicy(
+        maxBytes: 2097152,
+        maxEntries: 1000,
+        maxValueBytes: 262144,
+        maxDepth: 32,
+      );
     case "notepad":
       return const MiniProgramLiveStatePolicy(
         maxBytes: 2097152,
@@ -124,6 +140,8 @@ MiniProgramPublisherApiPolicy publisherApiPolicyForMiniProgram(String appId) {
     case "flashlight":
       return const MiniProgramPublisherApiPolicy(enabled: false);
     case "friends":
+      return const MiniProgramPublisherApiPolicy(enabled: true);
+    case "media":
       return const MiniProgramPublisherApiPolicy(enabled: true);
     case "notepad":
       return const MiniProgramPublisherApiPolicy(enabled: false);
@@ -161,6 +179,12 @@ MiniProgramLocationPolicy locationPolicyForMiniProgram(String appId) {
         mode: MiniProgramLocationMode.whenInUse,
       );
     case "friends":
+      return const MiniProgramLocationPolicy(
+        enabled: false,
+        accuracy: MiniProgramLocationAccuracy.approximate,
+        mode: MiniProgramLocationMode.whenInUse,
+      );
+    case "media":
       return const MiniProgramLocationPolicy(
         enabled: false,
         accuracy: MiniProgramLocationAccuracy.approximate,
@@ -208,6 +232,8 @@ MiniProgramFilePolicy filePolicyForMiniProgram(String appId) {
       return const MiniProgramFilePolicy();
     case "friends":
       return const MiniProgramFilePolicy();
+    case "media":
+      return const MiniProgramFilePolicy();
     case "notepad":
       return const MiniProgramFilePolicy();
     case "weather":
@@ -244,6 +270,11 @@ MiniProgramCameraPolicy cameraPolicyForMiniProgram(String appId) {
         enabled: false,
         allowPhotoCapture: false,
       );
+    case "media":
+      return const MiniProgramCameraPolicy(
+        enabled: false,
+        allowPhotoCapture: false,
+      );
     case "notepad":
       return const MiniProgramCameraPolicy(
         enabled: false,
@@ -271,6 +302,8 @@ MiniProgramFlashlightPolicy flashlightPolicyForMiniProgram(String appId) {
       return const MiniProgramFlashlightPolicy(enabled: true);
     case "friends":
       return const MiniProgramFlashlightPolicy(enabled: false);
+    case "media":
+      return const MiniProgramFlashlightPolicy(enabled: false);
     case "notepad":
       return const MiniProgramFlashlightPolicy(enabled: false);
     case "weather":
@@ -292,11 +325,76 @@ MiniProgramQrPolicy qrPolicyForMiniProgram(String appId) {
       return const MiniProgramQrPolicy(enabled: false, allowTorch: false);
     case "friends":
       return const MiniProgramQrPolicy(enabled: true, allowTorch: true);
+    case "media":
+      return const MiniProgramQrPolicy(enabled: false, allowTorch: false);
     case "notepad":
       return const MiniProgramQrPolicy(enabled: false, allowTorch: false);
     case "weather":
       return const MiniProgramQrPolicy(enabled: false, allowTorch: false);
     default:
       return const MiniProgramQrPolicy();
+  }
+}
+
+MiniProgramMediaPlaybackPolicy mediaPlaybackPolicyForMiniProgram(String appId) {
+  switch (appId) {
+    case "brain_test":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    case "calculator":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    case "drive":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    case "flashlight":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    case "friends":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    case "media":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: true,
+        videoEnabled: true,
+        audioTemporaryCacheEnabled: true,
+        videoTemporaryCacheEnabled: true,
+      );
+    case "notepad":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    case "weather":
+      return const MiniProgramMediaPlaybackPolicy(
+        audioEnabled: false,
+        videoEnabled: false,
+        audioTemporaryCacheEnabled: false,
+        videoTemporaryCacheEnabled: false,
+      );
+    default:
+      return const MiniProgramMediaPlaybackPolicy();
   }
 }

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "type": "mini_program_publisher_backend_contract",
+  "contractVersion": "1",
+  "appId": "media",
+  "backendBaseUrl": "https://b1er48k1yd.execute-api.ap-south-1.amazonaws.com",
+  "permissionReason": "Resolve fixed MP4, HLS, and MP3 sample streams.",
+  "healthEndpoint": "health",
+  "smokeTests": [
+    {
+      "id": "health",
+      "method": "GET",
+      "endpoint": "health",
+      "expectedStatus": 200,
+      "expectJsonObject": true
+    }
+  ]
+}

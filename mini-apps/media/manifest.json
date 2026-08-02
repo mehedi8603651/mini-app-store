@@ -1,0 +1,27 @@
+{
+  "id": "media",
+  "version": "1.0.0",
+  "entry": "media_home",
+  "contractVersion": "1.0.0",
+  "sdkVersionRange": ">=1.0.0 <2.0.0",
+  "requiredCapabilities": [
+    "media.audio",
+    "media.video"
+  ],
+  "screenFormat": "mp",
+  "screenSchemaVersion": 1,
+  "cachePolicy": {
+    "manifest": {
+      "mode": "staleWhileError",
+      "maxStaleSeconds": 86400
+    },
+    "entryScreen": {
+      "mode": "staleWhileError",
+      "maxStaleSeconds": 21600
+    }
+  },
+  "fallback": {
+    "strategy": "errorView",
+    "message": "Media Lab is temporarily unavailable in this host app."
+  }
+}

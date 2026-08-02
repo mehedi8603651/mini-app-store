@@ -200,6 +200,71 @@
         }
       }
     },
+    "media": {
+      "requested": {
+        "source": "media.partner.json",
+        "cache": {
+          "audio": {
+            "enabled": true,
+            "reason": "Temporarily buffer streamed audio to reduce repeated network loading.",
+            "recommendedMaxBytes": 20971520,
+            "recommendedTtlDays": 1
+          },
+          "video": {
+            "enabled": true,
+            "reason": "Temporarily buffer streamed video to reduce playback stalls.",
+            "recommendedMaxBytes": 52428800,
+            "recommendedTtlDays": 1
+          }
+        },
+        "publisherApi": {
+          "enabled": true,
+          "reason": "Resolve fixed MP4, HLS, and MP3 sample streams.",
+          "contract": "publisher_backend.json"
+        },
+        "permissions": {
+          "audioPlayback": {
+            "enabled": true,
+            "reason": "Play foreground sample audio with explicit controls."
+          },
+          "videoPlayback": {
+            "enabled": true,
+            "reason": "Play inline and fullscreen MP4 and HLS sample videos."
+          }
+        }
+      },
+      "accepted": {
+        "cache": {
+          "audio": {
+            "enabled": true,
+            "maxBytes": 20971520,
+            "ttlDays": 1
+          },
+          "video": {
+            "enabled": true,
+            "maxBytes": 52428800,
+            "ttlDays": 1
+          }
+        },
+        "liveState": {
+          "maxBytes": 2097152,
+          "maxEntries": 1000,
+          "maxValueBytes": 262144,
+          "maxDepth": 32
+        },
+        "permissions": {
+          "audioPlayback": {
+            "enabled": true
+          },
+          "videoPlayback": {
+            "enabled": true
+          }
+        },
+        "publisherApi": {
+          "enabled": true
+        }
+      }
+    },
     "notepad": {
       "requested": {
         "source": "notepad.partner.json",

@@ -32,6 +32,7 @@ MiniProgramConfig buildMiniProgramConfig({
   MiniProgramCacheBundle? cacheBundle,
   MiniProgramFlashlightProvider? flashlightProvider,
   MiniProgramQrScannerProvider? qrScannerProvider,
+  MiniProgramMediaPlaybackProvider? mediaPlaybackProvider,
 }) {
   final locale =
       WidgetsFlutterBinding.ensureInitialized().platformDispatcher.locale;
@@ -45,6 +46,8 @@ MiniProgramConfig buildMiniProgramConfig({
     if (mediaProvider != null) CapabilityIds.mediaPreview,
     if (flashlightProvider != null) CapabilityIds.flashlightControl,
     if (qrScannerProvider != null) CapabilityIds.qrScanner,
+    if (mediaPlaybackProvider != null) CapabilityIds.mediaVideo,
+    if (mediaPlaybackProvider != null) CapabilityIds.mediaAudio,
   };
   final deliveryContext = MiniProgramDeliveryContext(
     hostApp: _hostAppId,
@@ -72,6 +75,7 @@ MiniProgramConfig buildMiniProgramConfig({
     cacheBundle: cacheBundle ?? MiniProgramCacheBundle.inMemory(),
     flashlightProvider: flashlightProvider,
     qrScannerProvider: qrScannerProvider,
+    mediaPlaybackProvider: mediaPlaybackProvider,
   );
 }
 

@@ -31,6 +31,8 @@ class MiniPrograms {
 
   static const friends = MiniProgramInfo(appId: "friends", title: "Friends");
 
+  static const media = MiniProgramInfo(appId: "media", title: "Media Lab");
+
   static const notepad = MiniProgramInfo(appId: "notepad", title: "Notepad");
 
   static const weather = MiniProgramInfo(
@@ -44,6 +46,7 @@ class MiniPrograms {
     drive,
     flashlight,
     friends,
+    media,
     notepad,
     weather,
   ];
@@ -54,6 +57,7 @@ class MiniPrograms {
     "drive": drive,
     "flashlight": flashlight,
     "friends": friends,
+    "media": media,
     "notepad": notepad,
     "weather": weather,
   };

@@ -1,0 +1,1416 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "align": "center",
+                                              "color": "#0B0D12",
+                                              "data": "M",
+                                              "size": 24,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "center"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#35D0BA",
+                                      "borderRadius": 8,
+                                      "height": 48,
+                                      "width": 48
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "children": [],
+                                    "props": {
+                                      "width": 13
+                                    },
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#F4F7FA",
+                                              "data": "MEDIA LAB",
+                                              "size": 22,
+                                              "weight": "bold"
+                                            },
+                                            "type": "text"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "height": 3
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#95A0AD",
+                                              "data": "MP4  /  HLS  /  AUDIO",
+                                              "size": 11,
+                                              "weight": "medium"
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "column"
+                                      }
+                                    ],
+                                    "props": {
+                                      "flex": 1
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#F8C95E",
+                                          "data": "ONLINE",
+                                          "size": 10,
+                                          "weight": "bold"
+                                        },
+                                        "type": "text"
+                                      }
+                                    ],
+                                    "props": {
+                                      "backgroundColor": "#1B202A",
+                                      "borderColor": "#2B3440",
+                                      "borderRadius": 6,
+                                      "borderWidth": 1,
+                                      "padding": {
+                                        "bottom": 7,
+                                        "left": 10,
+                                        "right": 10,
+                                        "top": 7
+                                      }
+                                    },
+                                    "type": "container"
+                                  }
+                                ],
+                                "props": {},
+                                "type": "row"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 26
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#F4F7FA",
+                                                      "data": "MP4 SAMPLE",
+                                                      "size": 14,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "flex": 1
+                                                },
+                                                "type": "expanded"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#FF6B5F",
+                                                  "data": "SHORT VIDEO",
+                                                  "size": 10,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "row"
+                                          }
+                                        ],
+                                        "props": {
+                                          "padding": {
+                                            "bottom": 13,
+                                            "left": 14,
+                                            "right": 14,
+                                            "top": 13
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "aspectRatio": 1.7777777777777777,
+                                          "autoplay": false,
+                                          "cacheMode": "temporary",
+                                          "controls": true,
+                                          "errorState": "media.mp4.error",
+                                          "fit": "contain",
+                                          "loop": false,
+                                          "muted": false,
+                                          "onEnded": {
+                                            "props": {
+                                              "durationMs": 2400,
+                                              "message": "MP4 playback ended"
+                                            },
+                                            "type": "ui.toast"
+                                          },
+                                          "onError": {
+                                            "props": {
+                                              "durationMs": 3200,
+                                              "message": "{{state.media.mp4.error.message}}"
+                                            },
+                                            "type": "ui.toast"
+                                          },
+                                          "onReady": {
+                                            "props": {
+                                              "durationMs": 1200,
+                                              "message": "MP4 ready"
+                                            },
+                                            "type": "ui.toast"
+                                          },
+                                          "playerId": "sample_mp4",
+                                          "semanticLabel": "MP4 sample video",
+                                          "source": {
+                                            "endpoint": "media/sample.mp4",
+                                            "kind": "publisher"
+                                          },
+                                          "speed": 1.0,
+                                          "statusState": "media.mp4.status",
+                                          "volume": 1.0
+                                        },
+                                        "type": "videoView"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "child": {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "height": 8,
+                                                              "width": 8
+                                                            },
+                                                            "type": "sizedBox"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "backgroundColor": "#FF6B5F",
+                                                          "borderRadius": 4,
+                                                          "height": 8,
+                                                          "width": 8
+                                                        },
+                                                        "type": "container"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "width": 8
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#95A0AD",
+                                                              "data": "STATUS  {{state.media.mp4.status}}",
+                                                              "size": 11,
+                                                              "weight": "medium"
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "row"
+                                                  },
+                                                  "keys": [
+                                                    "media.mp4.status",
+                                                    "media.mp4.error"
+                                                  ]
+                                                },
+                                                "type": "stateBuilder"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 11
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "steps": [
+                                                                {
+                                                                  "props": {
+                                                                    "playerId": "sample_mp4",
+                                                                    "positionMs": 0
+                                                                  },
+                                                                  "type": "video.seek"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "playerId": "sample_mp4"
+                                                                  },
+                                                                  "type": "video.play"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "type": "sequence"
+                                                          },
+                                                          "backgroundColor": "#1B202A",
+                                                          "borderColor": "#2B3440",
+                                                          "borderRadius": 6,
+                                                          "borderWidth": 1,
+                                                          "fontSize": 11,
+                                                          "fontWeight": "bold",
+                                                          "foregroundColor": "#FF6B5F",
+                                                          "height": 46,
+                                                          "label": "REPLAY"
+                                                        },
+                                                        "type": "button"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "width": 10
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "playerId": "sample_mp4"
+                                                            },
+                                                            "type": "video.enterFullscreen"
+                                                          },
+                                                          "backgroundColor": "#1B202A",
+                                                          "borderColor": "#2B3440",
+                                                          "borderRadius": 6,
+                                                          "borderWidth": 1,
+                                                          "fontSize": 11,
+                                                          "fontWeight": "bold",
+                                                          "foregroundColor": "#F4F7FA",
+                                                          "height": 46,
+                                                          "label": "FULLSCREEN"
+                                                        },
+                                                        "type": "button"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "row"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "padding": {
+                                            "bottom": 12,
+                                            "left": 14,
+                                            "right": 14,
+                                            "top": 12
+                                          }
+                                        },
+                                        "type": "container"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#141820",
+                                  "borderColor": "#2B3440",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 18
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#F4F7FA",
+                                                      "data": "HLS STREAM",
+                                                      "size": 14,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {
+                                                  "flex": 1
+                                                },
+                                                "type": "expanded"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#35D0BA",
+                                                  "data": "ADAPTIVE VIDEO",
+                                                  "size": 10,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "row"
+                                          }
+                                        ],
+                                        "props": {
+                                          "padding": {
+                                            "bottom": 13,
+                                            "left": 14,
+                                            "right": 14,
+                                            "top": 13
+                                          }
+                                        },
+                                        "type": "container"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "aspectRatio": 1.7777777777777777,
+                                          "autoplay": false,
+                                          "cacheMode": "streaming",
+                                          "controls": true,
+                                          "errorState": "media.hls.error",
+                                          "fit": "contain",
+                                          "loop": false,
+                                          "muted": false,
+                                          "onEnded": {
+                                            "props": {
+                                              "durationMs": 2400,
+                                              "message": "HLS playback ended"
+                                            },
+                                            "type": "ui.toast"
+                                          },
+                                          "onError": {
+                                            "props": {
+                                              "durationMs": 3200,
+                                              "message": "{{state.media.hls.error.message}}"
+                                            },
+                                            "type": "ui.toast"
+                                          },
+                                          "onReady": {
+                                            "props": {
+                                              "durationMs": 1200,
+                                              "message": "HLS ready"
+                                            },
+                                            "type": "ui.toast"
+                                          },
+                                          "playerId": "sample_hls",
+                                          "semanticLabel": "HLS adaptive sample video",
+                                          "source": {
+                                            "endpoint": "media/sample.m3u8",
+                                            "kind": "publisher"
+                                          },
+                                          "speed": 1.0,
+                                          "statusState": "media.hls.status",
+                                          "volume": 1.0
+                                        },
+                                        "type": "videoView"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "child": {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "height": 8,
+                                                              "width": 8
+                                                            },
+                                                            "type": "sizedBox"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "backgroundColor": "#35D0BA",
+                                                          "borderRadius": 4,
+                                                          "height": 8,
+                                                          "width": 8
+                                                        },
+                                                        "type": "container"
+                                                      },
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "width": 8
+                                                        },
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [],
+                                                            "props": {
+                                                              "color": "#95A0AD",
+                                                              "data": "STATUS  {{state.media.hls.status}}",
+                                                              "size": 11,
+                                                              "weight": "medium"
+                                                            },
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "props": {
+                                                          "flex": 1
+                                                        },
+                                                        "type": "expanded"
+                                                      }
+                                                    ],
+                                                    "props": {},
+                                                    "type": "row"
+                                                  },
+                                                  "keys": [
+                                                    "media.hls.status",
+                                                    "media.hls.error"
+                                                  ]
+                                                },
+                                                "type": "stateBuilder"
+                                              },
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "height": 11
+                                                },
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "steps": [
+                                                                {
+                                                                  "props": {
+                                                                    "playerId": "sample_hls",
+                                                                    "positionMs": 0
+                                                                  },
+                                                                  "type": "video.seek"
+                                                                },
+                                                                {
+                                                                  "props": {
+                                                                    "playerId": "sample_hls"
+                                                                  },
+                                                                  "type": "video.play"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "type": "sequence"
+                                                          },
+                                                          "backgroundColor": "#1B202A",
+                                                          "borderColor": "#2B3440",
+                                                          "borderRadius": 6,
+                                                          "borderWidth": 1,
+                                                          "fontSize": 11,
+                                                          "fontWeight": "bold",
+                                                          "foregroundColor": "#35D0BA",
+                                                          "height": 46,
+                                                          "label": "REPLAY"
+                                                        },
+                                                        "type": "button"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "width": 10
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [],
+                                                        "props": {
+                                                          "action": {
+                                                            "props": {
+                                                              "playerId": "sample_hls"
+                                                            },
+                                                            "type": "video.enterFullscreen"
+                                                          },
+                                                          "backgroundColor": "#1B202A",
+                                                          "borderColor": "#2B3440",
+                                                          "borderRadius": 6,
+                                                          "borderWidth": 1,
+                                                          "fontSize": 11,
+                                                          "fontWeight": "bold",
+                                                          "foregroundColor": "#F4F7FA",
+                                                          "height": 46,
+                                                          "label": "FULLSCREEN"
+                                                        },
+                                                        "type": "button"
+                                                      }
+                                                    ],
+                                                    "props": {
+                                                      "flex": 1
+                                                    },
+                                                    "type": "expanded"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "row"
+                                              }
+                                            ],
+                                            "props": {},
+                                            "type": "column"
+                                          }
+                                        ],
+                                        "props": {
+                                          "padding": {
+                                            "bottom": 12,
+                                            "left": 14,
+                                            "right": 14,
+                                            "top": 12
+                                          }
+                                        },
+                                        "type": "container"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#141820",
+                                  "borderColor": "#2B3440",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 18
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "align": "center",
+                                                      "color": "#0B0D12",
+                                                      "data": "A",
+                                                      "size": 19,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "center"
+                                              }
+                                            ],
+                                            "props": {
+                                              "backgroundColor": "#F8C95E",
+                                              "borderRadius": 8,
+                                              "height": 42,
+                                              "width": 42
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 12
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#F4F7FA",
+                                                      "data": "SOUNDHELIX SAMPLE",
+                                                      "size": 14,
+                                                      "weight": "bold"
+                                                    },
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "height": 3
+                                                    },
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "children": [],
+                                                    "props": {
+                                                      "color": "#95A0AD",
+                                                      "data": "HEADLESS AUDIO  /  TEMP CACHE",
+                                                      "size": 10,
+                                                      "weight": "medium"
+                                                    },
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "props": {},
+                                                "type": "column"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "child": {
+                                                "children": [],
+                                                "props": {
+                                                  "color": "#F8C95E",
+                                                  "data": "{{state.media.audio.label}}",
+                                                  "size": 11,
+                                                  "weight": "bold"
+                                                },
+                                                "type": "text"
+                                              },
+                                              "keys": [
+                                                "media.audio.label",
+                                                "media.audio.status"
+                                              ]
+                                            },
+                                            "type": "stateBuilder"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 18
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "cacheMode": "temporary",
+                                                            "errorState": "media.audio.error",
+                                                            "loop": false,
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-play",
+                                                            "source": {
+                                                              "endpoint": "media/sample.mp3",
+                                                              "kind": "publisher"
+                                                            },
+                                                            "statusState": "media.audio.status",
+                                                            "volume": 1.0
+                                                          },
+                                                          "type": "audio.play"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "values": {
+                                                              "media.audio.label": "PLAYING"
+                                                            }
+                                                          },
+                                                          "type": "state.patch"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#F8C95E",
+                                                  "height": 46,
+                                                  "label": "PLAY"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-pause"
+                                                          },
+                                                          "type": "audio.pause"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "values": {
+                                                              "media.audio.label": "PAUSED"
+                                                            }
+                                                          },
+                                                          "type": "state.patch"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#F4F7FA",
+                                                  "height": 46,
+                                                  "label": "PAUSE"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-stop"
+                                                          },
+                                                          "type": "audio.stop"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "values": {
+                                                              "media.audio.label": "STOPPED"
+                                                            }
+                                                          },
+                                                          "type": "state.patch"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#FF6B5F",
+                                                  "height": 46,
+                                                  "label": "STOP"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 12
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#2B3440",
+                                          "spacing": 12,
+                                          "thickness": 1
+                                        },
+                                        "type": "divider"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 12
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#95A0AD",
+                                          "data": "VOLUME",
+                                          "size": 10,
+                                          "weight": "bold"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 8
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-volume",
+                                                            "volume": 0.5
+                                                          },
+                                                          "type": "audio.setVolume"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Volume 50%"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#5EA8FF",
+                                                  "height": 46,
+                                                  "label": "50%"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-volume",
+                                                            "volume": 1.0
+                                                          },
+                                                          "type": "audio.setVolume"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Volume 100%"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#5EA8FF",
+                                                  "height": 46,
+                                                  "label": "100%"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 14
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-speed",
+                                                            "speed": 1.0
+                                                          },
+                                                          "type": "audio.setSpeed"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Speed 1.0x"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#35D0BA",
+                                                  "height": 46,
+                                                  "label": "1.0x"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "width": 8
+                                            },
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [],
+                                                "props": {
+                                                  "action": {
+                                                    "props": {
+                                                      "steps": [
+                                                        {
+                                                          "props": {
+                                                            "playerId": "sample_audio",
+                                                            "requestId": "audio-speed",
+                                                            "speed": 1.5
+                                                          },
+                                                          "type": "audio.setSpeed"
+                                                        },
+                                                        {
+                                                          "props": {
+                                                            "durationMs": 2400,
+                                                            "message": "Speed 1.5x"
+                                                          },
+                                                          "type": "ui.toast"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "sequence"
+                                                  },
+                                                  "backgroundColor": "#1B202A",
+                                                  "borderColor": "#2B3440",
+                                                  "borderRadius": 6,
+                                                  "borderWidth": 1,
+                                                  "fontSize": 11,
+                                                  "fontWeight": "bold",
+                                                  "foregroundColor": "#35D0BA",
+                                                  "height": 46,
+                                                  "label": "1.5x"
+                                                },
+                                                "type": "button"
+                                              }
+                                            ],
+                                            "props": {
+                                              "flex": 1
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "props": {},
+                                        "type": "row"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "height": 12
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "child": {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#95A0AD",
+                                              "data": "STATUS  {{state.media.audio.status}}",
+                                              "size": 11,
+                                              "weight": "medium"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "keys": [
+                                            "media.audio.status",
+                                            "media.audio.error"
+                                          ]
+                                        },
+                                        "type": "stateBuilder"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "column"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#141820",
+                                  "borderColor": "#2B3440",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 16,
+                                    "left": 16,
+                                    "right": 16,
+                                    "top": 16
+                                  }
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "children": [],
+                                "props": {
+                                  "height": 20
+                                },
+                                "type": "sizedBox"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "color": "#5EA8FF",
+                                          "name": "info",
+                                          "semanticLabel": "Media source information",
+                                          "size": 20
+                                        },
+                                        "type": "icon"
+                                      },
+                                      {
+                                        "children": [],
+                                        "props": {
+                                          "width": 10
+                                        },
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [],
+                                            "props": {
+                                              "color": "#95A0AD",
+                                              "data": "Samples stream through fixed Publisher API routes. Source URLs and playback bytes remain outside mini-program state.",
+                                              "maxLines": 4,
+                                              "size": 11
+                                            },
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "props": {
+                                          "flex": 1
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "props": {},
+                                    "type": "row"
+                                  }
+                                ],
+                                "props": {
+                                  "backgroundColor": "#1B202A",
+                                  "borderColor": "#2B3440",
+                                  "borderRadius": 8,
+                                  "borderWidth": 1,
+                                  "padding": {
+                                    "bottom": 13,
+                                    "left": 14,
+                                    "right": 14,
+                                    "top": 13
+                                  }
+                                },
+                                "type": "container"
+                              }
+                            ],
+                            "props": {},
+                            "type": "column"
+                          }
+                        ],
+                        "props": {
+                          "width": 680
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "props": {},
+                    "type": "center"
+                  }
+                ],
+                "props": {
+                  "padding": {
+                    "bottom": 36,
+                    "left": 18,
+                    "right": 18,
+                    "top": 18
+                  }
+                },
+                "type": "scrollView"
+              }
+            ],
+            "props": {
+              "bottom": true,
+              "left": true,
+              "right": true,
+              "top": true
+            },
+            "type": "safeArea"
+          }
+        ],
+        "props": {
+          "backgroundColor": "#0B0D12"
+        },
+        "type": "container"
+      }
+    ],
+    "props": {
+      "actions": [
+        {
+          "props": {
+            "key": "media.mp4.status",
+            "value": "loading"
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "media.hls.status",
+            "value": "loading"
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "media.audio.status",
+            "value": "idle"
+          },
+          "type": "state.setDefault"
+        },
+        {
+          "props": {
+            "key": "media.audio.label",
+            "value": "READY"
+          },
+          "type": "state.setDefault"
+        }
+      ]
+    },
+    "type": "initialize"
+  },
+  "schemaVersion": 1,
+  "screenId": "media_home"
+}

@@ -119,6 +119,15 @@ class MiniAppCatalogPage extends StatelessWidget {
             iconForeground: const Color(0xFF080B10),
             launchBackground: const Color(0xFF080B10),
           ),
+          const SizedBox(height: 12),
+          _MiniProgramCatalogTile(
+            app: MiniPrograms.media,
+            description: 'MP4, HLS and foreground audio playback',
+            icon: Icons.play_circle_outline,
+            iconBackground: const Color(0xFF35D0BA),
+            iconForeground: const Color(0xFF0B0D12),
+            launchBackground: const Color(0xFF0B0D12),
+          ),
         ],
       ),
     );

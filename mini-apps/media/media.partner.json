@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 3,
+  "type": "mini_program_partner_handoff",
+  "appId": "media",
+  "title": "Media Lab",
+  "artifactBaseUrl": "https://mehedi8603651.github.io/mini-app-store",
+  "generatedAtUtc": "2026-08-02T00:00:00Z",
+  "requestedCache": {
+    "audio": {
+      "enabled": true,
+      "reason": "Temporarily buffer streamed audio to reduce repeated network loading.",
+      "recommendedMaxBytes": 20971520,
+      "recommendedTtlDays": 1
+    },
+    "video": {
+      "enabled": true,
+      "reason": "Temporarily buffer streamed video to reduce playback stalls.",
+      "recommendedMaxBytes": 52428800,
+      "recommendedTtlDays": 1
+    }
+  },
+  "requestedPublisherApi": {
+    "enabled": true,
+    "reason": "Resolve fixed MP4, HLS, and MP3 sample streams.",
+    "contract": "publisher_backend.json"
+  },
+  "requestedPermissions": {
+    "audioPlayback": {
+      "enabled": true,
+      "reason": "Play foreground sample audio with explicit controls."
+    },
+    "videoPlayback": {
+      "enabled": true,
+      "reason": "Play inline and fullscreen MP4 and HLS sample videos."
+    }
+  }
+}

@@ -12,9 +12,11 @@ Flutter Mini Program Platform.
 - `mini-apps/drive`: authenticated private test storage with native transfers.
 - `mini-apps/flashlight`: host-controlled Android torch utility.
 - `mini-apps/friends`: QR invitations and explicitly accepted friendships.
+- `mini-apps/media`: MP4, HLS, and foreground audio playback sample.
 - `backends/weather_api`: AWS Lambda middle-server for Weather runtime data.
 - `backends/drive_api`: bounded Cognito, Lambda, DynamoDB, and S3 test backend.
 - `backends/friends_api`: bounded Cognito, Lambda, and DynamoDB social backend.
+- `backends/media_api`: fixed-route Lambda redirects for public media samples.
 - `host_apps/mini_app_store_host`: Android-focused Flutter host application.
 - `.github/workflows/deploy-pages.yml`: validates, merges, and deploys all
   mini-program artifacts to GitHub Pages.
@@ -29,7 +31,7 @@ persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.10`, UI `0.2.4`, SDK `0.6.5`, and tooling `0.7.3`.
+local contracts `0.3.11`, UI `0.2.5`, SDK `0.6.6`, and tooling `0.7.4`.
 
 ## Weather Publisher API
 
@@ -85,6 +87,18 @@ Publisher API and QR scanner permissions. Android uses the generated QR-only
 scanner with scanner-local torch control; scanned values are returned to the
 mini-program and are never opened as URLs.
 
+## Media Publisher API
+
+Media Lab demonstrates progressive MP4, adaptive HLS/M3U8, and foreground MP3
+playback. Its artifact declares an AWS Publisher API with three fixed relative
+routes. The Lambda redirects only those routes to known public samples and
+does not accept arbitrary media URLs.
+
+The host separately accepts audio/video playback and bounded one-day temporary
+caches. Android playback uses the generated Media3 provider, including native
+buffering, audio focus, lifecycle handling, and fullscreen video controls. See
+`backends/media_api/README.md` for deployment and route details.
+
 ## Build and verify portable artifacts
 
 ```powershell
@@ -113,6 +127,10 @@ dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
   --mini-program-root D:\mini-app-store\mini-apps\friends
 dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
   --mini-program-root D:\mini-app-store\mini-apps\friends
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact build `
+  --mini-program-root D:\mini-app-store\mini-apps\media
+dart run packages/mini_program_tooling/bin/miniprogram.dart artifact verify `
+  --mini-program-root D:\mini-app-store\mini-apps\media
 ```
 
 Each portable source bundle is generated under
@@ -166,6 +184,8 @@ Drive is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/drive/latest.json`.
 Friends is served at
 `https://mehedi8603651.github.io/mini-app-store/artifacts/friends/latest.json`.
+Media Lab is served at
+`https://mehedi8603651.github.io/mini-app-store/artifacts/media/latest.json`.
 
 For every additional mini-program:
 

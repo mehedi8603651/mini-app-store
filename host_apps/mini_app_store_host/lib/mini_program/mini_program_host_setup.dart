@@ -9,6 +9,7 @@ import 'app_android_location_provider.dart';
 import 'app_android_camera_provider.dart';
 import 'app_android_flashlight_provider.dart';
 import 'app_android_qr_scanner_provider.dart';
+import 'app_android_media_playback_provider.dart';
 import 'app_host_bridge.dart';
 import 'mini_program_endpoints.dart';
 import 'mini_program_registry.dart';
@@ -46,6 +47,10 @@ const _friendsEndpointOverride = String.fromEnvironment(
   'MINI_PROGRAM_FRIENDS_URL',
   defaultValue: '',
 );
+const _mediaEndpointOverride = String.fromEnvironment(
+  'MINI_PROGRAM_MEDIA_URL',
+  defaultValue: '',
+);
 
 /// Host-owned composition point for mini-program runtime configuration.
 ///
@@ -62,6 +67,7 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
   MiniProgramMediaProvider? mediaProvider,
   MiniProgramFlashlightProvider? flashlightProvider,
   MiniProgramQrScannerProvider? qrScannerProvider,
+  MiniProgramMediaPlaybackProvider? mediaPlaybackProvider,
 }) async {
   final resolvedCacheBundle = cacheBundle ?? await _buildPersistentCache();
   final resolvedLocationProvider =
@@ -97,6 +103,12 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
           ? const AppAndroidQrScannerProvider()
           : null);
 
+  final resolvedMediaPlaybackProvider =
+      mediaPlaybackProvider ??
+      (!kIsWeb && defaultTargetPlatform == TargetPlatform.android
+          ? const AppAndroidMediaPlaybackProvider()
+          : null);
+
   return buildMiniProgramConfig(
     openNativeRoute: openNativeRoute,
     endpoints: endpoints ?? _buildConfiguredEndpoints(),
@@ -107,6 +119,7 @@ Future<MiniProgramConfig> buildHostMiniProgramConfig({
     mediaProvider: resolvedMediaProvider,
     flashlightProvider: resolvedFlashlightProvider,
     qrScannerProvider: resolvedQrScannerProvider,
+    mediaPlaybackProvider: resolvedMediaPlaybackProvider,
   );
 }
 
@@ -170,6 +183,13 @@ Map<String, MiniProgramEndpoint> _buildConfiguredEndpoints() {
     _friendsEndpointOverride.trim().isEmpty
         ? sharedOverride
         : _friendsEndpointOverride.trim(),
+  );
+  _applyEndpointOverride(
+    endpoints,
+    MiniPrograms.media.appId,
+    _mediaEndpointOverride.trim().isEmpty
+        ? sharedOverride
+        : _mediaEndpointOverride.trim(),
   );
   return endpoints;
 }

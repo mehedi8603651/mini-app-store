@@ -46,6 +46,7 @@ class MainActivity : FlutterFragmentActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        MiniProgramMediaPlaybackPlugin.register(flutterEngine)
         MiniProgramQrScannerChannel.register(flutterEngine)
         MiniProgramFlashlightChannel.register(flutterEngine)
         MiniProgramCameraChannel.register(flutterEngine)
