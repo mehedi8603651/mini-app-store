@@ -43,19 +43,17 @@ flutter {
     source = "../.."
 }
 
-// mini-program-qr-capability
-dependencies {
-    implementation("androidx.camera:camera-camera2:1.4.2")
-    implementation("androidx.camera:camera-lifecycle:1.4.2")
-    implementation("androidx.camera:camera-view:1.4.2")
-    implementation("com.google.mlkit:barcode-scanning:17.3.0")
-}
-
-// mini-program-media-playback-capability
+// <mini-program-native-dependencies>
+// capabilities: media-playback, qr
 dependencies {
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
     implementation("androidx.media3:media3-ui:1.5.1")
     implementation("androidx.media3:media3-datasource:1.5.1")
     implementation("androidx.media3:media3-database:1.5.1")
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
 }
+// </mini-program-native-dependencies>

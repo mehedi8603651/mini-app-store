@@ -31,7 +31,7 @@ persist only through their accepted `state` cache policies.
 
 The source currently resolves SDK packages from the sibling checkout at
 `D:/flutter-mini-program-platform`. This is intentional while the apps use
-local contracts `0.3.11`, UI `0.2.5`, SDK `0.6.6`, and tooling `0.7.4`.
+local contracts `0.3.11`, UI `0.2.5`, SDK `0.6.6`, and tooling `0.7.5`.
 
 ## Weather Publisher API
 
